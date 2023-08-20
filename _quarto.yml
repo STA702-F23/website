@@ -25,7 +25,10 @@ format:
     css: styles.css
     toc: true
     
-callout-appearance: simple    
+callout-appearance: simple 
+
+execute: 
+  freeze: auto
 
 
 
