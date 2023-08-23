@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="STA 702: Bayesian and Modern Statistics">
+<meta name="dcterms.date" content="2023-08-29">
 
-<title>STA 702 Fall 2023 - About</title>
+<title>STA 702 Fall 2023 - Lab 0: Getting Started with R and Sweave/Knitr</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STA 702 Fall 2023</span>
     </a>
   </div>
@@ -84,19 +86,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-home" aria-label="home"></i> Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html" rel="" target="">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-school-circle-check" aria-label="school-circle-check"></i> Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html" rel="" target="">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-calendar-days" aria-label="calendar-days"></i> Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html" rel="" target="">
+    <a class="nav-link" href="../resources.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Resources</span></a>
   </li>  
 </ul>
@@ -111,21 +113,48 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#housekeeping" id="toc-housekeeping" class="nav-link active" data-scroll-target="#housekeeping">Housekeeping</a>
+  <ul class="collapse">
+  <li><a href="#rrstudio" id="toc-rrstudio" class="nav-link" data-scroll-target="#rrstudio">R/RStudio</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">Github</a></li>
+  <li><a href="#r-sweave" id="toc-r-sweave" class="nav-link" data-scroll-target="#r-sweave">R Sweave</a></li>
+  <li><a href="#gradescope" id="toc-gradescope" class="nav-link" data-scroll-target="#gradescope">Gradescope</a></li>
+  </ul></li>
+  <li><a href="#lab-goals" id="toc-lab-goals" class="nav-link" data-scroll-target="#lab-goals">Lab Goals</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started!</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Lab 0: Getting Started with R and Sweave/Knitr</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>STA 702: Bayesian and Modern Statistics </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 29, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -133,9 +162,51 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>About this site</p>
+<p><strong>Due:</strong> 11:59pm, Thursday, Sept 1</p>
+<section id="housekeeping" class="level1">
+<h1>Housekeeping</h1>
+<section id="rrstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rrstudio">R/RStudio</h2>
+<p>You all should have R and RStudio installed on your computers or feel free to use the Department servers. If you want a local version of RStudion, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system. You may also need to install <code>git</code> as well.</p>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">Github</h2>
+<p>Create a github account if you do not have one here <a href="https://github.com">https://github.com</a></p>
+</section>
+<section id="r-sweave" class="level2">
+<h2 class="anchored" data-anchor-id="r-sweave">R Sweave</h2>
+<p>You are required to use R Sweave/knitr to type up HW and lab reports. Don’t worry we will guide you along the way!</p>
+</section>
+<section id="gradescope" class="level2">
+<h2 class="anchored" data-anchor-id="gradescope">Gradescope</h2>
+<p>You MUST submit both your .Rnw and .pdf files to the course site on Gradescope here: https://www.gradescope.com/courses/431637/assignments/ Make sure to knit to pdf and to submit under the right assignment entry. For this first lab you do not have to submit, just practice!</p>
+</section>
+</section>
+<section id="lab-goals" class="level1">
+<h1>Lab Goals</h1>
+<p>For the rest of this lab we are going to redirect you to Github. At the end of this you should have</p>
+<ol type="1">
+<li>Cloned a repo based on instructions in the README file</li>
+<li>Successfully create an R Project on your personal computer or a department server</li>
+<li>Update a Sweave file with your info</li>
+<li>Click <code>knitr</code> in Rstudio to create a pdf file!</li>
+</ol>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting Started!</h1>
+<ol type="1">
+<li><p>Go to Github classroom to create a repository for this assignment at <a href="https://classroom.github.com/a/09U-Afjs">lab0</a> This will create a private repo in the STA702-F22 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F22 on your behalf. Please link your github user name to your profile.</p></li>
+<li><p>Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F22 organization in Github.</p></li>
+<li><p>Follow the instructions in the README in your repo and follow along in lab to complete the assignment.</p></li>
+</ol>
+<p>Please try to carry this out before lab on Friday!</p>
+</section>
+<section id="questions" class="level1">
+<h1>Questions?</h1>
+<p>If you get stuck on any part - <strong>please</strong> ask a question in Sakai on the Ed Discussion forums! Everyone can contribute to help (and part of participation points!)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
