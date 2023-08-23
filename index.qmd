@@ -1,7 +1,9 @@
 ---
 title: "STA 702 Fall 2023"
 ---
-![](img/Bayes_Theorem.jpg)
+![](img/Bayes_Theorem.jpg){fig-alt="Photo of Neon Sign with Bayes Theorem."}
+
+## Bayesian Statistical Modeling and Data Analysis
 
 ### Course Overview
 This course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms.  Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior  distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases.  Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered.  We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data,  hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian  paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes. 

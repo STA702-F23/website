@@ -10,8 +10,10 @@ website:
   
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: "{{< fa home >}} Home"
+      - syllabus.qmd
+      - schedule.qmd
+      - resources.qmd
   repo-url: https://github.com/sta702-F23/website
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
@@ -29,6 +31,10 @@ callout-appearance: simple
 
 execute: 
   freeze: auto
+  
+render:  
+  - "*.qmd"
+  - "_slides/*.Rmd"
 
 
 

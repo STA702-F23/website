@@ -1,0 +1,118 @@
+---
+title: "Welcome to STA 702"
+subtitle: "Course Overview"
+author: "Merlise Clyde"
+institute: "Duke University"
+
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    preview-links: auto
+    logo: ../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rvest)
+```
+
+
+## What is this course about?
+
+- Learn the foundations and theory of Bayesian inference in the context of several models.
+
+- Use Bayesian models to answer inferential questions.
+
+- Apply the models to several different problems.
+
+-  Understand the advantages/disadvantages of Bayesian methods vs classical methods
+
+
+. . .
+
+ <i class="fa fa-quote-left fa-2x fa-pull-left fa-border" aria-hidden="true"></i>
+
+<i class="fa fa-quote-right fa-2x fa-pull-right fa-border" aria-hidden="true"></i>
+A Bayesian version will usually make things better...
+
+-- Andrew Gelman.
+
+## Instructional Team  
+
+*Instructor:* [Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde)
+
+<i class="fa fa-envelope"></i> &nbsp; [clyde@duke.edu](mailto:clyde@duke.edu) <br>
+<i class="fa fa-home"></i> &nbsp; 223 Old Chemistry <br>
+<i class="fa fa-home"></i> &nbsp; [https://www2.stat.duke.edu/~clyde](https://www2.stat.duke.edu/~clyde) <br>
+
+
+. . .
+
+&nbsp;  
+
+*Teaching Assistant:* [Rick Presman](https://scholars.duke.edu/person/rick.presman)
+
+<i class="fa fa-envelope"></i> &nbsp; [rick.presman@duke.edu](mailto:rick.presman@duke.edu) 
+
+&nbsp;   
+
+<i class="fa fa-calendar"></i> &nbsp; See course website for Office Hours, Policies and more!
+
+
+## Prerequisites  
+ 
+ - random variables, common families of probability distribution functions and expectations
+ - conditional distributions
+ - transformations of random variables and change of variables 
+ - principles of statistical inference (likelihoods) 
+ - sampling distributions and hypothesis testing
+ - concepts of convergence
+
+. . .
+
+Review Chapters 1 to 5 of the [Casella and Berger book](https://mybiostats.files.wordpress.com/2015/03/casella-berger.pdf)
+
+## Computing
+
+- Labs/HW will involve a lot of computing in R!
+
+- Write your own MCMC samplers and run code long enough to show convergence
+
+- You can learn R on the fly
+  + see [Resources Tab on website](../resources.html)
+  + materials from 2023 Bootcamp/Orientation
+ 
+## Grading Policies
+ 
+ 
+  + 5% class
+  + 20% HW
+  + 10% Lab
+  + 20% Midterm I
+  + 20% Midterm II
+  + 25% Final
+
+- No Late Submissions for HW/Lab; Drop the lowest score
+
+- Confirm that you have access to Sakai, Gradescope, and GitHub.
+
+
+ 
+

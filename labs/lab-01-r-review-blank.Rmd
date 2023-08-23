@@ -1,0 +1,56 @@
+---
+title: "Lab 1: R Review and Monte Carlo"
+author: "STA 702: Bayesian and Modern Statistics"
+date: "Sept 1, 2023"
+output: 
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+    highlight: pygments
+    toc: true
+link-citations: true
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(tufte)
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  digits = 2
+  )
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+**Due:** 1:00pm, Monday, Sept 5
+
+
+# Housekeeping
+
+## R/RStudio
+
+You all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the "Installers for Supported Platforms" section and find the right installer for your operating system.
+
+## R Knitr
+
+You are required to use R knitr with the Rnw format to type up this lab report.  To get started see [basics](https://kbroman.org/knitr_knutshell/pages/latex.html) about knitr.
+
+
+# Getting started
+
+Go to Github classroom to create a repository for this assignment  at [lab1](https://classroom.github.com/a/YwWHy4_m)
+
+This will create a private repo in the STA702-F22 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F22 on your behalf. 
+
+Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F22 organization in Github.
+
+Follow the instructions in the README in your repo and follow along in lab to complete the assignment. 
+
+## Github Classroom & Gradescope
+
+You MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/431637/assignments 
+
+Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!
+
+
+    

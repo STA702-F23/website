@@ -1,0 +1,64 @@
+---
+title: "{{< fa calendar-days >}} Schedule"
+---
+
+**Please refresh often in case links/content has been updated**
+
+```{r echo=FALSE, message=FALSE, results='hide'}
+require(readxl)
+library(readxl)
+
+require(fontawesome)
+library(fontawesome)
+
+```
+
+```{r echo=FALSE, message=FALSE, results='hide'}
+add_lab_link <- function(link_location) {
+  ifelse(is.na(link_location), 
+        NA, 
+        paste0("<a href=\"", "labs/", link_location, "\">",
+                '<i class="fa fa-terminal fa-fw"></i>',"</a>"))
+}
+
+add_reading_link <- function(link_location) {
+  ifelse(is.na(link_location), 
+        NA, 
+        paste0("<a href=\"", "reading/", link_location, "\">",
+               '<i class="fa fa-book fa-fw"></i>', "</a>"))
+}
+
+add_hw_link <- function(link_location) {
+  ifelse(is.na(link_location), 
+        NA, 
+        paste0("<a href=\"", "hw/", link_location, "\">",
+               '<i class="fa fa-pen-to-square fa-fw"></i>', "</a>"))
+}
+
+add_slide_link <- function(link_location) {
+  ifelse(is.na(link_location), 
+        NA, 
+        paste0("<a href=\"", "slides/", link_location, "\">",
+               '<i class="fa fa-file-pdf fa-fw"></i>', "</a>"))
+}
+```
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+
+schedule = read_xlsx("schedule.xlsx")
+schedule[ ,"Labs", drop=FALSE] = add_lab_link(schedule$Labs)
+schedule[ ,"Reading", drop=FALSE] = add_reading_link(schedule$Reading)
+schedule[ ,"HW", drop=FALSE] = add_hw_link(schedule$HW)
+schedule[ ,"Slides", drop=FALSE] = add_slide_link(schedule$Slides)
+
+```
+
+
+
+```{r schedule, echo=FALSE,}
+options(knitr.kable.NA = '')
+knitr::kable(schedule)
+
+```
+
+

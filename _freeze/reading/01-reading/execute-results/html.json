@@ -1,0 +1,14 @@
+{
+  "hash": "7b4350ce100b4302a4532b48c6df0809",
+  "result": {
+    "markdown": "---\ntitle: \"Lecture 1: Basics of Bayesian inference\"\noutput: \n  html_document:\n    theme: yeti\n---\n\n\n\n\n\n## Readings:\n\n- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff.:\n    + Section 1: Introduction and examples\n    + Section 3.1: The binomial model \n    + Section 3.4: Discussion and further references\n\n\n\n\n- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral/) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n    + Section 1.1: The three steps of Bayesian data analysis\n    + Section 1.2: General notation for statistical inference\n    + Section 1.3: Bayesian inference\n    + Section 1.9: Computation and software\n    + Section 1.10: Bayesian inference in applied statistics\n    + Section 2.1: Estimating a probability from binomial data\n    + Section 2.2: Posterior as compromise between data and prior information\n    + Section 2.4: Informative prior distributions\n\n\n\n## Optional    \n- [Bayesian Computation with R (Second Edition)](https://www.amazon.com/Bayesian-Computation-R-Use/dp/0387922970) by Jim Albert:\n    + Section 2: Introduction to Bayesian thinking\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

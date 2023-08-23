@@ -1,0 +1,453 @@
+---
+title: "STA 702: Lecture 0"
+subtitle: "Course Overview"
+author: "Merlise Clyde"
+date: " "
+format:
+  html:
+    self-contained: true
+output:
+  xaringan::moon_reader:
+    css: "slides.css"
+    logo: img/icon.png
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rvest)
+```
+
+class: center, middle
+
+# Welcome to STA 702!
+
+
+
+---
+
+## What is this course about?
+
+<i class="fa fa-book fa-2x"></i> Learn the foundations and theory of Bayesian inference in the context of several models.
+
+--
+
+
+
+
+<i class="fa fa-folder-open fa-2x"></i> Apply the models to several different problem sets.
+
+
+--
+
+<i class="fa fa-tasks fa-2x"></i> Use Bayesian models to answer inferential questions.
+
+--
+
+<i class="fa fa-database fa-2x"></i> Understand the advantages/disadvantages of Bayesian methods vs classical methods
+
+
+--
+
+<i class="fa fa-clock fa-2x"></i> We will use the Hoff book, BDA and other reference material.
+
+--
+
+--- 
+<i class="fa fa-quote-left fa-2x fa-pull-left fa-border" aria-hidden="true"></i>
+<i class="fa fa-quote-right fa-2x fa-pull-right fa-border" aria-hidden="true"></i>
+A Bayesian version will usually make things better...
+
+-- Andrew Gelman.
+
+
+
+---
+## Instructor
+
+[Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde)
+
+<i class="fa fa-envelope"></i> &nbsp; [clyde@duke.edu](mailto:clyde@duke.edu) <br>
+<i class="fa fa-home"></i> &nbsp; [https://www2.stat.duke.edu/~clyde](https://www2.stat.duke.edu/~clyde) <br>
+<i class="fa fa-university"></i> &nbsp; 223 Old Chemistry <br>
+<i class="fa fa-home"></i> &nbsp; [https://www2.stat.duke.edu/courses/Fall22/sta702.001](https://www2.stat.duke.edu/courses/Fall22/sta702.001) <br>
+<i class="fa fa-calendar"></i> &nbsp; See course website for OH <br>
+
+
+
+---
+## TAs
+
+[Steven Winter](https://scholars.duke.edu/person/steven.winter)
+
+<i class="fa fa-envelope"></i> &nbsp; [steven.winter@duke.edu](mailto:steven.winter@duke.edu) <br>
+<i class="fa fa-calendar"></i> &nbsp; See course website for OH <br>
+<i class="fa fa-university"></i> &nbsp; See course website for location <br>
+
+
+
+
+---
+
+## FAQs
+
+All materials and information will be posted on the course webpage:
+[https://www2.stat.duke.edu/courses/Fall22/sta702.001/](https://www2.stat.duke.edu/courses/Fall22/sta702.001/)
+
+--
+
+- How much theory will this class cover? A lot! 
+--
+
+- What if I can't remember all the topics in the prerequisites?
+
+--
+  1. Review Chapters 1 to 5 of the [Casella and Berger book](https://mybiostats.files.wordpress.com/2015/03/casella-berger.pdf)
+     You can find the solution manual [here](http://www.ams.sunysb.edu/~zhu/ams570/Solutions-Casella-Berger.pdf)
+ 
+--
+ 
+  2. Focus on the following topics:
+      + basic probability theory, random variables, transformations of random variables and change of variables, expectations of random variables, common families of probability distribution functions including multivariate distributions
+      + concepts of convergence, principles of statistical inference, likelihood based inference, sampling distributions and hypothesis testing.
+
+
+
+---
+
+## FAQs
+
+
+- Will we be doing "very heavy" computing? a good amount. You will be expected to be able to write your own MCMC samplers and run code long enough to show convergence
+
+--
+
+- What computing language will we use? R!
+
+--
+
+- What if I don't know R? This course assumes you already know R but you can still learn on the fly (you must be self-motivated). Here are some resources for you:
+   + [https://www2.stat.duke.edu/courses/Fall22/sta702.001/resources/](https://www2.stat.duke.edu/courses/Fall22/sta702.001/resources/).
+   + Resources for the StaSci BootCamp 2021
+
+--
+
+- Labs will introduce/review concepts
+
+---
+## FAQs
+
+- Do I need to know a lot Bayesian statistics before taking this class? No
+
+--
+
+-  What is the difference between this course and STA360 or STA602 ?
+
+
+---
+
+class: center, middle
+
+# Course structure and policies
+
+
+---
+## Course structure and policies
+
+- See: [https://www2.stat.duke.edu/courses/Fall22/sta702.001/policies/](https://www2.stat.duke.edu/courses/Fall22/sta702.001/policies/)
+
+--
+
+- Make use of the teaching team's office hours, we're here to help!
+
+--
+
+- Do not hesitate to come to my office hours or you can also make an appointment to discuss a homework problem or any aspect of the course. 
+
+--
+
+- When the teaching team has announcements for you we will send an email to your Duke email address. Please make sure to check your email daily.
+
+--
+
+- Check the dates for exams in the Course Calendar and let me know ASAP if there are issues
+
+---
+## Topics
+
+-  Basics of Bayesian Models
+-  Loss Functions, Inference and Decision Making
+-  Predictive Distributions
+-  Predictive Distributions and Model Checking
+-  Bayesian Hypothesis Testing
+-  Multiple Testing
+-  MCMC (Gibbs & Metropolis Hastings Algorithms)
+-  Model Uncertainty
+-  Bayesian Generalized Linear Models
+-  Hiearchical Modeling and Random Effects
+-  Hamiltonian Monte Carlo
+-  Nonparametric Bayes Regression
+
+--
+
+Also refer to the  [Class Schedule](https://www2.stat.duke.edu/courses/Fall22/sta-702.001/syllabus/).
+
+---
+## Other details
+
+- Grading 
+  + 5% class
+  + 20% HW
+  + 10% Lab
+  + 20% Midterm I
+  + 20% Midterm II
+  + 25% Final
+
+--
+
+- No Late Submissions for HW/Lab; Drop the lowest score
+
+--
+
+- Confirm that you have access to Sakai, Gradescope, and GitHub.
+
+---
+## Important Dates
+
+
+<i class="fa fa-calendar"></i>  Tues, Aug 30  &nbsp; Classes begin <br>
+<i class="fa fa-calendar"></i>  Fri, Sept 9   &nbsp; Drop/Add ends <br>
+<i class="fa fa-calendar"></i>  Fri, Oct 7  &nbsp; Midterm I  (*tentative*) <br>
+<i class="fa fa-calendar"></i>  Sat - Tues, Oct 8 - 11	&nbsp; No classes Fall Break |<br>
+<i class="fa fa-calendar"></i> Tue, Nov 15    &nbsp; Midterm II (*tentative*) <br>
+<i class="fa fa-calendar"></i>  Friday Dec 2    &nbsp;Graduate Classes End <br>
+<i class="fa fa-calendar"></i>  Mon, Dec 19    &nbsp; Final Exam (Perkins 060 2:00-5:00pm) <br>
+
+--
+
+Also refer to the schedule on the website for updated breakdown of the courses. Remember to refresh the page frequently. See here: [Class Schedule](https://www2.stat.duke.edu/courses/Fall21/sta-601.001/syllabus/).
+
+---
+
+class: center, middle
+
+# Bayes Rules!  Getting Started!
+
+
+---
+## Basics of Bayesian inference
+
+- Generally (unless otherwise stated), in this course, we will use the following notation. Let
+
+--
+
+  + $\mathcal{Y}$ be the .hlight[sample space];
+
+--
+
+  + $y$ be the .hlight[observed data];
+
+--
+
+  + $\Theta$ be the .hlight[parameter space]; and
+
+--
+
+  + $\theta$ be the .hlight[parameter of interest].
+  
+--
+
+- More to come later.
+
+
+---
+## Frequentist inference
+
+- Given data $y$, estimate the population parameter $\theta$.
+
+--
+
+- How to estimate $\theta$ under the frequentist paradigm?
+  + Maximum likelihood estimate (MLE)
+  
+  + Method of moments
+  
+  + and so on...
+  
+--
+
+- Frequentist ML estimation finds the one value of $\theta$ that maximizes the likelihood.
+
+--
+
+- Typically uses large sample (asymptotic) theory to obtain confidence intervals and do hypothesis testing.
+
+
+---
+## What are Bayesian methods?
+
+- .hlight[Bayesian methods] are data analysis tools derived from the principles of Bayesian inference and provide
+
+--
+
+  + parameter estimates with good statistical properties;
+  
+--
+
+  + parsimonious descriptions of observed data;
+  
+--
+
+  + predictions for missing data and forecasts of future data; and
+  
+--
+
+  + a computational framework for model estimation, selection, decision making
+and validation.
+
+--
+ 
+  + builds on likelihood inference
+
+
+---
+## Bayes' theorem - basic conditional probability
+
+- Let's take a step back and quickly review the basic form of Bayes' theorem.
+
+--
+
+- Suppose there are some events $A$ and B having probabilities $\Pr(A)$ and $\Pr(B)$.
+
+--
+
+- Bayes' rule gives the relationship between the marginal probabilities of A and B and the conditional probabilities.
+
+--
+
+- In particular, the basic form of .hlight[Bayes' rule] or .hlight[Bayes' theorem] is
+.block[
+.small[
+$$\Pr(A | B) = \frac{\Pr(A \ \textrm{and} \ B)}{\Pr(B)} = \frac{\Pr(B|A)\Pr(A)}{\Pr(B)}$$
+]
+]
+
+--
+$\Pr(A)$ = marginal probability of event $A$, $\Pr(B | A)$ = conditional probability of event $B$ given event $A$, and so on.
+
+
+---
+## Bayes' Rule more generally
+
+  1. For each $\theta \in \Theta$, specify a .hlight[prior distribution] $p(\theta)$ or $\pi(\theta)$, describing our beliefs about $\theta$ being the true population parameter.
+
+--
+
+  2. For each $\theta \in \Theta$ and $y \in \mathcal{Y}$, specify a .hlight[sampling distribution] $p(y|\theta)$, describing our belief that the data we see $y$ is the outcome of a study with true parameter $\theta$. $p(y|\theta)$ proportional to the .hlight[likelihood] $L(\theta|y)$.
+
+--
+
+  3. After observing the data $y$, for each $\theta \in \Theta$, update the prior distribution to a .hlight[posterior distribution] $p(\theta | y)$ or $\pi(\theta | y)$, describing our "updated" belief about $\theta$ being the true population parameter.
+
+--
+
+- Now, how do we get from Step 1 to 3? .hlight[Bayes' rule]!
+.block[
+.small[
+$$p(\theta | y) = \frac{p(\theta)p(y|\theta)}{\int_{\Theta}p(\tilde{\theta})p(y| \tilde{\theta}) \textrm{d}\tilde{\theta}} = \frac{p(\theta)p(y|\theta)}{p(y)}$$
+]
+]
+
+  We will use this over and over throughout the course!
+
+  
+  
+---
+## Notes on prior distributions
+
+Many types of priors may be of interest. These may
+
+  + represent our own beliefs; 
+
+--
+
+  + represent beliefs of a variety of people with differing prior opinions; or
+
+--
+
+  + assign probability more or less evenly over a large region of the parameter space.
+  
+--
+
+  + and so on...
+  
+
+---
+## Notes on prior distributions
+
+- .hlight[Subjective Bayes]: a prior should accurately quantify some individual's beliefs about $\theta$.
+
+--
+
+- .hlight[Objective Bayes]: the prior should be chosen to produce a procedure with "good" operating characteristics without including subjective prior knowledge.
+
+--
+
+- .hlight[Weakly informative]: prior centered in a plausible region but not overly-informative, as there is a tendency to be over
+confident about one's beliefs.
+
+--
+
+-- .hlight[Practical Bayes]:  Combines Subjective Bayes for aspects of a problem that one understands, and Objective Bayes elsewhere
+---
+## Notes on prior distributions
+
+- The prior quantifies 'your' initial uncertainty in $\theta$ before you observe new data (new information) - this may be necessarily subjective & summarize experience in a field or
+prior research.
+
+--
+
+- Even if the prior is not "perfect", placing higher probability in a ballpark of the truth leads to better performance.
+
+--
+
+- Hence, it is very seldom the case that a weakly informative prior is not preferred over no prior.  (Model selection is one case where one needs to be careful!)
+
+--
+
+- One (very important) role of the prior is to stabilize estimates  (shrinkage) in the presence of limited data.
+
+  
+---
+## Next Steps
+
+Work on [Lab 0](https://www2.stat.duke.edu/courses/Fall22/sta702.001/syllabus/)
+
+Finally, here are some readings to entertain you. Make sure to glance through them within the next week. See here: [Course Resources](https://www2.stat.duke.edu/courses/Fall22/sta702.001/resources) 
+  1. Efron, B., 1986. Why isn't everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.
+  2. Gelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.
+  3. Diaconis, P., 1977. Finite forms of de Finetti's theorem on exchangeability. Synthese, 36(2), pp. 271-281.
+  4. Gelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.
+  5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.
+
+
+
+
