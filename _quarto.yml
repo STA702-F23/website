@@ -14,7 +14,12 @@ website:
       - syllabus.qmd
       - schedule.qmd
       - resources.qmd
+    right:
+      - icon: github
+        href: https://github.com/sta702-F23/
+  
   repo-url: https://github.com/sta702-F23/website
+  repo-actions: [issue]
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2023, Merlise Clyde"

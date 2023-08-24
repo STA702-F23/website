@@ -1,11 +1,13 @@
 ---
 title: "{{< fa calendar-days >}} Schedule"
+repo-url: https://github.com/sta702-F23/website
+repo-actions: [issue]
 freeze: false
 execute: 
   echo: false
 ---
 
-**Please refresh often in case links/content has been updated**
+### Please refresh often in case links/content has been updated
 
 ```{r}
 #| message: false

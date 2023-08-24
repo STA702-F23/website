@@ -1,28 +1,8 @@
 ---
 title: "Lab 0: Getting Started with R and Sweave/Knitr"
-author: "STA 702: Bayesian and Modern Statistics"
-date: "Aug, 29 2023"
-output: 
-  tufte::tufte_html:
-    tufte_variant: "envisioned"
-    highlight: pygments
-    toc: true
-link-citations: true
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
-
-**Due:** 11:59pm, Thursday, Sept 1
+**Due:** 11:59pm, Thursday, Aug  31
 
 
 # Housekeeping
@@ -41,7 +21,7 @@ You are required to use R Sweave/knitr to type up HW and lab reports.  Don't wor
 
 ## Gradescope
 
-You MUST submit both your .Rnw and .pdf files to the course site on Gradescope here: https://www.gradescope.com/courses/431637/assignments/ Make sure to knit to pdf and  to submit under the right assignment entry.   For this first lab you do not have to submit, just practice!
+You MUST submit both your .Rnw and .pdf files to the course site on [Gradescope](https://www.gradescope.com/courses/585736).  Make sure to knit to pdf and  to submit under the right assignment entry.   For this first lab you do not have to submit, just practice!
 
 # Lab Goals
 
@@ -55,8 +35,8 @@ For the rest of this lab we are going to redirect you to Github.  At the end of 
 
 # Getting Started!
 
-1. Go to Github classroom to create a repository for this assignment  at [lab0](https://classroom.github.com/a/09U-Afjs)
-This will create a private repo in the STA702-F22 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F22 on your behalf.  Please link your github user name to your profile.
+1. Go to Github classroom to create a repository for this assignment  at [lab0](https://classroom.github.com/classrooms/139913329-duke-statsci-sta-702-fall-2023)
+This will create a private repo in the STA702-F22 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.  Please link your github user name to your profile.
 
 2. Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F22 organization in Github.
 
