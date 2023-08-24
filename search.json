@@ -116,7 +116,7 @@
     "href": "labs/lab-01-r-review-blank.html",
     "title": "Lab 1: R Review and Monte Carlo",
     "section": "",
-    "text": "Due: 1:00pm, Monday, Sept 5"
+    "text": "Due: 1:00pm, Monday, Sept 4"
   },
   {
     "objectID": "labs/lab-01-r-review-blank.html#rrstudio",
@@ -137,7 +137,7 @@
     "href": "labs/lab-01-r-review-blank.html#github-classroom-gradescope",
     "title": "Lab 1: R Review and Monte Carlo",
     "section": "Github Classroom & Gradescope",
-    "text": "Github Classroom & Gradescope\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/431637/assignments\nMake sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+    "text": "Github Classroom & Gradescope\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope.\nMake sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
     "objectID": "resources.html",
@@ -179,7 +179,7 @@
     "href": "labs/lab-00-getting-started.html",
     "title": "Lab 0: Getting Started with R and Sweave/Knitr",
     "section": "",
-    "text": "Due: 11:59pm, Thursday, Sept 1"
+    "text": "Due: 11:59pm, Thursday, Aug 31"
   },
   {
     "objectID": "labs/lab-00-getting-started.html#rrstudio",
@@ -207,7 +207,7 @@
     "href": "labs/lab-00-getting-started.html#gradescope",
     "title": "Lab 0: Getting Started with R and Sweave/Knitr",
     "section": "Gradescope",
-    "text": "Gradescope\nYou MUST submit both your .Rnw and .pdf files to the course site on Gradescope here: https://www.gradescope.com/courses/431637/assignments/ Make sure to knit to pdf and to submit under the right assignment entry. For this first lab you do not have to submit, just practice!"
+    "text": "Gradescope\nYou MUST submit both your .Rnw and .pdf files to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry. For this first lab you do not have to submit, just practice!"
   },
   {
     "objectID": "hw/hw-01.html",
