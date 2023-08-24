@@ -1,0 +1,31 @@
+---
+title: "Lecture 7: Adaptive Metropolis & Metropolis-Hastings"
+---
+
+## Readings
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
+  + Section 10.4: Metropolis, Metropolis-Hastings and Gibbs
+  + Section 10.5: Combining the Metropolis and Gibbs algorithm
+  + Section 10.6: Discussion and further references
+
+  + Chapter 6: Posterior approximation with the Gibbs sampler
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+
+  + Section 11.2: Metropolis and Metropolis-Hastings algorithms 
+  + Section 11.4: Inference and assessing convergence
+  + Section 11.6: Example
+  + Section 11.7: Bibliographic note
+
+- [An Adaptive Metropolis Algoritm](https://projecteuclid.org/journals/bernoulli/volume-7/issue-2/An-adaptive-Metropolis-algorithm/bj/1080222083.full)
+by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)
+
+- [Examples of Adaptive Metropolis](https://doi.org/10.1198/jcgs.2009.06134) by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134
+
+
+  
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+
+    

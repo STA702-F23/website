@@ -1,0 +1,13 @@
+---
+title: "Lecture 3: Normal Models and Predictive Distributions"
+---
+
+## Readings
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff.:
+    + Section 5.1: The normal model
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:
+    + Section 2.5: Normal Distribution with Known Variance (page 39)
+    

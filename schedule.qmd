@@ -10,6 +10,10 @@ execute:
 ```{r}
 #| message: false
 #| results: 'hide'
+
+require(rmarkdown)
+library(rmarkdown)
+
 require(readxl)
 library(readxl)
 
