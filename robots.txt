@@ -1,1 +1,1 @@
-Sitemap: https://github.com/STA702-F23/website/sitemap.xml
+Sitemap: https://STA702-F23.github.io/website/sitemap.xml
