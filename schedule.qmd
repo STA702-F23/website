@@ -1,5 +1,6 @@
 ---
 title: "{{< fa calendar-days >}} Schedule"
+freeze: false
 ---
 
 **Please refresh often in case links/content has been updated**
@@ -11,6 +12,10 @@ library(readxl)
 require(fontawesome)
 library(fontawesome)
 
+require(gt)
+library(gt)
+require(dplyr)
+library(dplyr)
 ```
 
 ```{r echo=FALSE, message=FALSE, results='hide'}
@@ -31,8 +36,8 @@ add_reading_link <- function(link_location) {
 add_hw_link <- function(link_location) {
   ifelse(is.na(link_location), 
         NA, 
-        paste0("<a href=\"", "hw/", link_location, "\">",
-               '<i class="fa fa-pen-to-square fa-fw"></i>', "</a>"))
+        paste0("<a href=\"", "hw/", link_location, ".html", "\">",
+               '<i class="fa fa-pen-to-square fa-fw"></i>', link_location, "</a>"))
 }
 
 add_slide_link <- function(link_location) {
