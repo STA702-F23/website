@@ -1,13 +1,6 @@
 ---
 title: "Lecture 1: Basics of Bayesian inference"
-output: 
-  html_document:
-    theme: yeti
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
 ## Readings:

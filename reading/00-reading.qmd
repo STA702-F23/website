@@ -1,0 +1,13 @@
+---
+title: "Lecture 0: Readings to Pique Your Interest"
+---
+
+## Readings:
+
+These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a "quick peek" at each article.
+
+1. Efron, B., 1986. Why isn't everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.
+2. Gelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.
+3. Diaconis, P., 1977. Finite forms of de Finetti's theorem on exchangeability. Synthese, 36(2), pp. 271-281.
+4. Gelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.
+5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.
