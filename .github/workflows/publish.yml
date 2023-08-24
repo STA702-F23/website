@@ -19,8 +19,8 @@ jobs:
         with:
           r-version: '4.2.0' # The R version to download (if necessary) and use.
       - uses: r-lib/actions/setup-r-dependencies@v2
-          with:
-            packages:
+        with:
+          packages:
               any::knitr
               any::rmarkdown
               any::downlit
