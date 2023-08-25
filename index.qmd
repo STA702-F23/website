@@ -29,8 +29,8 @@ By the end of this course, students should be able to
 
 Role              | Name |  Email         |  Office Hours  | Location     
 -----------|-------------|----------------|----------------|-------------:
-Instructor | [Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde) | [{{< fa envelope >}} ](mailto:clyde@duke.edu)  | Mon 1:15- 2:15, Tu & Thur 11:30 <br> or by appointment (I have lots of 30 minute gaps!) <br /> | 223E Old Chem |  
-TA               | [Rick Presman](https://scholars.duke.edu/person/srick.presman) | <a href="mailto:rick.presman@duke.edu" title="email"><i class="fa fa-envelope"></i></a> | TBA | TBA
+Instructor | [Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde) | [{{< fa envelope >}} ](mailto:clyde@duke.edu)  | Mon 9:00- 10:00, Thur 1:45-2:45 <br> or by appointment (I have lots of 30 minute gaps!) <br /> | 223E Old Chem |  
+TA               | [Rick Presman](https://scholars.duke.edu/person/rick.presman) | <a href="mailto:rick.presman@duke.edu" title="email"><i class="fa fa-envelope"></i></a> | TBA | TBA
 
 
 
@@ -38,7 +38,7 @@ TA               | [Rick Presman](https://scholars.duke.edu/person/srick.presman
 
 #### Lecture
 
-<font color="#6CA0DC"><i class="fas fa-calendar-alt fa-lg"></i></font> &nbsp; **Tuesdays and Thursdays (10:05am - 11:15am)**
+<font color="#6CA0DC"><i class="fas fa-calendar-alt fa-lg"></i></font> &nbsp; **Tuesdays and Thursdays (10:05am - 11:20am)**
 
 <font color="#6CA0DC"><i class="fas fa-university fa-lg"></i></font> &nbsp; Perkins LINK 060 (Classroom 1)</font>
 
