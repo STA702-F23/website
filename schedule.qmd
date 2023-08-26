@@ -54,7 +54,7 @@ add_hw_link<- function(link_location) {
 add_slide_link <- function(Lesson, Slides) {
   ifelse(is.na(Slides), 
         Lesson, 
-        paste0("[", Lesson, "](slides/", Slides, ")"))
+        paste0("[", Lesson, "](resources/slides/", Slides, ")"))
 }
 ```
 

@@ -1,0 +1,23 @@
+{
+  "hash": "b58f6ae87dc24a222d42830edc8bd0a9",
+  "result": {
+    "markdown": "---\ntitle: \"Welcome to STA 702\"\nsubtitle: \"Course Overview\"\nauthor: \"Merlise Clyde\"\ninstitute: \"Duke University\"\n\nformat: \n  revealjs:\n    theme: [simple, custom.scss]\n    slide-number: true\n    incremental: true\n    preview-links: auto\n    logo: ../img/icon.png\n    footer: <https://sta702-F23.github.io/website/>\n---\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n## What is this course about?\n\n- Learn the foundations and theory of Bayesian inference in the context of several models.\n\n- Use Bayesian models to answer inferential questions.\n\n- Apply the models to several different problems.\n\n-  Understand the advantages/disadvantages of Bayesian methods vs classical methods\n\n\n. . .\n\n <i class=\"fa fa-quote-left fa-2x fa-pull-left fa-border\" aria-hidden=\"true\"></i>\n\n<i class=\"fa fa-quote-right fa-2x fa-pull-right fa-border\" aria-hidden=\"true\"></i>\nA Bayesian version will usually make things better...\n\n-- Andrew Gelman.\n\n## Instructional Team  \n\n*Instructor:* [Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde)\n\n<i class=\"fa fa-envelope\"></i> &nbsp; [clyde@duke.edu](mailto:clyde@duke.edu) <br>\n<i class=\"fa fa-home\"></i> &nbsp; 223 Old Chemistry <br>\n<i class=\"fa fa-home\"></i> &nbsp; [https://www2.stat.duke.edu/~clyde](https://www2.stat.duke.edu/~clyde) <br>\n\n\n. . .\n\n&nbsp;  \n\n*Teaching Assistant:* [Rick Presman](https://scholars.duke.edu/person/rick.presman)\n\n<i class=\"fa fa-envelope\"></i> &nbsp; [rick.presman@duke.edu](mailto:rick.presman@duke.edu) \n\n&nbsp;   \n\n<i class=\"fa fa-calendar\"></i> &nbsp; See course website for Office Hours, Policies and more!\n\n\n## Prerequisites  \n \n - random variables, common families of probability distribution functions and expectations\n - conditional distributions\n - transformations of random variables and change of variables \n - principles of statistical inference (likelihoods) \n - sampling distributions and hypothesis testing\n - concepts of convergence\n\n. . .\n\nReview Chapters 1 to 5 of the [Casella and Berger book](https://mybiostats.files.wordpress.com/2015/03/casella-berger.pdf)\n\n## Computing\n\n- Labs/HW will involve a lot of computing in R!\n\n- Write your own MCMC samplers and run code long enough to show convergence\n\n- You can learn R on the fly\n  + see [Resources Tab on website](../resources.html)\n  + materials from 2023 Bootcamp/Orientation\n \n## Grading Policies\n \n \n  + 5% class\n  + 20% HW\n  + 10% Lab\n  + 20% Midterm I\n  + 20% Midterm II\n  + 25% Final\n\n- No Late Submissions for HW/Lab; Drop the lowest score\n\n- Confirm that you have access to Sakai, Gradescope, and GitHub.\n\n\n \n\n",
+    "supporting": [
+      "00-course-overview_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/font-awesome/css/all.min.css\" rel=\"stylesheet\" />\n<link href=\"../site_libs/font-awesome/css/v4-shims.min.css\" rel=\"stylesheet\" />\n"
+      ],
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

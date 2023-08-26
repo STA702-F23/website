@@ -3,14 +3,13 @@ title: "Welcome to STA 702"
 subtitle: "Course Overview"
 author: "Merlise Clyde"
 institute: "Duke University"
-
 format: 
   revealjs:
     theme: [simple, custom.scss]
     slide-number: true
     incremental: true
     preview-links: auto
-    logo: ../img/icon.png
+    logo: ../../img/icon.png
     footer: <https://sta702-F23.github.io/website/>
 ---
 
