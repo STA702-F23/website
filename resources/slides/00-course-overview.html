@@ -243,6 +243,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -359,7 +360,7 @@ Merlise Clyde
 <section id="instructional-team" class="slide level2">
 <h2>Instructional Team</h2>
 <p><em>Instructor:</em> <a href="https://www2.stat.duke.edu/~clyde">Dr Merlise Clyde</a></p>
-<p><i class="fa fa-envelope"></i> &nbsp; <a href="mailto:clyde@duke.edu">clyde@duke.edu</a> <br> <i class="fa fa-home"></i> &nbsp; 223 Old Chemistry <br> <i class="fa fa-home"></i> &nbsp; <a href="https://www2.stat.duke.edu/~clyde">https://www2.stat.duke.edu/~clyde</a> <br></p>
+<p><i class="fa fa-envelope"></i> &nbsp; <a href="mailto:clyde@duke.edu">clyde@duke.edu</a> <br> <i class="fa fa-home"></i> &nbsp; 223 Old Chemistry <br> <i class="fa fa-home"></i> &nbsp; <a href="https://www2.stat.duke.edu/~clyde" class="uri">https://www2.stat.duke.edu/~clyde</a> <br></p>
 <div class="fragment">
 <p>&nbsp;</p>
 <p><em>Teaching Assistant:</em> <a href="https://scholars.duke.edu/person/rick.presman">Rick Presman</a></p>
@@ -385,16 +386,16 @@ Merlise Clyde
 <section id="computing" class="slide level2">
 <h2>Computing</h2>
 <ul>
-<li class="fragment"><p>Labs/HW will involve a lot of computing in R!</p></li>
+<li class="fragment"><p>Labs/HW will involve computing in R!</p></li>
 <li class="fragment"><p>Write your own MCMC samplers and run code long enough to show convergence</p></li>
-<li class="fragment"><p>You can learn R on the fly</p>
+<li class="fragment"><p>You can learn <code>R</code> on the fly</p>
 <ul>
-<li class="fragment">see <a href="../resources.html">Resources Tab on website</a></li>
+<li class="fragment">see <a href="../../resources.html">Resources Tab on website</a></li>
 <li class="fragment">materials from 2023 Bootcamp/Orientation</li>
 </ul></li>
 </ul>
 </section>
-<section id="grading-policies" class="slide level2">
+<section id="grading-policies" class="slide level2 smaller">
 <h2>Grading Policies</h2>
 <ul>
 <li class="fragment"><p>5% class</p></li>
@@ -404,14 +405,196 @@ Merlise Clyde
 <li class="fragment"><p>20% Midterm II</p></li>
 <li class="fragment"><p>25% Final</p></li>
 <li class="fragment"><p>No Late Submissions for HW/Lab; Drop the lowest score</p></li>
-<li class="fragment"><p>Confirm that you have access to Sakai, Gradescope, and GitHub.</p></li>
+<li class="fragment"><p>You are encouraged to discuss assignments, but copying others work is considered a misconduct violation and will result in a 0 on the assignment</p></li>
+<li class="fragment"><p>Confirm that you have access to Sakai, Gradescope, and GitHub</p></li>
 </ul>
+</section>
+<section id="course-structure-and-policies" class="slide level2">
+<h2>Course structure and policies</h2>
+<ul>
+<li class="fragment"><p>See the <a href="../../syllabus.html">Syllabus</a></p></li>
+<li class="fragment"><p>Make use of the teaching team’s office hours, we’re here to help!</p></li>
+<li class="fragment"><p>Do not hesitate to come to my office hours or you can also make an appointment to discuss a homework problem or any aspect of the course.</p></li>
+<li class="fragment"><p>Please make sure to check your email daily for announcements</p></li>
+<li class="fragment"><p>Use the <a href="https://github.com/sta702-F23/website/issues/new"><i class="fa fa-github"></i> Reporting an issue</a> link to report broken links or missing content</p></li>
+</ul>
+</section>
+<section id="important-dates" class="slide level2 smaller">
+<h2>Important Dates</h2>
+<table>
+<thead>
+<tr class="header">
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tues, Aug 29</td>
+<td>Classes begin</td>
+</tr>
+<tr class="even">
+<td>Fri, Sept 8</td>
+<td>Drop/Add ends</td>
+</tr>
+<tr class="odd">
+<td>Friday, Oct 13</td>
+<td>Midterm I (<em>tentative</em>)</td>
+</tr>
+<tr class="even">
+<td>Sat - Tues, Oct 14 - 17</td>
+<td>Fall Break</td>
+</tr>
+<tr class="odd">
+<td>Tues, Nov 20</td>
+<td>Midterm II (<em>tentative</em>)</td>
+</tr>
+<tr class="even">
+<td>Friday, Dec 1</td>
+<td>Graduate Classes End</td>
+</tr>
+<tr class="odd">
+<td>Dec 2 - Dec 12</td>
+<td>Graduate Reading Period</td>
+</tr>
+<tr class="even">
+<td><strong>Sat, Dec 16</strong></td>
+<td><strong>Final Exam</strong> (Perkins 060 2:00-5:00pm)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>See <a href="../../schedule.html">Class Schedule</a> for slides, readings, HW, Labs, etc</p>
+</div>
+</section>
+<section id="topics" class="slide level2 smaller">
+<h2>Topics</h2>
+<ul>
+<li class="fragment">Basics of Bayesian Models</li>
+<li class="fragment">Loss Functions, Inference and Decision Making</li>
+<li class="fragment">Predictive Distributions</li>
+<li class="fragment">Predictive Distributions and Model Checking</li>
+<li class="fragment">Bayesian Hypothesis Testing</li>
+<li class="fragment">Multiple Testing</li>
+<li class="fragment">MCMC (Gibbs &amp; Metropolis Hastings Algorithms)</li>
+<li class="fragment">Model Uncertainty/Model Choice</li>
+<li class="fragment">Bayesian Generalized Linear Models</li>
+<li class="fragment">Hiearchical Modeling and Random Effects</li>
+<li class="fragment">Hamiltonian Monte Carlo</li>
+<li class="fragment">Nonparametric Bayes Regression</li>
+</ul>
+</section>
+<section>
+<section id="bayes-rules-getting-started" class="title-slide slide level1 center">
+<h1>Bayes Rules! Getting Started!</h1>
+
+</section>
+<section id="basics-of-bayesian-inference" class="slide level2">
+<h2>Basics of Bayesian inference</h2>
+<p>Generally (unless otherwise stated), in this course, we will use the following notation. Let</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y\)</span> is a random variable from some probability distribution <span class="math inline">\(p(y \mid \theta)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\mathcal{Y}\)</span> be the <span style="color:red">sample space</span> (possible outcomes for <span class="math inline">\(Y\)</span>)</p></li>
+<li class="fragment"><p><span class="math inline">\(y\)</span> is the <span style="color:red">observed data</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\theta\)</span> is the unknown <span style="color:red">parameter of interest</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\Theta\)</span> be the <span style="color:red">parameter space</span></p></li>
+<li class="fragment"><p>e.g.&nbsp;<span class="math inline">\(Y \sim \textsf{Ber}(\theta)\)</span> where <span class="math inline">\(\theta = \Pr(Y = 1)\)</span></p></li>
+</ul>
+</section>
+<section id="frequentist-inference" class="slide level2">
+<h2>Frequentist inference</h2>
+<ul>
+<li class="fragment"><p>Given data <span class="math inline">\(y\)</span>, how would we estimate the population parameter <span class="math inline">\(\theta\)</span>?</p>
+<ul>
+<li class="fragment"><p>Maximum likelihood estimate (MLE)</p></li>
+<li class="fragment"><p>Method of moments</p></li>
+<li class="fragment"><p>and so on…</p></li>
+</ul></li>
+<li class="fragment"><p>Frequentist MLE finds the one value of <span class="math inline">\(\theta\)</span> that maximizes the likelihood</p></li>
+<li class="fragment"><p>Typically uses large sample (asymptotic) theory to obtain confidence intervals and do hypothesis testing.</p></li>
+</ul>
+</section>
+<section id="what-are-bayesian-methods" class="slide level2">
+<h2>What are Bayesian methods?</h2>
+<ul>
+<li class="fragment"><p><span style="color:red">Bayesian methods</span> are data analysis tools derived from the principles of Bayesian inference and provide</p>
+<ul>
+<li class="fragment"><p>parameter estimates with good statistical properties;</p></li>
+<li class="fragment"><p>parsimonious descriptions of observed data;</p></li>
+<li class="fragment"><p>predictions for missing data and forecasts of future data with full uncertainty quantification; and</p></li>
+<li class="fragment"><p>a computational framework for model estimation, selection, decision making and validation.</p></li>
+<li class="fragment"><p>builds on likelihood inference</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="bayes-theorem" class="slide level2 smaller">
+<h2>Bayes’ theorem</h2>
+<ul>
+<li class="fragment"><p>Let’s take a step back and quickly review the basic form of Bayes’ theorem.</p></li>
+<li class="fragment"><p>Suppose there are some events <span class="math inline">\(A\)</span> and B having probabilities <span class="math inline">\(\Pr(A)\)</span> and <span class="math inline">\(\Pr(B)\)</span>.</p></li>
+<li class="fragment"><p>Bayes’ rule gives the relationship between the marginal probabilities of A and B and the conditional probabilities.</p></li>
+<li class="fragment"><p>In particular, the basic form of <span style="color:red">Bayes’ rule</span> or <span style="color:red">Bayes’ theorem</span> is <span class="math display">\[\Pr(A | B) = \frac{\Pr(A \ \textrm{and} \ B)}{\Pr(B)} = \frac{\Pr(B|A)\Pr(A)}{\Pr(B)}\]</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\Pr(A)\)</span> = marginal probability of event <span class="math inline">\(A\)</span>, <span class="math inline">\(\Pr(B | A)\)</span> = conditional probability of event <span class="math inline">\(B\)</span> given event <span class="math inline">\(A\)</span>, and so on.</p></li>
+<li class="fragment"><p>“reverses the conditioning” e.g.&nbsp;Probability of Covid given a negative test versus probability of a negative test given Covid</p></li>
+</ul>
+</section>
+<section id="bayes-rule-more-generally" class="slide level2 smaller">
+<h2>Bayes’ Rule more generally</h2>
+<ol type="1">
+<li class="fragment"><p>For each <span class="math inline">\(\theta \in \Theta\)</span>, specify a <span style="color:red">prior distribution</span> <span class="math inline">\(p(\theta)\)</span> or <span class="math inline">\(\pi(\theta)\)</span>, describing our beliefs about <span class="math inline">\(\theta\)</span> being the true population parameter.</p></li>
+<li class="fragment"><p>For each <span class="math inline">\(\theta \in \Theta\)</span> and <span class="math inline">\(y \in \mathcal{Y}\)</span>, specify a <span style="color:red">sampling distribution</span> <span class="math inline">\(p(y|\theta)\)</span>, describing our belief that the data we see <span class="math inline">\(y\)</span> is the outcome of a study with true parameter <span class="math inline">\(\theta\)</span>. <br> <span style="color:red">Likelihood</span> <span class="math inline">\(L(\theta|y)\)</span> proportional to <span class="math inline">\(p(y|\theta)\)</span></p></li>
+<li class="fragment"><p>After observing the data <span class="math inline">\(y\)</span>, for each <span class="math inline">\(\theta \in \Theta\)</span>, update the prior distribution to a <span style="color:red">posterior distribution</span> <span class="math inline">\(p(\theta | y)\)</span> or <span class="math inline">\(\pi(\theta | y)\)</span>, describing our “updated” belief about <span class="math inline">\(\theta\)</span> being the true population parameter.</p></li>
+</ol>
+<div class="fragment">
+<p>Getting from Step 1 to 3? <span style="color:red">Bayes’ rule</span>!</p>
+<p><span class="math display">\[p(\theta | y) = \frac{p(\theta)p(y|\theta)}{\int_{\Theta}p(\tilde{\theta})p(y| \tilde{\theta}) \textrm{d}\tilde{\theta}} = \frac{p(\theta)p(y|\theta)}{p(y)}\]</span> where <span class="math inline">\(p(y)\)</span> obtained by <span style="color:red">Law of Total Probability</span></p>
+</div>
+</section>
+<section id="notes-on-prior-distributions" class="slide level2">
+<h2>Notes on prior distributions</h2>
+<p>Many types of priors may be of interest. These may</p>
+<ul>
+<li class="fragment"><p>represent our own beliefs;</p></li>
+<li class="fragment"><p>represent beliefs of a variety of people with differing prior opinions; or</p></li>
+<li class="fragment"><p>assign probability more or less evenly over a large region of the parameter space</p></li>
+<li class="fragment"><p>designed to provide good frequentist behavior when little is known</p></li>
+</ul>
+</section>
+<section id="notes-on-prior-distributions-1" class="slide level2">
+<h2>Notes on prior distributions</h2>
+<ul>
+<li class="fragment"><p><span style="color:red">Subjective Bayes</span>: a prior should accurately quantify some individual’s beliefs about <span class="math inline">\(\theta\)</span></p></li>
+<li class="fragment"><p><span style="color:red">Objective Bayes</span>: the prior should be chosen to produce a procedure with “good” operating characteristics without including subjective prior knowledge</p></li>
+<li class="fragment"><p><span style="color:red">Weakly informative</span>: prior centered in a plausible region but not overly-informative, as there is a tendency to be over confident about one’s beliefs</p></li>
+<li class="fragment"><p><span style="color:red">Empirical Bayes</span>: uses the data to estimate the prior, then pretends it was known</p></li>
+<li class="fragment"><p><span style="color:red">Practical Bayes</span>: Combination</p></li>
+</ul>
+</section>
+<section id="notes-on-prior-distributions-2" class="slide level2 smaller">
+<h2>Notes on prior distributions</h2>
+<ul>
+<li class="fragment"><p>The prior quantifies ‘your’ initial uncertainty in <span class="math inline">\(\theta\)</span> before you observe new data (new information) - this may be necessarily subjective &amp; summarizes experience in a field or prior research.</p></li>
+<li class="fragment"><p>Even if the prior is not “perfect”, placing higher probability in a ballpark of the truth leads to better performance.</p></li>
+<li class="fragment"><p>Hence, it is very seldom the case that a weakly informative prior is not preferred over no prior. (Model selection is one case where one needs to be careful!)</p></li>
+<li class="fragment"><p>One (very important) role of the prior is to stabilize estimates (shrinkage) in the presence of limited data.</p></li>
+</ul>
+</section>
+<section id="next-steps" class="slide level2">
+<h2>Next Steps</h2>
+<p>Work on <a href="../../schedule.html">Lab 0</a></p>
+<p>Finally, here are some readings to entertain you. Make sure to glance through them within the next week. See <a href="../../resources.html">Course Resources</a></p>
+<ol type="1">
+<li class="fragment"><p>Efron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp.&nbsp;1-5.</p></li>
+<li class="fragment"><p>Gelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp.&nbsp;445-449.</p></li>
+<li class="fragment"><p>Diaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp.&nbsp;271-281.</p></li>
+<li class="fragment"><p>Gelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp.&nbsp;733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics &amp; Probability Letters, 136, pp.&nbsp;4-9.</p></li>
+</ol>
 
 
 <img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -597,7 +780,7 @@ Merlise Clyde
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

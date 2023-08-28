@@ -77,32 +77,39 @@
     "text": "(see Gradescope for any updates on due dates)"
   },
   {
-    "objectID": "hw/hw-01.html#due-500pm-tues-sept-13",
-    "href": "hw/hw-01.html#due-500pm-tues-sept-13",
+    "objectID": "hw/hw-01.html#due-1100pm-tues-sept-13",
+    "href": "hw/hw-01.html#due-1100pm-tues-sept-13",
     "title": "Homework 1",
     "section": "",
     "text": "(see Gradescope for any updates on due dates)"
   },
   {
-    "objectID": "hw/hw-01.html#rrstudio",
-    "href": "hw/hw-01.html#rrstudio",
+    "objectID": "hw/hw-01.html#rstudio",
+    "href": "hw/hw-01.html#rstudio",
     "title": "Homework 1",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+    "section": "RStudio",
+    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
   },
   {
     "objectID": "hw/hw-01.html#r-knitr",
     "href": "hw/hw-01.html#r-knitr",
     "title": "Homework 1",
     "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr."
+    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
   },
   {
-    "objectID": "hw/hw-01.html#github-classroom-gradescope",
-    "href": "hw/hw-01.html#github-classroom-gradescope",
+    "objectID": "hw/hw-01.html#getting-started-with-github-classroom",
+    "href": "hw/hw-01.html#getting-started-with-github-classroom",
     "title": "Homework 1",
-    "section": "Github Classroom & Gradescope",
-    "text": "Github Classroom & Gradescope\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW1\nThis will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw1.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-01.html#gradescope-submission",
+    "href": "hw/hw-01.html#gradescope-submission",
+    "title": "Homework 1",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
     "objectID": "hw/hw-01.html#grading",
@@ -110,13 +117,6 @@
     "title": "Homework 1",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
-  },
-  {
-    "objectID": "labs/lab-00-getting-started.html",
-    "href": "labs/lab-00-getting-started.html",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "",
-    "text": "Due: 11:46pm, Thursday, Aug 31"
   },
   {
     "objectID": "labs/lab-00-getting-started.html#rrstudio",
@@ -144,7 +144,7 @@
     "href": "labs/lab-00-getting-started.html#gradescope",
     "title": "Lab 0: Getting Started with R and Sweave/Knitr",
     "section": "Gradescope",
-    "text": "Gradescope\nYou MUST submit both your .Rnw and .pdf files to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry. For this first lab you do not have to submit, just practice!"
+    "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
   },
   {
     "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
@@ -158,7 +158,7 @@
     "href": "index.html#course-info",
     "title": "STA 702 Fall 2023",
     "section": "Course Info",
-    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 1:45-2:45  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nTBA\nTBA\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
+    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 1:45-2:45  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nTBA\nTBA\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
   },
   {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
@@ -186,14 +186,98 @@
     "href": "resources/slides/00-course-overview.html#computing",
     "title": "Welcome to STA 702",
     "section": "Computing",
-    "text": "Computing\n\nLabs/HW will involve a lot of computing in R!\nWrite your own MCMC samplers and run code long enough to show convergence\nYou can learn R on the fly\n\nsee Resources Tab on website\nmaterials from 2023 Bootcamp/Orientation"
+    "text": "Computing\n\nLabs/HW will involve computing in R!\nWrite your own MCMC samplers and run code long enough to show convergence\nYou can learn R on the fly\n\nsee Resources Tab on website\nmaterials from 2023 Bootcamp/Orientation"
   },
   {
     "objectID": "resources/slides/00-course-overview.html#grading-policies",
     "href": "resources/slides/00-course-overview.html#grading-policies",
     "title": "Welcome to STA 702",
     "section": "Grading Policies",
-    "text": "Grading Policies\n\n5% class\n20% HW\n10% Lab\n20% Midterm I\n20% Midterm II\n25% Final\nNo Late Submissions for HW/Lab; Drop the lowest score\nConfirm that you have access to Sakai, Gradescope, and GitHub.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Grading Policies\n\n5% class\n20% HW\n10% Lab\n20% Midterm I\n20% Midterm II\n25% Final\nNo Late Submissions for HW/Lab; Drop the lowest score\nYou are encouraged to discuss assignments, but copying others work is considered a misconduct violation and will result in a 0 on the assignment\nConfirm that you have access to Sakai, Gradescope, and GitHub"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#course-structure-and-policies",
+    "href": "resources/slides/00-course-overview.html#course-structure-and-policies",
+    "title": "Welcome to STA 702",
+    "section": "Course structure and policies",
+    "text": "Course structure and policies\n\nSee the Syllabus\nMake use of the teaching team’s office hours, we’re here to help!\nDo not hesitate to come to my office hours or you can also make an appointment to discuss a homework problem or any aspect of the course.\nPlease make sure to check your email daily for announcements\nUse the  Reporting an issue link to report broken links or missing content"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#important-dates",
+    "href": "resources/slides/00-course-overview.html#important-dates",
+    "title": "Welcome to STA 702",
+    "section": "Important Dates",
+    "text": "Important Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\nSee Class Schedule for slides, readings, HW, Labs, etc"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#topics",
+    "href": "resources/slides/00-course-overview.html#topics",
+    "title": "Welcome to STA 702",
+    "section": "Topics",
+    "text": "Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nModel Uncertainty/Model Choice\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonparametric Bayes Regression"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
+    "href": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
+    "title": "Welcome to STA 702",
+    "section": "Basics of Bayesian inference",
+    "text": "Basics of Bayesian inference\nGenerally (unless otherwise stated), in this course, we will use the following notation. Let\n\n\\(Y\\) is a random variable from some probability distribution \\(p(y \\mid \\theta)\\)\n\\(\\mathcal{Y}\\) be the sample space (possible outcomes for \\(Y\\))\n\\(y\\) is the observed data\n\\(\\theta\\) is the unknown parameter of interest\n\\(\\Theta\\) be the parameter space\ne.g. \\(Y \\sim \\textsf{Ber}(\\theta)\\) where \\(\\theta = \\Pr(Y = 1)\\)"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#frequentist-inference",
+    "href": "resources/slides/00-course-overview.html#frequentist-inference",
+    "title": "Welcome to STA 702",
+    "section": "Frequentist inference",
+    "text": "Frequentist inference\n\nGiven data \\(y\\), how would we estimate the population parameter \\(\\theta\\)?\n\nMaximum likelihood estimate (MLE)\nMethod of moments\nand so on…\n\nFrequentist MLE finds the one value of \\(\\theta\\) that maximizes the likelihood\nTypically uses large sample (asymptotic) theory to obtain confidence intervals and do hypothesis testing."
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
+    "href": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
+    "title": "Welcome to STA 702",
+    "section": "What are Bayesian methods?",
+    "text": "What are Bayesian methods?\n\nBayesian methods are data analysis tools derived from the principles of Bayesian inference and provide\n\nparameter estimates with good statistical properties;\nparsimonious descriptions of observed data;\npredictions for missing data and forecasts of future data with full uncertainty quantification; and\na computational framework for model estimation, selection, decision making and validation.\nbuilds on likelihood inference"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#bayes-theorem",
+    "href": "resources/slides/00-course-overview.html#bayes-theorem",
+    "title": "Welcome to STA 702",
+    "section": "Bayes’ theorem",
+    "text": "Bayes’ theorem\n\nLet’s take a step back and quickly review the basic form of Bayes’ theorem.\nSuppose there are some events \\(A\\) and B having probabilities \\(\\Pr(A)\\) and \\(\\Pr(B)\\).\nBayes’ rule gives the relationship between the marginal probabilities of A and B and the conditional probabilities.\nIn particular, the basic form of Bayes’ rule or Bayes’ theorem is \\[\\Pr(A | B) = \\frac{\\Pr(A \\ \\textrm{and} \\ B)}{\\Pr(B)} = \\frac{\\Pr(B|A)\\Pr(A)}{\\Pr(B)}\\]\n\\(\\Pr(A)\\) = marginal probability of event \\(A\\), \\(\\Pr(B | A)\\) = conditional probability of event \\(B\\) given event \\(A\\), and so on.\n“reverses the conditioning” e.g. Probability of Covid given a negative test versus probability of a negative test given Covid"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
+    "href": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
+    "title": "Welcome to STA 702",
+    "section": "Bayes’ Rule more generally",
+    "text": "Bayes’ Rule more generally\n\nFor each \\(\\theta \\in \\Theta\\), specify a prior distribution \\(p(\\theta)\\) or \\(\\pi(\\theta)\\), describing our beliefs about \\(\\theta\\) being the true population parameter.\nFor each \\(\\theta \\in \\Theta\\) and \\(y \\in \\mathcal{Y}\\), specify a sampling distribution \\(p(y|\\theta)\\), describing our belief that the data we see \\(y\\) is the outcome of a study with true parameter \\(\\theta\\).  Likelihood \\(L(\\theta|y)\\) proportional to \\(p(y|\\theta)\\)\nAfter observing the data \\(y\\), for each \\(\\theta \\in \\Theta\\), update the prior distribution to a posterior distribution \\(p(\\theta | y)\\) or \\(\\pi(\\theta | y)\\), describing our “updated” belief about \\(\\theta\\) being the true population parameter.\n\n\nGetting from Step 1 to 3? Bayes’ rule!\n\\[p(\\theta | y) = \\frac{p(\\theta)p(y|\\theta)}{\\int_{\\Theta}p(\\tilde{\\theta})p(y| \\tilde{\\theta}) \\textrm{d}\\tilde{\\theta}} = \\frac{p(\\theta)p(y|\\theta)}{p(y)}\\] where \\(p(y)\\) obtained by Law of Total Probability"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\nMany types of priors may be of interest. These may\n\nrepresent our own beliefs;\nrepresent beliefs of a variety of people with differing prior opinions; or\nassign probability more or less evenly over a large region of the parameter space\ndesigned to provide good frequentist behavior when little is known"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\n\nSubjective Bayes: a prior should accurately quantify some individual’s beliefs about \\(\\theta\\)\nObjective Bayes: the prior should be chosen to produce a procedure with “good” operating characteristics without including subjective prior knowledge\nWeakly informative: prior centered in a plausible region but not overly-informative, as there is a tendency to be over confident about one’s beliefs\nEmpirical Bayes: uses the data to estimate the prior, then pretends it was known\nPractical Bayes: Combination"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\n\nThe prior quantifies ‘your’ initial uncertainty in \\(\\theta\\) before you observe new data (new information) - this may be necessarily subjective & summarizes experience in a field or prior research.\nEven if the prior is not “perfect”, placing higher probability in a ballpark of the truth leads to better performance.\nHence, it is very seldom the case that a weakly informative prior is not preferred over no prior. (Model selection is one case where one needs to be careful!)\nOne (very important) role of the prior is to stabilize estimates (shrinkage) in the presence of limited data."
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#next-steps",
+    "href": "resources/slides/00-course-overview.html#next-steps",
+    "title": "Welcome to STA 702",
+    "section": "Next Steps",
+    "text": "Next Steps\nWork on Lab 0\nFinally, here are some readings to entertain you. Make sure to glance through them within the next week. See Course Resources\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "syllabus.html",
@@ -214,14 +298,7 @@
     "href": "resources.html",
     "title": " Resources",
     "section": "",
-    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks. 1. Doing Bayesian Data Analysis in brms and the tidyverse 2. Statistical rethinking with brms, ggplot2, and the tidyverse: Second edition 3. Albert, J. (2009), “Bayesian Computation with R (Second Edition).” 4. Bolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "labs/lab-01-r-review-blank.html",
-    "href": "labs/lab-01-r-review-blank.html",
-    "title": "Lab 1: R Review and Monte Carlo",
-    "section": "",
-    "text": "Due: 1:00pm, Monday, Sept 4"
+    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
   },
   {
     "objectID": "labs/lab-01-r-review-blank.html#rrstudio",
@@ -235,14 +312,21 @@
     "href": "labs/lab-01-r-review-blank.html#r-knitr",
     "title": "Lab 1: R Review and Monte Carlo",
     "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr."
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
   },
   {
-    "objectID": "labs/lab-01-r-review-blank.html#github-classroom-gradescope",
-    "href": "labs/lab-01-r-review-blank.html#github-classroom-gradescope",
+    "objectID": "labs/lab-01-r-review-blank.html#github-classroom",
+    "href": "labs/lab-01-r-review-blank.html#github-classroom",
     "title": "Lab 1: R Review and Monte Carlo",
-    "section": "Github Classroom & Gradescope",
-    "text": "Github Classroom & Gradescope\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope.\nMake sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-01-r-review-blank.html#gradescope",
+    "href": "labs/lab-01-r-review-blank.html#gradescope",
+    "title": "Lab 1: R Review and Monte Carlo",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou mush upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
   {
     "objectID": "reading/08-reading.html",
