@@ -81,8 +81,8 @@ Lecture notes and slides, and assigned readings will be posted on the course web
 -----------|---------------------------------
 Tues, Aug 29| Classes begin
 Fri, Sept 8 | Drop/Add ends
-Sat - Tues, Oct 14 - 17	| Fall Break
 Friday, Oct 13 | Midterm I  (*tentative*)
+Sat - Tues, Oct 14 - 17	| Fall Break
 Tues, Nov 20 | Midterm II (*tentative*)
 Friday, Dec 1 | Graduate Classes End
 Dec 2 - Dec 12 | Graduate Reading Period

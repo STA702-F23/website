@@ -5,10 +5,11 @@ title: "{{< fa book-open >}} Resources"
 ### Supplementary Textbooks
 
 These textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.
-1. [Doing Bayesian Data Analysis in brms and the tidyverse](https://bookdown.org/ajkurz/DBDA_recoded/)
-2. [Statistical rethinking with brms, ggplot2, and the tidyverse: Second edition](https://bookdown.org/content/4857/)
-3. [Albert, J. (2009), "Bayesian Computation with R (Second Edition)."](https://www.amazon.com/Bayesian-Computation-R-Use/dp/0387922970)
-4. [Bolstad, W. M. and Curran, J. M. (2016), "Introduction to Bayesian Statistics (Third Edition)."](https://www.amazon.com/Introduction-Bayesian-Statistics-William-Bolstad/dp/1118091566)
+
+ 1. [Doing Bayesian Data Analysis in brms and the tidyverse](https://bookdown.org/ajkurz/DBDA_recoded/)
+ 2. [Statistical rethinking with brms, ggplot2, and the tidyverse: Second edition](https://bookdown.org/content/4857/)
+ 3. [Albert, J. (2009), "Bayesian Computation with R (Second Edition)."](https://www.amazon.com/Bayesian-Computation-R-Use/dp/0387922970)
+ 4. [Bolstad, W. M. and Curran, J. M. (2016), "Introduction to Bayesian Statistics (Third Edition)."](https://www.amazon.com/Introduction-Bayesian-Statistics-William-Bolstad/dp/1118091566)
 
 ### R and R Markdown Resources
 

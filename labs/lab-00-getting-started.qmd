@@ -2,7 +2,7 @@
 title: "Lab 0: Getting Started with R and Sweave/Knitr"
 ---
 
-**Due:** 11:46pm, Thursday, Aug  31
+## Due: 11:00pm, Thursday, Aug  31
 
 
 # Housekeeping
@@ -17,30 +17,32 @@ Create a github account if you do not have one here [https://github.com](https:/
 
 ## R Sweave
 
-You are required to use R Sweave/knitr to type up HW and lab reports.  Don't worry we will guide you along the way!
+You are required to use `R Sweave/knitr` to type up HW and lab reports.  Don't worry we will guide you along the way!
 
 ## Gradescope
 
-You MUST submit both your .Rnw and .pdf files to the course site on [Gradescope](https://www.gradescope.com/courses/585736).  Make sure to knit to pdf and  to submit under the right assignment entry.   For this first lab you do not have to submit, just practice!
+You MUST submit the final `pdf` file to the course site on [Gradescope](https://www.gradescope.com/courses/585736).  Make sure to knit to pdf and  to submit under the right assignment entry.  
 
 # Lab Goals
 
 For the rest of this lab we are going to redirect you to Github.  At the end of this you should have
 
-1. Cloned a repo based on instructions in the README file
-2. Successfully create an R Project on your personal computer or a department server
-3. Update a Sweave file with your info
+1. Cloned a repo based on instructions in the `README` file
+2. Successfully create an `R Project` on your personal computer or a department server
+3. Update a `Rnw` file with your info
 4. Click `knitr` in Rstudio to create a pdf file!
+5. Push to Github
+6. Submit an assignment to [Gradescope](https://www.gradescope.com/courses/585736)
 
 
-# Getting Started!
+# Get Started!
 
-1. Go to Github classroom to create a repository for this assignment  at [lab0](https://classroom.github.com/a/zqHyddy2)
+1. Go to Github classroom to create a repository for [lab0](https://classroom.github.com/a/zqHyddy2)
 This will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.  Please link your github user name to your profile.
 
 2. Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.
 
-3. Follow the instructions in the README in your repo and follow along in lab to complete the assignment. 
+3. Follow the instructions in the `README` in your repo and follow along in lab to complete the assignment. 
 
 Please try to carry this out before lab on Friday!
 
