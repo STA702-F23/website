@@ -30,7 +30,7 @@ By the end of this course, students should be able to
 Role              | Name |  Email         |  Office Hours  | Location     
 -----------|-------------|----------------|----------------|-------------:
 Instructor | [Dr Merlise Clyde](https://www2.stat.duke.edu/~clyde) | [{{< fa envelope >}} ](mailto:clyde@duke.edu)  | Mon 9:00- 10:00, Thur 1:45-2:45 <br> or by appointment (I have lots of 30 minute gaps!) <br /> | 223E Old Chem |  
-TA               | [Rick Presman](https://scholars.duke.edu/person/rick.presman) | <a href="mailto:rick.presman@duke.edu" title="email"><i class="fa fa-envelope"></i></a> | TBA | TBA
+TA               | [Rick Presman](https://scholars.duke.edu/person/rick.presman) | <a href="mailto:rick.presman@duke.edu" title="email"><i class="fa fa-envelope"></i></a> | Mon 3:00 - 4:00, Fri 9:00-10:00 | 203B Old Chem
 
 
 

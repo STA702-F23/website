@@ -3,14 +3,14 @@ title: "Lab 1: R Review and Monte Carlo"
 toc: true
 ---
 
-## Due:** 11:00pm, Sunday, Sept 3
+## Due: 11:00pm, Sunday, Sept 3
 
 
 # Housekeeping
 
 ## R/RStudio
 
-You all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the "Installers for Supported Platforms" section and find the right installer for your operating system.
+You all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: [https://cran.rstudio.com ](https://cran.rstudio.com) remember to select the right installer for your operating system). Next, install the latest version of RStudio here: [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/). Scroll down to the "Installers for Supported Platforms" section and find the right installer for your operating system.
 
 ## R Knitr
 
@@ -33,7 +33,7 @@ You MUST submit both your final `.Rnw` and `.pdf` files to the repo on Github by
 
 ## Gradescope 
 
-You mush upload the final `pdf`  from your Github repo to [Gradescope](https://www.gradescope.com/courses/585736). 
+You must upload the final `pdf`  from your Github repo to [Gradescope](https://www.gradescope.com/courses/585736). 
 
 Be sure to submit under the right assignment entry by the due date!
 
