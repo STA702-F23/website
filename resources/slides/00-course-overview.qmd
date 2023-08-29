@@ -9,11 +9,16 @@ format:
     slide-number: true
     incremental: true
     scrollable: true
+    controls: true
     fragments: true
     preview-links: auto
     logo: ../../img/icon.png
     footer: <https://sta702-F23.github.io/website/>
-    chalkboard: true
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
