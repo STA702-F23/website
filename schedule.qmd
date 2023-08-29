@@ -54,7 +54,13 @@ add_hw_link<- function(link_location) {
 add_slide_link <- function(Lesson, Slides) {
   ifelse(is.na(Slides), 
         Lesson, 
-        paste0("[", Lesson, "](resources/slides/", Slides, ")"))
+        paste0("[", Lesson, "](resources/slides/", Slides, ".html)"))
+}
+
+add_slide_pdf <- function(Slides) {
+  ifelse(is.na(Slides), 
+        NA, 
+        paste0("[", '<i class="fa fa-file-pdf fa-fw"></i> ',  "](resources/slides/", Slides, ".pdf)"))
 }
 ```
 
@@ -73,23 +79,25 @@ schedule |>
   mutate(Labs = add_lab_link(Labs),
          Reading = add_reading_link(Reading),
          Lesson = add_slide_link(Lesson, Slides),
+         Slides = add_slide_pdf(Slides),
          HW = add_hw_link(HW)
      ) |> 
-  select(-Slides) |>
+  # select(-Slides) |>
   gt() |>
-          fmt_markdown(columns = c(Week, Date, Lesson, Reading, Labs, HW)
+          fmt_markdown(columns = c(Week, Date, Lesson,Slides, Reading, Labs, HW)
      ) |>
           sub_missing(missing_text = "") |>
           cols_width(
             Week ~ px(55),
-            Date ~ px(125),
-            Lesson ~ px(400),
-            Reading ~ px(65),
-            Labs ~ px(65),
+            Date ~ px(120),
+            Lesson ~ px(375),
+            Slides ~ px(55),
+            Reading ~ px(55),
+            Labs ~ px(50),
             HW ~ px(60)
      ) |>
          cols_align("left") |>
-         cols_align("center", columns = c(Reading, Labs))  |>  
+         cols_align("center", columns = c(Reading,Slides, Labs))  |>  
          opt_stylize(style = 1, color = "gray")
 ```
 
