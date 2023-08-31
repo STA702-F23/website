@@ -266,11 +266,172 @@
     "text": "Why ?\nChain Rule!\n\nFind Jefferys’ prior for \\(\\theta\\) where \\(Y \\sim \\textsf{Ber}(\\theta)\\)\nFind information matrix \\(I(\\rho)\\) for \\(\\rho = \\rho(\\theta)\\) from \\(I(\\theta)\\)\nShow that the prior satisfies the invariance property!\nFind Jeffreys’ prior for \\(\\rho = \\log(\\frac{\\theta}{1 - \\theta})\\)\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
+    "objectID": "resources/slides/02-loss-functions.html#last-time",
+    "href": "resources/slides/02-loss-functions.html#last-time",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Last Time …",
+    "text": "Last Time …\n\nIntroduction to “ingredients” of Bayesian analysis\nIllustrated a simple Beta-Binomial conjugate example\nPosterior \\(\\pi(\\theta \\mid y)\\) is a \\(\\textsf{Beta}(a + y, b + n - y )\\)\n\n\nToday …\n\nan introduction to loss functions\nBayes Risk\noptimal decisions and estimators"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#bayes-estimate",
+    "href": "resources/slides/02-loss-functions.html#bayes-estimate",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Bayes estimate",
+    "text": "Bayes estimate\n\nAs we’ve seen by now, having posterior distributions instead of one-number summaries is great for capturing uncertainty.\nThat said, it is still very appealing to have simple summaries, especially when dealing with clients or collaborators from other fields, who desire one.\n\n\nWhat if we want to produce a single “best” estimate of \\(\\theta\\)?\nWhat if we want to produce an interval estimate \\(( \\theta_L, \\theta_U )\\)?\n\n\nThese would provide alternatives to the frequentist MLEs and confidence intervals"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#heuristically",
+    "href": "resources/slides/02-loss-functions.html#heuristically",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Heuristically",
+    "text": "Heuristically\n\n\n\n\n\n\n\n\n\n“best” estimate of \\(\\theta\\) is the maximum a posteriori estimate (MAP) or posterior mode\n\nwhat do we really mean by “best”?\n\nfind an interval such that \\(P(\\theta \\in ( \\theta_L, \\theta_U ) \\mid y) = 1- \\alpha\\)\n\nlots of intervals that satisfy this! which one is “best”?"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#loss-functions-for-estimators",
+    "href": "resources/slides/02-loss-functions.html#loss-functions-for-estimators",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Loss Functions for Estimators",
+    "text": "Loss Functions for Estimators\nIntroduce loss functions for decision making about what to report!\n\na loss function provides a summary for how bad an estimator \\(\\hat{\\theta}\\) is relative to the “true” value of \\(\\theta\\)\nSquared error loss \\((L2)\\)\n\\[l(\\theta, \\hat{\\theta}) = (\\hat{\\theta} - \\theta)^2\\]\nAbsolute error loss \\((L1)\\) \\[l(\\theta, \\hat{\\theta}) = |\\hat{\\theta} - \\theta|\\]\n\n\nBut how do we deal with the fact that we do not know \\(\\theta\\)?"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#bayes-risk",
+    "href": "resources/slides/02-loss-functions.html#bayes-risk",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Bayes Risk",
+    "text": "Bayes Risk\n\nBayes risk is defined as the expected loss of using \\(\\hat{\\theta}\\) averaging over the posterior distribution. \\[ R(\\hat{\\theta}) = \\textsf{E}_{\\pi(\\theta \\mid y)} [l(\\theta, \\hat{\\theta}) ]\\]\nthe Bayes optimal estimate \\(\\hat{\\theta}\\) is the estimator that has the lowest posterior expected loss or Bayes Risk\nDepends on choice of loss function\nFrequentist risk also exists for evaluating a given estimator under true value of \\(\\theta\\) \\[\\textsf{E}_{p(y \\mid \\theta_{\\textrm{true}})} [l(\\theta_{\\textrm{true}} , \\hat{\\theta}) )]\\]"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#squared-error-loss",
+    "href": "resources/slides/02-loss-functions.html#squared-error-loss",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Squared Error Loss",
+    "text": "Squared Error Loss\nA common choice for point estimation is squared error loss:\n\\[R(\\hat{\\theta}) = \\textsf{E}_{\\pi(\\theta \\mid y)} [l(\\theta, \\hat{\\theta}) ] = \\int_\\Theta (\\hat{\\theta} - \\theta)^2 \\pi(\\theta \\mid y) \\, d\\theta\\]\n\n\n\n\n\n\n\nLet’s work it out!\n\n\nExpand, take expectations of \\(R(\\hat{\\theta})\\) with respect to \\(\\theta\\) and factor as a quadratic to find the minimizer (or take derivatives)"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#steps",
+    "href": "resources/slides/02-loss-functions.html#steps",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Steps",
+    "text": "Steps\n\\[R(\\hat{\\theta}) = \\int_\\Theta (\\hat{\\theta}^2 - 2 \\hat{\\theta} \\theta + \\theta^2) \\pi(\\theta \\mid y) \\, d \\theta\\]\n\n\\[R(\\hat{\\theta}) = \\hat{\\theta}^2 - 2 \\hat{\\theta} \\int_\\Theta \\theta \\pi(\\theta \\mid y) \\, d\\theta +  \\int_\\Theta \\theta^2  \\pi(\\theta \\mid y) \\, d\\theta\\]\n\n\n\\[R(\\hat{\\theta}) = \\hat{\\theta}^2 - 2 \\hat{\\theta} \\textsf{E}[\\theta \\mid y] + \\textsf{E}[\\theta^2 \\mid y]\\]\n\n\n\\[R(\\hat{\\theta}) = \\hat{\\theta}^2 - 2 \\hat{\\theta} \\textsf{E}[\\theta \\mid y] +  \\textsf{E}[\\theta \\mid y]^2 - \\textsf{E}[\\theta \\mid y]^2 +  \\textsf{E}[\\theta^2 \\mid y]\\]\n\n\nQuadratic in \\(\\hat{\\theta}\\) minimized when \\(\\hat{\\theta} = \\textsf{E}[\\theta \\mid y]\\)\n\\(\\Rightarrow\\) posterior mean is the Bayes optimal estimator for \\(\\theta\\) under squared error loss\n\nIn the beta-binomial case for example, the optimal Bayes estimate under squared error loss is \\(\\hat{\\theta} = \\frac{a+y}{a+b+n}\\)"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#what-about-other-loss-functions",
+    "href": "resources/slides/02-loss-functions.html#what-about-other-loss-functions",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "What about other loss functions?",
+    "text": "What about other loss functions?\n\nClearly, squared error is only one possible loss function. An alternative is absolute loss, which has \\[l(\\theta, \\hat{\\theta})  = |\\theta - \\hat{\\theta}|\\]\nAbsolute loss places less of a penalty on large deviations & the resulting Bayes estimate is the posterior median.\nMedian is actually relatively easy to estimate.\nRecall that for a continuous random variable \\(Y\\) with cdf \\(F\\), the median of the distribution is the value \\(z\\), which satisfies \\[F(z) = \\Pr(Y\\leq z) = \\dfrac{1}{2}= \\Pr(Y\\geq z) = 1-F(z)\\]\nAs long as we know how to evaluate the CDF of the distribution we have, we can solve for \\(z\\)."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#beta-binomial",
+    "href": "resources/slides/02-loss-functions.html#beta-binomial",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Beta-Binomial",
+    "text": "Beta-Binomial\n\nFor the beta-binomial model, the CDF of the beta posterior can be written as \\[F(z) = \\Pr(\\theta\\leq z | y) = \\int^z_0 \\textrm{Beta}(\\theta| a+y, b+n-y) d\\theta.\\]\nThen, if \\(\\hat{\\theta}\\) is the median, we have that \\(F(\\hat{\\theta}) = 0.5\\)\nTo solve for \\(\\hat{\\theta}\\), apply the inverse CDF \\[\\hat{\\theta} = F^{-1}(0.5)\\]\nIn R, that’s simply\n\n\n\nqbeta(0.5,a+y,b+n-y)\n\n\nFor other distributions, switch out the beta."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#loss-functions-in-general",
+    "href": "resources/slides/02-loss-functions.html#loss-functions-in-general",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Loss Functions in General",
+    "text": "Loss Functions in General\n\nA loss function \\(l(\\theta, \\delta(y) )\\) is a function of the parameter \\(\\theta\\) and \\(\\delta(y)\\) based on just the data \\(y\\)\nFor example, \\(\\delta(y) = \\bar{y}\\) can be the decision to use the sample mean to estimate \\(\\theta\\), the true population mean.\n\\(l(\\theta, \\delta(y) )\\) determines the penalty for making the decision \\(\\delta(y)\\), if \\(\\theta\\) is the true parameter or state of nature; the loss function characterizes the price paid for errors.\nBayes optimal estimator or action is the estimator/action that minimizes the expected posterior loss marginalizing out any unknowns over posterior/predictive distribution."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#map-estimator",
+    "href": "resources/slides/02-loss-functions.html#map-estimator",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "MAP Estimator",
+    "text": "MAP Estimator\n\nWhat about the MAP estimator? Is it an optimal Bayes estimator & under what choice of loss function?\n\\(L_\\infty\\) loss:\n\n.block[ \\[R_{\\infty}(\\hat{\\theta}) = \\lim_{p \\to \\infty} \\int_\\Theta (\\theta - \\hat{\\theta})^p \\pi(\\theta \\mid y) \\, d \\theta\\] ]\n\nEssentially saying that we need the estimator to be right on the truth or the error blows up!\nIs this a reasonable loss function?"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#interval-estimates",
+    "href": "resources/slides/02-loss-functions.html#interval-estimates",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Interval Estimates",
+    "text": "Interval Estimates\nRecall that a frequentist confidence interval \\([l(y), \\ u(y)]\\) has 95% frequentist coverage for a population parameter \\(\\theta\\) if, before we collect the data, .block[ \\[\\Pr[l(y) &lt; \\theta &lt; u(y) | \\theta] = 0.95.\\]]\n\nThis means that 95% of the time, our constructed interval will cover the true parameter, and 5% of the time it won’t.\nThere is NOT a 95% chance your interval covers the true parameter once you have collected the data.\nIn any given sample, you don’t know whether you’re in the lucky 95% or the unlucky 5%. You just know that either the interval covers the parameter, or it doesn’t (useful, but not too helpful clearly).\nOften based on aysmptotics i.e use a Wald or other type of frequentist asymptotic interval \\(\\hat{\\theta} \\pm 1.96 \\,\\text{se}(\\hat{\\theta})\\)"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#bayesian-intervals",
+    "href": "resources/slides/02-loss-functions.html#bayesian-intervals",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Bayesian Intervals",
+    "text": "Bayesian Intervals\n\nWe want a Bayesian alternative to confidence intervals\n\nfor some pre-specified value of \\(\\alpha\\)\n\nAn interval \\([l(y), \\ u(y)]\\) has \\(1 - \\alpha\\) 100% Bayesian coverage for \\(\\theta\\) if .block[ \\[\\Pr(\\theta \\in [l(y), \\ u(y)] \\mid y) = 1 - \\alpha\\]]\nThis describes our information about where \\(\\theta\\) lies after we observe the data.\nFantastic! This is actually the interpretation people want to give to the frequentist confidence interval.\nBayesian interval estimates are often generally called credible intervals or credible sets.\n\nHow to choose \\([l(y), \\ u(y)]\\)?"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#bayesian-equal-tail-interval",
+    "href": "resources/slides/02-loss-functions.html#bayesian-equal-tail-interval",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Bayesian Equal Tail Interval",
+    "text": "Bayesian Equal Tail Interval\n\nThe easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with equal tail areas. Often when researchers refer to a credible interval, this is what they mean.\nTo make a \\(100 \\times (1-\\alpha)%\\) equi-tail quantile-based credible interval, find numbers (quantiles) \\(\\theta_{\\alpha/2} &lt; \\theta_{1-\\alpha/2}\\) such that\n\n\\(\\Pr(\\theta &lt; \\theta_{\\alpha/2} \\mid y) = \\dfrac{\\alpha}{2}\\); and\n\\(\\Pr(\\theta &gt; \\theta_{1-\\alpha/2} \\mid y) = \\dfrac{\\alpha}{2}\\).\n\n\nConvenient conceptually and easy as we just take the \\(\\alpha/2\\) and \\(1 - \\alpha/2\\) quantiles of \\(\\pi(\\theta \\mid y)\\) as \\(l(y)\\) and \\(u(y)\\), respectively."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#beta-binomial-equal-tailed-interval",
+    "href": "resources/slides/02-loss-functions.html#beta-binomial-equal-tailed-interval",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Beta-Binomial Equal-tailed Interval",
+    "text": "Beta-Binomial Equal-tailed Interval\n\n\n[1] 0.0228312 0.4127799"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#monte-carlo-version",
+    "href": "resources/slides/02-loss-functions.html#monte-carlo-version",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Monte Carlo Version",
+    "text": "Monte Carlo Version\n\nSuppose we don’t have \\(\\pi(\\theta \\mid y)\\) is a simple form, but we do have samples \\(\\theta_1, \\ldots, \\theta_T\\) from \\(\\pi(\\theta \\mid y)\\)\nWe can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries .block[ .small[ \\[\\hat{\\theta} = \\textsf{E}[\\theta \\mid y] \\approx \\frac{1}{T} \\sum_{t= 1}^T \\theta_t\\]]]\nwhat about MC quantile estimates?\nFind the 2.5th and 97.5th percentile from the empirical distribution\n\n\n\n      2.5%      97.5% \n0.02450283 0.42328279 \n\n\nEqual-Tail Interval\n\nNote there are values of \\(\\theta\\) outside the quantile-based credible interval, with higher density than some values inside the interval."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#hpd-region",
+    "href": "resources/slides/02-loss-functions.html#hpd-region",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "HPD region",
+    "text": "HPD region\n\nA \\(100 \\times (1-\\alpha)%\\) highest posterior density (HPD) region is a subset \\(s(y)\\) of the parameter space \\(\\Theta\\) such that\n\n\\(\\Pr(\\theta \\in s(y) \\mid y) = 1-\\alpha\\); and\nIf \\(\\theta_a \\in s(y)\\) and \\(\\theta_b \\notin s(y)\\), then \\(p(\\theta_a \\mid y) &gt; p(\\theta_b \\mid y)\\) (highest density set)\n\n\\(\\Rightarrow\\) All points in a HPD region have higher posterior density than points outside the region.\nThe basic idea is to gradually move a horizontal line down across the density, including in the HPD region all values of \\(\\theta\\) with a density above the horizontal line.\nStop moving the line down when the posterior probability of the values of \\(\\theta\\) in the region reaches \\(1-\\alpha\\)."
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#simulation-based",
+    "href": "resources/slides/02-loss-functions.html#simulation-based",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Simulation Based",
+    "text": "Simulation Based\n\n\n           lower     upper\nvar1 0.007101321 0.3687426\nattr(,\"Probability\")\n[1] 0.95\n\n\nHPD Intervals"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#properties-of-hpd-sets",
+    "href": "resources/slides/02-loss-functions.html#properties-of-hpd-sets",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Properties of HPD Sets",
+    "text": "Properties of HPD Sets\n\nShortest length interval (or volume) for the given coverage\nEquivalent to Equal-Tail Intervals if the posterior is unimodal and symmetric\nMay not be an interval if the posterior distribution is multi-modal\nIn general, not invariant under monotonic transformations of \\(\\theta\\)\nMore computationally intensive to solve!"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#loss-functions-for-interval-estimation",
+    "href": "resources/slides/02-loss-functions.html#loss-functions-for-interval-estimation",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Loss Functions for Interval Estimation",
+    "text": "Loss Functions for Interval Estimation\nSee “The Bayesian Choice” by Christian Robert Section 5.5.5"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#connections-between-bayes-and-mle-based-frequentist-inference",
+    "href": "resources/slides/02-loss-functions.html#connections-between-bayes-and-mle-based-frequentist-inference",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Connections between Bayes and MLE Based Frequentist Inference",
+    "text": "Connections between Bayes and MLE Based Frequentist Inference\n** Berstein von Mises** (BvM) Theorems aka Bayesian Central Limit Theorems\n\nexamine limiting form of the posterior distribution \\(\\pi(\\theta \\mid y)\\) as \\(n \\to \\infty\\)\n\\(\\pi(\\theta \\mid y)\\) goes to a Gaussian under regularity conditions\n\ncentered at the MLE\nvariance given by the inverse of the Expected Fisher Information (var of MLE)\n\nThe most important implication of the BvM is that Bayesian inference is asymptotically correct from a frequentist point of view\nUsed to justify Normal Approximations to the posterior distribution (eg Laplace approximations)"
+  },
+  {
+    "objectID": "resources/slides/02-loss-functions.html#model-misspecification",
+    "href": "resources/slides/02-loss-functions.html#model-misspecification",
+    "title": "Loss Functions, Bayes Risk and Posterior Summaries",
+    "section": "Model Misspecification ?",
+    "text": "Model Misspecification ?\n\nWe might have chosen a bad sampling model/likelihood\nposterior still converges to a Gaussian centered at the MLE under the misspecified model, but wrong variance\n95% Bayesian credible sets do not have correct frequentist coverage\nSee Klein & van der Vaart for more rigorous treatment if interested\nparametric model is “close” to the true data-generating process\nmodel diagnostics & changing the model can reduce the gap between model we are using and the true data generating process\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": " Syllabus",
     "section": "",
     "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+  },
+  {
+    "objectID": "resources/slides/template.html",
+    "href": "resources/slides/template.html",
+    "title": "STA 702 Fall 2023",
+    "section": "",
+    "text": "subtitle: “STA 702: Lecture ?” title: “template” author: “Merlise Clyde” institute: “Duke University” format: revealjs: theme: [simple, custom.scss] slide-number: true incremental: true scrollable: false controls: true fragments: true preview-links: auto logo: ../../img/icon.png footer: https://sta702-F23.github.io/website/ chalkboard: boardmarker-width: 1 chalk-width: 2 chalk-effect: 0 embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js”\neditor: markdown: wrap: 72 execute: echo: false"
   },
   {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
