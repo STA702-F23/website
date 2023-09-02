@@ -562,17 +562,14 @@ Merlise Clyde
 <h2>MAP Estimator</h2>
 <ul>
 <li class="fragment"><p>What about the MAP estimator? Is it an optimal Bayes estimator &amp; under what choice of loss function?</p></li>
-<li class="fragment"><p><span class="math inline">\(L_\infty\)</span> loss:</p></li>
-</ul>
-<p>.block[ <span class="math display">\[R_{\infty}(\hat{\theta}) = \lim_{p \to \infty} \int_\Theta (\theta - \hat{\theta})^p \pi(\theta \mid y) \, d \theta\]</span> ]</p>
-<ul>
+<li class="fragment"><p><span class="math inline">\(L_\infty\)</span> loss: <span class="math display">\[R_{\infty}(\hat{\theta}) = \lim_{p \to \infty} \int_\Theta (\theta - \hat{\theta})^p \pi(\theta \mid y) \, d \theta\]</span></p></li>
 <li class="fragment"><p>Essentially saying that we need the estimator to be right on the truth or the error blows up!</p></li>
 <li class="fragment"><p>Is this a reasonable loss function?</p></li>
 </ul>
 </section>
-<section id="interval-estimates" class="slide level2">
+<section id="interval-estimates" class="slide level2 smaller">
 <h2>Interval Estimates</h2>
-<p>Recall that a frequentist confidence interval <span class="math inline">\([l(y), \ u(y)]\)</span> has 95% frequentist coverage for a population parameter <span class="math inline">\(\theta\)</span> if, before we collect the data, .block[ <span class="math display">\[\Pr[l(y) &lt; \theta &lt; u(y) | \theta] = 0.95.\]</span>]</p>
+<p>Recall that a frequentist confidence interval <span class="math inline">\([l(y), \ u(y)]\)</span> has 95% frequentist coverage for a population parameter <span class="math inline">\(\theta\)</span> if, before we collect the data, <span class="math display">\[\Pr[l(y) &lt; \theta &lt; u(y) | \theta] = 0.95.\]</span></p>
 <ul>
 <li class="fragment"><p>This means that 95% of the time, our constructed interval will cover the true parameter, and 5% of the time it won’t.</p></li>
 <li class="fragment"><p>There is NOT a 95% chance your interval covers the true parameter once you have collected the data.</p></li>
@@ -580,21 +577,20 @@ Merlise Clyde
 <li class="fragment"><p>Often based on aysmptotics i.e use a Wald or other type of frequentist asymptotic interval <span class="math inline">\(\hat{\theta} \pm 1.96 \,\text{se}(\hat{\theta})\)</span></p></li>
 </ul>
 </section>
-<section id="bayesian-intervals" class="slide level2">
+<section id="bayesian-intervals" class="slide level2 smaller">
 <h2>Bayesian Intervals</h2>
 <ul>
-<li class="fragment">We want a Bayesian alternative to confidence intervals</li>
-</ul>
-<p>for some pre-specified value of <span class="math inline">\(\alpha\)</span></p>
-<ul>
-<li class="fragment"><p>An interval <span class="math inline">\([l(y), \ u(y)]\)</span> has <span class="math inline">\(1 - \alpha\)</span> 100% Bayesian coverage for <span class="math inline">\(\theta\)</span> if .block[ <span class="math display">\[\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha\]</span>]</p></li>
+<li class="fragment"><p>We want a Bayesian alternative to confidence intervals for some pre-specified value of <span class="math inline">\(\alpha\)</span></p></li>
+<li class="fragment"><p>An interval <span class="math inline">\([l(y), \ u(y)]\)</span> has <span class="math inline">\(1 - \alpha\)</span> 100% Bayesian coverage for <span class="math inline">\(\theta\)</span> if <span class="math display">\[\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha\]</span></p></li>
 <li class="fragment"><p>This describes our information about where <span class="math inline">\(\theta\)</span> lies <em>after</em> we observe the data.</p></li>
 <li class="fragment"><p>Fantastic! This is actually the interpretation people want to give to the frequentist confidence interval.</p></li>
 <li class="fragment"><p>Bayesian interval estimates are often generally called <strong>credible intervals</strong> or <strong>credible sets</strong>.</p></li>
 </ul>
+<div class="fragment">
 <p>How to choose <span class="math inline">\([l(y), \ u(y)]\)</span>?</p>
+</div>
 </section>
-<section id="bayesian-equal-tail-interval" class="slide level2">
+<section id="bayesian-equal-tail-interval" class="slide level2 smaller">
 <h2>Bayesian Equal Tail Interval</h2>
 <ul>
 <li class="fragment"><p>The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with <strong>equal tail areas</strong>. Often when researchers refer to a credible interval, this is what they mean.</p></li>
@@ -604,37 +600,41 @@ Merlise Clyde
 <li class="fragment"><p><span class="math inline">\(\Pr(\theta &gt; \theta_{1-\alpha/2} \mid y) = \dfrac{\alpha}{2}\)</span>.</p></li>
 </ol></li>
 </ul>
+<div class="fragment">
 <p>Convenient conceptually and easy as we just take the <span class="math inline">\(\alpha/2\)</span> and <span class="math inline">\(1 - \alpha/2\)</span> quantiles of <span class="math inline">\(\pi(\theta \mid y)\)</span> as <span class="math inline">\(l(y)\)</span> and <span class="math inline">\(u(y)\)</span>, respectively.</p>
+</div>
 </section>
 <section id="beta-binomial-equal-tailed-interval" class="slide level2">
 <h2>Beta-Binomial Equal-tailed Interval</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0228312 0.4127799</code></pre>
-</div>
-</div>
 
-<img data-src="02-loss-functions_files/figure-revealjs/equal.tail-1.png" style="width:50.0%" class="r-stretch"></section>
-<section id="monte-carlo-version" class="slide level2">
+<img data-src="02-loss-functions_files/figure-revealjs/equal.tail-1.png" style="width:750.0%" class="r-stretch"><p>95% Equal -Tail Area interval is <span class="math inline">\((0.02, 0.41)\)</span></p>
+</section>
+<section id="monte-carlo-version" class="slide level2 smaller">
 <h2>Monte Carlo Version</h2>
 <ul>
 <li class="fragment"><p>Suppose we don’t have <span class="math inline">\(\pi(\theta \mid y)\)</span> is a simple form, but we do have samples <span class="math inline">\(\theta_1, \ldots, \theta_T\)</span> from <span class="math inline">\(\pi(\theta \mid y)\)</span></p></li>
-<li class="fragment"><p>We can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries .block[ .small[ <span class="math display">\[\hat{\theta} = \textsf{E}[\theta \mid y] \approx \frac{1}{T} \sum_{t= 1}^T \theta_t\]</span>]]</p></li>
+<li class="fragment"><p>We can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries <span class="math display">\[\hat{\theta} = \textsf{E}[\theta \mid y] \approx \frac{1}{T} \sum_{t= 1}^T \theta_t\]</span></p></li>
 <li class="fragment"><p>what about MC quantile estimates?</p></li>
 <li class="fragment"><p>Find the 2.5th and 97.5th percentile from the empirical distribution</p></li>
 </ul>
+<div class="fragment">
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>theta <span class="ot">=</span> <span class="fu">rbeta</span>(<span class="dv">1000</span>, a <span class="sc">+</span> y, b <span class="sc">+</span> n <span class="sc">-</span> y)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">quantile</span>(theta, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      2.5%      97.5% 
-0.02450283 0.42328279 </code></pre>
+0.02002431 0.38607186 </code></pre>
 </div>
 </div>
-<h3 id="equal-tail-interval">Equal-Tail Interval</h3>
+</div>
+</section>
+<section id="equal-tail-interval" class="slide level2 smaller">
+<h2>Equal-Tail Interval</h2>
 
 <img data-src="02-loss-functions_files/figure-revealjs/MC.equal.tail-1.png" style="width:75.0%" class="r-stretch"><p><strong>Note</strong> there are values of <span class="math inline">\(\theta\)</span> outside the quantile-based credible interval, with higher density than some values inside the interval.</p>
 </section>
-<section id="hpd-region" class="slide level2">
-<h2>HPD region</h2>
+<section id="hpd-region" class="slide level2 smaller">
+<h2>HPD Region</h2>
 <ul>
 <li class="fragment"><p>A <span class="math inline">\(100 \times (1-\alpha)%\)</span> highest posterior density (HPD) region is a subset <span class="math inline">\(s(y)\)</span> of the parameter space <span class="math inline">\(\Theta\)</span> such that</p>
 <ol type="1">
@@ -646,36 +646,56 @@ Merlise Clyde
 <li class="fragment"><p>Stop moving the line down when the posterior probability of the values of <span class="math inline">\(\theta\)</span> in the region reaches <span class="math inline">\(1-\alpha\)</span>.</p></li>
 </ul>
 </section>
-<section id="simulation-based" class="slide level2">
-<h2>Simulation Based</h2>
+<section id="simulation-based-using-the-coda-package" class="slide level2 smaller">
+<h2>Simulation Based using the <code>coda</code> Package</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
+<div class="cell-output-display">
+<p><img data-src="02-loss-functions_files/figure-revealjs/HPD-MCMC-1.png" width="432"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(coda)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">HPDinterval</span>(<span class="fu">as.mcmc</span>(theta))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           lower     upper
-var1 0.007101321 0.3687426
+var1 0.006022542 0.3671478
 attr(,"Probability")
 [1] 0.95</code></pre>
 </div>
 </div>
-<h3 id="hpd-intervals">HPD Intervals</h3>
-
-<img data-src="02-loss-functions_files/figure-revealjs/MC.HPD-1.png" style="width:75.0%" class="r-stretch"></section>
-<section id="properties-of-hpd-sets" class="slide level2">
+</div>
+</div>
+</section>
+<section id="properties-of-hpd-sets" class="slide level2 smaller">
 <h2>Properties of HPD Sets</h2>
 <ul>
 <li class="fragment"><p>Shortest length interval (or volume) for the given coverage</p></li>
 <li class="fragment"><p>Equivalent to Equal-Tail Intervals if the posterior is unimodal and symmetric</p></li>
 <li class="fragment"><p>May not be an interval if the posterior distribution is multi-modal</p></li>
-<li class="fragment"><p>In general, not invariant under monotonic transformations of <span class="math inline">\(\theta\)</span></p></li>
-<li class="fragment"><p>More computationally intensive to solve!</p></li>
+<li class="fragment"><p>In general, not invariant under monotonic transformations of <span class="math inline">\(\theta\)</span>. (Why?)</p></li>
+<li class="fragment"><p>More computationally intensive to solve exactly!</p></li>
 </ul>
+<div class="fragment">
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>See “The Bayesian Choice” by Christian Robert <a href="https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf">Section 5.5.5</a> for more info on Loss Functions for Interval Estimation</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="loss-functions-for-interval-estimation" class="slide level2">
-<h2>Loss Functions for Interval Estimation</h2>
-<p>See “The Bayesian Choice” by Christian Robert <a href="https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf">Section 5.5.5</a></p>
-</section>
-<section id="connections-between-bayes-and-mle-based-frequentist-inference" class="slide level2">
+<section id="connections-between-bayes-and-mle-based-frequentist-inference" class="slide level2 smaller">
 <h2>Connections between Bayes and MLE Based Frequentist Inference</h2>
-<p>** Berstein von Mises** (BvM) Theorems aka Bayesian Central Limit Theorems</p>
+<p><span style="color:red">Berstein von Mises (BvM) Theorems</span>) aka Bayesian Central Limit Theorems</p>
 <ul>
 <li class="fragment"><p>examine limiting form of the posterior distribution <span class="math inline">\(\pi(\theta \mid y)\)</span> as <span class="math inline">\(n \to \infty\)</span></p></li>
 <li class="fragment"><p><span class="math inline">\(\pi(\theta \mid y)\)</span> goes to a Gaussian under regularity conditions</p>
@@ -687,7 +707,7 @@ attr(,"Probability")
 <li class="fragment"><p>Used to justify Normal Approximations to the posterior distribution (eg Laplace approximations)</p></li>
 </ul>
 </section>
-<section id="model-misspecification" class="slide level2">
+<section id="model-misspecification" class="slide level2 smaller">
 <h2>Model Misspecification ?</h2>
 <ul>
 <li class="fragment"><p>We might have chosen a bad sampling model/likelihood</p></li>
