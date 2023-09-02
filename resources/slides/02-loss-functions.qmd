@@ -265,10 +265,8 @@ qbeta(0.5,a+y,b+n-y)
 
 
 - $L_\infty$ loss: 
-
-.block[
 $$R_{\infty}(\hat{\theta}) = \lim_{p \to \infty} \int_\Theta (\theta - \hat{\theta})^p \pi(\theta \mid y) \, d \theta$$ 
-]
+
 
 
 
@@ -280,12 +278,11 @@ $$R_{\infty}(\hat{\theta}) = \lim_{p \to \infty} \int_\Theta (\theta - \hat{\the
 - Is this a reasonable loss function?  
 
 
-## Interval Estimates 
+## Interval Estimates  {.smaller}
 
- Recall that a frequentist confidence interval  $[l(y), \ u(y)]$ has 95% frequentist coverage for a population parameter $\theta$ if, before we collect the data,
-.block[
+Recall that a frequentist confidence interval  $[l(y), \ u(y)]$ has 95% frequentist coverage for a population parameter $\theta$ if, before we collect the data,
 $$\Pr[l(y) < \theta < u(y) | \theta] = 0.95.$$
-]
+
 
 
 
@@ -308,18 +305,14 @@ You just know that either the interval covers the parameter, or it doesn't (usef
 - Often based on aysmptotics i.e use a Wald or other type of frequentist asymptotic  interval  $\hat{\theta} \pm 1.96 \,\text{se}(\hat{\theta})$
 
 
-## Bayesian Intervals 
+## Bayesian Intervals  {.smaller}
 
 - We want a Bayesian alternative to confidence intervals
-
-
-
 for some pre-specified value of $\alpha$
 
 - An interval $[l(y), \ u(y)]$ has $1 - \alpha$ 100% Bayesian coverage for $\theta$ if
-.block[
 $$\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha$$
-]
+
 
 
 
@@ -333,12 +326,12 @@ $$\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha$$
 
 - Bayesian interval estimates are often generally called **credible intervals** or **credible sets**.
 
-
+. . .
 
 How to choose $[l(y), \ u(y)]$?
 
 
-## Bayesian Equal Tail Interval
+## Bayesian Equal Tail Interval {.smaller}
 
 - The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with **equal tail areas**.   Often when researchers refer to a credible interval, this is what they mean.
 
@@ -352,7 +345,7 @@ How to choose $[l(y), \ u(y)]$?
   2. $\Pr(\theta > \theta_{1-\alpha/2} \mid y) = \dfrac{\alpha}{2}$.
   
 
-
+. . .
 
 Convenient conceptually and easy as we just take the $\alpha/2$ and $1 - \alpha/2$ quantiles of $\pi(\theta \mid y)$ as $l(y)$ and $u(y)$, respectively.
 
@@ -360,15 +353,19 @@ Convenient conceptually and easy as we just take the $\alpha/2$ and $1 - \alpha/
 
 ## Beta-Binomial Equal-tailed Interval
 
-```{r CI}
+```{r}
+#| label: CI
 a = 1; b= 1; y = 1; n = 10
 ly = qbeta(0.025, a + y, b + n - y)
 uy = qbeta(0.975, a + y, b + n - y)
-c(ly, uy)
 ```
 
 
-```{r equal.tail, fig.height=4, fig.width=4.5, out.width="50%",  echo=F}
+```{r}
+#| label: equal.tail
+#| fig.height: 4
+#| fig.width: 4.5
+#| out.width: "750%"
 y = 1; n = 10
 th <- seq(0,1,by=0.00001)
 a = 1; b= 1
@@ -380,9 +377,9 @@ segments(uy, 0, uy, dbeta(uy, y + a, n - y + b), lty=3, lwd=2, col="red")
 
 ```
 
+95% Equal -Tail Area interval is $(`r  round(ly,2)`, `r round(uy,2)`)$
 
-
-## Monte Carlo Version
+## Monte Carlo Version {.smaller}
 
 - Suppose we don't have $\pi(\theta \mid y)$ is a simple form, but we do have samples 
 $\theta_1, \ldots, \theta_T$ from $\pi(\theta \mid y)$
@@ -390,9 +387,8 @@ $\theta_1, \ldots, \theta_T$ from $\pi(\theta \mid y)$
 
 
 - We can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries
-.block[ .small[
 $$\hat{\theta} = \textsf{E}[\theta \mid y] \approx \frac{1}{T} \sum_{t= 1}^T \theta_t$$
-]]
+
 
 
 
@@ -404,16 +400,21 @@ $$\hat{\theta} = \textsf{E}[\theta \mid y] \approx \frac{1}{T} \sum_{t= 1}^T \th
 
 - Find the 2.5th and 97.5th percentile from the empirical distribution
 
+. . .
+
 ```{r MC}
+#| label: MC
+#| echo: TRUE
+
 theta = rbeta(1000, a + y, b + n - y)
 quantile(theta, c(0.025, 0.975))
 ```
 
 
 
-### Equal-Tail Interval
+## Equal-Tail Interval {.smaller}
 
-```{r MC.equal.tail, fig.height=4, fig.width=4.5, out.width="75%",  echo=F}
+```{r MC.equal.tail, fig.height=5, fig.width=5.5, out.width="75%",  echo=F}
 y = 1; n = 10
 th <- seq(0,1,by=0.00001)
 a = 1; b= 1
@@ -433,7 +434,7 @@ segments(uy, 0, uy, dbeta(uy, y + a, n - y + b), lty=3, lwd=2, col="red")
 
 
 
-## HPD region
+## HPD Region {.smaller}
 
 - A $100 \times (1-\alpha)%$ highest posterior density (HPD) region is a subset $s(y)$ of the parameter space $\Theta$ such that
 
@@ -454,17 +455,21 @@ segments(uy, 0, uy, dbeta(uy, y + a, n - y + b), lty=3, lwd=2, col="red")
 - Stop moving the line down when the posterior probability of the values of $\theta$ in the region reaches $1-\alpha$.
 
 
-##  Simulation Based
+##  Simulation Based using  the `coda` Package {.smaller}
 
 ```{r}
-suppressMessages(library(rjags))
-HPDinterval(as.mcmc(theta))
+#| echo: FALSE
+library(coda)
 ```
 
+:::: {.columns}
 
-### HPD Intervals
+::: {.column width=50%}
 
-```{r MC.HPD, fig.height=4, fig.width=4.5, out.width="75%",  echo=F}
+```{r}
+#| label: HPD-MCMC
+#| fig.height: 5
+#| fig.width:  4.5
 y = 1; n = 10
 th <- seq(0,1,by=0.00001)
 a = 1; b= 1
@@ -484,7 +489,7 @@ segments(hpd[2], 0, hpd[2], dbeta(hpd[2], y + a, n - y + b), lty=1, lwd=2, col="
 segments(hpd[1], dbeta(hpd[1], y + a, n - y + b), 
          hpd[2], dbeta(hpd[2], y + a, n - y + b), lty=1, lwd=2, col="black")
 
-hpd = HPDinterval(as.mcmc(theta), prob= 0.9)
+hpd = coda::HPDinterval(as.mcmc(theta), prob= 0.9)
 segments(hpd[1], 0, hpd[1], dbeta(hpd[1], y + a, n - y + b), lty=1, lwd=2, col="grey")
 segments(hpd[2], 0, hpd[2], dbeta(hpd[2], y + a, n - y + b), lty=1, lwd=2, col="grey")
 segments(hpd[1], dbeta(hpd[1], y + a, n - y + b), 
@@ -494,11 +499,26 @@ legend("topright", legend=c("0.95 equal-tail CI", "0.95 HPD", "0.90 HPD"),
        col=c("red", "black", "grey"),
        lty= c(3,1,1), lwd=2)
 ```
+:::
+
+::: {.column width=50%}
 
 
 
+&nbsp;
 
-## Properties of HPD Sets
+&nbsp;
+
+```{r}
+#| echo: TRUE
+library(coda)
+HPDinterval(as.mcmc(theta))
+```
+:::
+
+::::
+
+## Properties of HPD Sets {.smaller}
 
 - Shortest length interval (or volume) for the given coverage
 
@@ -514,26 +534,28 @@ legend("topright", legend=c("0.95 equal-tail CI", "0.95 HPD", "0.90 HPD"),
 
 
 
-- In general, not invariant under monotonic transformations of $\theta$
+- In general, not invariant under monotonic transformations of $\theta$. (Why?)
 
 
 
-- More computationally intensive to solve!  
+- More computationally intensive to solve exactly!  
 
+. . .
 
-
-
-
-##  Loss Functions for Interval Estimation
-
-
+::::{.callout-note}
 See "The Bayesian Choice"  by Christian Robert [Section 5.5.5 ](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)
+ for more info on Loss Functions for Interval Estimation
+::::
 
 
 
-## Connections between Bayes and MLE Based Frequentist Inference
 
-** Berstein von Mises** (BvM) Theorems aka Bayesian Central Limit Theorems
+
+
+
+## Connections between Bayes and MLE Based Frequentist Inference {.smaller}
+
+[Berstein von Mises (BvM) Theorems]{style="color:red"}) aka Bayesian Central Limit Theorems
 
 
 
@@ -563,7 +585,7 @@ See "The Bayesian Choice"  by Christian Robert [Section 5.5.5 ](https://link-spr
 
 
 
-## Model Misspecification ?
+## Model Misspecification ?  {.smaller}
 
 -  We might have chosen a bad sampling model/likelihood
 
