@@ -423,16 +423,16 @@ Merlise Clyde
 </ul>
 </div>
 </section>
-<section id="bayes-estimate" class="slide level2">
+<section id="bayes-estimate" class="slide level2 smaller">
 <h2>Bayes estimate</h2>
 <ul>
 <li class="fragment"><p>As we’ve seen by now, having posterior distributions instead of one-number summaries is great for capturing uncertainty.</p></li>
-<li class="fragment"><p>That said, it is still very appealing to have simple summaries, especially when dealing with clients or collaborators from other fields, who desire one.</p></li>
-</ul>
-<ol type="1">
+<li class="fragment"><p>That said, it is still very appealing to have simple summaries, especially when dealing with clients or collaborators from other fields, who desire one.</p>
+<ul>
 <li class="fragment"><p>What if we want to produce a single “best” estimate of <span class="math inline">\(\theta\)</span>?</p></li>
-<li class="fragment"><p>What if we want to produce an interval estimate <span class="math inline">\(( \theta_L, \theta_U )\)</span>?</p></li>
-</ol>
+<li class="fragment"><p>What if we want to produce an interval estimate <span class="math inline">\((\theta_L, \theta_U )\)</span>?</p></li>
+</ul></li>
+</ul>
 <div class="fragment">
 <p>These would provide alternatives to the frequentist MLEs and confidence intervals</p>
 </div>
@@ -516,7 +516,7 @@ Merlise Clyde
 </div>
 <div class="fragment">
 <p>Quadratic in <span class="math inline">\(\hat{\theta}\)</span> minimized when <span class="math inline">\(\hat{\theta} = \textsf{E}[\theta \mid y]\)</span><br>
-<span class="math inline">\(\Rightarrow\)</span> posterior mean is the <strong>Bayes optimal estimator</strong> for <span class="math inline">\(\theta\)</span> under squared error loss</p>
+<span class="math inline">\(\Rightarrow\)</span> <span style="color:red">posterior mean</span> is the <span style="color:red"><strong>Bayes optimal estimator</strong></span> for <span class="math inline">\(\theta\)</span> under squared error loss</p>
 <ul>
 <li class="fragment">In the beta-binomial case for example, the optimal Bayes estimate under squared error loss is <span class="math inline">\(\hat{\theta} = \frac{a+y}{a+b+n}\)</span></li>
 </ul>
@@ -526,7 +526,7 @@ Merlise Clyde
 <h2>What about other loss functions?</h2>
 <ul>
 <li class="fragment"><p>Clearly, squared error is only one possible loss function. An alternative is <span style="color:red"><strong>absolute loss</strong></span>, which has <span class="math display">\[l(\theta, \hat{\theta})  = |\theta - \hat{\theta}|\]</span></p></li>
-<li class="fragment"><p>Absolute loss places less of a penalty on large deviations &amp; the resulting Bayes estimate is the <strong>posterior median</strong>.</p></li>
+<li class="fragment"><p>Absolute loss places less of a penalty on large deviations &amp; the resulting Bayes estimate is the <span style="color:red"><strong>posterior median</strong></span>.</p></li>
 <li class="fragment"><p>Median is actually relatively easy to estimate.</p></li>
 <li class="fragment"><p>Recall that for a continuous random variable <span class="math inline">\(Y\)</span> with cdf <span class="math inline">\(F\)</span>, the median of the distribution is the value <span class="math inline">\(z\)</span>, which satisfies <span class="math display">\[F(z) = \Pr(Y\leq z) = \dfrac{1}{2}= \Pr(Y\geq z) = 1-F(z)\]</span></p></li>
 <li class="fragment"><p>As long as we know how to evaluate the CDF of the distribution we have, we can solve for <span class="math inline">\(z\)</span>.</p></li>
@@ -552,7 +552,7 @@ Merlise Clyde
 <section id="loss-functions-in-general" class="slide level2">
 <h2>Loss Functions in General</h2>
 <ul>
-<li class="fragment"><p>A <strong>loss function</strong> <span class="math inline">\(l(\theta, \delta(y) )\)</span> is a function of the parameter <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\delta(y)\)</span> based on just the data <span class="math inline">\(y\)</span></p></li>
+<li class="fragment"><p>A <span style="color:red"><strong>loss function</strong></span> <span class="math inline">\(l(\theta, \delta(y) )\)</span> is a function of the parameter <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\delta(y)\)</span> based on just the data <span class="math inline">\(y\)</span></p></li>
 <li class="fragment"><p>For example, <span class="math inline">\(\delta(y) = \bar{y}\)</span> can be the decision to use the sample mean to estimate <span class="math inline">\(\theta\)</span>, the true population mean.</p></li>
 <li class="fragment"><p><span class="math inline">\(l(\theta, \delta(y) )\)</span> determines the penalty for making the decision <span class="math inline">\(\delta(y)\)</span>, if <span class="math inline">\(\theta\)</span> is the true parameter or state of nature; the loss function characterizes the price paid for errors.</p></li>
 <li class="fragment"><p>Bayes optimal estimator or action is the estimator/action that minimizes the expected posterior loss marginalizing out any unknowns over posterior/predictive distribution.</p></li>
@@ -584,7 +584,7 @@ Merlise Clyde
 <li class="fragment"><p>An interval <span class="math inline">\([l(y), \ u(y)]\)</span> has <span class="math inline">\(1 - \alpha\)</span> 100% Bayesian coverage for <span class="math inline">\(\theta\)</span> if <span class="math display">\[\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha\]</span></p></li>
 <li class="fragment"><p>This describes our information about where <span class="math inline">\(\theta\)</span> lies <em>after</em> we observe the data.</p></li>
 <li class="fragment"><p>Fantastic! This is actually the interpretation people want to give to the frequentist confidence interval.</p></li>
-<li class="fragment"><p>Bayesian interval estimates are often generally called <strong>credible intervals</strong> or <strong>credible sets</strong>.</p></li>
+<li class="fragment"><p>Bayesian interval estimates are often generally called <span style="color:red"><strong>credible intervals</strong> or <strong>credible sets</strong></span>.</p></li>
 </ul>
 <div class="fragment">
 <p>How to choose <span class="math inline">\([l(y), \ u(y)]\)</span>?</p>
@@ -593,7 +593,7 @@ Merlise Clyde
 <section id="bayesian-equal-tail-interval" class="slide level2 smaller">
 <h2>Bayesian Equal Tail Interval</h2>
 <ul>
-<li class="fragment"><p>The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with <strong>equal tail areas</strong>. Often when researchers refer to a credible interval, this is what they mean.</p></li>
+<li class="fragment"><p>The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with <span style="color:red"><strong>equal tail areas</strong></span>. Often when researchers refer to a credible interval, this is what they mean.</p></li>
 <li class="fragment"><p>To make a <span class="math inline">\(100 \times (1-\alpha)%\)</span> equi-tail quantile-based credible interval, find numbers (quantiles) <span class="math inline">\(\theta_{\alpha/2} &lt; \theta_{1-\alpha/2}\)</span> such that</p>
 <ol type="1">
 <li class="fragment"><p><span class="math inline">\(\Pr(\theta &lt; \theta_{\alpha/2} \mid y) = \dfrac{\alpha}{2}\)</span>; and</p></li>
@@ -623,7 +623,7 @@ Merlise Clyde
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">quantile</span>(theta, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      2.5%      97.5% 
-0.02002431 0.38607186 </code></pre>
+0.02141993 0.39572970 </code></pre>
 </div>
 </div>
 </div>
@@ -636,7 +636,7 @@ Merlise Clyde
 <section id="hpd-region" class="slide level2 smaller">
 <h2>HPD Region</h2>
 <ul>
-<li class="fragment"><p>A <span class="math inline">\(100 \times (1-\alpha)%\)</span> highest posterior density (HPD) region is a subset <span class="math inline">\(s(y)\)</span> of the parameter space <span class="math inline">\(\Theta\)</span> such that</p>
+<li class="fragment"><p>A <span class="math inline">\(100 \times (1-\alpha)%\)</span> <span style="color:red"><strong>highest posterior density (HPD)</strong></span> region is a subset <span class="math inline">\(s(y)\)</span> of the parameter space <span class="math inline">\(\Theta\)</span> such that</p>
 <ol type="1">
 <li class="fragment"><p><span class="math inline">\(\Pr(\theta \in s(y) \mid y) = 1-\alpha\)</span>; and</p></li>
 <li class="fragment"><p>If <span class="math inline">\(\theta_a \in s(y)\)</span> and <span class="math inline">\(\theta_b \notin s(y)\)</span>, then <span class="math inline">\(p(\theta_a \mid y) &gt; p(\theta_b \mid y)\)</span> (highest density set)</p></li>
@@ -663,7 +663,7 @@ Merlise Clyde
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">HPDinterval</span>(<span class="fu">as.mcmc</span>(theta))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           lower     upper
-var1 0.006022542 0.3671478
+var1 0.005930904 0.3669906
 attr(,"Probability")
 [1] 0.95</code></pre>
 </div>

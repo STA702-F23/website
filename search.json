@@ -277,7 +277,7 @@
     "href": "resources/slides/02-loss-functions.html#bayes-estimate",
     "title": "Loss Functions, Bayes Risk and Posterior Summaries",
     "section": "Bayes estimate",
-    "text": "Bayes estimate\n\nAs we’ve seen by now, having posterior distributions instead of one-number summaries is great for capturing uncertainty.\nThat said, it is still very appealing to have simple summaries, especially when dealing with clients or collaborators from other fields, who desire one.\n\n\nWhat if we want to produce a single “best” estimate of \\(\\theta\\)?\nWhat if we want to produce an interval estimate \\(( \\theta_L, \\theta_U )\\)?\n\n\nThese would provide alternatives to the frequentist MLEs and confidence intervals"
+    "text": "Bayes estimate\n\nAs we’ve seen by now, having posterior distributions instead of one-number summaries is great for capturing uncertainty.\nThat said, it is still very appealing to have simple summaries, especially when dealing with clients or collaborators from other fields, who desire one.\n\nWhat if we want to produce a single “best” estimate of \\(\\theta\\)?\nWhat if we want to produce an interval estimate \\((\\theta_L, \\theta_U )\\)?\n\n\n\nThese would provide alternatives to the frequentist MLEs and confidence intervals"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#heuristically",
@@ -375,7 +375,7 @@
     "href": "resources/slides/02-loss-functions.html#monte-carlo-version",
     "title": "Loss Functions, Bayes Risk and Posterior Summaries",
     "section": "Monte Carlo Version",
-    "text": "Monte Carlo Version\n\nSuppose we don’t have \\(\\pi(\\theta \\mid y)\\) is a simple form, but we do have samples \\(\\theta_1, \\ldots, \\theta_T\\) from \\(\\pi(\\theta \\mid y)\\)\nWe can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries \\[\\hat{\\theta} = \\textsf{E}[\\theta \\mid y] \\approx \\frac{1}{T} \\sum_{t= 1}^T \\theta_t\\]\nwhat about MC quantile estimates?\nFind the 2.5th and 97.5th percentile from the empirical distribution\n\n\n\ntheta = rbeta(1000, a + y, b + n - y)\nquantile(theta, c(0.025, 0.975))\n\n      2.5%      97.5% \n0.02002431 0.38607186"
+    "text": "Monte Carlo Version\n\nSuppose we don’t have \\(\\pi(\\theta \\mid y)\\) is a simple form, but we do have samples \\(\\theta_1, \\ldots, \\theta_T\\) from \\(\\pi(\\theta \\mid y)\\)\nWe can use these samples to obtain Monte Carlo (MC) estimates of posterior summaries \\[\\hat{\\theta} = \\textsf{E}[\\theta \\mid y] \\approx \\frac{1}{T} \\sum_{t= 1}^T \\theta_t\\]\nwhat about MC quantile estimates?\nFind the 2.5th and 97.5th percentile from the empirical distribution\n\n\n\ntheta = rbeta(1000, a + y, b + n - y)\nquantile(theta, c(0.025, 0.975))\n\n      2.5%      97.5% \n0.02141993 0.39572970"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#equal-tail-interval",
@@ -396,7 +396,7 @@
     "href": "resources/slides/02-loss-functions.html#simulation-based-using-the-coda-package",
     "title": "Loss Functions, Bayes Risk and Posterior Summaries",
     "section": "Simulation Based using the coda Package",
-    "text": "Simulation Based using the coda Package\n\n\n\n\n\n\n\n\n \n \n\nlibrary(coda)\nHPDinterval(as.mcmc(theta))\n\n           lower     upper\nvar1 0.006022542 0.3671478\nattr(,\"Probability\")\n[1] 0.95"
+    "text": "Simulation Based using the coda Package\n\n\n\n\n\n\n\n\n \n \n\nlibrary(coda)\nHPDinterval(as.mcmc(theta))\n\n           lower     upper\nvar1 0.005930904 0.3669906\nattr(,\"Probability\")\n[1] 0.95"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#properties-of-hpd-sets",
