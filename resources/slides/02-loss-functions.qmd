@@ -48,7 +48,7 @@ Today ...
 
 -   optimal decisions and estimators
 
-## Bayes estimate
+## Bayes estimate {.smaller}
 
 -   As we've seen by now, having posterior distributions instead of
     one-number summaries is great for capturing uncertainty.
@@ -57,10 +57,10 @@ Today ...
     especially when dealing with clients or collaborators from other
     fields, who desire one.
 
-1)  What if we want to produce a single "best" estimate of $\theta$?
+    -  What if we want to produce a single "best" estimate of $\theta$?
 
-2)  What if we want to produce an interval estimate
-    $( \theta_L, \theta_U )$?
+    - What if we want to produce an interval estimate
+    $(\theta_L, \theta_U )$?
 
 . . .
 
@@ -182,7 +182,7 @@ $$R(\hat{\theta}) = \hat{\theta}^2 - 2 \hat{\theta} \textsf{E}[\theta \mid y] + 
 
 
 Quadratic in $\hat{\theta}$ minimized when $\hat{\theta} = \textsf{E}[\theta \mid y]$  
-  $\Rightarrow$ posterior mean is the **Bayes optimal estimator** for $\theta$ under squared error loss
+  $\Rightarrow$ [posterior mean]{style="color:red"} is the [**Bayes optimal estimator**]{style="color:red"} for $\theta$ under squared error loss
 
 
 
@@ -198,7 +198,8 @@ $$l(\theta, \hat{\theta})  = |\theta - \hat{\theta}|$$
 
 
 
-- Absolute loss places less of a penalty on large deviations & the resulting Bayes estimate is the **posterior median**.
+- Absolute loss places less of a penalty on large deviations & the resulting Bayes estimate is the 
+[**posterior median**]{style="color:red"}.
 
 - Median is actually relatively easy to estimate.
 
@@ -241,7 +242,7 @@ qbeta(0.5,a+y,b+n-y)
 
 ## Loss Functions in General 
 
-- A **loss function** $l(\theta, \delta(y) )$ is a function of the  parameter $\theta$ and  $\delta(y)$ based on just the data $y$ 
+- A [**loss function** ]{style="color:red"} $l(\theta, \delta(y) )$ is a function of the  parameter $\theta$ and  $\delta(y)$ based on just the data $y$ 
 
 
 
@@ -324,7 +325,7 @@ $$\Pr(\theta \in [l(y), \ u(y)] \mid y) = 1 - \alpha$$
 
 
 
-- Bayesian interval estimates are often generally called **credible intervals** or **credible sets**.
+- Bayesian interval estimates are often generally called [**credible intervals** or **credible sets**]{style="color:red"}.
 
 . . .
 
@@ -333,7 +334,7 @@ How to choose $[l(y), \ u(y)]$?
 
 ## Bayesian Equal Tail Interval {.smaller}
 
-- The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with **equal tail areas**.   Often when researchers refer to a credible interval, this is what they mean.
+- The easiest way to obtain a Bayesian interval estimate is to use posterior quantiles with [**equal tail areas**]{style="color:red"}.   Often when researchers refer to a credible interval, this is what they mean.
 
 
 
@@ -436,7 +437,7 @@ segments(uy, 0, uy, dbeta(uy, y + a, n - y + b), lty=3, lwd=2, col="red")
 
 ## HPD Region {.smaller}
 
-- A $100 \times (1-\alpha)%$ highest posterior density (HPD) region is a subset $s(y)$ of the parameter space $\Theta$ such that
+- A $100 \times (1-\alpha)%$ [**highest posterior density (HPD)**]{style="color:red"} region is a subset $s(y)$ of the parameter space $\Theta$ such that
 
   1. $\Pr(\theta \in s(y) \mid y) = 1-\alpha$; and
   
