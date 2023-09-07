@@ -1,0 +1,530 @@
+---
+title: "The Normal Model & Prior/Posterior Predictive Distributions"
+subtitle: "STA 702: Lecture 3"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rvest)
+```
+
+## Outline
+
+
+- Normal Model
+
+
+- Predictive Distributions
+
+
+ - Prior Predictive; useful for prior elicitation 
+  
+
+- Posterior Predictive; predicting/forecasting future events
+  
+
+- Comparing Estimators
+  
+ 
+## Normal Model Setup {.smaller}
+
+- Suppose we have independent observations 
+$$\mathbf{y} = (y_1,y_2,\ldots,y_n)^T$$ where each $Y_i  \mid \theta, \sigma^2 \stackrel{iid}{\sim} \textsf{N}(\theta, \sigma^2)$ 
+
+  
+
+- We will see that it is more convenient to work with $\tau = 1/\sigma^2$   (precision)
+
+
+- reparameterizing the model for the data we have
+$$Y_i \mid \theta, \tau  \sim \mathcal{N}(\theta, \tau^{-1})$$
+  
+
+- for simplicity  we will treat $\tau$ as known initially.  
+
+
+
+- Need to specify a prior for $\theta$ on $\mathbb{R}$ 
+ 
+
+## Prior for a Normal Mean {.smaller}
+
+- Natural choice is a Normal/Gaussian distribution  (Conjugate prior)
+$$\theta \sim \textsf{N}(\theta_0, 1/\tau_0)$$
+  
+
+- $\theta_0$ is the prior mean - best guess for $\theta$ using information other than $\mathbf{y}$
+
+  
+- $\tau_0$ is the prior precision and expresses our certainty about this guess
+
+  
+
+- one notion of non-informative is to let $\tau_0 \to 0$
+ 
+  
+
+- better justification is as Jeffreys' prior (uniform measure)  
+$\pi(\theta) \propto 1$
+
+- parameterization invariant and invariant to location/scale changes in the data  (group invariance)
+
+. . .
+
+::: {.callout-important title="Exercise for the Energetic Student"}
+You should be able to derive Jeffreys prior!
+:::
+ 
+## Posterior Distribution (1 observaton) {.smaller}
+
+- Posterior  $$p(\theta \mid y) \propto \exp\left\{- \frac 1 2 [\tau (y - \theta) ^2 + \tau_0(\theta - \theta_0) ^2 \right\} \, d\theta$$
+
+- Quadratic in exponential term:
+$\tau_0(\theta - \theta_0)^2 = \tau_0 \theta^2 - 2 \tau_0 \theta_0 \theta + \tau_0 \theta_0^2$
+
+    - Expand quadratics, regroup and read off precision from  quadtric term in $\theta$ and mean from linear term in $\theta$
+
+
+
+- posterior precision is the sum of prior precision and data precision $\tau_0 + \tau$
+
+
+- posterior mean $\hat{\theta} = \frac{\tau_0} {\tau_0 + \tau} \theta_0 + \frac{\tau}{\tau_0 + \tau} y$; precision weighted average of prior mean and MLE
+
+  
+
+
+
+ - conjugate family updating
+$\theta \mid y \sim \textsf{N} \left(\hat{\theta}, \frac{1}{\tau_0 + \tau} \right)$
+
+ 
+## Marginal  Distribution {.smaller}
+
+- Recall that the [**marginal distribution**]{style="color:red"} is
+$$p({y}) = p(y_1,\ldots,y_n) = \int_\Theta p(y_1,\ldots,y_n \mid \theta) \pi(\theta)\, d\theta$$
+
+  
+
+- this is also called the [**prior predictive**]{style="color:red"} distribution and is independent of any unknown parameters
+
+
+- We may care about making predictions before we even see any data.
+
+  
+
+- This is often useful as a way to see if the sampling distribution or prior we have chosen is appropriate, after integrating out all unknown parameters.
+
+
+  
+
+
+
+  
+ 
+## Prior Predictive  for a Single Case {.smaller}
+
+$$\begin{split} p(y) & \propto \int_\mathbb{R} p(y \mid \theta) \pi(\theta) \, d\theta \\
+& \propto \int_\mathbb{R}\exp\left\{- \frac 1 2 \tau (y - \theta) ^2 \right\} \exp\left\{-  \frac 1 2 \tau_0(\theta - \theta_0) ^2 \right\} \, d\theta
+\end{split}$$
+
+ . . . 
+
+
+  
+:::: {.columns}
+::: {.column width="50%"}
+Integration
+
+1)  [**Expand**]{style="color:red"} quadratics  in exp terms
+
+  
+
+2)  [**Group**]{style="color:red"} terms with $\theta^2$ and $\theta$
+
+  
+
+3) Read off  [**posterior precision**]{style="color:red"} and  
+[**posterior mean**]{style="color:red"}
+
+  
+
+4)  [**Complete the square**]{style="color:red"} 
+
+  
+
+5)  [**Integrate**]{style="color:red"} out $\theta$ to obtain marginal!
+
+:::
+
+
+
+::: {.column width="50%"}
+1) Linear combinations of Normals are Normal!
+$$Y \stackrel{D}{=} \theta + \epsilon, \quad \epsilon \sim N(0, 1/\tau) \quad \theta \sim N(\theta_0, 1/\tau_0)$$
+
+2) Find Mean of sum
+
+3) Find Variance of sum
+
+4) Marginal $Y \sim  N(\theta_0, 1/\tau_0 + 1/\tau)$
+:::
+
+::::
+
+## Prior Predictive {.smaller}
+
+- marginal distribution for $Y$ (prior predictive)
+$$Y \sim \textsf{N}\left(\theta_0, \frac{1}{\tau_0} + \frac{1}{\tau}\right) \text{ or } \textsf{N}(\theta_0, \sigma^2 + \sigma^2_0)$$
+
+  
+
+- two sources of variability:  data variability  and prior variability
+
+
+
+
+- useful to think about observable quantities when choosing the prior
+
+  
+
+- sample directly  from the prior predictive and assess whether the samples are consistent with our prior knowledge
+
+  
+
+- if not, go back and  modify the prior & repeat
+
+  
+
+- sequential substitution sampling  (repeat $T$ times)
+
+  1) draw $\theta^{(t)} \sim \pi(\theta)$
+
+  2) draw $y^{(t)} \mid \theta^{(t)} \sim p(y \mid \theta^{(t)})$
+
+
+  
+
+- takes into account uncertain about $\theta$ and variability in $Y$!
+
+
+ 
+## Posterior Updating {.smaller}
+
+
+
+- Sequential updating using the previous result as our prior!
+
+  
+
+- New prior after seeing 1 observation is $$\textsf{N}(\theta_1, 1/\tau_1)$$
+
+  
+
+- prior mean weighted average
+  $$\theta_1 \equiv \frac{\tau_0 \theta_0 + \tau y_1}{\tau_0 + \tau_1}$$
+  
+  
+
+- prior precision after 1 observation
+  $$\tau_1 \equiv \tau_0 + \tau$$
+
+  
+
+
+- prior variance is now $\sigma^2_1 = 1/\tau_1$
+
+ 
+## Posterior Predictive for $y_2$ given $y_1$  {.smaller}
+
+- Conditional $p(y_2 \mid y_1) = p(y_2, y_1)/p(y_1)$   (Hard way!)
+
+  
+
+- Use latent variable representation
+$$p(y_2 \mid y_1) = \int_\Theta \frac{p(y_2, \mid \theta) p( y_1 \mid \theta ) \pi(\theta) \, d\theta}{p(y_1)}$$
+  
+
+- simplify to previous problem and use results
+$$p(y_2 \mid y_1) =  \int_\Theta p(y_2 \mid \theta) \pi(\theta \mid y_1) \, d\theta$$
+  
+
+- (Posterior) Predictive
+$$Y_2 \mid y_1 \sim \textsf{N}(\theta_1, \sigma^2 + \sigma^2_1)$$
+ 
+## Iterated Expectations  {.smaller}
+
+Based on expressions we have an exponential of a quadratic in $y_2$ so know that distribution is Gaussian
+
+  
+
+- Find the mean and variance using iterated expectations:
+
+  
+
+- mean 
+$$\textsf{E}[Y_2 \mid y_1] = \textsf{E}_{\theta \mid y_1}[\textsf{E}_{Y_2 \mid y_1, \theta} [Y_2 \mid y_1, \theta] \mid y_1]$$
+
+- Conditional Variance $\textsf{Var}[Y_2  \mid y_1]$
+
+- Iterated expectations (prove!)
+$$\textsf{Var}[Y_2  \mid y_1] = \textsf{E}_{\theta \mid y_1}[\textsf{Var}_{Y_2 \mid y_1, \theta} [Y_2 \mid y_1, \theta] \mid y_1] + \textsf{Var}_{\theta \mid y_1}[\textsf{E}_{Y_2 \mid y_1, \theta} [Y_2 \mid y_1, \theta] \mid y_1]$$
+
+
+ 
+## Updated Posterior for $\theta$ {.smaller}
+
+$$p(\theta \mid y_1, y_2) \propto p(y_2 \mid \theta) p(y_1 \mid \theta) \pi(\theta)$$
+
+  
+
+$$p(\theta \mid y_1, y_2) \propto  p(y_2 \mid \theta) p(\theta \mid y_1)$$
+
+. . .
+
+
+Apply previous updating rules
+
+  
+
+- new posterior mean 
+$$\theta_2 = \frac{\tau_1 \theta_1  + \tau y_2}{\tau_1 + \tau} = \frac{\tau_0 \theta_0 + 2 \tau \bar{y}}
+{\tau_0 + 2 \tau}$$
+  
+
+- new precision
+$$ \tau_2 = \tau_1 + \tau = \tau_0 + 2 \tau$$
+
+ 
+## After $n$ observations  {.smaller}
+
+- Posterior for $\theta$ 
+$$\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
+{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)$$
+
+  
+
+- Posterior Predictive Distribution for $Y_{n+1}$
+$$Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
+{\tau_0 + n \tau}, \frac{1}{\tau} + \frac{1}{ \tau_0 + n \tau} \right)$$
+
+  
+
+- Shrinkage of the MLE to the prior mean
+
+  
+
+- More accurate estimation of $\theta$ as $n \to \infty$ (reducible error)
+
+  
+
+- Cannot reduce the error for prediction $Y_{n+1}$ due to $\sigma^2$
+
+  
+
+- predictive distribution for a next observation given _everything_ we know - prior and likelihood
+
+ 
+## Results with Jeffreys' Prior {.smaller}
+ - What if $\tau_0 \to 0$? (or $\sigma^2_0 \to \infty$)
+ 
+  
+
+- Prior predictive $\textsf{N}(\theta_0, \sigma^2_0 + \sigma^2 )$  (not  proper in the limit)
+
+  
+
+- Posterior for $\theta$ (formal posterior)
+$$\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
+{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)$$
+
+ . . . 
+
+$$\to  \qquad \theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y}, 
+ \frac{1}{n \tau} \right)$$
+  
+
+- Recovers the MLE as the posterior mode!
+
+  
+
+- Posterior variance of $\theta = \sigma^2/n$ (same as variance of the MLE)
+ 
+
+ 
+## Posterior Predictive Distribution {.smaller}
+
+- Posterior predictive distribution for $Y_{n+1}$
+$$Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
+{\tau_0 + n \tau}, \frac{1}{\tau} + \frac{1}{ \tau_0 + n \tau} \right)$$
+
+  
+
+- Under Jeffreys' prior
+$$Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y}, \sigma^2 (1 + \frac{1}{n} )\right)$$
+  
+
+- Captures extra uncertainty due to not knowing $\theta$ (compared to plug-in approach where we plug in MLE in sampling model!
+
+ 
+## Comparing Estimators {.smaller}
+
+- Expected loss (from frequentist perspective) of using Bayes Estimator
+
+  
+
+- Posterior mean is optimal under squared error loss (min Bayes Risk)  [also absolute error loss]
+
+  
+
+- Compute Mean Square Error (or Expected Average Loss)
+$$\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right]$$
+
+ . . .
+
+ $$ = \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})$$
+  
+
+- For the MLE $\bar{Y}$ this is just the variance of $\bar{Y}$ or $\sigma^2/n$
+
+ 
+## MSE for Bayes {.smaller}
+
+- Frequentist Risk
+$$\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right] = \textsf{MSE} =  \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})$$
+
+- Bias of Bayes Estimate
+$$\textsf{E}_{\bar{Y} \mid \theta}\left[ \frac{\tau_0 \theta_0 + \tau n \bar{Y}}
+{\tau_0  + \tau n}\right] = 
+\frac{\tau_0(\theta_0 - \theta)}{\tau_0 + \tau n}$$
+
+  
+
+- Variance
+$$\textsf{Var}\left(\frac{\tau_0 \theta_0 + \tau n \bar{Y}}{\tau_0 + \tau n} - \theta  \mid \theta \right)  = \frac{\tau n}{(\tau_0 + \tau n)^2}$$
+  
+
+- (Frequentist) expected Loss  when truth is $\theta$
+$$\textsf{MSE} = \frac{\tau_0^2(\theta - \theta_0)^2 + \tau n}{(\tau_0 + \tau n)^2}$$
+  
+
+
+
+ 
+## Plot {.smaller}
+
+Behavior ?
+```{r MSE, fig.width=5, fig.height=5,  out.width="75%", echo=FALSE}
+sigma = 1
+n = 25
+
+MSE = function(theta, tau=1, n, theta_0=0, tau_0 = .05) {
+(tau_0^2*(theta - theta_0)^2 + tau*n)/(tau_0 + tau*n)^2
+}
+
+theta = seq(-10,10, length=10000)
+plot(theta,  MSE(theta, tau=1/sigma^2, n = n), 
+     type="l", col=2, lwd=2, 
+     xlab=expression(theta),
+     ylab="MSE")
+abline(h=sigma^2/n, lty=2, col=1, lwd=2)
+legend(x="center", legend=c("MLE", "Bayes"), col=c(1,2), lwd=2, lty=c(1,2))
+```
+
+
+ 
+## Updating with $n$ Observations {.smaller}
+
+-  Can update sequentially as before -or-
+ 
+ -  We can use the $\cal{L}(\theta)$ based on $n$ observations  and repeat completing the square with the original prior  $\theta \sim \textsf{N}(\theta_0, 1/\tau_0)$
+
+- same answer!
+
+- The likelihood for $\theta$ is proportional to the sampling model
+$$p(y \mid \theta,\tau)  = 
+\prod_{i=1}^n \frac{1}{\sqrt{2\pi}} \tau^{\frac{1}{2}}  \exp{\left\{-\frac{1}{2} \tau (y_i-\theta)^2\right\}}$$
+
+
+ . . . 
+
+::: {.callout-important title="Exercise"}
+Rewrite in terms of sufficient statistics!
+:::
+
+## Exercises for Practice
+
+
+
+:::: {.callout-important title="Exercise 1"}
+
+Use $\cal{L}(\theta)$  based on $n$ observations and $\pi(\theta)$ to find  $\pi(\theta \mid y_1, \ldots, y_n)$ based on the sufficient statistics
+
+:::
+  
+  . . .
+  
+
+::: {.callout-important title="Exercise 2"}
+
+Use $\pi(\theta \mid y_1, \ldots, y_n)$ to find the posterior predictive distribution for $Y_{n+1}$
+
+:::
+
+
+
+ 
+## Simplification {.smaller}
+
+
+$$\begin{split}
+\cal{L}(\theta) & \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n (y_i-\theta)^2\right\}\\
+& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n \left[ (y_i-\bar{y}) - (\theta - \bar{y}) \right]^2 \right\}\\
+\\
+& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + \sum_{i=1}^n(\theta - \bar{y})^2 \right] \right\}\\
+& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + n(\theta - \bar{y})^2 \right] \right\}\\
+& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau s^2(n-1) \right\} \ \exp\left\{-\frac{1}{2} \tau n(\theta - \bar{y})^2 \right\}
+\end{split}$$
+
+ 
