@@ -147,123 +147,291 @@
     "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
   },
   {
-    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": " Resources",
+    "section": "",
+    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: More MCMC - Metropolis Hastings and Adaptive Metropolis\n\n\n\n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n\n\n    \nFri, Sept 29\n\nLab 5: Adaptive Metropolis Hastings\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Basics of Hypothesis Testing\n\n\n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nMidterm I\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\n\n\n\n\n hw-06\n\n    \nFri, Oct 20\n\nLab: Q & A\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n hw-07\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A with HW 7\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19: Missing Data\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
+    "href": "resources/slides/00-course-overview.html#what-is-this-course-about",
+    "title": "Welcome to STA 702",
+    "section": "What is this course about?",
+    "text": "What is this course about?\n\nLearn the foundations and theory of Bayesian inference in the context of several models.\nUse Bayesian models to answer inferential questions.\nApply the models to several different problems.\nUnderstand the advantages/disadvantages of Bayesian methods vs classical methods\n\n\n\n A Bayesian version will usually make things better…\n– Andrew Gelman."
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#instructional-team",
+    "href": "resources/slides/00-course-overview.html#instructional-team",
+    "title": "Welcome to STA 702",
+    "section": "Instructional Team",
+    "text": "Instructional Team\nInstructor: Dr Merlise Clyde\n   clyde@duke.edu     223 Old Chemistry     https://www2.stat.duke.edu/~clyde \n\n \nTeaching Assistant: Rick Presman\n   rick.presman@duke.edu\n \n   See course website for Office Hours, Policies and more!"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#prerequisites",
+    "href": "resources/slides/00-course-overview.html#prerequisites",
+    "title": "Welcome to STA 702",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nrandom variables, common families of probability distribution functions and expectations\nconditional distributions\ntransformations of random variables and change of variables\nprinciples of statistical inference (likelihoods)\nsampling distributions and hypothesis testing\nconcepts of convergence\n\n\nReview Chapters 1 to 5 of the Casella and Berger book"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#computing",
+    "href": "resources/slides/00-course-overview.html#computing",
+    "title": "Welcome to STA 702",
+    "section": "Computing",
+    "text": "Computing\n\nLabs/HW will involve computing in R!\nWrite your own MCMC samplers and run code long enough to show convergence\nYou can learn R on the fly\n\nsee Resources Tab on website\nmaterials from 2023 Bootcamp/Orientation"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#grading-policies",
+    "href": "resources/slides/00-course-overview.html#grading-policies",
+    "title": "Welcome to STA 702",
+    "section": "Grading Policies",
+    "text": "Grading Policies\n\n5% class\n20% HW\n10% Lab\n20% Midterm I\n20% Midterm II\n25% Final\nNo Late Submissions for HW/Lab; Drop the lowest score\nYou are encouraged to discuss assignments, but copying others work is considered a misconduct violation and will result in a 0 on the assignment\nConfirm that you have access to Sakai, Gradescope, and GitHub"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#course-structure-and-policies",
+    "href": "resources/slides/00-course-overview.html#course-structure-and-policies",
+    "title": "Welcome to STA 702",
+    "section": "Course structure and policies",
+    "text": "Course structure and policies\n\nSee the Syllabus\nMake use of the teaching team’s office hours, we’re here to help!\nDo not hesitate to come to my office hours or you can also make an appointment to discuss a homework problem or any aspect of the course.\nPlease make sure to check your email daily for announcements\nUse the  Reporting an issue link to report broken links or missing content"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#important-dates",
+    "href": "resources/slides/00-course-overview.html#important-dates",
+    "title": "Welcome to STA 702",
+    "section": "Important Dates",
+    "text": "Important Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\nSee Class Schedule for slides, readings, HW, Labs, etc"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#topics",
+    "href": "resources/slides/00-course-overview.html#topics",
+    "title": "Welcome to STA 702",
+    "section": "Topics",
+    "text": "Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nModel Uncertainty/Model Choice\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonparametric Bayes Regression"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
+    "href": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
+    "title": "Welcome to STA 702",
+    "section": "Basics of Bayesian inference",
+    "text": "Basics of Bayesian inference\nGenerally (unless otherwise stated), in this course, we will use the following notation. Let\n\n\\(Y\\) is a random variable from some probability distribution \\(p(y \\mid \\theta)\\)\n\\(\\mathcal{Y}\\) be the sample space (possible outcomes for \\(Y\\))\n\\(y\\) is the observed data\n\\(\\theta\\) is the unknown parameter of interest\n\\(\\Theta\\) be the parameter space\ne.g. \\(Y \\sim \\textsf{Ber}(\\theta)\\) where \\(\\theta = \\Pr(Y = 1)\\)"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#frequentist-inference",
+    "href": "resources/slides/00-course-overview.html#frequentist-inference",
+    "title": "Welcome to STA 702",
+    "section": "Frequentist inference",
+    "text": "Frequentist inference\n\nGiven data \\(y\\), how would we estimate the population parameter \\(\\theta\\)?\n\nMaximum likelihood estimate (MLE)\nMethod of moments\nand so on…\n\nFrequentist MLE finds the one value of \\(\\theta\\) that maximizes the likelihood\nTypically uses large sample (asymptotic) theory to obtain confidence intervals and do hypothesis testing."
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
+    "href": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
+    "title": "Welcome to STA 702",
+    "section": "What are Bayesian methods?",
+    "text": "What are Bayesian methods?\n\nBayesian methods are data analysis tools derived from the principles of Bayesian inference and provide\n\nparameter estimates with good statistical properties;\nparsimonious descriptions of observed data;\npredictions for missing data and forecasts of future data with full uncertainty quantification; and\na computational framework for model estimation, selection, decision making and validation.\nbuilds on likelihood inference"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#bayes-theorem",
+    "href": "resources/slides/00-course-overview.html#bayes-theorem",
+    "title": "Welcome to STA 702",
+    "section": "Bayes’ theorem",
+    "text": "Bayes’ theorem\n\nLet’s take a step back and quickly review the basic form of Bayes’ theorem.\nSuppose there are some events \\(A\\) and B having probabilities \\(\\Pr(A)\\) and \\(\\Pr(B)\\).\nBayes’ rule gives the relationship between the marginal probabilities of A and B and the conditional probabilities.\nIn particular, the basic form of Bayes’ rule or Bayes’ theorem is \\[\\Pr(A | B) = \\frac{\\Pr(A \\ \\textrm{and} \\ B)}{\\Pr(B)} = \\frac{\\Pr(B|A)\\Pr(A)}{\\Pr(B)}\\]\n\\(\\Pr(A)\\) = marginal probability of event \\(A\\), \\(\\Pr(B | A)\\) = conditional probability of event \\(B\\) given event \\(A\\), and so on.\n“reverses the conditioning” e.g. Probability of Covid given a negative test versus probability of a negative test given Covid"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
+    "href": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
+    "title": "Welcome to STA 702",
+    "section": "Bayes’ Rule more generally",
+    "text": "Bayes’ Rule more generally\n\nFor each \\(\\theta \\in \\Theta\\), specify a prior distribution \\(p(\\theta)\\) or \\(\\pi(\\theta)\\), describing our beliefs about \\(\\theta\\) being the true population parameter.\nFor each \\(\\theta \\in \\Theta\\) and \\(y \\in \\mathcal{Y}\\), specify a sampling distribution \\(p(y|\\theta)\\), describing our belief that the data we see \\(y\\) is the outcome of a study with true parameter \\(\\theta\\).  Likelihood \\(L(\\theta|y)\\) proportional to \\(p(y|\\theta)\\)\nAfter observing the data \\(y\\), for each \\(\\theta \\in \\Theta\\), update the prior distribution to a posterior distribution \\(p(\\theta | y)\\) or \\(\\pi(\\theta | y)\\), describing our “updated” belief about \\(\\theta\\) being the true population parameter.\n\n\nGetting from Step 1 to 3? Bayes’ rule!\n\\[p(\\theta | y) = \\frac{p(\\theta)p(y|\\theta)}{\\int_{\\Theta}p(\\tilde{\\theta})p(y| \\tilde{\\theta}) \\textrm{d}\\tilde{\\theta}} = \\frac{p(\\theta)p(y|\\theta)}{p(y)}\\] where \\(p(y)\\) obtained by Law of Total Probability"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\nMany types of priors may be of interest. These may\n\nrepresent our own beliefs;\nrepresent beliefs of a variety of people with differing prior opinions; or\nassign probability more or less evenly over a large region of the parameter space\ndesigned to provide good frequentist behavior when little is known"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\n\nSubjective Bayes: a prior should accurately quantify some individual’s beliefs about \\(\\theta\\)\nObjective Bayes: the prior should be chosen to produce a procedure with “good” operating characteristics without including subjective prior knowledge\nWeakly informative: prior centered in a plausible region but not overly-informative, as there is a tendency to be over confident about one’s beliefs\nEmpirical Bayes: uses the data to estimate the prior, then pretends it was known\nPractical Bayes: Combination"
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
+    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
+    "title": "Welcome to STA 702",
+    "section": "Notes on prior distributions",
+    "text": "Notes on prior distributions\n\nThe prior quantifies ‘your’ initial uncertainty in \\(\\theta\\) before you observe new data (new information) - this may be necessarily subjective & summarizes experience in a field or prior research.\nEven if the prior is not “perfect”, placing higher probability in a ballpark of the truth leads to better performance.\nHence, it is very seldom the case that a weakly informative prior is not preferred over no prior. (Model selection is one case where one needs to be careful!)\nOne (very important) role of the prior is to stabilize estimates (shrinkage) in the presence of limited data."
+  },
+  {
+    "objectID": "resources/slides/00-course-overview.html#next-steps",
+    "href": "resources/slides/00-course-overview.html#next-steps",
+    "title": "Welcome to STA 702",
+    "section": "Next Steps",
+    "text": "Next Steps\nWork on Lab 0\nFinally, here are some readings to entertain you. Make sure to glance through them within the next week. See Course Resources\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#outline",
+    "href": "resources/slides/03-normal-predictive-distributions.html#outline",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Outline",
+    "text": "Outline\n\nNormal Model\nPredictive Distributions\nPrior Predictive; useful for prior elicitation\nPosterior Predictive; predicting/forecasting future events\nComparing Estimators"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#normal-model-setup",
+    "href": "resources/slides/03-normal-predictive-distributions.html#normal-model-setup",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Normal Model Setup",
+    "text": "Normal Model Setup\n\nSuppose we have independent observations \\[\\mathbf{y} = (y_1,y_2,\\ldots,y_n)^T\\] where each \\(Y_i \\mid \\theta, \\sigma^2 \\stackrel{iid}{\\sim} \\textsf{N}(\\theta, \\sigma^2)\\)\nWe will see that it is more convenient to work with \\(\\tau = 1/\\sigma^2\\) (precision)\nreparameterizing the model for the data we have \\[Y_i \\mid \\theta, \\tau  \\sim \\mathcal{N}(\\theta, \\tau^{-1})\\]\nfor simplicity we will treat \\(\\tau\\) as known initially.\nNeed to specify a prior for \\(\\theta\\) on \\(\\mathbb{R}\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-for-a-normal-mean",
+    "href": "resources/slides/03-normal-predictive-distributions.html#prior-for-a-normal-mean",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Prior for a Normal Mean",
+    "text": "Prior for a Normal Mean\n\nNatural choice is a Normal/Gaussian distribution (Conjugate prior) \\[\\theta \\sim \\textsf{N}(\\theta_0, 1/\\tau_0)\\]\n\\(\\theta_0\\) is the prior mean - best guess for \\(\\theta\\) using information other than \\(\\mathbf{y}\\)\n\\(\\tau_0\\) is the prior precision and expresses our certainty about this guess\none notion of non-informative is to let \\(\\tau_0 \\to 0\\)\nbetter justification is as Jeffreys’ prior (uniform measure)\n\\(\\pi(\\theta) \\propto 1\\)\nparameterization invariant and invariant to location/scale changes in the data (group invariance)\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\nYou should be able to derive Jeffreys prior!"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-distribution-1-observaton",
+    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-distribution-1-observaton",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Posterior Distribution (1 observaton)",
+    "text": "Posterior Distribution (1 observaton)\n\nPosterior \\[p(\\theta \\mid y) \\propto \\exp\\left\\{- \\frac 1 2 [\\tau (y - \\theta) ^2 + \\tau_0(\\theta - \\theta_0) ^2 \\right\\} \\, d\\theta\\]\nQuadratic in exponential term: \\(\\tau_0(\\theta - \\theta_0)^2 = \\tau_0 \\theta^2 - 2 \\tau_0 \\theta_0 \\theta + \\tau_0 \\theta_0^2\\)\n\nExpand quadratics, regroup and read off precision from quadtric term in \\(\\theta\\) and mean from linear term in \\(\\theta\\)\n\nposterior precision is the sum of prior precision and data precision \\(\\tau_0 + \\tau\\)\nposterior mean \\(\\hat{\\theta} = \\frac{\\tau_0} {\\tau_0 + \\tau} \\theta_0 + \\frac{\\tau}{\\tau_0 + \\tau} y\\); precision weighted average of prior mean and MLE\nconjugate family updating \\(\\theta \\mid y \\sim \\textsf{N} \\left(\\hat{\\theta}, \\frac{1}{\\tau_0 + \\tau} \\right)\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#marginal-distribution",
+    "href": "resources/slides/03-normal-predictive-distributions.html#marginal-distribution",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Marginal Distribution",
+    "text": "Marginal Distribution\n\nRecall that the marginal distribution is \\[p({y}) = p(y_1,\\ldots,y_n) = \\int_\\Theta p(y_1,\\ldots,y_n \\mid \\theta) \\pi(\\theta)\\, d\\theta\\]\nthis is also called the prior predictive distribution and is independent of any unknown parameters\nWe may care about making predictions before we even see any data.\nThis is often useful as a way to see if the sampling distribution or prior we have chosen is appropriate, after integrating out all unknown parameters."
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-predictive-for-a-single-case",
+    "href": "resources/slides/03-normal-predictive-distributions.html#prior-predictive-for-a-single-case",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Prior Predictive for a Single Case",
+    "text": "Prior Predictive for a Single Case\n\\[\\begin{split} p(y) & \\propto \\int_\\mathbb{R} p(y \\mid \\theta) \\pi(\\theta) \\, d\\theta \\\\\n& \\propto \\int_\\mathbb{R}\\exp\\left\\{- \\frac 1 2 \\tau (y - \\theta) ^2 \\right\\} \\exp\\left\\{-  \\frac 1 2 \\tau_0(\\theta - \\theta_0) ^2 \\right\\} \\, d\\theta\n\\end{split}\\]\n\n\n\nIntegration\n\nExpand quadratics in exp terms\nGroup terms with \\(\\theta^2\\) and \\(\\theta\\)\nRead off posterior precision and\nposterior mean\nComplete the square\nIntegrate out \\(\\theta\\) to obtain marginal!\n\n\n\nLinear combinations of Normals are Normal! \\[Y \\stackrel{D}{=} \\theta + \\epsilon, \\quad \\epsilon \\sim N(0, 1/\\tau) \\quad \\theta \\sim N(\\theta_0, 1/\\tau_0)\\]\nFind Mean of sum\nFind Variance of sum\nMarginal \\(Y \\sim N(\\theta_0, 1/\\tau_0 + 1/\\tau)\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-predictive",
+    "href": "resources/slides/03-normal-predictive-distributions.html#prior-predictive",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Prior Predictive",
+    "text": "Prior Predictive\n\nmarginal distribution for \\(Y\\) (prior predictive) \\[Y \\sim \\textsf{N}\\left(\\theta_0, \\frac{1}{\\tau_0} + \\frac{1}{\\tau}\\right) \\text{ or } \\textsf{N}(\\theta_0, \\sigma^2 + \\sigma^2_0)\\]\ntwo sources of variability: data variability and prior variability\nuseful to think about observable quantities when choosing the prior\nsample directly from the prior predictive and assess whether the samples are consistent with our prior knowledge\nif not, go back and modify the prior & repeat\nsequential substitution sampling (repeat \\(T\\) times)\n\ndraw \\(\\theta^{(t)} \\sim \\pi(\\theta)\\)\ndraw \\(y^{(t)} \\mid \\theta^{(t)} \\sim p(y \\mid \\theta^{(t)})\\)\n\ntakes into account uncertain about \\(\\theta\\) and variability in \\(Y\\)!"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-updating",
+    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-updating",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Posterior Updating",
+    "text": "Posterior Updating\n\nSequential updating using the previous result as our prior!\nNew prior after seeing 1 observation is \\[\\textsf{N}(\\theta_1, 1/\\tau_1)\\]\nprior mean weighted average \\[\\theta_1 \\equiv \\frac{\\tau_0 \\theta_0 + \\tau y_1}{\\tau_0 + \\tau_1}\\]\nprior precision after 1 observation \\[\\tau_1 \\equiv \\tau_0 + \\tau\\]\nprior variance is now \\(\\sigma^2_1 = 1/\\tau_1\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-for-y_2-given-y_1",
+    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-for-y_2-given-y_1",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Posterior Predictive for \\(y_2\\) given \\(y_1\\)",
+    "text": "Posterior Predictive for \\(y_2\\) given \\(y_1\\)\n\nConditional \\(p(y_2 \\mid y_1) = p(y_2, y_1)/p(y_1)\\) (Hard way!)\nUse latent variable representation \\[p(y_2 \\mid y_1) = \\int_\\Theta \\frac{p(y_2, \\mid \\theta) p( y_1 \\mid \\theta ) \\pi(\\theta) \\, d\\theta}{p(y_1)}\\]\nsimplify to previous problem and use results \\[p(y_2 \\mid y_1) =  \\int_\\Theta p(y_2 \\mid \\theta) \\pi(\\theta \\mid y_1) \\, d\\theta\\]\n(Posterior) Predictive \\[Y_2 \\mid y_1 \\sim \\textsf{N}(\\theta_1, \\sigma^2 + \\sigma^2_1)\\]"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#iterated-expectations",
+    "href": "resources/slides/03-normal-predictive-distributions.html#iterated-expectations",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Iterated Expectations",
+    "text": "Iterated Expectations\nBased on expressions we have an exponential of a quadratic in \\(y_2\\) so know that distribution is Gaussian\n\nFind the mean and variance using iterated expectations:\nmean \\[\\textsf{E}[Y_2 \\mid y_1] = \\textsf{E}_{\\theta \\mid y_1}[\\textsf{E}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1]\\]\nConditional Variance \\(\\textsf{Var}[Y_2 \\mid y_1]\\)\nIterated expectations (prove!) \\[\\textsf{Var}[Y_2  \\mid y_1] = \\textsf{E}_{\\theta \\mid y_1}[\\textsf{Var}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1] + \\textsf{Var}_{\\theta \\mid y_1}[\\textsf{E}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1]\\]"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#updated-posterior-for-theta",
+    "href": "resources/slides/03-normal-predictive-distributions.html#updated-posterior-for-theta",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Updated Posterior for \\(\\theta\\)",
+    "text": "Updated Posterior for \\(\\theta\\)\n\\[p(\\theta \\mid y_1, y_2) \\propto p(y_2 \\mid \\theta) p(y_1 \\mid \\theta) \\pi(\\theta)\\]\n\\[p(\\theta \\mid y_1, y_2) \\propto  p(y_2 \\mid \\theta) p(\\theta \\mid y_1)\\]\n\nApply previous updating rules\n\nnew posterior mean \\[\\theta_2 = \\frac{\\tau_1 \\theta_1  + \\tau y_2}{\\tau_1 + \\tau} = \\frac{\\tau_0 \\theta_0 + 2 \\tau \\bar{y}}\n{\\tau_0 + 2 \\tau}\\]\nnew precision \\[ \\tau_2 = \\tau_1 + \\tau = \\tau_0 + 2 \\tau\\]"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#after-n-observations",
+    "href": "resources/slides/03-normal-predictive-distributions.html#after-n-observations",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "After \\(n\\) observations",
+    "text": "After \\(n\\) observations\n\nPosterior for \\(\\theta\\) \\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nPosterior Predictive Distribution for \\(Y_{n+1}\\) \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{\\tau} + \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nShrinkage of the MLE to the prior mean\nMore accurate estimation of \\(\\theta\\) as \\(n \\to \\infty\\) (reducible error)\nCannot reduce the error for prediction \\(Y_{n+1}\\) due to \\(\\sigma^2\\)\npredictive distribution for a next observation given everything we know - prior and likelihood"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#results-with-jeffreys-prior",
+    "href": "resources/slides/03-normal-predictive-distributions.html#results-with-jeffreys-prior",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Results with Jeffreys’ Prior",
+    "text": "Results with Jeffreys’ Prior\n\nWhat if \\(\\tau_0 \\to 0\\)? (or \\(\\sigma^2_0 \\to \\infty\\))\nPrior predictive \\(\\textsf{N}(\\theta_0, \\sigma^2_0 + \\sigma^2 )\\) (not proper in the limit)\nPosterior for \\(\\theta\\) (formal posterior) \\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\n\n\n\\[\\to  \\qquad \\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y},\n\\frac{1}{n \\tau} \\right)\\]\n\nRecovers the MLE as the posterior mode!\nPosterior variance of \\(\\theta = \\sigma^2/n\\) (same as variance of the MLE)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-distribution",
+    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-distribution",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Posterior Predictive Distribution",
+    "text": "Posterior Predictive Distribution\n\nPosterior predictive distribution for \\(Y_{n+1}\\) \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{\\tau} + \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nUnder Jeffreys’ prior \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y}, \\sigma^2 (1 + \\frac{1}{n} )\\right)\\]\nCaptures extra uncertainty due to not knowing \\(\\theta\\) (compared to plug-in approach where we plug in MLE in sampling model!"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#comparing-estimators",
+    "href": "resources/slides/03-normal-predictive-distributions.html#comparing-estimators",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Comparing Estimators",
+    "text": "Comparing Estimators\n\nExpected loss (from frequentist perspective) of using Bayes Estimator\nPosterior mean is optimal under squared error loss (min Bayes Risk) [also absolute error loss]\nCompute Mean Square Error (or Expected Average Loss) \\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right]\\]\n\n\n\\[ = \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\n\nFor the MLE \\(\\bar{Y}\\) this is just the variance of \\(\\bar{Y}\\) or \\(\\sigma^2/n\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#mse-for-bayes",
+    "href": "resources/slides/03-normal-predictive-distributions.html#mse-for-bayes",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "MSE for Bayes",
+    "text": "MSE for Bayes\n\nFrequentist Risk \\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right] = \\textsf{MSE} =  \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\nBias of Bayes Estimate \\[\\textsf{E}_{\\bar{Y} \\mid \\theta}\\left[ \\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}\n{\\tau_0  + \\tau n}\\right] =\n\\frac{\\tau_0(\\theta_0 - \\theta)}{\\tau_0 + \\tau n}\\]\nVariance \\[\\textsf{Var}\\left(\\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}{\\tau_0 + \\tau n} - \\theta  \\mid \\theta \\right)  = \\frac{\\tau n}{(\\tau_0 + \\tau n)^2}\\]\n(Frequentist) expected Loss when truth is \\(\\theta\\) \\[\\textsf{MSE} = \\frac{\\tau_0^2(\\theta - \\theta_0)^2 + \\tau n}{(\\tau_0 + \\tau n)^2}\\]"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#plot",
+    "href": "resources/slides/03-normal-predictive-distributions.html#plot",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Plot",
+    "text": "Plot\nBehavior ?"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#updating-with-n-observations",
+    "href": "resources/slides/03-normal-predictive-distributions.html#updating-with-n-observations",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Updating with \\(n\\) Observations",
+    "text": "Updating with \\(n\\) Observations\n\nCan update sequentially as before -or-\nWe can use the \\(\\cal{L}(\\theta)\\) based on \\(n\\) observations and repeat completing the square with the original prior \\(\\theta \\sim \\textsf{N}(\\theta_0, 1/\\tau_0)\\)\nsame answer!\nThe likelihood for \\(\\theta\\) is proportional to the sampling model \\[p(y \\mid \\theta,\\tau)  =\n\\prod_{i=1}^n \\frac{1}{\\sqrt{2\\pi}} \\tau^{\\frac{1}{2}}  \\exp{\\left\\{-\\frac{1}{2} \\tau (y_i-\\theta)^2\\right\\}}\\]\n\n\n\n\n\n\n\n\nExercise\n\n\nRewrite in terms of sufficient statistics!"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#exercises-for-practice",
+    "href": "resources/slides/03-normal-predictive-distributions.html#exercises-for-practice",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Exercises for Practice",
+    "text": "Exercises for Practice\n\n\n\n\n\n\nExercise 1\n\n\nUse \\(\\cal{L}(\\theta)\\) based on \\(n\\) observations and \\(\\pi(\\theta)\\) to find \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) based on the sufficient statistics\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\nUse \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) to find the posterior predictive distribution for \\(Y_{n+1}\\)"
+  },
+  {
+    "objectID": "resources/slides/03-normal-predictive-distributions.html#simplification",
+    "href": "resources/slides/03-normal-predictive-distributions.html#simplification",
+    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
+    "section": "Simplification",
+    "text": "Simplification\n\\[\\begin{split}\n\\cal{L}(\\theta) & \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n (y_i-\\theta)^2\\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n \\left[ (y_i-\\bar{y}) - (\\theta - \\bar{y}) \\right]^2 \\right\\}\\\\\n\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + \\sum_{i=1}^n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau s^2(n-1) \\right\\} \\ \\exp\\left\\{-\\frac{1}{2} \\tau n(\\theta - \\bar{y})^2 \\right\\}\n\\end{split}\\]\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": " Syllabus",
+    "section": "",
+    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+  },
+  {
+    "objectID": "resources/slides/template.html",
+    "href": "resources/slides/template.html",
     "title": "STA 702 Fall 2023",
-    "section": "Bayesian Statistical Modeling and Data Analysis",
-    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
-  },
-  {
-    "objectID": "index.html#course-info",
-    "href": "index.html#course-info",
-    "title": "STA 702 Fall 2023",
-    "section": "Course Info",
-    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 1:45-2:45  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#ingredients",
-    "href": "resources/slides/01-basics-of-bayes.html#ingredients",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Ingredients",
-    "text": "Ingredients\n\nPrior Distribution \\(\\pi(\\theta)\\) for unknown \\(\\theta\\)\nLikelihood Function \\({\\cal{L}}(\\theta \\mid y ) \\propto p(y \\mid \\theta)\\) (sampling model)\nPosterior Distribution \\[\\pi(\\theta | y) = \\frac{\\pi(\\theta)p(y \\mid \\theta)}{\\int_{\\Theta}\\pi({\\theta})p(y\\mid {\\theta}) \\textrm{d}{\\theta}} = \\frac{\\pi(\\theta)p(y\\mid\\theta)}{p(y)}\\]\nLoss Function Depends on what you want to report; estimate of \\(\\theta\\), predict future \\(Y_{n+1}\\), etc"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#posterior-depends-on-likelihoods",
-    "href": "resources/slides/01-basics-of-bayes.html#posterior-depends-on-likelihoods",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Posterior Depends on Likelihoods",
-    "text": "Posterior Depends on Likelihoods\n\nLikelihood function is defined up to a consant \\[c \\, {\\cal{L}}(\\theta \\mid Y) =  p(y \\mid \\theta) \\]\nBayes’ Rule \\[\\pi(\\theta | y) = \\frac{\\pi(\\theta)p(y \\mid \\theta)}{\\int_{\\Theta}\\pi({\\theta})p(y\\mid {\\theta}) \\textrm{d}{\\theta}} =\n\\frac{\\pi(\\theta)c {\\cal{L}}(\\theta \\mid y)}{\\int_{\\Theta}\\pi({\\theta})c{\\cal{L}}(\\theta \\mid y) \\textrm{d}{\\theta}}  =\n\\frac{\\pi(\\theta){\\cal{L}}(\\theta \\mid y)}{m(y)}\\]\n\\(m(y)\\) is proportional to the marginal distribution of data\n\\[m(y) = \\int_{\\Theta}\\pi({\\theta}){\\cal{L}}(\\theta \\mid y) \\textrm{d}{\\theta}\\]\nmarginal likelihood of this model or “evidence”\n\n\nNote: the marginal likelihood and maximized likelihood are very different!"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#binomial-example",
-    "href": "resources/slides/01-basics-of-bayes.html#binomial-example",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Binomial Example",
-    "text": "Binomial Example\n\nBinomial sampling \\(Y \\mid n, \\theta \\sim \\textsf{Binomial}(n, \\theta)\\)\nProbability Mass Function \\[p(y \\mid \\theta) = {n \\choose y} \\theta^y(1-\\theta)^{n-y}\\]\nLikelihood \\(\\cal{L}(\\theta ) = \\theta^y(1-\\theta)^{n-y}\\)\nMLE \\(\\hat{\\theta}\\) of Binomial is \\(\\bar{y} = y/n\\) proportion of successes\nRecall Derivation!"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#marginal-likelihood",
-    "href": "resources/slides/01-basics-of-bayes.html#marginal-likelihood",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Marginal Likelihood",
-    "text": "Marginal Likelihood\n\\[m(y) = \\int_\\Theta \\cal{L}(\\theta)  \\pi(\\theta) \\textrm{d}\\theta=  \\int_\\Theta \\theta^y(1-\\theta)^{n-y} \\pi(\\theta) \\textrm{d}\\theta\\]\n“Averaging” of likelihood over prior \\(\\pi(\\theta) = 1\\)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#binomial-example-1",
-    "href": "resources/slides/01-basics-of-bayes.html#binomial-example-1",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Binomial Example",
-    "text": "Binomial Example\n\nPrior \\(\\theta \\sim \\textsf{U}(0,1)\\) or \\(\\pi(\\theta) = 1, \\quad \\textrm{for } \\theta \\in (0,1)\\)\nMarginal \\(m(y) = \\int_0^1 \\theta^y(1-\\theta)^{n-y}\\, 1 \\,\\textrm{d}\\theta\\)\nSpecial function known as the beta function - see Rudin \\[{B}(a, b) =  \\int_0^1 \\theta^{a - 1}(1-\\theta)^{b - 1} \\,\\textrm{d}\\theta \\]\nPosterior Distribution \\[\\pi(\\theta \\mid y ) = \\frac{ \\theta^{(y+1)-1} (1-\\theta)^{(n - y +1) -1}}{B(y + 1,n - y + 1)}\\]\n\n\n\\[\\theta \\mid y \\sim \\textsf{Beta}(y + 1, n - y + 1) \\]"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#beta-prior-distributions",
-    "href": "resources/slides/01-basics-of-bayes.html#beta-prior-distributions",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Beta Prior Distributions",
-    "text": "Beta Prior Distributions\n\\(\\textsf{Beta}(a, b)\\) is a probability density function (pdf) on (0,1),\n\n\\[\\pi(\\theta) = \\frac{1}{B(a,b)} \\theta^{a-1} (1-\\theta)^{b -1}\\]\n\nUse the kernel trick to find the posterior \\[\\pi(\\theta \\mid y) \\propto \\cal{L}(\\theta \\mid y) \\pi(\\theta)\\]\nWrite down likelihood and prior (ignore constants wrt \\(\\theta\\))\nRecognize kernel of density\nFigure out normalizing constant/distribution"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#try-it",
-    "href": "resources/slides/01-basics-of-bayes.html#try-it",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Try it!",
-    "text": "Try it!"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#prior-to-posterior-updating-binomial-data",
-    "href": "resources/slides/01-basics-of-bayes.html#prior-to-posterior-updating-binomial-data",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Prior to Posterior Updating Binomial Data",
-    "text": "Prior to Posterior Updating Binomial Data\n\nPrior \\(\\textsf{Beta}(a, b)\\)\nPosterior \\(\\textsf{Beta}(a + y, b + n - y)\\)\nConjugate prior & posterior distribution are in the same family of distributions, (Beta)\nSimple updating of information from the prior to posterior\n\n\\(a + b\\) “prior sample size” (number of trials in a hypothetical experiment)\n\\(a\\) “number of successes”\n\\(b\\) “number of failures”\n\nprior elicitation (process of choosing the prior hyperparamters) based on historic or imaginary data"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#summaries-properties",
-    "href": "resources/slides/01-basics-of-bayes.html#summaries-properties",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Summaries & Properties",
-    "text": "Summaries & Properties\n\nFor \\(\\theta \\sim \\textsf{Beta}(a,b)\\) let \\(a + b = n_0\\) “prior sample size”\nPrior mean \\[\\textsf{E}[\\theta] = \\frac{a}{a+b}  \\equiv \\theta_0 \\]\nPosterior mean \\[\\textsf{E}[\\theta \\mid y ] = \\frac{a + y }{a+b +n}  \\equiv \\tilde{\\theta} \\]\nRewrite with MLE \\(\\hat{\\theta} = \\bar{y} = \\frac{y}{n}\\) and prior mean \\[\\textsf{E}[\\theta \\mid y ] = \\frac{a + y }{a+b +n}  \n= \\frac{n_0}{n_0 + n} \\theta_0  + \\frac{n}{n_0 + n} \\hat{\\theta}\\]\nWeighted average of prior mean and MLE where weight for \\(\\theta_0 \\propto n_0\\) and weight for \\(\\hat{\\theta} \\propto n\\)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#properties",
-    "href": "resources/slides/01-basics-of-bayes.html#properties",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Properties",
-    "text": "Properties\n\nPosterior mean \\[\\tilde{\\theta} = \\frac{n_0}{n_0 + n} \\theta_0  + \\frac{n}{n_0 + n} \\hat{\\theta}\\]\nin finite samples we get shrinkage: posterior mean pulls the MLE toward the prior mean; amount depends on prior sample size \\(n_0\\) and data sample size \\(n\\)\nregularization effect to reduce Mean Squared Error for estimation with small sample sizes and noisy data\n\nintroduces some bias (in the frequentist sense) due to prior mean \\(\\theta_0\\)\nreduces variance (bias-variance trade-off)\n\nhelpful in the Binomial case, when sample size is small or \\(\\theta_{\\text{true}} \\approx 0\\) (rare events) and \\(\\hat{\\theta} = 0\\) (inbalanced categorical data)\nas we get more information from the data \\(n \\to \\infty\\) we have \\(\\tilde{\\theta} \\to \\hat{\\theta}\\) and consistency ! As \\(n \\to \\infty, \\textsf{E}[\\tilde{\\theta}] \\to \\theta_{\\text{true}}\\)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#some-possible-prior-densities",
-    "href": "resources/slides/01-basics-of-bayes.html#some-possible-prior-densities",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Some possible prior densities",
-    "text": "Some possible prior densities"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#prior-choice",
-    "href": "resources/slides/01-basics-of-bayes.html#prior-choice",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Prior Choice",
-    "text": "Prior Choice\n\nIs the uniform prior \\(\\textsf{Beta}(1,1)\\) non-informative?\n\nNo- if \\(y = 0\\) (or \\(n\\)) sparse/rare events saying that we have a prior “historical” sample with 1 success and 1 failure ( \\(a = 1\\) and \\(b = 1\\) ) can be very informative\n\nWhat about a uniform prior on the log odds? \\(\\eta \\equiv \\log\\left( \\frac{\\theta} {1 - \\theta} \\right)\\)? \\[\\pi(\\eta) \\propto 1, \\qquad \\eta \\in \\mathbb{R}\\]\n\nIs this a proper prior distribution?\nwhat would be induced measure for \\(\\theta\\)?\nFind Jacobian (exercise!) \\[\\pi(\\theta) \\propto \\theta^{-1} (1 - \\theta)^{-1}, \\qquad \\theta \\in (0,1)\\]\nlimiting case of a Beta \\(a \\to 0\\) and \\(b \\to 0\\) (Haldane’s prior)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#formal-bayes",
-    "href": "resources/slides/01-basics-of-bayes.html#formal-bayes",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Formal Bayes",
-    "text": "Formal Bayes\n\nuse of improper prior and turn the Bayesian crank\ncalculate \\(m(y)\\) and renormalize likelihood times “improper prior” if \\(m(y)\\) is finite\nformal posterior is \\(\\textsf{Beta}(y, n-y)\\) and reasonable only if \\(y \\neq 0\\) or \\(y \\neq n\\) as \\(B(0, -)\\) and \\(B(-, 0)\\) (normalizing constant) are undefined!\nno shrinkage \\(\\textsf{E}[\\theta \\mid y] = \\frac{y}{n} = \\tilde{\\theta} = \\hat{\\theta}\\)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#invariance",
-    "href": "resources/slides/01-basics-of-bayes.html#invariance",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Invariance",
-    "text": "Invariance\n\nJeffreys argues that priors should be invariant to transformations to be non-informative. . . . i.e. if we reparameterize with \\(\\theta = h(\\rho)\\) then the rule should be that \\[\\pi_\\theta(\\theta) = \\left|\\frac{ d \\rho} {d \\theta}\\right| \\pi_\\rho(h^{-1}(\\theta))\\]\nJefferys’ rule is to pick \\(\\pi(\\rho) \\propto (I(\\rho))^{1/2}\\)\nExpected Fisher Information for \\(\\rho\\) \\[ I(\\rho) = - \\textsf{E} \\left[ \\frac {d^2 \\log ({\\cal{L}}(\\rho))} {d^2 \\rho} \\right]\\]\nFor the Binomial example \\(\\pi(\\theta) \\propto \\theta^{-1/2} (1 - \\theta)^{-1/2}\\)\nThus Jefferys’ prior is a \\(\\textsf{Beta}(1/2, 1/2)\\)"
-  },
-  {
-    "objectID": "resources/slides/01-basics-of-bayes.html#why",
-    "href": "resources/slides/01-basics-of-bayes.html#why",
-    "title": "Basics of Bayesian Statistics",
-    "section": "Why ?",
-    "text": "Why ?\nChain Rule!\n\nFind Jefferys’ prior for \\(\\theta\\) where \\(Y \\sim \\textsf{Ber}(\\theta)\\)\nFind information matrix \\(I(\\rho)\\) for \\(\\rho = \\rho(\\theta)\\) from \\(I(\\theta)\\)\nShow that the prior satisfies the invariance property!\nFind Jeffreys’ prior for \\(\\rho = \\log(\\frac{\\theta}{1 - \\theta})\\)\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "section": "",
+    "text": "subtitle: “STA 702: Lecture ?” title: “template” author: “Merlise Clyde” institute: “Duke University” format: revealjs: theme: [simple, custom.scss] slide-number: true incremental: true scrollable: false controls: true fragments: true preview-links: auto logo: ../../img/icon.png footer: https://sta702-F23.github.io/website/ chalkboard: boardmarker-width: 1 chalk-width: 2 chalk-effect: 0 embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js”\neditor: markdown: wrap: 72 execute: echo: false"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#last-time",
@@ -420,291 +588,151 @@
     "text": "Model Misspecification ?\n\nWe might have chosen a bad sampling model/likelihood\nposterior still converges to a Gaussian centered at the MLE under the misspecified model, but wrong variance\n95% Bayesian credible sets do not have correct frequentist coverage\nSee Klein & van der Vaart for more rigorous treatment if interested\nparametric model is “close” to the true data-generating process\nmodel diagnostics & changing the model can reduce the gap between model we are using and the true data generating process\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources/slides/template.html",
-    "href": "resources/slides/template.html",
+    "objectID": "resources/slides/01-basics-of-bayes.html#ingredients",
+    "href": "resources/slides/01-basics-of-bayes.html#ingredients",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Ingredients",
+    "text": "Ingredients\n\nPrior Distribution \\(\\pi(\\theta)\\) for unknown \\(\\theta\\)\nLikelihood Function \\({\\cal{L}}(\\theta \\mid y ) \\propto p(y \\mid \\theta)\\) (sampling model)\nPosterior Distribution \\[\\pi(\\theta | y) = \\frac{\\pi(\\theta)p(y \\mid \\theta)}{\\int_{\\Theta}\\pi({\\theta})p(y\\mid {\\theta}) \\textrm{d}{\\theta}} = \\frac{\\pi(\\theta)p(y\\mid\\theta)}{p(y)}\\]\nLoss Function Depends on what you want to report; estimate of \\(\\theta\\), predict future \\(Y_{n+1}\\), etc"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#posterior-depends-on-likelihoods",
+    "href": "resources/slides/01-basics-of-bayes.html#posterior-depends-on-likelihoods",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Posterior Depends on Likelihoods",
+    "text": "Posterior Depends on Likelihoods\n\nLikelihood function is defined up to a consant \\[c \\, {\\cal{L}}(\\theta \\mid Y) =  p(y \\mid \\theta) \\]\nBayes’ Rule \\[\\pi(\\theta | y) = \\frac{\\pi(\\theta)p(y \\mid \\theta)}{\\int_{\\Theta}\\pi({\\theta})p(y\\mid {\\theta}) \\textrm{d}{\\theta}} =\n\\frac{\\pi(\\theta)c {\\cal{L}}(\\theta \\mid y)}{\\int_{\\Theta}\\pi({\\theta})c{\\cal{L}}(\\theta \\mid y) \\textrm{d}{\\theta}}  =\n\\frac{\\pi(\\theta){\\cal{L}}(\\theta \\mid y)}{m(y)}\\]\n\\(m(y)\\) is proportional to the marginal distribution of data\n\\[m(y) = \\int_{\\Theta}\\pi({\\theta}){\\cal{L}}(\\theta \\mid y) \\textrm{d}{\\theta}\\]\nmarginal likelihood of this model or “evidence”\n\n\nNote: the marginal likelihood and maximized likelihood are very different!"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#binomial-example",
+    "href": "resources/slides/01-basics-of-bayes.html#binomial-example",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Binomial Example",
+    "text": "Binomial Example\n\nBinomial sampling \\(Y \\mid n, \\theta \\sim \\textsf{Binomial}(n, \\theta)\\)\nProbability Mass Function \\[p(y \\mid \\theta) = {n \\choose y} \\theta^y(1-\\theta)^{n-y}\\]\nLikelihood \\(\\cal{L}(\\theta ) = \\theta^y(1-\\theta)^{n-y}\\)\nMLE \\(\\hat{\\theta}\\) of Binomial is \\(\\bar{y} = y/n\\) proportion of successes\nRecall Derivation!"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#marginal-likelihood",
+    "href": "resources/slides/01-basics-of-bayes.html#marginal-likelihood",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Marginal Likelihood",
+    "text": "Marginal Likelihood\n\\[m(y) = \\int_\\Theta \\cal{L}(\\theta)  \\pi(\\theta) \\textrm{d}\\theta=  \\int_\\Theta \\theta^y(1-\\theta)^{n-y} \\pi(\\theta) \\textrm{d}\\theta\\]\n“Averaging” of likelihood over prior \\(\\pi(\\theta) = 1\\)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#binomial-example-1",
+    "href": "resources/slides/01-basics-of-bayes.html#binomial-example-1",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Binomial Example",
+    "text": "Binomial Example\n\nPrior \\(\\theta \\sim \\textsf{U}(0,1)\\) or \\(\\pi(\\theta) = 1, \\quad \\textrm{for } \\theta \\in (0,1)\\)\nMarginal \\(m(y) = \\int_0^1 \\theta^y(1-\\theta)^{n-y}\\, 1 \\,\\textrm{d}\\theta\\)\nSpecial function known as the beta function - see Rudin \\[{B}(a, b) =  \\int_0^1 \\theta^{a - 1}(1-\\theta)^{b - 1} \\,\\textrm{d}\\theta \\]\nPosterior Distribution \\[\\pi(\\theta \\mid y ) = \\frac{ \\theta^{(y+1)-1} (1-\\theta)^{(n - y +1) -1}}{B(y + 1,n - y + 1)}\\]\n\n\n\\[\\theta \\mid y \\sim \\textsf{Beta}(y + 1, n - y + 1) \\]"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#beta-prior-distributions",
+    "href": "resources/slides/01-basics-of-bayes.html#beta-prior-distributions",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Beta Prior Distributions",
+    "text": "Beta Prior Distributions\n\\(\\textsf{Beta}(a, b)\\) is a probability density function (pdf) on (0,1),\n\n\\[\\pi(\\theta) = \\frac{1}{B(a,b)} \\theta^{a-1} (1-\\theta)^{b -1}\\]\n\nUse the kernel trick to find the posterior \\[\\pi(\\theta \\mid y) \\propto \\cal{L}(\\theta \\mid y) \\pi(\\theta)\\]\nWrite down likelihood and prior (ignore constants wrt \\(\\theta\\))\nRecognize kernel of density\nFigure out normalizing constant/distribution"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#try-it",
+    "href": "resources/slides/01-basics-of-bayes.html#try-it",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Try it!",
+    "text": "Try it!"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#prior-to-posterior-updating-binomial-data",
+    "href": "resources/slides/01-basics-of-bayes.html#prior-to-posterior-updating-binomial-data",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Prior to Posterior Updating Binomial Data",
+    "text": "Prior to Posterior Updating Binomial Data\n\nPrior \\(\\textsf{Beta}(a, b)\\)\nPosterior \\(\\textsf{Beta}(a + y, b + n - y)\\)\nConjugate prior & posterior distribution are in the same family of distributions, (Beta)\nSimple updating of information from the prior to posterior\n\n\\(a + b\\) “prior sample size” (number of trials in a hypothetical experiment)\n\\(a\\) “number of successes”\n\\(b\\) “number of failures”\n\nprior elicitation (process of choosing the prior hyperparamters) based on historic or imaginary data"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#summaries-properties",
+    "href": "resources/slides/01-basics-of-bayes.html#summaries-properties",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Summaries & Properties",
+    "text": "Summaries & Properties\n\nFor \\(\\theta \\sim \\textsf{Beta}(a,b)\\) let \\(a + b = n_0\\) “prior sample size”\nPrior mean \\[\\textsf{E}[\\theta] = \\frac{a}{a+b}  \\equiv \\theta_0 \\]\nPosterior mean \\[\\textsf{E}[\\theta \\mid y ] = \\frac{a + y }{a+b +n}  \\equiv \\tilde{\\theta} \\]\nRewrite with MLE \\(\\hat{\\theta} = \\bar{y} = \\frac{y}{n}\\) and prior mean \\[\\textsf{E}[\\theta \\mid y ] = \\frac{a + y }{a+b +n}  \n= \\frac{n_0}{n_0 + n} \\theta_0  + \\frac{n}{n_0 + n} \\hat{\\theta}\\]\nWeighted average of prior mean and MLE where weight for \\(\\theta_0 \\propto n_0\\) and weight for \\(\\hat{\\theta} \\propto n\\)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#properties",
+    "href": "resources/slides/01-basics-of-bayes.html#properties",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Properties",
+    "text": "Properties\n\nPosterior mean \\[\\tilde{\\theta} = \\frac{n_0}{n_0 + n} \\theta_0  + \\frac{n}{n_0 + n} \\hat{\\theta}\\]\nin finite samples we get shrinkage: posterior mean pulls the MLE toward the prior mean; amount depends on prior sample size \\(n_0\\) and data sample size \\(n\\)\nregularization effect to reduce Mean Squared Error for estimation with small sample sizes and noisy data\n\nintroduces some bias (in the frequentist sense) due to prior mean \\(\\theta_0\\)\nreduces variance (bias-variance trade-off)\n\nhelpful in the Binomial case, when sample size is small or \\(\\theta_{\\text{true}} \\approx 0\\) (rare events) and \\(\\hat{\\theta} = 0\\) (inbalanced categorical data)\nas we get more information from the data \\(n \\to \\infty\\) we have \\(\\tilde{\\theta} \\to \\hat{\\theta}\\) and consistency ! As \\(n \\to \\infty, \\textsf{E}[\\tilde{\\theta}] \\to \\theta_{\\text{true}}\\)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#some-possible-prior-densities",
+    "href": "resources/slides/01-basics-of-bayes.html#some-possible-prior-densities",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Some possible prior densities",
+    "text": "Some possible prior densities"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#prior-choice",
+    "href": "resources/slides/01-basics-of-bayes.html#prior-choice",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Prior Choice",
+    "text": "Prior Choice\n\nIs the uniform prior \\(\\textsf{Beta}(1,1)\\) non-informative?\n\nNo- if \\(y = 0\\) (or \\(n\\)) sparse/rare events saying that we have a prior “historical” sample with 1 success and 1 failure ( \\(a = 1\\) and \\(b = 1\\) ) can be very informative\n\nWhat about a uniform prior on the log odds? \\(\\eta \\equiv \\log\\left( \\frac{\\theta} {1 - \\theta} \\right)\\)? \\[\\pi(\\eta) \\propto 1, \\qquad \\eta \\in \\mathbb{R}\\]\n\nIs this a proper prior distribution?\nwhat would be induced measure for \\(\\theta\\)?\nFind Jacobian (exercise!) \\[\\pi(\\theta) \\propto \\theta^{-1} (1 - \\theta)^{-1}, \\qquad \\theta \\in (0,1)\\]\nlimiting case of a Beta \\(a \\to 0\\) and \\(b \\to 0\\) (Haldane’s prior)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#formal-bayes",
+    "href": "resources/slides/01-basics-of-bayes.html#formal-bayes",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Formal Bayes",
+    "text": "Formal Bayes\n\nuse of improper prior and turn the Bayesian crank\ncalculate \\(m(y)\\) and renormalize likelihood times “improper prior” if \\(m(y)\\) is finite\nformal posterior is \\(\\textsf{Beta}(y, n-y)\\) and reasonable only if \\(y \\neq 0\\) or \\(y \\neq n\\) as \\(B(0, -)\\) and \\(B(-, 0)\\) (normalizing constant) are undefined!\nno shrinkage \\(\\textsf{E}[\\theta \\mid y] = \\frac{y}{n} = \\tilde{\\theta} = \\hat{\\theta}\\)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#invariance",
+    "href": "resources/slides/01-basics-of-bayes.html#invariance",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Invariance",
+    "text": "Invariance\n\nJeffreys argues that priors should be invariant to transformations to be non-informative. . . . i.e. if we reparameterize with \\(\\theta = h(\\rho)\\) then the rule should be that \\[\\pi_\\theta(\\theta) = \\left|\\frac{ d \\rho} {d \\theta}\\right| \\pi_\\rho(h^{-1}(\\theta))\\]\nJefferys’ rule is to pick \\(\\pi(\\rho) \\propto (I(\\rho))^{1/2}\\)\nExpected Fisher Information for \\(\\rho\\) \\[ I(\\rho) = - \\textsf{E} \\left[ \\frac {d^2 \\log ({\\cal{L}}(\\rho))} {d^2 \\rho} \\right]\\]\nFor the Binomial example \\(\\pi(\\theta) \\propto \\theta^{-1/2} (1 - \\theta)^{-1/2}\\)\nThus Jefferys’ prior is a \\(\\textsf{Beta}(1/2, 1/2)\\)"
+  },
+  {
+    "objectID": "resources/slides/01-basics-of-bayes.html#why",
+    "href": "resources/slides/01-basics-of-bayes.html#why",
+    "title": "Basics of Bayesian Statistics",
+    "section": "Why ?",
+    "text": "Why ?\nChain Rule!\n\nFind Jefferys’ prior for \\(\\theta\\) where \\(Y \\sim \\textsf{Ber}(\\theta)\\)\nFind information matrix \\(I(\\rho)\\) for \\(\\rho = \\rho(\\theta)\\) from \\(I(\\theta)\\)\nShow that the prior satisfies the invariance property!\nFind Jeffreys’ prior for \\(\\rho = \\log(\\frac{\\theta}{1 - \\theta})\\)\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
     "title": "STA 702 Fall 2023",
-    "section": "",
-    "text": "subtitle: “STA 702: Lecture ?” title: “template” author: “Merlise Clyde” institute: “Duke University” format: revealjs: theme: [simple, custom.scss] slide-number: true incremental: true scrollable: false controls: true fragments: true preview-links: auto logo: ../../img/icon.png footer: https://sta702-F23.github.io/website/ chalkboard: boardmarker-width: 1 chalk-width: 2 chalk-effect: 0 embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js”\neditor: markdown: wrap: 72 execute: echo: false"
+    "section": "Bayesian Statistical Modeling and Data Analysis",
+    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": " Syllabus",
-    "section": "",
-    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+    "objectID": "index.html#course-info",
+    "href": "index.html#course-info",
+    "title": "STA 702 Fall 2023",
+    "section": "Course Info",
+    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 1:45-2:45  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
   },
   {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#outline",
-    "href": "resources/slides/03-normal-predictive-distributions.html#outline",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Outline",
-    "text": "Outline\n\nNormal Model\nPredictive Distributions\nPrior Predictive; useful for prior elicitation\nPosterior Predictive; predicting/forecasting future events\nComparing Estimators"
+    "objectID": "labs/lab-02-beta-binomial.html#rrstudio",
+    "href": "labs/lab-02-beta-binomial.html#rrstudio",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
   },
   {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#normal-model-setup",
-    "href": "resources/slides/03-normal-predictive-distributions.html#normal-model-setup",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Normal Model Setup",
-    "text": "Normal Model Setup\n\nSuppose we have independent observations \\[\\mathbf{y} = (y_1,y_2,\\ldots,y_n)^T\\] where each \\(Y_i \\mid \\theta, \\sigma^2 \\stackrel{iid}{\\sim} \\textsf{N}(\\theta, \\sigma^2)\\)\nWe will see that it is more convenient to work with \\(\\tau = 1/\\sigma^2\\) (precision)\nreparameterizing the model for the data we have \\[Y_i \\mid \\theta, \\tau  \\sim \\mathcal{N}(\\theta, \\tau^{-1})\\]\nfor simplicity we will treat \\(\\tau\\) as known initially.\nNeed to specify a prior for \\(\\theta\\) on \\(\\mathbb{R}\\)"
+    "objectID": "labs/lab-02-beta-binomial.html#r-knitr",
+    "href": "labs/lab-02-beta-binomial.html#r-knitr",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
   },
   {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-for-a-normal-mean",
-    "href": "resources/slides/03-normal-predictive-distributions.html#prior-for-a-normal-mean",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Prior for a Normal Mean",
-    "text": "Prior for a Normal Mean\n\nNatural choice is a Normal/Gaussian distribution (Conjugate prior) \\[\\theta \\sim \\textsf{N}(\\theta_0, 1/\\tau_0)\\]\n\\(\\theta_0\\) is the prior mean - best guess for \\(\\theta\\) using information other than \\(\\mathbf{y}\\)\n\\(\\tau_0\\) is the prior precision and expresses our certainty about this guess\none notion of non-informative is to let \\(\\tau_0 \\to 0\\)\nbetter justification is as Jeffreys’ prior (uniform measure)\n\\(\\pi(\\theta) \\propto 1\\)\nparameterization invariant and invariant to location/scale changes in the data (group invariance)\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\nYou should be able to derive Jeffreys prior!"
+    "objectID": "labs/lab-02-beta-binomial.html#github-classroom",
+    "href": "labs/lab-02-beta-binomial.html#github-classroom",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
   },
   {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-distribution-1-observaton",
-    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-distribution-1-observaton",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Posterior Distribution (1 observaton)",
-    "text": "Posterior Distribution (1 observaton)\n\nPosterior \\[p(\\theta \\mid y) \\propto \\exp\\left\\{- \\frac 1 2 [\\tau (y - \\theta) ^2 + \\tau_0(\\theta - \\theta_0) ^2 \\right\\} \\, d\\theta\\]\nQuadratic in exponential term: \\(\\tau_0(\\theta - \\theta_0)^2 = \\tau_0 \\theta^2 - 2 \\tau_0 \\theta_0 \\theta + \\tau_0 \\theta_0^2\\)\n\nExpand quadratics, regroup and read off precision from quadtric term in \\(\\theta\\) and mean from linear term in \\(\\theta\\)\n\nposterior precision is the sum of prior precision and data precision \\(\\tau_0 + \\tau\\)\nposterior mean \\(\\hat{\\theta} = \\frac{\\tau_0} {\\tau_0 + \\tau} \\theta_0 + \\frac{\\tau}{\\tau_0 + \\tau} y\\); precision weighted average of prior mean and MLE\nconjugate family updating \\(\\theta \\mid y \\sim \\textsf{N} \\left(\\hat{\\theta}, \\frac{1}{\\tau_0 + \\tau} \\right)\\)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#marginal-distribution",
-    "href": "resources/slides/03-normal-predictive-distributions.html#marginal-distribution",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Marginal Distribution",
-    "text": "Marginal Distribution\n\nRecall that the marginal distribution is \\[p({y}) = p(y_1,\\ldots,y_n) = \\int_\\Theta p(y_1,\\ldots,y_n \\mid \\theta) \\pi(\\theta)\\, d\\theta\\]\nthis is also called the prior predictive distribution and is independent of any unknown parameters\nWe may care about making predictions before we even see any data.\nThis is often useful as a way to see if the sampling distribution or prior we have chosen is appropriate, after integrating out all unknown parameters."
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-predictive-for-a-single-case",
-    "href": "resources/slides/03-normal-predictive-distributions.html#prior-predictive-for-a-single-case",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Prior Predictive for a Single Case",
-    "text": "Prior Predictive for a Single Case\n\\[\\begin{split} p(y) & \\propto \\int_\\mathbb{R} p(y \\mid \\theta) \\pi(\\theta) \\, d\\theta \\\\\n& \\propto \\int_\\mathbb{R}\\exp\\left\\{- \\frac 1 2 \\tau (y - \\theta) ^2 \\right\\} \\exp\\left\\{-  \\frac 1 2 \\tau_0(\\theta - \\theta_0) ^2 \\right\\} \\, d\\theta\n\\end{split}\\]\n\n\n\nIntegration\n\nExpand quadratics in exp terms\nGroup terms with \\(\\theta^2\\) and \\(\\theta\\)\nRead off posterior precision and\nposterior mean\nComplete the square\nIntegrate out \\(\\theta\\) to obtain marginal!\n\n\n\nLinear combinations of Normals are Normal! \\[Y \\stackrel{D}{=} \\theta + \\epsilon, \\quad \\epsilon \\sim N(0, 1/\\tau) \\quad \\theta \\sim N(\\theta_0, 1/\\tau_0)\\]\nFind Mean of sum\nFind Variance of sum\nMarginal \\(Y \\sim N(\\theta_0, 1/\\tau_0 + 1/\\tau)\\)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#prior-predictive",
-    "href": "resources/slides/03-normal-predictive-distributions.html#prior-predictive",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Prior Predictive",
-    "text": "Prior Predictive\n\nmarginal distribution for \\(Y\\) (prior predictive) \\[Y \\sim \\textsf{N}\\left(\\theta_0, \\frac{1}{\\tau_0} + \\frac{1}{\\tau}\\right) \\text{ or } \\textsf{N}(\\theta_0, \\sigma^2 + \\sigma^2_0)\\]\ntwo sources of variability: data variability and prior variability\nuseful to think about observable quantities when choosing the prior\nsample directly from the prior predictive and assess whether the samples are consistent with our prior knowledge\nif not, go back and modify the prior & repeat\nsequential substitution sampling (repeat \\(T\\) times)\n\ndraw \\(\\theta^{(t)} \\sim \\pi(\\theta)\\)\ndraw \\(y^{(t)} \\mid \\theta^{(t)} \\sim p(y \\mid \\theta^{(t)})\\)\n\ntakes into account uncertain about \\(\\theta\\) and variability in \\(Y\\)!"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-updating",
-    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-updating",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Posterior Updating",
-    "text": "Posterior Updating\n\nSequential updating using the previous result as our prior!\nNew prior after seeing 1 observation is \\[\\textsf{N}(\\theta_1, 1/\\tau_1)\\]\nprior mean weighted average \\[\\theta_1 \\equiv \\frac{\\tau_0 \\theta_0 + \\tau y_1}{\\tau_0 + \\tau_1}\\]\nprior precision after 1 observation \\[\\tau_1 \\equiv \\tau_0 + \\tau\\]\nprior variance is now \\(\\sigma^2_1 = 1/\\tau_1\\)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-for-y_2-given-y_1",
-    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-for-y_2-given-y_1",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Posterior Predictive for \\(y_2\\) given \\(y_1\\)",
-    "text": "Posterior Predictive for \\(y_2\\) given \\(y_1\\)\n\nConditional \\(p(y_2 \\mid y_1) = p(y_2, y_1)/p(y_1)\\) (Hard way!)\nUse latent variable representation \\[p(y_2 \\mid y_1) = \\int_\\Theta \\frac{p(y_2, \\mid \\theta) p( y_1 \\mid \\theta ) \\pi(\\theta) \\, d\\theta}{p(y_1)}\\]\nsimplify to previous problem and use results \\[p(y_2 \\mid y_1) =  \\int_\\Theta p(y_2 \\mid \\theta) \\pi(\\theta \\mid y_1) \\, d\\theta\\]\n(Posterior) Predictive \\[Y_2 \\mid y_1 \\sim \\textsf{N}(\\theta_1, \\sigma^2 + \\sigma^2_1)\\]"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#iterated-expectations",
-    "href": "resources/slides/03-normal-predictive-distributions.html#iterated-expectations",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Iterated Expectations",
-    "text": "Iterated Expectations\nBased on expressions we have an exponential of a quadratic in \\(y_2\\) so know that distribution is Gaussian\n\nFind the mean and variance using iterated expectations:\nmean \\[\\textsf{E}[Y_2 \\mid y_1] = \\textsf{E}_{\\theta \\mid y_1}[\\textsf{E}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1]\\]\nConditional Variance \\(\\textsf{Var}[Y_2 \\mid y_1]\\)\nIterated expectations (prove!) \\[\\textsf{Var}[Y_2  \\mid y_1] = \\textsf{E}_{\\theta \\mid y_1}[\\textsf{Var}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1] + \\textsf{Var}_{\\theta \\mid y_1}[\\textsf{E}_{Y_2 \\mid y_1, \\theta} [Y_2 \\mid y_1, \\theta] \\mid y_1]\\]"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#updated-posterior-for-theta",
-    "href": "resources/slides/03-normal-predictive-distributions.html#updated-posterior-for-theta",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Updated Posterior for \\(\\theta\\)",
-    "text": "Updated Posterior for \\(\\theta\\)\n\\[p(\\theta \\mid y_1, y_2) \\propto p(y_2 \\mid \\theta) p(y_1 \\mid \\theta) \\pi(\\theta)\\]\n\\[p(\\theta \\mid y_1, y_2) \\propto  p(y_2 \\mid \\theta) p(\\theta \\mid y_1)\\]\n\nApply previous updating rules\n\nnew posterior mean \\[\\theta_2 = \\frac{\\tau_1 \\theta_1  + \\tau y_2}{\\tau_1 + \\tau} = \\frac{\\tau_0 \\theta_0 + 2 \\tau \\bar{y}}\n{\\tau_0 + 2 \\tau}\\]\nnew precision \\[ \\tau_2 = \\tau_1 + \\tau = \\tau_0 + 2 \\tau\\]"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#after-n-observations",
-    "href": "resources/slides/03-normal-predictive-distributions.html#after-n-observations",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "After \\(n\\) observations",
-    "text": "After \\(n\\) observations\n\nPosterior for \\(\\theta\\) \\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nPosterior Predictive Distribution for \\(Y_{n+1}\\) \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{\\tau} + \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nShrinkage of the MLE to the prior mean\nMore accurate estimation of \\(\\theta\\) as \\(n \\to \\infty\\) (reducible error)\nCannot reduce the error for prediction \\(Y_{n+1}\\) due to \\(\\sigma^2\\)\npredictive distribution for a next observation given everything we know - prior and likelihood"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#results-with-jeffreys-prior",
-    "href": "resources/slides/03-normal-predictive-distributions.html#results-with-jeffreys-prior",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Results with Jeffreys’ Prior",
-    "text": "Results with Jeffreys’ Prior\n\nWhat if \\(\\tau_0 \\to 0\\)? (or \\(\\sigma^2_0 \\to \\infty\\))\nPrior predictive \\(\\textsf{N}(\\theta_0, \\sigma^2_0 + \\sigma^2 )\\) (not proper in the limit)\nPosterior for \\(\\theta\\) (formal posterior) \\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\n\n\n\\[\\to  \\qquad \\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y},\n\\frac{1}{n \\tau} \\right)\\]\n\nRecovers the MLE as the posterior mode!\nPosterior variance of \\(\\theta = \\sigma^2/n\\) (same as variance of the MLE)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-distribution",
-    "href": "resources/slides/03-normal-predictive-distributions.html#posterior-predictive-distribution",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Posterior Predictive Distribution",
-    "text": "Posterior Predictive Distribution\n\nPosterior predictive distribution for \\(Y_{n+1}\\) \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{\\tau} + \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nUnder Jeffreys’ prior \\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y}, \\sigma^2 (1 + \\frac{1}{n} )\\right)\\]\nCaptures extra uncertainty due to not knowing \\(\\theta\\) (compared to plug-in approach where we plug in MLE in sampling model!"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#comparing-estimators",
-    "href": "resources/slides/03-normal-predictive-distributions.html#comparing-estimators",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Comparing Estimators",
-    "text": "Comparing Estimators\n\nExpected loss (from frequentist perspective) of using Bayes Estimator\nPosterior mean is optimal under squared error loss (min Bayes Risk) [also absolute error loss]\nCompute Mean Square Error (or Expected Average Loss) \\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right]\\]\n\n\n\\[ = \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\n\nFor the MLE \\(\\bar{Y}\\) this is just the variance of \\(\\bar{Y}\\) or \\(\\sigma^2/n\\)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#mse-for-bayes",
-    "href": "resources/slides/03-normal-predictive-distributions.html#mse-for-bayes",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "MSE for Bayes",
-    "text": "MSE for Bayes\n\nFrequentist Risk \\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right] = \\textsf{MSE} =  \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\nBias of Bayes Estimate \\[\\textsf{E}_{\\bar{Y} \\mid \\theta}\\left[ \\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}\n{\\tau_0  + \\tau n}\\right] =\n\\frac{\\tau_0(\\theta_0 - \\theta)}{\\tau_0 + \\tau n}\\]\nVariance \\[\\textsf{Var}\\left(\\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}{\\tau_0 + \\tau n} - \\theta  \\mid \\theta \\right)  = \\frac{\\tau n}{(\\tau_0 + \\tau n)^2}\\]\n(Frequentist) expected Loss when truth is \\(\\theta\\) \\[\\textsf{MSE} = \\frac{\\tau_0^2(\\theta - \\theta_0)^2 + \\tau n}{(\\tau_0 + \\tau n)^2}\\]"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#plot",
-    "href": "resources/slides/03-normal-predictive-distributions.html#plot",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Plot",
-    "text": "Plot\nBehavior ?"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#updating-with-n-observations",
-    "href": "resources/slides/03-normal-predictive-distributions.html#updating-with-n-observations",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Updating with \\(n\\) Observations",
-    "text": "Updating with \\(n\\) Observations\n\nCan update sequentially as before -or-\nWe can use the \\(\\cal{L}(\\theta)\\) based on \\(n\\) observations and repeat completing the square with the original prior \\(\\theta \\sim \\textsf{N}(\\theta_0, 1/\\tau_0)\\)\nsame answer!\nThe likelihood for \\(\\theta\\) is proportional to the sampling model \\[p(y \\mid \\theta,\\tau)  =\n\\prod_{i=1}^n \\frac{1}{\\sqrt{2\\pi}} \\tau^{\\frac{1}{2}}  \\exp{\\left\\{-\\frac{1}{2} \\tau (y_i-\\theta)^2\\right\\}}\\]\n\n\n\n\n\n\n\n\nExercise\n\n\nRewrite in terms of sufficient statistics!"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#exercises-for-practice",
-    "href": "resources/slides/03-normal-predictive-distributions.html#exercises-for-practice",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Exercises for Practice",
-    "text": "Exercises for Practice\n\n\n\n\n\n\nExercise 1\n\n\nUse \\(\\cal{L}(\\theta)\\) based on \\(n\\) observations and \\(\\pi(\\theta)\\) to find \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) based on the sufficient statistics\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\nUse \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) to find the posterior predictive distribution for \\(Y_{n+1}\\)"
-  },
-  {
-    "objectID": "resources/slides/03-normal-predictive-distributions.html#simplification",
-    "href": "resources/slides/03-normal-predictive-distributions.html#simplification",
-    "title": "The Normal Model & Prior/Posterior Predictive Distributions",
-    "section": "Simplification",
-    "text": "Simplification\n\\[\\begin{split}\n\\cal{L}(\\theta) & \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n (y_i-\\theta)^2\\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n \\left[ (y_i-\\bar{y}) - (\\theta - \\bar{y}) \\right]^2 \\right\\}\\\\\n\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + \\sum_{i=1}^n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau s^2(n-1) \\right\\} \\ \\exp\\left\\{-\\frac{1}{2} \\tau n(\\theta - \\bar{y})^2 \\right\\}\n\\end{split}\\]\n\n\n\nhttps://sta702-F23.github.io/website/"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
-    "href": "resources/slides/00-course-overview.html#what-is-this-course-about",
-    "title": "Welcome to STA 702",
-    "section": "What is this course about?",
-    "text": "What is this course about?\n\nLearn the foundations and theory of Bayesian inference in the context of several models.\nUse Bayesian models to answer inferential questions.\nApply the models to several different problems.\nUnderstand the advantages/disadvantages of Bayesian methods vs classical methods\n\n\n\n A Bayesian version will usually make things better…\n– Andrew Gelman."
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#instructional-team",
-    "href": "resources/slides/00-course-overview.html#instructional-team",
-    "title": "Welcome to STA 702",
-    "section": "Instructional Team",
-    "text": "Instructional Team\nInstructor: Dr Merlise Clyde\n   clyde@duke.edu     223 Old Chemistry     https://www2.stat.duke.edu/~clyde \n\n \nTeaching Assistant: Rick Presman\n   rick.presman@duke.edu\n \n   See course website for Office Hours, Policies and more!"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#prerequisites",
-    "href": "resources/slides/00-course-overview.html#prerequisites",
-    "title": "Welcome to STA 702",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nrandom variables, common families of probability distribution functions and expectations\nconditional distributions\ntransformations of random variables and change of variables\nprinciples of statistical inference (likelihoods)\nsampling distributions and hypothesis testing\nconcepts of convergence\n\n\nReview Chapters 1 to 5 of the Casella and Berger book"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#computing",
-    "href": "resources/slides/00-course-overview.html#computing",
-    "title": "Welcome to STA 702",
-    "section": "Computing",
-    "text": "Computing\n\nLabs/HW will involve computing in R!\nWrite your own MCMC samplers and run code long enough to show convergence\nYou can learn R on the fly\n\nsee Resources Tab on website\nmaterials from 2023 Bootcamp/Orientation"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#grading-policies",
-    "href": "resources/slides/00-course-overview.html#grading-policies",
-    "title": "Welcome to STA 702",
-    "section": "Grading Policies",
-    "text": "Grading Policies\n\n5% class\n20% HW\n10% Lab\n20% Midterm I\n20% Midterm II\n25% Final\nNo Late Submissions for HW/Lab; Drop the lowest score\nYou are encouraged to discuss assignments, but copying others work is considered a misconduct violation and will result in a 0 on the assignment\nConfirm that you have access to Sakai, Gradescope, and GitHub"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#course-structure-and-policies",
-    "href": "resources/slides/00-course-overview.html#course-structure-and-policies",
-    "title": "Welcome to STA 702",
-    "section": "Course structure and policies",
-    "text": "Course structure and policies\n\nSee the Syllabus\nMake use of the teaching team’s office hours, we’re here to help!\nDo not hesitate to come to my office hours or you can also make an appointment to discuss a homework problem or any aspect of the course.\nPlease make sure to check your email daily for announcements\nUse the  Reporting an issue link to report broken links or missing content"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#important-dates",
-    "href": "resources/slides/00-course-overview.html#important-dates",
-    "title": "Welcome to STA 702",
-    "section": "Important Dates",
-    "text": "Important Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\nSee Class Schedule for slides, readings, HW, Labs, etc"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#topics",
-    "href": "resources/slides/00-course-overview.html#topics",
-    "title": "Welcome to STA 702",
-    "section": "Topics",
-    "text": "Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nModel Uncertainty/Model Choice\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonparametric Bayes Regression"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
-    "href": "resources/slides/00-course-overview.html#basics-of-bayesian-inference",
-    "title": "Welcome to STA 702",
-    "section": "Basics of Bayesian inference",
-    "text": "Basics of Bayesian inference\nGenerally (unless otherwise stated), in this course, we will use the following notation. Let\n\n\\(Y\\) is a random variable from some probability distribution \\(p(y \\mid \\theta)\\)\n\\(\\mathcal{Y}\\) be the sample space (possible outcomes for \\(Y\\))\n\\(y\\) is the observed data\n\\(\\theta\\) is the unknown parameter of interest\n\\(\\Theta\\) be the parameter space\ne.g. \\(Y \\sim \\textsf{Ber}(\\theta)\\) where \\(\\theta = \\Pr(Y = 1)\\)"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#frequentist-inference",
-    "href": "resources/slides/00-course-overview.html#frequentist-inference",
-    "title": "Welcome to STA 702",
-    "section": "Frequentist inference",
-    "text": "Frequentist inference\n\nGiven data \\(y\\), how would we estimate the population parameter \\(\\theta\\)?\n\nMaximum likelihood estimate (MLE)\nMethod of moments\nand so on…\n\nFrequentist MLE finds the one value of \\(\\theta\\) that maximizes the likelihood\nTypically uses large sample (asymptotic) theory to obtain confidence intervals and do hypothesis testing."
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
-    "href": "resources/slides/00-course-overview.html#what-are-bayesian-methods",
-    "title": "Welcome to STA 702",
-    "section": "What are Bayesian methods?",
-    "text": "What are Bayesian methods?\n\nBayesian methods are data analysis tools derived from the principles of Bayesian inference and provide\n\nparameter estimates with good statistical properties;\nparsimonious descriptions of observed data;\npredictions for missing data and forecasts of future data with full uncertainty quantification; and\na computational framework for model estimation, selection, decision making and validation.\nbuilds on likelihood inference"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#bayes-theorem",
-    "href": "resources/slides/00-course-overview.html#bayes-theorem",
-    "title": "Welcome to STA 702",
-    "section": "Bayes’ theorem",
-    "text": "Bayes’ theorem\n\nLet’s take a step back and quickly review the basic form of Bayes’ theorem.\nSuppose there are some events \\(A\\) and B having probabilities \\(\\Pr(A)\\) and \\(\\Pr(B)\\).\nBayes’ rule gives the relationship between the marginal probabilities of A and B and the conditional probabilities.\nIn particular, the basic form of Bayes’ rule or Bayes’ theorem is \\[\\Pr(A | B) = \\frac{\\Pr(A \\ \\textrm{and} \\ B)}{\\Pr(B)} = \\frac{\\Pr(B|A)\\Pr(A)}{\\Pr(B)}\\]\n\\(\\Pr(A)\\) = marginal probability of event \\(A\\), \\(\\Pr(B | A)\\) = conditional probability of event \\(B\\) given event \\(A\\), and so on.\n“reverses the conditioning” e.g. Probability of Covid given a negative test versus probability of a negative test given Covid"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
-    "href": "resources/slides/00-course-overview.html#bayes-rule-more-generally",
-    "title": "Welcome to STA 702",
-    "section": "Bayes’ Rule more generally",
-    "text": "Bayes’ Rule more generally\n\nFor each \\(\\theta \\in \\Theta\\), specify a prior distribution \\(p(\\theta)\\) or \\(\\pi(\\theta)\\), describing our beliefs about \\(\\theta\\) being the true population parameter.\nFor each \\(\\theta \\in \\Theta\\) and \\(y \\in \\mathcal{Y}\\), specify a sampling distribution \\(p(y|\\theta)\\), describing our belief that the data we see \\(y\\) is the outcome of a study with true parameter \\(\\theta\\).  Likelihood \\(L(\\theta|y)\\) proportional to \\(p(y|\\theta)\\)\nAfter observing the data \\(y\\), for each \\(\\theta \\in \\Theta\\), update the prior distribution to a posterior distribution \\(p(\\theta | y)\\) or \\(\\pi(\\theta | y)\\), describing our “updated” belief about \\(\\theta\\) being the true population parameter.\n\n\nGetting from Step 1 to 3? Bayes’ rule!\n\\[p(\\theta | y) = \\frac{p(\\theta)p(y|\\theta)}{\\int_{\\Theta}p(\\tilde{\\theta})p(y| \\tilde{\\theta}) \\textrm{d}\\tilde{\\theta}} = \\frac{p(\\theta)p(y|\\theta)}{p(y)}\\] where \\(p(y)\\) obtained by Law of Total Probability"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
-    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions",
-    "title": "Welcome to STA 702",
-    "section": "Notes on prior distributions",
-    "text": "Notes on prior distributions\nMany types of priors may be of interest. These may\n\nrepresent our own beliefs;\nrepresent beliefs of a variety of people with differing prior opinions; or\nassign probability more or less evenly over a large region of the parameter space\ndesigned to provide good frequentist behavior when little is known"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
-    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-1",
-    "title": "Welcome to STA 702",
-    "section": "Notes on prior distributions",
-    "text": "Notes on prior distributions\n\nSubjective Bayes: a prior should accurately quantify some individual’s beliefs about \\(\\theta\\)\nObjective Bayes: the prior should be chosen to produce a procedure with “good” operating characteristics without including subjective prior knowledge\nWeakly informative: prior centered in a plausible region but not overly-informative, as there is a tendency to be over confident about one’s beliefs\nEmpirical Bayes: uses the data to estimate the prior, then pretends it was known\nPractical Bayes: Combination"
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
-    "href": "resources/slides/00-course-overview.html#notes-on-prior-distributions-2",
-    "title": "Welcome to STA 702",
-    "section": "Notes on prior distributions",
-    "text": "Notes on prior distributions\n\nThe prior quantifies ‘your’ initial uncertainty in \\(\\theta\\) before you observe new data (new information) - this may be necessarily subjective & summarizes experience in a field or prior research.\nEven if the prior is not “perfect”, placing higher probability in a ballpark of the truth leads to better performance.\nHence, it is very seldom the case that a weakly informative prior is not preferred over no prior. (Model selection is one case where one needs to be careful!)\nOne (very important) role of the prior is to stabilize estimates (shrinkage) in the presence of limited data."
-  },
-  {
-    "objectID": "resources/slides/00-course-overview.html#next-steps",
-    "href": "resources/slides/00-course-overview.html#next-steps",
-    "title": "Welcome to STA 702",
-    "section": "Next Steps",
-    "text": "Next Steps\nWork on Lab 0\nFinally, here are some readings to entertain you. Make sure to glance through them within the next week. See Course Resources\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: More MCMC - Metropolis Hastings and Adaptive Metropolis\n\n\n\n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n\n\n    \nFri, Sept 29\n\nLab 5: Adaptive Metropolis Hastings\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Basics of Hypothesis Testing\n\n\n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nMidterm I\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\n\n\n\n\n hw-06\n\n    \nFri, Oct 20\n\nLab: Q & A\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n hw-07\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A with HW 7\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19: Missing Data\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": " Resources",
-    "section": "",
-    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+    "objectID": "labs/lab-02-beta-binomial.html#gradescope",
+    "href": "labs/lab-02-beta-binomial.html#gradescope",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
   {
     "objectID": "labs/lab-01-r-review.html#rrstudio",
