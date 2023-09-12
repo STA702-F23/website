@@ -1,6 +1,6 @@
 ---
 subtitle: "STA 702: Lecture 4"
-title: "Comparing Estimators & Prior/Posterior Checks"
+title: "Prior/Posterior Checks"
 author: "Merlise Clyde"
 institute: "Duke University"
 format: 
@@ -50,167 +50,8 @@ library(rvest)
 
 
  
-## Normal Model Setup from Last Class
 
--  independent observations 
-$\mathbf{y} = (y_1,y_2,\ldots,y_n)^T$
-where each $Y_i \mid \theta\stackrel{iid}\sim \textsf{N}(\theta, 1/\tau)$  (iid)
-
-  
-
-- The likelihood for $\theta$ is proportional to the sampling model
-
-
-$$\begin{split}
-\cal{L}(\theta) & \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n (y_i-\theta)^2\right\}\\
-& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n \left[ (y_i-\bar{y}) - (\theta - \bar{y}) \right]^2 \right\}\\
-& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + \sum_{i=1}^n(\theta - \bar{y})^2 \right] \right\}\\
-& \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + n(\theta - \bar{y})^2 \right] \right\}\\
-& \propto \exp\left\{-\frac{1}{2} \tau n(\theta - \bar{y})^2\right\}
-\end{split}$$
-
-
-
- 
-## Exercises for Practice
-
-<div class="question">
-Try this
-
-</div>
- 
-
-1)  Use $\cal{L}(\theta)$  based on $n$ observations to find  $\pi(\theta \mid y_1, \ldots, y_n)$ based on the sufficient statistics and prior  $\theta \sim \textsf{N}(\theta_0, 1/\tau_0)$
-
-  
-
-2)
-Use $\pi(\theta \mid y_1, \ldots, y_n)$ to find the posterior predictive distribution for $Y_{n+1}$
-
- 
-## After $n$ observations 
-Posterior for $\theta$ 
-
-$$\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)$$
-
-  
-
-Posterior Predictive Distribution for $Y_{n+1}$
-
-$$Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{\tau} + \frac{1}{ \tau_0 + n \tau} \right)$$
-
-  
-
-- Shrinkage of the MLE to the prior mean
-
-
- 
-## Results with Jeffreys' Prior
- - What if $\tau_0 \to 0$? (or $\sigma^2_0 \to \infty$)
- 
-  
-
-- Prior predictive $\textsf{N}(\theta_0, \sigma^2_0 + \sigma^2 )$  (not  proper in the limit)
-
-  
-
-- Posterior for $\theta$ (formal posterior)
-
-$$\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)$$
-
-  
-
-$$\to  \qquad \theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y}, 
- \frac{1}{n \tau} \right)$$
-
-
-
-  
-
-Posterior Predictive
-$Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y}, \sigma^2 (1 + \frac{1}{n} )\right)$
-
-
- 
-## Comparing Estimators
-
-Expected loss (from frequentist perspective) of using Bayes Estimator
-
-  
-
-- Posterior mean is optimal under squared error loss (min Bayes Risk)  [also absolute error loss]
-
-  
-
-Compute Mean Square Error (or Expected Average Loss)
-$$\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right]$$
- $$ = \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})$$
-  
-
-- For the MLE $\bar{Y}$ this is just the variance of $\bar{Y}$ or $\sigma^2/n$
-
- 
-## MSE for Bayes
-
-$$\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right] = \textsf{MSE} =  \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})$$
-
-- Bias of Bayes Estimate
-
-$$\textsf{E}_{\bar{Y} \mid \theta}\left[ \frac{\tau_0 \theta_0 + \tau n \bar{Y}}
-{\tau_0  + \tau n}\right]  - \theta = 
-\frac{\tau_0(\theta_0 - \theta)}{\tau_0 + \tau n}$$
-
-  
-
-- Variance
-
-$$\textsf{Var}\left(\frac{\tau_0 \theta_0 + \tau n \bar{Y}}{\tau_0 + \tau n} - \theta  \mid \theta \right)  = \frac{\tau n}{(\tau_0 + \tau n)^2}$$
-  
-
-(Frequentist) expected Loss  when truth is $\theta$
-
-$$\textsf{MSE} = \frac{\tau_0^2(\theta - \theta_0)^2 + \tau n}{(\tau_0 + \tau n)^2}$$
-  
-
-Behavior ?
-
- 
-## Plot
-
-```{r MSE, fig.width=5, fig.height=5,  out.width="75%", echo=FALSE}
-sigma = 1
-n = 25
-
-MSE = function(theta, tau=1, n, theta_0=0, tau_0 = .05) {
-(tau_0^2*(theta - theta_0)^2 + tau*n)/(tau_0 + tau*n)^2
-}
-
-theta = seq(-10,10, length=10000)
-plot(theta,  MSE(theta, tau=1/sigma^2, n = n), 
-     type="l", col=2, lwd=2, 
-     xlab=expression(theta),
-     ylab="MSE")
-abline(h=sigma^2/n, lty=2, col=1, lwd=2)
-legend(x="center", legend=c("MLE", "Bayes"), col=c(1,2), lwd=2, lty=c(1,2))
-```
-
-
-
- 
-## Exercise
-
-
-<div class="question">
-Repeat this for estimating a future Y under squared error loss using a proper prior and Jeffreys' prior
-
-</div>
-
-$$\textsf{E}_{Y_{n+1} \mid \theta}\left[(Y_{n+1} - \textsf{E}[Y_{n+1} \mid y_1, \ldots, n])^2]\right]$$
- 
-## Uses of Posterior Predictive
+## Uses of Posterior Predictive {.smaller}
 
 - Plot the entire density or summarize
 
@@ -221,9 +62,7 @@ $$\textsf{E}_{Y_{n+1} \mid \theta}\left[(Y_{n+1} - \textsf{E}[Y_{n+1} \mid y_1, 
   
 
 - Monte Carlo Approximation
-
-$$p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})$$
-
+$$p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})$$ 
 where $\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)$ for $t = 1, \ldots, T$ 
 
   
@@ -236,11 +75,10 @@ where $\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)$ for $t = 1, \ldots, T
 
 
  
-## Model Diagnostics
+## Models
 
-- Need an accurate specification of likelihood function  (and reasonable prior)
+- So far this all assumes we have a correct sampling model and a "reasonable"  prior distrbution
 
-  
 
 - George Box:  _All models are wrong but some are useful_
 
@@ -248,83 +86,107 @@ where $\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)$ for $t = 1, \ldots, T
 
 - "Useful" $\rightarrow$ model provides a good approximation; there aren't clear aspects of the data that are ignored or misspecified
 
+-  how can we decide if a model is misspecified and needs to change?
  
-## Example
+## Example {.smaller}
 
-$$Y_i \sim \textsf{Poisson}(\theta) \qquad i = 1, \ldots, n$$
-How might our model be misspecified?
+- Poisson model
+$$Y_i  \mid \theta \stackrel{iid}{\sim }\textsf{Poisson}(\theta) \qquad i = 1, \ldots, n$$
+- How might our model be misspecified?
 
-  
+    - Poisson assumes that $\textsf{E}(Y_i) = \textsf{Var}(Y_i) = \theta$
 
-- Poisson assumes that $\textsf{E}(Y_i) = \textsf{Var}(Y_i) = \theta$
-
-  
-
-- it's _very_ common for data to be **over-dispersed** $\textsf{E}(Y_i) <  \textsf{Var}(Y_i)$
-
-  
-
-- **zero-inflation**  many more zero values than consistent with the poisson model 
-
-  
-
--  Can we use the Posterior Predictive to diagnose whether these are issues with our observed data?
-
- 
-## Posterior Predictive  (PP) Checks
-
-- $y^{(n)}$ is observed & fixed training data
-
-  
-
-- $p(y_{n+1} \mid y^{(n)})$ is PP distributoin
-
-  
-
-- $\tilde{y}^{(n)}_t$ is $t^{\text{th}}$ new dataset sampled from the PP of size $n$  (same as training)
-
-  
-
-- $p(\tilde{y}^{(n)}_t \mid y^{(n)})$ is PP of new data sets
+    - it's _very_ common for data to be **over-dispersed** $\textsf{E}(Y_i) <  \textsf{Var}(Y_i)$
+    
+    - ignored additional structure in the data, i.e. data are not _iid_
+    
+    - **zero-inflation**  many more zero values than consistent with the poisson model 
 
 
-  
 
-- compare some feature of the observed data to the datasets simulated from the PP
+## Posterior Predictive Checks {.smaller}
+
+- Guttman (1967), Rubin (1984) proposed the use of [Posterior Predictive Checks (PPC)]{style="color:red}] for model criticism;  further developed by Gelman et al (1996)
+
+-  the spirit of posterior predictive checks is that "_If my model is good, then its posterior predictive distribution will generate data that look like my oberved data_"
+
+
+
+- $y^{\text{obs}}$ is the observed  data
+
+
+
+- $y^{\text{rep}}$ is a new dataset sampled from the posterior predictive $p(y^{\text{rep}} \mid y^{\text{obs}})$ of size $n$  (same  size as the observed)
+
+
+- Use a [diagnostic statistic]{style="color:red"}  $d(y)$ to capture some feature of the data that the model may fail to capture, say variance
+
+- compare $d(y^{\text{obs}})$ to the reference distribution of $d(y^{\text{rep}})$ 
+
+- Use Posterior Predictive P-value as a summary
+$$ p_{PPC} = P(d(y^{\text{obs}}) > d(y^{\text{rep}}) \mid d(y^{\text{obs}}))
+$$
 
  
-##  Formally
+##  Formally {.smaller}
 
-- choose a "test statistic" $t(\cdot)$  that captures some summary of the data, e.g. $\textsf{Var}(y^{(n)})$ for over-dispersion
-
-  
-
-- $t(y^{(n)}) \equiv t_{\textrm{obs}}$ value of test statistic in observed data
+- choose a "diagnostic statistic" $d(\cdot)$  that captures some summary of the data, e.g. $\textsf{Var}(y)$ for over-dispersion, where large values of the statistic would be surprising if the model were correct.
 
   
 
-- $t(\tilde{y}^{(n)}) \equiv t_{\textrm{pred}}$ value of test statistic for a random dataset drawn from the posterior predictive 
+- $d(y^{\text{obs}}) \equiv d_{\textrm{obs}}$ value of statistic in observed data
 
   
 
-- plot posterior predictive distribution of $t(\tilde{y}^{(n)})$
+- $d(y^{\text{rep}}_t)  \equiv d_{\textrm{pred}}$ value of  statistic for the $t$th random dataset drawn from the posterior predictive distribution
+  1) Generate $\theta_t  \stackrel{iid}{\sim}p(\theta y^{\textrm{obs}})$
+  2)  Generate $y^{\textrm{rep}_t} \mid \theta_t \stackrel{iid}{\sim} p(y \mid \theta_t)$
+  3) Calculate $d(y^{\text{rep}}_t)$
+  
+
+- plot posterior predictive distribution of $d(y^{\text{rep}}_t)$ and add $d_{\textrm{obs}}$ 
 
   
 
-- add $t_{\textrm{obs}}$ to plot
+- How _extreme_ is $t_{\textrm{obs}}$ compared to the distribution of $d(y^{\text{rep}})$?
 
-  
-
-- How _extreme_ is $t_{\textrm{obs}}$ compared to the distribution of $t(\tilde{y}^{(n)})$
+- compute p-value $p_{PPC} = \frac 1 T \sum_t I(d(y^{\text{obs}}) > d(y^{\text{rep}}_t))$
 
  
-##  Example Over Dispersion
+##  Example with Over Dispersion {.smaller}
 
-```{r overdispersion, fig=TRUE, echo=FALSE, fig.height=4, fig.width=5, out.width="90%"}
- n = 100
- phi = 1
- mu = 5
-theta.t = rgamma(n, phi, phi/mu)
+:::: {.columns}
+::: {.column width="60%"}
+```{r overdispersion-ex, fig=FALSE, echo=TRUE, eval=FALSE}
+n = 100; phi = 1; mu = 5
+theta.t = rgamma(n,phi,phi/mu)
+y = rpois(n, theta.t)
+a = 1; b = 1;
+t.obs = var(y)
+
+nT = 10000
+t.pred = rep(NA, nT)
+for (t in 1:nT) {
+  theta.post = rgamma(1, a + sum(y),
+                         b + n)
+  y.pred = rpois(n, theta.post)
+  t.pred[t] = var(y.pred)
+}
+
+hist(t.pred, 
+     xlim = range(c(t.pred, t.obs)),
+     xlab="var", 
+     main="Posterior Predictive Distribution")
+
+abline(v = t.obs, col="red")
+
+```
+:::
+
+::: {.column width="40%"}
+```{r overdispersion, fig=TRUE, echo=FALSE, fig.height=5, fig.width=5, out.width="90%"}
+ n = 100; phi = 1; mu = 5
+theta.t = rgamma(n,phi,phi/mu)
 y = rpois(n, theta.t)
 a = 1; b = 1;
 t.obs = var(y)
@@ -340,55 +202,56 @@ for (t in 1:nT) {
 hist(t.pred, xlim = range(c(t.pred, t.obs)),
      xlab="var", main="Posterior Predictive Distribution")
 
-abline(v = t.obs)
-
+abline(v = t.obs, col="red")
 
 ```
 
+:::
+::::
 
  
-## Posterior Predictive p-values (PPPs)
+## Zero Inflated Distribution {.smaller}
 
-- p-value is probability of seeing something  as extreme or more so under a hypothetical  "null" model & are uniformally distributed under the "null" model
+:::: {.columns}
 
-  
+::: {.column width="50%"}
 
-- PPPs advocated by Gelman & Rubin in papers and BDA are not **valid** p-values.  They are do not have a  uniform  distribution under the hypothesis that the model is correctly specified
-
-  
-
-- the PPPs tend to be concentrated around 0.5, tends not to reject  (conservative)
-
-  
-
-- theoretical reason for the incorrect distribution is due to double use of the data
-
-  
-
-**DO NOT USE as a formal test!**
-use as a diagnostic plot to see how model might fall flat
-
-  
-
-Better approach is to split the data use one piece to learn $\theta$ and the other to calculate $t_{\textrm{obs}}$  
-
-
- 
-## Zero Inflated Distribution
-
-```{r zero, fig=TRUE, echo=FALSE, fig.height=5, fig.width=5, out.width="50%"}
- n = 1000
- phi = 1
- mu = 5
+```{r zero, fig=TRUE, echo=FALSE, fig.height=5, fig.width=5}
+n = 1000
+phi = 1
+mu = 5
 theta.t = rgamma(n, phi, phi/mu)
-y = rpois(n, theta.t)*rbinom(n, 1, .90)
+z = rbinom(n, 1, .90)
+y = rpois(n, theta.t)*z
 
 hist(y, breaks=25, main="")
 ```
 
-- Let the $t()$ be the proportion of zeros
+:::
 
-$$t(y) = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n}$$
+::: {.column width="50%"}
+```{r}
+#| label: PPP
+ppp = mean(y == 0)
+
+```
+
+R Code to generate zero inflated 
+```{r echo=TRUE, eval=FALSE}
+n = 1000
+mu = 5; phi = 1
+theta.t = rgamma(n,phi,phi/mu)
+z = rbinom(n, 1, .90)
+y = rpois(n, theta.t)*z
+```
+
+- Let the $t()$ be the proportion of zeros
+$$\begin{aligned}
+d(y) & = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
+     & = `r round(ppp, 2)`
+\end{aligned}$$   
+:::
+::::
 
  
 ##  Posterior Predictive Distribution
@@ -410,27 +273,141 @@ for (t in 1:nT) {
 hist(t.pred, xlim = range(c(t.pred, t.obs)),
      xlab="Proportions of Zeros", main="Posterior Predictive Distribution")
 
-abline(v = t.obs)
+abline(v = t.obs, col="red")
 
 
 ```
 
  
-## Modeling Over-Dispersion
+## Posterior Predictive p-values (PPPs) {.smaller}
+
+- p-value is probability of seeing something  as extreme or more so under a hypothetical  "null" model
+
+- from a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the "null" model
+
+  
+
+- PPPs advocated by Gelman & Rubin in papers and BDA are not **valid** p-values.  They are do not have a  uniform  distribution under the hypothesis that the model is correctly specified
+
+  
+
+- the PPPs tend to be concentrated around 0.5, tends not to reject  (conservative)
+
+  
+
+- theoretical reason for the incorrect distribution is due to double use of the data
+
+  
+
+- **DO NOT USE as a formal test!**
+use as a diagnostic plot to see how model might fall flat, but be cautious!
+
+## Example: Bivariate Normal {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r, fig=TRUE,fig.width=5, fig.height=5}
+n = 1000
+theta = c(c(-1,5), c(5,8), c(0,0), c(3, 2))
+sigma = 1*c(.5, .5, 1, 1, 3,3, 1,1)
+y = matrix(rnorm(8*n, c(theta), sigma), ncol=2, byrow=T)
+plot(y, ylab=expression(y[2]), xlab=expression(y[1])); 
+points(matrix(theta, ncol=2, byrow=T), col="red", pch=16)
+
+```
+:::
+
+::: {.column width="50%"}
+
+```{r, fig=TRUE,fig.width=5, fig.height=5}
+n = nrow(y)
+R = 10000
+d.rep = rep(NA, R)
+var.rep = d.obs = d.rep
+ybar = apply(y, 2, mean)
+sd.y = apply(y, 2, sd)
+sse = apply(y, 2, var)*(n-1)
+var.obs = mean(sweep(y,2, ybar)^2)
+for (r in 1:R) {
+  phi.t = rgamma(n*2, (n-1)/2, sse/2 )
+  theta.t = rnorm(n*2, ybar, sqrt(1/(phi.t * n) ))
+  yrep = rnorm(n*2, theta.t, sqrt(1/phi.t))
+  var.rep[r] = mean((yrep - ybar)^2)
+  d.rep[r] = -sum(log(dnorm(yrep, ybar, sd.y*sqrt(1 + 1/n)) ))/n
+  d.obs[r] = -sum(log(dnorm(y, ybar, sd.y*sqrt(1 + 1/n)) ))/n
+}
+#hist(c(d.rep, d.obs))
+hist(c(var.rep, var.obs), xlab="avg squared error",
+  main="average squared distance to the posterior mean")
+abline(v=var.obs, col="red")
+ppc = mean(var.rep > var.obs)
+```
+
+- PPP = `r round(ppc, 2)`
+
+- What's happening?
+:::
+::::
+
+## Problems with PPC {.smaller}
+
+- Bayarri & Berger (2000) provides more discussion about why PPP are not always calibrated
+
+- Double use of the data;  $Y^{\text{rep}}$ depends on the observed diagnostic in last case
+
+- Bayarri & Berger propose the partial predicitve p-value  and condtional predictive p-value that avoids double use of the data by "removing" the contribution of $d_{\text{obs}}$ to the posterior for $\theta$ or conditioning an a statistic, such as the MLE of $\theta$
+
+- heuristically, need the diagnostic to be independent of posterior for $\theta$ 
+
+- not always easy to find!
+
+- Moran  et al (2022) propose a workaround to avoid double use of the data  by spliting the data $y_{\text{obs}}, y_{\text{new}}$, use  $y_{\text{obs}}$, to learn $\theta$ and the other to calculate $d_{\textrm{new}}$  
+
+- can be calculated via simulation easily
+
+
+
+## POP-PC of Moran et al
+
+```{r, fig=TRUE,fig.width=5, fig.height=5}
+n = nrow(y)
+R = 10000
+d.rep = rep(NA, R)
+var.rep = d.obs = d.rep
+obs = sample(1:n, size=n/2, replace=FALSE)
+y.obs = y[obs,]
+ybar = apply(y.obs, 2, mean)
+sd.y = apply(y.obs, 2, sd)
+df = (nrow(y.obs) - 1)
+sse = apply(y.obs, 2, var)*df
+var.obs = mean(sweep(y[-obs,],2, ybar)^2)
+for (r in 1:R) {
+  phi.t = rgamma(n, df/2, sse/2 )
+  theta.t = rnorm(n, ybar, sqrt(1/(phi.t * (df + 1))))
+  yrep = rnorm(n, theta.t, sqrt(1/phi.t))
+  var.rep[r] = mean((yrep - ybar)^2)
+  }
+#hist(c(d.rep, d.obs))
+hist(c(var.rep, var.obs), xlab="avg squared error",
+  main="average squared distance to the posterior mean")
+abline(v=var.obs, col="red")
+pop.ppc = mean(var.rep > var.obs)
+```
+
+
+- POP-PPC = `r round(pop.ppc, 2)`
+ 
+## Modeling Over-Dispersion {.smaller}
 
 - Original Model  $Y_i \mid \theta \sim \textsf{Poisson}(\theta)$
 
   
 
 - cause of overdispersion is variation in the rate
+$$ Y_i \mid \theta_i \sim \textsf{Poisson}(\theta_i)$$
 
   
-
-
-$$ Y_i \mid \theta \sim \textsf{Poisson}(\theta_i)$$
-
-  
-
+- model variation via prior
 $$\theta_i \sim \pi_\theta()$$
 
   
@@ -465,6 +442,32 @@ $$\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)$$
 
 
 
+## Modeling Perspectives {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+1) start with a simple model 
+  - ask if there are surprises through Posterior Checks
+  - need calibrated  diagnostic(s) with good power
+  - need these to work even if starting model is relatively complex
+  - other informal diagnostics (residuals)
+  - remodel if needed based on departures
+  - Bayesian meaning?
+  
+:::
+
+::: {.column width="50%"}
+
+2) start with a fairly complex model or models
+ - shrinkage to prevend overfitting
+ - formal tests for simplifying models
+ - methods to combine multiple models to express uncertaity
+ - properties
+ 
+ 
+:::
+::::
   
 
-- See Bayarri & Berger (2000) for more discussion about why PPP should not be used as a test
+
