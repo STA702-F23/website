@@ -62,7 +62,7 @@ library(rvest)
   
 
 - Monte Carlo Approximation
-$$p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})$$ 
+$$p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+1} \mid \theta^{(t)})$$ 
 where $\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)$ for $t = 1, \ldots, T$ 
 
   
@@ -124,7 +124,7 @@ $$Y_i  \mid \theta \stackrel{iid}{\sim }\textsf{Poisson}(\theta) \qquad i = 1, \
 - compare $d(y^{\text{obs}})$ to the reference distribution of $d(y^{\text{rep}})$ 
 
 - Use Posterior Predictive P-value as a summary
-$$ p_{PPC} = P(d(y^{\text{obs}}) > d(y^{\text{rep}}) \mid d(y^{\text{obs}}))
+$$ p_{PPC} = P(d(y^{\text{obs}}) > d(y^{\text{rep}}) \mid y^{\text{obs}})
 $$
 
  
@@ -245,7 +245,7 @@ z = rbinom(n, 1, .90)
 y = rpois(n, theta.t)*z
 ```
 
-- Let the $t()$ be the proportion of zeros
+- Let the $d()$ be the proportion of zeros in the sample
 $$\begin{aligned}
 d(y) & = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
      & = `r round(ppp, 2)`
@@ -287,11 +287,11 @@ abline(v = t.obs, col="red")
 
   
 
-- PPPs advocated by Gelman & Rubin in papers and BDA are not **valid** p-values.  They are do not have a  uniform  distribution under the hypothesis that the model is correctly specified
+- PPPs advocated by Gelman & Rubin in papers and BDA are not **valid** p-values generally.  They are do not have a  uniform  distribution under the hypothesis that the model is correctly specified
 
   
 
-- the PPPs tend to be concentrated around 0.5, tends not to reject  (conservative)
+- the PPPs tend to be concentrated around 0.5, tend not to reject  (conservative)
 
   
 
@@ -355,9 +355,9 @@ ppc = mean(var.rep > var.obs)
 
 - Double use of the data;  $Y^{\text{rep}}$ depends on the observed diagnostic in last case
 
-- Bayarri & Berger propose the partial predicitve p-value  and condtional predictive p-value that avoids double use of the data by "removing" the contribution of $d_{\text{obs}}$ to the posterior for $\theta$ or conditioning an a statistic, such as the MLE of $\theta$
+- Bayarri & Berger propose partial predictive p-values  and conditional predictive p-values that avoid double use of the data by "removing" the contribution of $d_{\text{obs}}$ to the posterior for $\theta$ or conditioning on a statistic, such as the MLE of $\theta$
 
-- heuristically, need the diagnostic to be independent of posterior for $\theta$ 
+- heuristically, need the diagnostic to be independent of posterior for $\theta$ (asymptoptically) under the assumed model 
 
 - not always easy to find!
 
@@ -419,27 +419,6 @@ $$\theta_i \sim \pi_\theta()$$
 - Simple Two Stage Hierarchical Model
 
  
-## Example
-
-$$\theta_i \sim \textsf{Gamma}(\phi \mu, \phi)$$
-  
-
-- Find pmf for $Y_i \mid \mu, \phi$
-
-  
-
-- Find $\textsf{E}[Y_i \mid \mu, \phi]$ and $\textsf{Var}[Y_i \mid \mu, \phi]$ 
-
-  
-
-- Homework: 
-$$\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)$$
-           
-  
-
-- Can either of these model zero-inflation?
-
-
 
 
 ## Modeling Perspectives {.smaller}
@@ -460,7 +439,7 @@ $$\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)$$
 ::: {.column width="50%"}
 
 2) start with a fairly complex model or models
- - shrinkage to prevend overfitting
+ - shrinkage to prevent overfitting
  - formal tests for simplifying models
  - methods to combine multiple models to express uncertaity
  - properties
@@ -469,5 +448,26 @@ $$\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)$$
 :::
 ::::
   
+
+## Example
+
+$$\theta_i \sim \textsf{Gamma}(\phi \mu, \phi)$$
+  
+
+- Find pmf for $Y_i \mid \mu, \phi$
+
+  
+
+- Find $\textsf{E}[Y_i \mid \mu, \phi]$ and $\textsf{Var}[Y_i \mid \mu, \phi]$ 
+
+  
+
+- Homework: 
+$$\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)$$
+           
+  
+
+- Can either of these model zero-inflation?
+
 
 

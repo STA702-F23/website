@@ -22,5 +22,8 @@ title: "Lecture 4: Predictive Checks"
 
 [Bayarri, M. and Berger, J. (2000)](Bayarri-Berger-200.pdf). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142
 
+[Berger, J](Berger-CouldFisherJeffeys-2003.pdf) Could Fisher, Jeffreys and Neyman Have
+Agreed on Testing?  Statistical Science,  18:1-12.
+
 
     
