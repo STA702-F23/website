@@ -158,7 +158,7 @@
     "href": "schedule.html",
     "title": " Schedule",
     "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: More MCMC - Metropolis Hastings and Adaptive Metropolis\n\n\n\n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n\n\n    \nFri, Sept 29\n\nLab 5: Adaptive Metropolis Hastings\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Basics of Hypothesis Testing\n\n\n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nMidterm I\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\n\n\n\n\n hw-06\n\n    \nFri, Oct 20\n\nLab: Q & A\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n hw-07\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A with HW 7\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19: Missing Data\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: More MCMC - Metropolis Hastings and Adaptive Metropolis\n\n\n\n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n\n\n    \nFri, Sept 29\n\nLab 5: Adaptive Metropolis Hastings\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Basics of Hypothesis Testing\n\n\n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nMidterm I\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\n\n\n\n\n hw-06\n\n    \nFri, Oct 20\n\nLab: Q & A\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n hw-07\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A with HW 7\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19: Missing Data\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
   },
   {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
@@ -280,151 +280,151 @@
     "text": "Next Steps\nWork on Lab 0\nFinally, here are some readings to entertain you. Make sure to glance through them within the next week. See Course Resources\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources/slides/04-predictive-checks.html#normal-model-setup-from-last-class",
-    "href": "resources/slides/04-predictive-checks.html#normal-model-setup-from-last-class",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Normal Model Setup from Last Class",
-    "text": "Normal Model Setup from Last Class\n\nindependent observations \\(\\mathbf{y} = (y_1,y_2,\\ldots,y_n)^T\\) where each \\(Y_i \\mid \\theta\\stackrel{iid}\\sim \\textsf{N}(\\theta, 1/\\tau)\\) (iid)\nThe likelihood for \\(\\theta\\) is proportional to the sampling model\n\n\\[\\begin{split}\n\\cal{L}(\\theta) & \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n (y_i-\\theta)^2\\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n \\left[ (y_i-\\bar{y}) - (\\theta - \\bar{y}) \\right]^2 \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + \\sum_{i=1}^n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\exp\\left\\{-\\frac{1}{2} \\tau n(\\theta - \\bar{y})^2\\right\\}\n\\end{split}\\]"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#exercises-for-practice",
-    "href": "resources/slides/04-predictive-checks.html#exercises-for-practice",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Exercises for Practice",
-    "text": "Exercises for Practice\n\nTry this\n\n\nUse \\(\\cal{L}(\\theta)\\) based on \\(n\\) observations to find \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) based on the sufficient statistics and prior \\(\\theta \\sim \\textsf{N}(\\theta_0, 1/\\tau_0)\\)\nUse \\(\\pi(\\theta \\mid y_1, \\ldots, y_n)\\) to find the posterior predictive distribution for \\(Y_{n+1}\\)"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#after-n-observations",
-    "href": "resources/slides/04-predictive-checks.html#after-n-observations",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "After \\(n\\) observations",
-    "text": "After \\(n\\) observations\nPosterior for \\(\\theta\\)\n\\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\nPosterior Predictive Distribution for \\(Y_{n+1}\\)\n\\[Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{\\tau} + \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\n\nShrinkage of the MLE to the prior mean"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#results-with-jeffreys-prior",
-    "href": "resources/slides/04-predictive-checks.html#results-with-jeffreys-prior",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Results with Jeffreys’ Prior",
-    "text": "Results with Jeffreys’ Prior\n\nWhat if \\(\\tau_0 \\to 0\\)? (or \\(\\sigma^2_0 \\to \\infty\\))\nPrior predictive \\(\\textsf{N}(\\theta_0, \\sigma^2_0 + \\sigma^2 )\\) (not proper in the limit)\nPosterior for \\(\\theta\\) (formal posterior)\n\n\\[\\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\frac{\\tau_0 \\theta_0 + n \\tau \\bar{y}}\n{\\tau_0 + n \\tau}, \\frac{1}{ \\tau_0 + n \\tau} \\right)\\]\n\\[\\to  \\qquad \\theta \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y},\n\\frac{1}{n \\tau} \\right)\\]\nPosterior Predictive \\(Y_{n+1} \\mid y_1, \\ldots, y_n \\sim \\textsf{N}\\left( \\bar{y}, \\sigma^2 (1 + \\frac{1}{n} )\\right)\\)"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#comparing-estimators",
-    "href": "resources/slides/04-predictive-checks.html#comparing-estimators",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Comparing Estimators",
-    "text": "Comparing Estimators\nExpected loss (from frequentist perspective) of using Bayes Estimator\n\nPosterior mean is optimal under squared error loss (min Bayes Risk) [also absolute error loss]\n\nCompute Mean Square Error (or Expected Average Loss) \\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right]\\] \\[ = \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\n\nFor the MLE \\(\\bar{Y}\\) this is just the variance of \\(\\bar{Y}\\) or \\(\\sigma^2/n\\)"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#mse-for-bayes",
-    "href": "resources/slides/04-predictive-checks.html#mse-for-bayes",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "MSE for Bayes",
-    "text": "MSE for Bayes\n\\[\\textsf{E}_{\\bar{y} \\mid \\theta}\\left[\\left(\\hat{\\theta} - \\theta \\right)^2 \\mid \\theta \\right] = \\textsf{MSE} =  \\textsf{Bias}(\\hat{\\theta})^2 + \\textsf{Var}(\\hat{\\theta})\\]\n\nBias of Bayes Estimate\n\n\\[\\textsf{E}_{\\bar{Y} \\mid \\theta}\\left[ \\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}\n{\\tau_0  + \\tau n}\\right]  - \\theta =\n\\frac{\\tau_0(\\theta_0 - \\theta)}{\\tau_0 + \\tau n}\\]\n\nVariance\n\n\\[\\textsf{Var}\\left(\\frac{\\tau_0 \\theta_0 + \\tau n \\bar{Y}}{\\tau_0 + \\tau n} - \\theta  \\mid \\theta \\right)  = \\frac{\\tau n}{(\\tau_0 + \\tau n)^2}\\]\n(Frequentist) expected Loss when truth is \\(\\theta\\)\n\\[\\textsf{MSE} = \\frac{\\tau_0^2(\\theta - \\theta_0)^2 + \\tau n}{(\\tau_0 + \\tau n)^2}\\]\nBehavior ?"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#plot",
-    "href": "resources/slides/04-predictive-checks.html#plot",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#exercise",
-    "href": "resources/slides/04-predictive-checks.html#exercise",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Exercise",
-    "text": "Exercise\n\nRepeat this for estimating a future Y under squared error loss using a proper prior and Jeffreys’ prior\n\n\\[\\textsf{E}_{Y_{n+1} \\mid \\theta}\\left[(Y_{n+1} - \\textsf{E}[Y_{n+1} \\mid y_1, \\ldots, n])^2]\\right]\\]"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#uses-of-posterior-predictive",
-    "href": "resources/slides/04-predictive-checks.html#uses-of-posterior-predictive",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Uses of Posterior Predictive",
-    "text": "Uses of Posterior Predictive\n\nPlot the entire density or summarize\nAvailable analytically for conjugate families\nMonte Carlo Approximation\n\n\\[p(y_{n+1} \\mid y_1, \\ldots y_n) \\approx \\frac 1 T \\sum_{t = 1}^T  p(y_{n+t} \\mid \\theta^{(t)})\\]\nwhere \\(\\theta^{(t)} \\sim \\pi(\\theta \\mid y_1, \\ldots y_n)\\) for \\(t = 1, \\ldots, T\\)\n\nT samples from the posterior distribution\nEmpirical Estimates & Quantiles from Monte Carlo Samples"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#model-diagnostics",
-    "href": "resources/slides/04-predictive-checks.html#model-diagnostics",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Model Diagnostics",
-    "text": "Model Diagnostics\n\nNeed an accurate specification of likelihood function (and reasonable prior)\nGeorge Box: All models are wrong but some are useful\n“Useful” \\(\\rightarrow\\) model provides a good approximation; there aren’t clear aspects of the data that are ignored or misspecified"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#example",
-    "href": "resources/slides/04-predictive-checks.html#example",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Example",
-    "text": "Example\n\\[Y_i \\sim \\textsf{Poisson}(\\theta) \\qquad i = 1, \\ldots, n\\] How might our model be misspecified?\n\nPoisson assumes that \\(\\textsf{E}(Y_i) = \\textsf{Var}(Y_i) = \\theta\\)\nit’s very common for data to be over-dispersed \\(\\textsf{E}(Y_i) &lt; \\textsf{Var}(Y_i)\\)\nzero-inflation many more zero values than consistent with the poisson model\nCan we use the Posterior Predictive to diagnose whether these are issues with our observed data?"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-pp-checks",
-    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-pp-checks",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Posterior Predictive (PP) Checks",
-    "text": "Posterior Predictive (PP) Checks\n\n\\(y^{(n)}\\) is observed & fixed training data\n\\(p(y_{n+1} \\mid y^{(n)})\\) is PP distributoin\n\\(\\tilde{y}^{(n)}_t\\) is \\(t^{\\text{th}}\\) new dataset sampled from the PP of size \\(n\\) (same as training)\n\\(p(\\tilde{y}^{(n)}_t \\mid y^{(n)})\\) is PP of new data sets\ncompare some feature of the observed data to the datasets simulated from the PP"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#formally",
-    "href": "resources/slides/04-predictive-checks.html#formally",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Formally",
-    "text": "Formally\n\nchoose a “test statistic” \\(t(\\cdot)\\) that captures some summary of the data, e.g. \\(\\textsf{Var}(y^{(n)})\\) for over-dispersion\n\\(t(y^{(n)}) \\equiv t_{\\textrm{obs}}\\) value of test statistic in observed data\n\\(t(\\tilde{y}^{(n)}) \\equiv t_{\\textrm{pred}}\\) value of test statistic for a random dataset drawn from the posterior predictive\nplot posterior predictive distribution of \\(t(\\tilde{y}^{(n)})\\)\nadd \\(t_{\\textrm{obs}}\\) to plot\nHow extreme is \\(t_{\\textrm{obs}}\\) compared to the distribution of \\(t(\\tilde{y}^{(n)})\\)"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#example-over-dispersion",
-    "href": "resources/slides/04-predictive-checks.html#example-over-dispersion",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Example Over Dispersion",
-    "text": "Example Over Dispersion"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-p-values-ppps",
-    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-p-values-ppps",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Posterior Predictive p-values (PPPs)",
-    "text": "Posterior Predictive p-values (PPPs)\n\np-value is probability of seeing something as extreme or more so under a hypothetical “null” model & are uniformally distributed under the “null” model\nPPPs advocated by Gelman & Rubin in papers and BDA are not valid p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified\nthe PPPs tend to be concentrated around 0.5, tends not to reject (conservative)\ntheoretical reason for the incorrect distribution is due to double use of the data\n\nDO NOT USE as a formal test! use as a diagnostic plot to see how model might fall flat\nBetter approach is to split the data use one piece to learn \\(\\theta\\) and the other to calculate \\(t_{\\textrm{obs}}\\)"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#zero-inflated-distribution",
-    "href": "resources/slides/04-predictive-checks.html#zero-inflated-distribution",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Zero Inflated Distribution",
-    "text": "Zero Inflated Distribution\n\n\nLet the \\(t()\\) be the proportion of zeros\n\n\\[t(y) = \\frac{\\sum_{i = 1}^{n}1(y_i = 0)}{n}\\]"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-distribution",
-    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-distribution",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Posterior Predictive Distribution",
-    "text": "Posterior Predictive Distribution"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#modeling-over-dispersion",
-    "href": "resources/slides/04-predictive-checks.html#modeling-over-dispersion",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Modeling Over-Dispersion",
-    "text": "Modeling Over-Dispersion\n\nOriginal Model \\(Y_i \\mid \\theta \\sim \\textsf{Poisson}(\\theta)\\)\ncause of overdispersion is variation in the rate\n\n\\[ Y_i \\mid \\theta \\sim \\textsf{Poisson}(\\theta_i)\\]\n\\[\\theta_i \\sim \\pi_\\theta()\\]\n\n\\(\\pi_\\theta()\\) characterizes variation in the rate parameter across inviduals\nSimple Two Stage Hierarchical Model"
-  },
-  {
-    "objectID": "resources/slides/04-predictive-checks.html#example-1",
-    "href": "resources/slides/04-predictive-checks.html#example-1",
-    "title": "Comparing Estimators & Prior/Posterior Checks",
-    "section": "Example",
-    "text": "Example\n\\[\\theta_i \\sim \\textsf{Gamma}(\\phi \\mu, \\phi)\\]\n\nFind pmf for \\(Y_i \\mid \\mu, \\phi\\)\nFind \\(\\textsf{E}[Y_i \\mid \\mu, \\phi]\\) and \\(\\textsf{Var}[Y_i \\mid \\mu, \\phi]\\)\nHomework: \\[\\theta_i \\sim \\textsf{Gamma}(\\phi, \\phi/\\mu)\\]\nCan either of these model zero-inflation?\nSee Bayarri & Berger (2000) for more discussion about why PPP should not be used as a test\n\n\n\n\nhttps://sta702-F23.github.io/website/"
-  },
-  {
-    "objectID": "resources/slides/template.html",
-    "href": "resources/slides/template.html",
-    "title": "STA 702 Fall 2023",
+    "objectID": "resources/slides/05-hierarchical-models.html",
+    "href": "resources/slides/05-hierarchical-models.html",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
     "section": "",
-    "text": "subtitle: “STA 702: Lecture ?” title: “template” author: “Merlise Clyde” institute: “Duke University” format: revealjs: theme: [simple, custom.scss] slide-number: true incremental: true scrollable: false controls: true fragments: true preview-links: auto logo: ../../img/icon.png footer: https://sta702-F23.github.io/website/ chalkboard: boardmarker-width: 1 chalk-width: 2 chalk-effect: 0 embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js”\neditor: markdown: wrap: 72 execute: echo: false"
+    "text": "Suppose we have normal data with \\[Y_i \\overset{iid}{\\sim} \\textsf(\\mu_i, \\sigma^2)\\]\n\nseparate mean for each observation!\n\nQuestion: How can we possibly hope to estimate all these \\(\\mu_i\\)? One \\(y_i\\) per \\(\\mu_i\\) and \\(n\\) observations!\nNaive estimator: just consider only using \\(y_i\\) in estimating and not the other observations.\n\nMLE \\(\\hat{\\mu}_i = y_i\\)\n\nHierarchical Viewpoint: Let’s borrow information from other observations!\n\n\nExample \\(y_i\\) is difference in gene expression for the \\(i^{\\text{th}}\\) gene between cancer and control lines\nmay be natural to think that the \\(\\mu_i\\) arise from some common distribution, \\(\\mu_i \\overset{iid}{\\sim} g\\)\n\n\n\n\n\n\n\n\n\n\n\nunbiased but high variance estimators of \\(\\mu_i\\) based on one observation!"
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": " Syllabus",
+    "objectID": "resources/slides/05-hierarchical-models.html#normal-means-model",
+    "href": "resources/slides/05-hierarchical-models.html#normal-means-model",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
     "section": "",
-    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+    "text": "Suppose we have normal data with \\[Y_i \\overset{iid}{\\sim} \\textsf(\\mu_i, \\sigma^2)\\]\n\nseparate mean for each observation!\n\nQuestion: How can we possibly hope to estimate all these \\(\\mu_i\\)? One \\(y_i\\) per \\(\\mu_i\\) and \\(n\\) observations!\nNaive estimator: just consider only using \\(y_i\\) in estimating and not the other observations.\n\nMLE \\(\\hat{\\mu}_i = y_i\\)\n\nHierarchical Viewpoint: Let’s borrow information from other observations!\n\n\nExample \\(y_i\\) is difference in gene expression for the \\(i^{\\text{th}}\\) gene between cancer and control lines\nmay be natural to think that the \\(\\mu_i\\) arise from some common distribution, \\(\\mu_i \\overset{iid}{\\sim} g\\)\n\n\n\n\n\n\n\n\n\n\n\nunbiased but high variance estimators of \\(\\mu_i\\) based on one observation!"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#low-variability",
+    "href": "resources/slides/05-hierarchical-models.html#low-variability",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Low Variability",
+    "text": "Low Variability\n\n\n\n\n\n\n\n\n\n\nlittle variation in \\(\\mu_i\\)s so a better estimate might be \\(\\bar{y}\\)\nNot forced to choose either - what about some weighted average between \\(y_i\\) and \\(\\bar{y}\\)?"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#simple-example",
+    "href": "resources/slides/05-hierarchical-models.html#simple-example",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Simple Example",
+    "text": "Simple Example\nData Model\n\\[Y_i \\mid \\mu_i, \\sigma^2 \\overset{iid}{\\sim} \\textsf(\\mu_i, \\sigma^2)\\]\nMeans Model \\[\\mu_i \\mid \\mu, \\tau \\overset{iid}{\\sim} \\textsf(\\mu, \\sigma^2_{\\mu})\\]\n\nnot necessarily a prior!\nNow estimate \\(\\mu_i\\) (let \\(\\phi = 1/\\sigma^2\\) and \\(\\phi_{\\mu} = 1/\\sigma^2_\\mu\\))\nCalculate the “posterior” \\(\\mu_i \\mid y_i, \\mu, \\phi, \\phi_\\mu\\)"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#hiearchical-estimates",
+    "href": "resources/slides/05-hierarchical-models.html#hiearchical-estimates",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Hiearchical Estimates",
+    "text": "Hiearchical Estimates\n\nPosterior: \\(\\mu_i \\mid y_i, \\mu, \\phi, \\phi_\\mu \\overset{ind}{\\sim} \\textsf{N}(\\tilde{\\mu}_i, 1/\\tilde{\\phi}_\\mu)\\)\nestimator of \\(\\mu_i\\) weighted average of data and population parameter \\(\\mu\\)\n\n\\[\\tilde{\\mu}_i = \\frac{\\phi_\\mu \\mu + \\phi y_i}\n                          {\\phi_\\mu + \\phi} \\qquad \\qquad \\tilde{\\phi}_\\mu = \\phi + \\phi_\\mu\\]\n\nif \\(\\phi_\\mu\\) is large relative to \\(\\phi\\) all of the \\(\\mu_i\\) are close together and benefit by borrowing information\nin limit as \\(\\sigma^2_\\mu \\to 0\\) or \\(\\phi_\\mu \\to \\infty\\) we have \\(\\tilde{\\mu}_i = \\mu\\) (all means are the same)\nif \\(\\phi_\\mu\\) is small relative to \\(\\phi\\) little borrowing of information\nin the limit as \\(\\phi_\\mu \\to 0\\) we have \\(\\tilde{\\mu}_i = y_i\\)"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#bayes-estimators-and-bias",
+    "href": "resources/slides/05-hierarchical-models.html#bayes-estimators-and-bias",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Bayes Estimators and Bias",
+    "text": "Bayes Estimators and Bias\nNote: you often benefit from a hierarchical model, even if its not obvious that the \\(\\mu_i\\)s are related!\n\nThe MLE for the \\(\\mu_i\\) is just the sample \\(y_i\\).\n\\(y_i\\) is unbiased for \\(\\mu_i\\) but can have high variability!\nthe posterior mean is actually biased.\nUsually through the weighting of the sample data and prior, Bayes procedures have the tendency to pull the estimate of \\(\\mu_i\\) toward the prior or shrinkage mean.\n\nWhy would we ever want to do this? Why not just stick with the MLE?\n\nMSE or Bias-Variance Tradeoff"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#modern-relevance",
+    "href": "resources/slides/05-hierarchical-models.html#modern-relevance",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Modern relevance",
+    "text": "Modern relevance\n\nThe fact that a biased estimator would do a better job in many estimation/prediction problems can be proven rigorously, and is referred to as Stein’s paradox.\nStein’s result implies, in particular, that the sample mean is an inadmissible estimator of the mean of a multivariate normal distribution in more than two dimensions i.e. there are other estimators that will come closer to the true value in expectation.\nIn fact, these are Bayes point estimators (the posterior expectation of the parameter \\(\\mu_i\\)).\nMost of what we do now in high-dimensional statistics is develop biased estimators that perform better than unbiased ones.\nExamples: lasso regression, ridge regression, various kinds of hierarchical Bayesian models, etc."
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#population-parameters",
+    "href": "resources/slides/05-hierarchical-models.html#population-parameters",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Population Parameters",
+    "text": "Population Parameters\n\nwe don’t know \\(\\mu\\) (or \\(\\sigma^2\\) and \\(\\sigma^2_\\mu\\) for that matter)\nFind marginal likelihood \\(\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu)\\) by integrating out \\(\\mu_i\\) with respect to \\(g\\)\n\n\\[\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu) \\propto \\prod_{i = 1}^n\n\\int \\textsf{N}(y_i; \\mu_i, \\sigma^2)  \\textsf{N}(\\mu_i; \\mu, \\sigma^2_\\mu) \\, d \\mu_i\\]\n\nProduct of predictive distributions for \\(Y_i \\mid \\mu, \\sigma^2, \\sigma^2_\\mu \\overset{iid}{\\sim} \\textsf{N}(\\mu, \\sigma^2 + \\sigma^2_\\mu)\\)\n\n\\[\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu) \\propto \\prod_{i = 1}^n (\\sigma^2 + \\sigma^2_\\mu)^{-1/2} \\exp \\left\\{ - \\frac{1}{2} \\frac{\\left(y_i - \\mu \\right)^2}{\\sigma^2 + \\sigma^2_\\mu }\\right\\}\\]\n\nFind MLE’s"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#mles",
+    "href": "resources/slides/05-hierarchical-models.html#mles",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "MLEs",
+    "text": "MLEs\n\\[\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu) \\propto  (\\sigma^2 + \\sigma^2_\\mu)^{-n/2} \\exp\\left\\{ - \\frac{1}{2} \\sum_{i=1}^n\\frac{\\left(y_i - \\mu \\right)^2}{\\sigma^2 + \\sigma^2_\\mu }\\right\\}\\]\n\nMLE of \\(\\mu\\): \\(\\hat{\\mu} = \\bar{y}\\)\nCan we say anything about \\(\\sigma^2_\\mu\\)? or \\(\\sigma^2\\) individually?\nMLE of \\(\\sigma^2 + \\sigma^2_\\mu\\) is\n\n\\[\\widehat{\\sigma^2 + \\sigma^2_\\mu} = \\frac{\\sum(y_i - \\bar{y})^2}{n}\\]\n\nAssume \\(\\sigma^2\\) is known (say 1)\n\n\\[\\hat{\\sigma}^2_\\mu = \\frac{\\sum(y_i - \\bar{y})^2}{n} - 1\\]"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#empirical-bayes-estimates",
+    "href": "resources/slides/05-hierarchical-models.html#empirical-bayes-estimates",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Empirical Bayes Estimates",
+    "text": "Empirical Bayes Estimates\n\nplug in estimates of hyperparameters into the prior and pretend they are known\nresulting estimates are known as Empirical Bayes\nunderestimates uncertainty\nEstimates of variances may be negative - constrain to 0 on the boundary)\nFully Bayes would put a prior on the unknowns"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#bayes-and-hierarchical-models",
+    "href": "resources/slides/05-hierarchical-models.html#bayes-and-hierarchical-models",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Bayes and Hierarchical Models",
+    "text": "Bayes and Hierarchical Models\n\nWe know the conditional posterior distribution of \\(\\mu_i\\) given the other parameters, lets work with the marginal likelihood \\(\\cal{L}(\\theta)\\)\nneed a prior \\(\\pi(\\theta)\\) for unknown parameters are \\(\\theta = (\\mu, \\sigma^2, \\sigma^2_\\mu)\\) (details later)\n\nPosterior\n\\[\\pi(\\theta \\mid y) = \\frac{\\pi(\\theta) \\cal{L}(\\theta)}\n{\\int_\\Theta \\pi(\\theta) \\cal{L}(\\theta) \\, d\\theta} =\n\\frac{\\pi(\\theta) \\cal{L}(\\theta)}\n{m(y)}\\]\nProblems:\n\nExcept for simple cases (conjugate models) \\(m(y)\\) is not available analytically"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#large-sample-approximations",
+    "href": "resources/slides/05-hierarchical-models.html#large-sample-approximations",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Large Sample Approximations",
+    "text": "Large Sample Approximations\n\nAppeal to BvM (Bayesian Central Limit Theorem) and approximate \\(\\pi(\\theta \\mid y)\\) with a Gaussian distribution centered at the posterior mode \\(\\hat{\\theta}\\) and asymptotic covariance matrix\n\n\\[V_\\theta = \\left[- \\frac{\\partial^2}{\\partial \\theta \\partial \\theta^T} \\left\\{\\log(\\pi(\\theta)) + \\log(\\cal{L}(\\theta)) \\right\\} \\right]^{-1}\\]\n\nwe can try to approximate \\(m(y)\\) but this may involve a high dimensional integral\nLaplace approximation to integral (also large sample)\n\nStochastic methods"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#stochastic-integration",
+    "href": "resources/slides/05-hierarchical-models.html#stochastic-integration",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Stochastic Integration",
+    "text": "Stochastic Integration\n\\[\\textsf{E}[h(\\theta) \\mid y] =  \\int_\\Theta h(\\theta) \\pi(\\theta \\mid y) \\, d\\theta \\approx \\frac{1}{T}\\sum_{t=1}^{T} h(\\theta^{(t)}) \\qquad \\theta^{(t)} \\sim \\pi(\\theta \\mid y)\\]\nwhat if we can’t sample from the posterior but can sample from some distribution \\(q()\\)\n\\[\\textsf{E}[h(\\theta) \\mid y] =  \\int_\\Theta h(\\theta) \\frac{\\pi(\\theta \\mid y)}{q(\\theta)} q(\\theta)\\, d\\theta \\approx \\frac{1}{T}\\sum_{t=1}^{T} h(\\theta^{(t)}) \\frac{\\pi(\\theta^{(t)} \\mid y)} {q(\\theta^{(t)})} \\qquad\\] where \\(\\theta^{(t)} \\sim q(\\theta)\\)\nWithout the denominator in \\(\\pi(\\theta \\mid y)\\) we just have \\(\\pi(\\theta \\mid y) \\propto \\pi(\\theta) \\cal{L}(\\theta)\\)\n\nuse twice for numerator and denominator"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#important-sampling-estimate",
+    "href": "resources/slides/05-hierarchical-models.html#important-sampling-estimate",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Important Sampling Estimate",
+    "text": "Important Sampling Estimate\nEstimate of \\(m(y)\\)\n\\[m(y) \\approx \\frac{1}{T} \\sum_{t=1}^{T}  \\frac{\\pi(\\theta^{(t)}) \\cal{L}(\\theta^{(t)})}{q(\\theta^{(t)})} \\qquad \\theta^{(t)} \\sim q(\\theta)\\]\n\\[\\textsf{E}[h(\\theta) \\mid y] \\approx \\frac{\\sum_{t=1}^{T} h(\\theta^{(t)}) \\frac{\\pi(\\theta^{(t)}) \\cal{L}(\\theta^{(t)})}{q(\\theta^{(t)})}}\n{ \\sum_{t=1}^{T}  \\frac{\\pi(\\theta^{(t)}) \\cal{L}(\\theta^{(t)})}{q(\\theta^{(t)})}}\n\\qquad \\theta^{(t)} \\sim q(\\theta)\\]\n\\[\\textsf{E}[h(\\theta) \\mid y] \\approx \\sum_{t=1}^{T} h(\\theta^{(t)}) w(\\theta^{(t)})  \\qquad \\theta^{(t)} \\sim q(\\theta)\\]\nwith un-normalized weights \\(w(\\theta^{(t)}) \\propto \\frac{\\pi(\\theta^{(t)}) \\cal{L}(\\theta^{(t)})}{q(\\theta^{(t)})}\\)\n(normalize to sum to 1)"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#markov-chain-monte-carlo-mcmc",
+    "href": "resources/slides/05-hierarchical-models.html#markov-chain-monte-carlo-mcmc",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Markov Chain Monte Carlo (MCMC)",
+    "text": "Markov Chain Monte Carlo (MCMC)\n\nTypically \\(\\pi(\\theta)\\) and \\(\\cal{L}(\\theta)\\) are easy to evaluate\n\n\nHow do we draw samples only using evaluations of the prior and likelihood in higher dimensional settings?\n\n\nconstruct a Markov chain \\(\\theta^{(t)}\\) in such a way the the stationary distribution of the Markov chain is the posterior distribution \\(\\pi(\\theta \\mid y)\\)!\n\n\\[\\theta^{(0)} \\overset{k}{\\longrightarrow} \\theta^{(1)} \\overset{k}{\\longrightarrow} \\theta^{(2)} \\cdots\\]\n\n\\(k_t(\\theta^{(t-1)} ; \\theta^{(t)})\\) transition kernel\ninitial state \\(\\theta^{(0)}\\)\nchoose some nice \\(k_t\\) such that \\(\\theta^{(t)} \\to \\pi(\\theta \\mid y)\\) as \\(t \\to \\infty\\)\nbiased samples initially but get closer to the target"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#metropolis-algorithm-1950s",
+    "href": "resources/slides/05-hierarchical-models.html#metropolis-algorithm-1950s",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Metropolis Algorithm (1950’s)",
+    "text": "Metropolis Algorithm (1950’s)\n\nMarkov chain \\(\\theta^{(t)}\\)\npropose \\(\\theta^* \\sim g(\\theta^{(t-1)})\\) where \\(g()\\) is a symmetric distribution centered at \\(\\theta^{(t-1)}\\)\nset \\(\\theta^{(t)} = \\theta^*\\) with some probability\notherwise set \\(\\theta^{(t)} = \\theta^{(t-1)}\\)\n\nAcceptance probability is\n\\[\\alpha = \\min \\left\\{ 1, \\frac{\\pi(\\theta^*) \\cal{L}(\\theta^*)}\n                           {\\pi(\\theta^{(t-1)}) \\cal{L}(\\theta^{(t-1)})}\\right\\}\\]\n\nratio of posterior densities where normalizing constant cancels!"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#example",
+    "href": "resources/slides/05-hierarchical-models.html#example",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Example",
+    "text": "Example\n\nLet’s use a prior for \\(p(\\mu) \\propto 1\\)\nPosterior for \\(\\mu \\mid \\sigma^2, \\sigma^2_\\mu\\) is \\(\\textsf{N}\\left(\\bar{y}, \\frac{\\sigma^2 + \\sigma^2_\\mu}{n}\\right)\\)\n\n\\[\\cal{L}(\\sigma^2, \\sigma^2_\\tau) \\propto\n(\\sigma^2 + \\sigma^2_\\mu)^{-\\frac{n - 1}{2}} \\exp \\left\\{ - \\frac 1 2 \\sum_i \\frac{(y_i - \\bar{y})^2}{\\sigma^2 + \\sigma^2_\\mu)} \\right\\}\\]\n\nTake \\(\\sigma^2 = 1\\)\nUse a \\(\\textsf{Cauchy}(0,1)\\) prior on \\(\\sigma_\\mu\\)\nSymmetric proposal for \\(\\sigma_\\tau\\)? Try a normal with variance \\(\\frac{2.4^2}{d} \\textsf{var}(\\sigma_\\mu)\\) where \\(d\\) is the dimension of \\(\\theta\\) (d = 1)"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#joint-posterior",
+    "href": "resources/slides/05-hierarchical-models.html#joint-posterior",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Joint Posterior",
+    "text": "Joint Posterior"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#marginal-posterior",
+    "href": "resources/slides/05-hierarchical-models.html#marginal-posterior",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Marginal Posterior",
+    "text": "Marginal Posterior\n\n\n\n\n\n\n\n\n\nMLE of \\(\\sigma_\\mu\\) is 0.11"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#trace-plots",
+    "href": "resources/slides/05-hierarchical-models.html#trace-plots",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "Trace Plots",
+    "text": "Trace Plots\n\n\n\n\n\n\n\n\n\n\nAcceptance probability is 0.57\nGoal is around 0.44 in 1 dimension to 0.23 in higher dimensions"
+  },
+  {
+    "objectID": "resources/slides/05-hierarchical-models.html#autocorrelation-function",
+    "href": "resources/slides/05-hierarchical-models.html#autocorrelation-function",
+    "title": "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC",
+    "section": "AutoCorrelation Function",
+    "text": "AutoCorrelation Function"
   },
   {
     "objectID": "resources/slides/03-normal-predictive-distributions.html#outline",
@@ -565,6 +565,125 @@
     "title": "The Normal Model & Prior/Posterior Predictive Distributions",
     "section": "Simplification",
     "text": "Simplification\n\\[\\begin{split}\n\\cal{L}(\\theta) & \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n (y_i-\\theta)^2\\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\sum_{i=1}^n \\left[ (y_i-\\bar{y}) - (\\theta - \\bar{y}) \\right]^2 \\right\\}\\\\\n\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + \\sum_{i=1}^n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau \\left[ \\sum_{i=1}^n (y_i-\\bar{y})^2 + n(\\theta - \\bar{y})^2 \\right] \\right\\}\\\\\n& \\propto \\tau^{\\frac{n}{2}} \\ \\exp\\left\\{-\\frac{1}{2} \\tau s^2(n-1) \\right\\} \\ \\exp\\left\\{-\\frac{1}{2} \\tau n(\\theta - \\bar{y})^2 \\right\\}\n\\end{split}\\]\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": " Syllabus",
+    "section": "",
+    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+  },
+  {
+    "objectID": "resources/slides/template.html",
+    "href": "resources/slides/template.html",
+    "title": "STA 702 Fall 2023",
+    "section": "",
+    "text": "subtitle: “STA 702: Lecture ?” title: “template” author: “Merlise Clyde” institute: “Duke University” format: revealjs: theme: [simple, custom.scss] slide-number: true incremental: true scrollable: false controls: true fragments: true preview-links: auto logo: ../../img/icon.png footer: https://sta702-F23.github.io/website/ chalkboard: boardmarker-width: 1 chalk-width: 2 chalk-effect: 0 embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js”\neditor: markdown: wrap: 72 execute: echo: false"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#uses-of-posterior-predictive",
+    "href": "resources/slides/04-predictive-checks.html#uses-of-posterior-predictive",
+    "title": "Prior/Posterior Checks",
+    "section": "Uses of Posterior Predictive",
+    "text": "Uses of Posterior Predictive\n\nPlot the entire density or summarize\nAvailable analytically for conjugate families\nMonte Carlo Approximation \\[p(y_{n+1} \\mid y_1, \\ldots y_n) \\approx \\frac 1 T \\sum_{t = 1}^T  p(y_{n+t} \\mid \\theta^{(t)})\\] where \\(\\theta^{(t)} \\sim \\pi(\\theta \\mid y_1, \\ldots y_n)\\) for \\(t = 1, \\ldots, T\\)\nT samples from the posterior distribution\nEmpirical Estimates & Quantiles from Monte Carlo Samples"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#models",
+    "href": "resources/slides/04-predictive-checks.html#models",
+    "title": "Prior/Posterior Checks",
+    "section": "Models",
+    "text": "Models\n\nSo far this all assumes we have a correct sampling model and a “reasonable” prior distrbution\nGeorge Box: All models are wrong but some are useful\n“Useful” \\(\\rightarrow\\) model provides a good approximation; there aren’t clear aspects of the data that are ignored or misspecified\nhow can we decide if a model is misspecified and needs to change?"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#example",
+    "href": "resources/slides/04-predictive-checks.html#example",
+    "title": "Prior/Posterior Checks",
+    "section": "Example",
+    "text": "Example\n\nPoisson model \\[Y_i  \\mid \\theta \\stackrel{iid}{\\sim }\\textsf{Poisson}(\\theta) \\qquad i = 1, \\ldots, n\\]\nHow might our model be misspecified?\n\nPoisson assumes that \\(\\textsf{E}(Y_i) = \\textsf{Var}(Y_i) = \\theta\\)\nit’s very common for data to be over-dispersed \\(\\textsf{E}(Y_i) &lt; \\textsf{Var}(Y_i)\\)\nignored additional structure in the data, i.e. data are not iid\nzero-inflation many more zero values than consistent with the poisson model"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-checks",
+    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-checks",
+    "title": "Prior/Posterior Checks",
+    "section": "Posterior Predictive Checks",
+    "text": "Posterior Predictive Checks\n\nGuttman (1967), Rubin (1984) proposed the use of Posterior Predictive Checks (PPC)] for model criticism; further developed by Gelman et al (1996)\nthe spirit of posterior predictive checks is that “If my model is good, then its posterior predictive distribution will generate data that look like my oberved data”\n\\(y^{\\text{obs}}\\) is the observed data\n\\(y^{\\text{rep}}\\) is a new dataset sampled from the posterior predictive \\(p(y^{\\text{rep}} \\mid y^{\\text{obs}})\\) of size \\(n\\) (same size as the observed)\nUse a diagnostic statistic \\(d(y)\\) to capture some feature of the data that the model may fail to capture, say variance\ncompare \\(d(y^{\\text{obs}})\\) to the reference distribution of \\(d(y^{\\text{rep}})\\)\nUse Posterior Predictive P-value as a summary \\[ p_{PPC} = P(d(y^{\\text{obs}}) &gt; d(y^{\\text{rep}}) \\mid d(y^{\\text{obs}}))\n\\]"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#formally",
+    "href": "resources/slides/04-predictive-checks.html#formally",
+    "title": "Prior/Posterior Checks",
+    "section": "Formally",
+    "text": "Formally\n\nchoose a “diagnostic statistic” \\(d(\\cdot)\\) that captures some summary of the data, e.g. \\(\\textsf{Var}(y)\\) for over-dispersion, where large values of the statistic would be surprising if the model were correct.\n\\(d(y^{\\text{obs}}) \\equiv d_{\\textrm{obs}}\\) value of statistic in observed data\n\\(d(y^{\\text{rep}}_t) \\equiv d_{\\textrm{pred}}\\) value of statistic for the \\(t\\)th random dataset drawn from the posterior predictive distribution\n\nGenerate \\(\\theta_t \\stackrel{iid}{\\sim}p(\\theta y^{\\textrm{obs}})\\)\nGenerate \\(y^{\\textrm{rep}_t} \\mid \\theta_t \\stackrel{iid}{\\sim} p(y \\mid \\theta_t)\\)\nCalculate \\(d(y^{\\text{rep}}_t)\\)\n\nplot posterior predictive distribution of \\(d(y^{\\text{rep}}_t)\\) and add \\(d_{\\textrm{obs}}\\)\nHow extreme is \\(t_{\\textrm{obs}}\\) compared to the distribution of \\(d(y^{\\text{rep}})\\)?\ncompute p-value \\(p_{PPC} = \\frac 1 T \\sum_t I(d(y^{\\text{obs}}) &gt; d(y^{\\text{rep}}_t))\\)"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#example-with-over-dispersion",
+    "href": "resources/slides/04-predictive-checks.html#example-with-over-dispersion",
+    "title": "Prior/Posterior Checks",
+    "section": "Example with Over Dispersion",
+    "text": "Example with Over Dispersion\n\n\n\nn = 100; phi = 1; mu = 5\ntheta.t = rgamma(n,phi,phi/mu)\ny = rpois(n, theta.t)\na = 1; b = 1;\nt.obs = var(y)\n\nnT = 10000\nt.pred = rep(NA, nT)\nfor (t in 1:nT) {\n  theta.post = rgamma(1, a + sum(y),\n                         b + n)\n  y.pred = rpois(n, theta.post)\n  t.pred[t] = var(y.pred)\n}\n\nhist(t.pred, \n     xlim = range(c(t.pred, t.obs)),\n     xlab=\"var\", \n     main=\"Posterior Predictive Distribution\")\n\nabline(v = t.obs, col=\"red\")"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#zero-inflated-distribution",
+    "href": "resources/slides/04-predictive-checks.html#zero-inflated-distribution",
+    "title": "Prior/Posterior Checks",
+    "section": "Zero Inflated Distribution",
+    "text": "Zero Inflated Distribution\n\n\n\n\n\n\n\n\n\n\n\n\nR Code to generate zero inflated\n\nn = 1000\nmu = 5; phi = 1\ntheta.t = rgamma(n,phi,phi/mu)\nz = rbinom(n, 1, .90)\ny = rpois(n, theta.t)*z\n\n\nLet the \\(t()\\) be the proportion of zeros \\[\\begin{aligned}\nd(y) & = \\frac{\\sum_{i = 1}^{n}1(y_i = 0)}{n} \\\\\n   & = 0.27\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-distribution",
+    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-distribution",
+    "title": "Prior/Posterior Checks",
+    "section": "Posterior Predictive Distribution",
+    "text": "Posterior Predictive Distribution"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-p-values-ppps",
+    "href": "resources/slides/04-predictive-checks.html#posterior-predictive-p-values-ppps",
+    "title": "Prior/Posterior Checks",
+    "section": "Posterior Predictive p-values (PPPs)",
+    "text": "Posterior Predictive p-values (PPPs)\n\np-value is probability of seeing something as extreme or more so under a hypothetical “null” model\nfrom a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the “null” model\nPPPs advocated by Gelman & Rubin in papers and BDA are not valid p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified\nthe PPPs tend to be concentrated around 0.5, tends not to reject (conservative)\ntheoretical reason for the incorrect distribution is due to double use of the data\nDO NOT USE as a formal test! use as a diagnostic plot to see how model might fall flat, but be cautious!"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#example-bivariate-normal",
+    "href": "resources/slides/04-predictive-checks.html#example-bivariate-normal",
+    "title": "Prior/Posterior Checks",
+    "section": "Example: Bivariate Normal",
+    "text": "Example: Bivariate Normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPPP = 0.52\nWhat’s happening?"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#problems-with-ppc",
+    "href": "resources/slides/04-predictive-checks.html#problems-with-ppc",
+    "title": "Prior/Posterior Checks",
+    "section": "Problems with PPC",
+    "text": "Problems with PPC\n\nBayarri & Berger (2000) provides more discussion about why PPP are not always calibrated\nDouble use of the data; \\(Y^{\\text{rep}}\\) depends on the observed diagnostic in last case\nBayarri & Berger propose the partial predicitve p-value and condtional predictive p-value that avoids double use of the data by “removing” the contribution of \\(d_{\\text{obs}}\\) to the posterior for \\(\\theta\\) or conditioning an a statistic, such as the MLE of \\(\\theta\\)\nheuristically, need the diagnostic to be independent of posterior for \\(\\theta\\)\nnot always easy to find!\nMoran et al (2022) propose a workaround to avoid double use of the data by spliting the data \\(y_{\\text{obs}}, y_{\\text{new}}\\), use \\(y_{\\text{obs}}\\), to learn \\(\\theta\\) and the other to calculate \\(d_{\\textrm{new}}\\)\ncan be calculated via simulation easily"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#pop-pc-of-moran-et-al",
+    "href": "resources/slides/04-predictive-checks.html#pop-pc-of-moran-et-al",
+    "title": "Prior/Posterior Checks",
+    "section": "POP-PC of Moran et al",
+    "text": "POP-PC of Moran et al\n\n\nPOP-PPC = 0.2"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#modeling-over-dispersion",
+    "href": "resources/slides/04-predictive-checks.html#modeling-over-dispersion",
+    "title": "Prior/Posterior Checks",
+    "section": "Modeling Over-Dispersion",
+    "text": "Modeling Over-Dispersion\n\nOriginal Model \\(Y_i \\mid \\theta \\sim \\textsf{Poisson}(\\theta)\\)\ncause of overdispersion is variation in the rate \\[ Y_i \\mid \\theta_i \\sim \\textsf{Poisson}(\\theta_i)\\]\nmodel variation via prior \\[\\theta_i \\sim \\pi_\\theta()\\]\n\\(\\pi_\\theta()\\) characterizes variation in the rate parameter across inviduals\nSimple Two Stage Hierarchical Model"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#example-1",
+    "href": "resources/slides/04-predictive-checks.html#example-1",
+    "title": "Prior/Posterior Checks",
+    "section": "Example",
+    "text": "Example\n\\[\\theta_i \\sim \\textsf{Gamma}(\\phi \\mu, \\phi)\\]\n\nFind pmf for \\(Y_i \\mid \\mu, \\phi\\)\nFind \\(\\textsf{E}[Y_i \\mid \\mu, \\phi]\\) and \\(\\textsf{Var}[Y_i \\mid \\mu, \\phi]\\)\nHomework: \\[\\theta_i \\sim \\textsf{Gamma}(\\phi, \\phi/\\mu)\\]\nCan either of these model zero-inflation?"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#modeling-perspectives",
+    "href": "resources/slides/04-predictive-checks.html#modeling-perspectives",
+    "title": "Prior/Posterior Checks",
+    "section": "Modeling Perspectives",
+    "text": "Modeling Perspectives\n\n\n\nstart with a simple model\n\n\nask if there are surprises through Posterior Checks\nneed calibrated diagnostic(s) with good power\nneed these to work even if starting model is relatively complex\nother informal diagnostics (residuals)\nremodel if needed based on departures\nBayesian meaning?\n\n\n\nstart with a fairly complex model or models\n\n\nshrinkage to prevend overfitting\nformal tests for simplifying models\nmethods to combine multiple models to express uncertaity\nproperties\n\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#last-time",
@@ -912,23 +1031,30 @@
   {
     "objectID": "reading/04-reading.html",
     "href": "reading/04-reading.html",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "title": "Lecture 4: Predictive Checks",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking\nSection 10.5: How many simulation draws are needed"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
   },
   {
     "objectID": "reading/04-reading.html#readings",
     "href": "reading/04-reading.html#readings",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "title": "Lecture 4: Predictive Checks",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking\nSection 10.5: How many simulation draws are needed"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
   },
   {
     "objectID": "reading/04-reading.html#optional",
     "href": "reading/04-reading.html#optional",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "title": "Lecture 4: Predictive Checks",
     "section": "Optional",
-    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2: Decision-Theoretic Foundations\n2.1 Evaluating estimators\n2.4.2 Minimaxity\n2.4.4 Admissibility\n2.5.1 The quadratic loss\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
+    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
+  },
+  {
+    "objectID": "reading/04-reading.html#recommended",
+    "href": "reading/04-reading.html#recommended",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "Recommended",
+    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142"
   },
   {
     "objectID": "reading/00-reading.html",

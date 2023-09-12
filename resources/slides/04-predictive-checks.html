@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Merlise Clyde">
-  <title>STA 702 Fall 2023 - Comparing Estimators &amp; Prior/Posterior Checks</title>
+  <title>STA 702 Fall 2023 - Prior/Posterior Checks</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -329,7 +394,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Comparing Estimators &amp; Prior/Posterior Checks</h1>
+  <h1 class="title">Prior/Posterior Checks</h1>
   <p class="subtitle">STA 702: Lecture 4</p>
 
 <div class="quarto-title-authors">
@@ -344,183 +409,209 @@ Merlise Clyde
 </div>
 
 </section>
-<section id="normal-model-setup-from-last-class" class="slide level2">
-<h2>Normal Model Setup from Last Class</h2>
-<ul>
-<li class="fragment"><p>independent observations <span class="math inline">\(\mathbf{y} = (y_1,y_2,\ldots,y_n)^T\)</span> where each <span class="math inline">\(Y_i \mid \theta\stackrel{iid}\sim \textsf{N}(\theta, 1/\tau)\)</span> (iid)</p></li>
-<li class="fragment"><p>The likelihood for <span class="math inline">\(\theta\)</span> is proportional to the sampling model</p></li>
-</ul>
-<p><span class="math display">\[\begin{split}
-\cal{L}(\theta) &amp; \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n (y_i-\theta)^2\right\}\\
-&amp; \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \sum_{i=1}^n \left[ (y_i-\bar{y}) - (\theta - \bar{y}) \right]^2 \right\}\\
-&amp; \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + \sum_{i=1}^n(\theta - \bar{y})^2 \right] \right\}\\
-&amp; \propto \tau^{\frac{n}{2}} \ \exp\left\{-\frac{1}{2} \tau \left[ \sum_{i=1}^n (y_i-\bar{y})^2 + n(\theta - \bar{y})^2 \right] \right\}\\
-&amp; \propto \exp\left\{-\frac{1}{2} \tau n(\theta - \bar{y})^2\right\}
-\end{split}\]</span></p>
-</section>
-<section id="exercises-for-practice" class="slide level2">
-<h2>Exercises for Practice</h2>
-<div class="question">
-<p>Try this</p>
-</div>
-<ol type="1">
-<li class="fragment"><p>Use <span class="math inline">\(\cal{L}(\theta)\)</span> based on <span class="math inline">\(n\)</span> observations to find <span class="math inline">\(\pi(\theta \mid y_1, \ldots, y_n)\)</span> based on the sufficient statistics and prior <span class="math inline">\(\theta \sim \textsf{N}(\theta_0, 1/\tau_0)\)</span></p></li>
-<li class="fragment"><p>Use <span class="math inline">\(\pi(\theta \mid y_1, \ldots, y_n)\)</span> to find the posterior predictive distribution for <span class="math inline">\(Y_{n+1}\)</span></p></li>
-</ol>
-</section>
-<section id="after-n-observations" class="slide level2">
-<h2>After <span class="math inline">\(n\)</span> observations</h2>
-<p>Posterior for <span class="math inline">\(\theta\)</span></p>
-<p><span class="math display">\[\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)\]</span></p>
-<p>Posterior Predictive Distribution for <span class="math inline">\(Y_{n+1}\)</span></p>
-<p><span class="math display">\[Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{\tau} + \frac{1}{ \tau_0 + n \tau} \right)\]</span></p>
-<ul>
-<li class="fragment">Shrinkage of the MLE to the prior mean</li>
-</ul>
-</section>
-<section id="results-with-jeffreys-prior" class="slide level2">
-<h2>Results with Jeffreys’ Prior</h2>
-<ul>
-<li class="fragment"><p>What if <span class="math inline">\(\tau_0 \to 0\)</span>? (or <span class="math inline">\(\sigma^2_0 \to \infty\)</span>)</p></li>
-<li class="fragment"><p>Prior predictive <span class="math inline">\(\textsf{N}(\theta_0, \sigma^2_0 + \sigma^2 )\)</span> (not proper in the limit)</p></li>
-<li class="fragment"><p>Posterior for <span class="math inline">\(\theta\)</span> (formal posterior)</p></li>
-</ul>
-<p><span class="math display">\[\theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \frac{\tau_0 \theta_0 + n \tau \bar{y}}
-{\tau_0 + n \tau}, \frac{1}{ \tau_0 + n \tau} \right)\]</span></p>
-<p><span class="math display">\[\to  \qquad \theta \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y},
-\frac{1}{n \tau} \right)\]</span></p>
-<p>Posterior Predictive <span class="math inline">\(Y_{n+1} \mid y_1, \ldots, y_n \sim \textsf{N}\left( \bar{y}, \sigma^2 (1 + \frac{1}{n} )\right)\)</span></p>
-</section>
-<section id="comparing-estimators" class="slide level2">
-<h2>Comparing Estimators</h2>
-<p>Expected loss (from frequentist perspective) of using Bayes Estimator</p>
-<ul>
-<li class="fragment">Posterior mean is optimal under squared error loss (min Bayes Risk) [also absolute error loss]</li>
-</ul>
-<p>Compute Mean Square Error (or Expected Average Loss) <span class="math display">\[\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right]\]</span> <span class="math display">\[ = \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})\]</span></p>
-<ul>
-<li class="fragment">For the MLE <span class="math inline">\(\bar{Y}\)</span> this is just the variance of <span class="math inline">\(\bar{Y}\)</span> or <span class="math inline">\(\sigma^2/n\)</span></li>
-</ul>
-</section>
-<section id="mse-for-bayes" class="slide level2">
-<h2>MSE for Bayes</h2>
-<p><span class="math display">\[\textsf{E}_{\bar{y} \mid \theta}\left[\left(\hat{\theta} - \theta \right)^2 \mid \theta \right] = \textsf{MSE} =  \textsf{Bias}(\hat{\theta})^2 + \textsf{Var}(\hat{\theta})\]</span></p>
-<ul>
-<li class="fragment">Bias of Bayes Estimate</li>
-</ul>
-<p><span class="math display">\[\textsf{E}_{\bar{Y} \mid \theta}\left[ \frac{\tau_0 \theta_0 + \tau n \bar{Y}}
-{\tau_0  + \tau n}\right]  - \theta =
-\frac{\tau_0(\theta_0 - \theta)}{\tau_0 + \tau n}\]</span></p>
-<ul>
-<li class="fragment">Variance</li>
-</ul>
-<p><span class="math display">\[\textsf{Var}\left(\frac{\tau_0 \theta_0 + \tau n \bar{Y}}{\tau_0 + \tau n} - \theta  \mid \theta \right)  = \frac{\tau n}{(\tau_0 + \tau n)^2}\]</span></p>
-<p>(Frequentist) expected Loss when truth is <span class="math inline">\(\theta\)</span></p>
-<p><span class="math display">\[\textsf{MSE} = \frac{\tau_0^2(\theta - \theta_0)^2 + \tau n}{(\tau_0 + \tau n)^2}\]</span></p>
-<p>Behavior ?</p>
-</section>
-<section id="plot" class="slide level2">
-<h2>Plot</h2>
-
-<img data-src="04-predictive-checks_files/figure-revealjs/MSE-1.png" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
-<div class="question">
-<p>Repeat this for estimating a future Y under squared error loss using a proper prior and Jeffreys’ prior</p>
-</div>
-<p><span class="math display">\[\textsf{E}_{Y_{n+1} \mid \theta}\left[(Y_{n+1} - \textsf{E}[Y_{n+1} \mid y_1, \ldots, n])^2]\right]\]</span></p>
-</section>
-<section id="uses-of-posterior-predictive" class="slide level2">
+<section id="uses-of-posterior-predictive" class="slide level2 smaller">
 <h2>Uses of Posterior Predictive</h2>
 <ul>
 <li class="fragment"><p>Plot the entire density or summarize</p></li>
 <li class="fragment"><p>Available analytically for conjugate families</p></li>
-<li class="fragment"><p>Monte Carlo Approximation</p></li>
-</ul>
-<p><span class="math display">\[p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})\]</span></p>
-<p>where <span class="math inline">\(\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)\)</span> for <span class="math inline">\(t = 1, \ldots, T\)</span></p>
-<ul>
+<li class="fragment"><p>Monte Carlo Approximation <span class="math display">\[p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})\]</span> where <span class="math inline">\(\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)\)</span> for <span class="math inline">\(t = 1, \ldots, T\)</span></p></li>
 <li class="fragment"><p>T samples from the posterior distribution</p></li>
 <li class="fragment"><p>Empirical Estimates &amp; Quantiles from Monte Carlo Samples</p></li>
 </ul>
 </section>
-<section id="model-diagnostics" class="slide level2">
-<h2>Model Diagnostics</h2>
+<section id="models" class="slide level2">
+<h2>Models</h2>
 <ul>
-<li class="fragment"><p>Need an accurate specification of likelihood function (and reasonable prior)</p></li>
+<li class="fragment"><p>So far this all assumes we have a correct sampling model and a “reasonable” prior distrbution</p></li>
 <li class="fragment"><p>George Box: <em>All models are wrong but some are useful</em></p></li>
 <li class="fragment"><p>“Useful” <span class="math inline">\(\rightarrow\)</span> model provides a good approximation; there aren’t clear aspects of the data that are ignored or misspecified</p></li>
+<li class="fragment"><p>how can we decide if a model is misspecified and needs to change?</p></li>
 </ul>
 </section>
-<section id="example" class="slide level2">
+<section id="example" class="slide level2 smaller">
 <h2>Example</h2>
-<p><span class="math display">\[Y_i \sim \textsf{Poisson}(\theta) \qquad i = 1, \ldots, n\]</span> How might our model be misspecified?</p>
+<ul>
+<li class="fragment"><p>Poisson model <span class="math display">\[Y_i  \mid \theta \stackrel{iid}{\sim }\textsf{Poisson}(\theta) \qquad i = 1, \ldots, n\]</span></p></li>
+<li class="fragment"><p>How might our model be misspecified?</p>
 <ul>
 <li class="fragment"><p>Poisson assumes that <span class="math inline">\(\textsf{E}(Y_i) = \textsf{Var}(Y_i) = \theta\)</span></p></li>
 <li class="fragment"><p>it’s <em>very</em> common for data to be <strong>over-dispersed</strong> <span class="math inline">\(\textsf{E}(Y_i) &lt; \textsf{Var}(Y_i)\)</span></p></li>
+<li class="fragment"><p>ignored additional structure in the data, i.e.&nbsp;data are not <em>iid</em></p></li>
 <li class="fragment"><p><strong>zero-inflation</strong> many more zero values than consistent with the poisson model</p></li>
-<li class="fragment"><p>Can we use the Posterior Predictive to diagnose whether these are issues with our observed data?</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="posterior-predictive-pp-checks" class="slide level2">
-<h2>Posterior Predictive (PP) Checks</h2>
+<section id="posterior-predictive-checks" class="slide level2 smaller">
+<h2>Posterior Predictive Checks</h2>
 <ul>
-<li class="fragment"><p><span class="math inline">\(y^{(n)}\)</span> is observed &amp; fixed training data</p></li>
-<li class="fragment"><p><span class="math inline">\(p(y_{n+1} \mid y^{(n)})\)</span> is PP distributoin</p></li>
-<li class="fragment"><p><span class="math inline">\(\tilde{y}^{(n)}_t\)</span> is <span class="math inline">\(t^{\text{th}}\)</span> new dataset sampled from the PP of size <span class="math inline">\(n\)</span> (same as training)</p></li>
-<li class="fragment"><p><span class="math inline">\(p(\tilde{y}^{(n)}_t \mid y^{(n)})\)</span> is PP of new data sets</p></li>
-<li class="fragment"><p>compare some feature of the observed data to the datasets simulated from the PP</p></li>
+<li class="fragment"><p>Guttman (1967), Rubin (1984) proposed the use of <span style="&quot;color:red">Posterior Predictive Checks (PPC)</span>] for model criticism; further developed by Gelman et al (1996)</p></li>
+<li class="fragment"><p>the spirit of posterior predictive checks is that “<em>If my model is good, then its posterior predictive distribution will generate data that look like my oberved data</em>”</p></li>
+<li class="fragment"><p><span class="math inline">\(y^{\text{obs}}\)</span> is the observed data</p></li>
+<li class="fragment"><p><span class="math inline">\(y^{\text{rep}}\)</span> is a new dataset sampled from the posterior predictive <span class="math inline">\(p(y^{\text{rep}} \mid y^{\text{obs}})\)</span> of size <span class="math inline">\(n\)</span> (same size as the observed)</p></li>
+<li class="fragment"><p>Use a <span style="color:red">diagnostic statistic</span> <span class="math inline">\(d(y)\)</span> to capture some feature of the data that the model may fail to capture, say variance</p></li>
+<li class="fragment"><p>compare <span class="math inline">\(d(y^{\text{obs}})\)</span> to the reference distribution of <span class="math inline">\(d(y^{\text{rep}})\)</span></p></li>
+<li class="fragment"><p>Use Posterior Predictive P-value as a summary <span class="math display">\[ p_{PPC} = P(d(y^{\text{obs}}) &gt; d(y^{\text{rep}}) \mid d(y^{\text{obs}}))
+\]</span></p></li>
 </ul>
 </section>
-<section id="formally" class="slide level2">
+<section id="formally" class="slide level2 smaller">
 <h2>Formally</h2>
 <ul>
-<li class="fragment"><p>choose a “test statistic” <span class="math inline">\(t(\cdot)\)</span> that captures some summary of the data, e.g.&nbsp;<span class="math inline">\(\textsf{Var}(y^{(n)})\)</span> for over-dispersion</p></li>
-<li class="fragment"><p><span class="math inline">\(t(y^{(n)}) \equiv t_{\textrm{obs}}\)</span> value of test statistic in observed data</p></li>
-<li class="fragment"><p><span class="math inline">\(t(\tilde{y}^{(n)}) \equiv t_{\textrm{pred}}\)</span> value of test statistic for a random dataset drawn from the posterior predictive</p></li>
-<li class="fragment"><p>plot posterior predictive distribution of <span class="math inline">\(t(\tilde{y}^{(n)})\)</span></p></li>
-<li class="fragment"><p>add <span class="math inline">\(t_{\textrm{obs}}\)</span> to plot</p></li>
-<li class="fragment"><p>How <em>extreme</em> is <span class="math inline">\(t_{\textrm{obs}}\)</span> compared to the distribution of <span class="math inline">\(t(\tilde{y}^{(n)})\)</span></p></li>
+<li class="fragment"><p>choose a “diagnostic statistic” <span class="math inline">\(d(\cdot)\)</span> that captures some summary of the data, e.g.&nbsp;<span class="math inline">\(\textsf{Var}(y)\)</span> for over-dispersion, where large values of the statistic would be surprising if the model were correct.</p></li>
+<li class="fragment"><p><span class="math inline">\(d(y^{\text{obs}}) \equiv d_{\textrm{obs}}\)</span> value of statistic in observed data</p></li>
+<li class="fragment"><p><span class="math inline">\(d(y^{\text{rep}}_t) \equiv d_{\textrm{pred}}\)</span> value of statistic for the <span class="math inline">\(t\)</span>th random dataset drawn from the posterior predictive distribution</p>
+<ol type="1">
+<li class="fragment">Generate <span class="math inline">\(\theta_t \stackrel{iid}{\sim}p(\theta y^{\textrm{obs}})\)</span></li>
+<li class="fragment">Generate <span class="math inline">\(y^{\textrm{rep}_t} \mid \theta_t \stackrel{iid}{\sim} p(y \mid \theta_t)\)</span></li>
+<li class="fragment">Calculate <span class="math inline">\(d(y^{\text{rep}}_t)\)</span></li>
+</ol></li>
+<li class="fragment"><p>plot posterior predictive distribution of <span class="math inline">\(d(y^{\text{rep}}_t)\)</span> and add <span class="math inline">\(d_{\textrm{obs}}\)</span></p></li>
+<li class="fragment"><p>How <em>extreme</em> is <span class="math inline">\(t_{\textrm{obs}}\)</span> compared to the distribution of <span class="math inline">\(d(y^{\text{rep}})\)</span>?</p></li>
+<li class="fragment"><p>compute p-value <span class="math inline">\(p_{PPC} = \frac 1 T \sum_t I(d(y^{\text{obs}}) &gt; d(y^{\text{rep}}_t))\)</span></p></li>
 </ul>
 </section>
-<section id="example-over-dispersion" class="slide level2">
-<h2>Example Over Dispersion</h2>
-
-<img data-src="04-predictive-checks_files/figure-revealjs/overdispersion-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="posterior-predictive-p-values-ppps" class="slide level2">
-<h2>Posterior Predictive p-values (PPPs)</h2>
-<ul>
-<li class="fragment"><p>p-value is probability of seeing something as extreme or more so under a hypothetical “null” model &amp; are uniformally distributed under the “null” model</p></li>
-<li class="fragment"><p>PPPs advocated by Gelman &amp; Rubin in papers and BDA are not <strong>valid</strong> p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified</p></li>
-<li class="fragment"><p>the PPPs tend to be concentrated around 0.5, tends not to reject (conservative)</p></li>
-<li class="fragment"><p>theoretical reason for the incorrect distribution is due to double use of the data</p></li>
-</ul>
-<p><strong>DO NOT USE as a formal test!</strong> use as a diagnostic plot to see how model might fall flat</p>
-<p>Better approach is to split the data use one piece to learn <span class="math inline">\(\theta\)</span> and the other to calculate <span class="math inline">\(t_{\textrm{obs}}\)</span></p>
+<section id="example-with-over-dispersion" class="slide level2 smaller">
+<h2>Example with Over Dispersion</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center" data-fig="false">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>n <span class="ot">=</span> <span class="dv">100</span>; phi <span class="ot">=</span> <span class="dv">1</span>; mu <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>theta.t <span class="ot">=</span> <span class="fu">rgamma</span>(n,phi,phi<span class="sc">/</span>mu)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>y <span class="ot">=</span> <span class="fu">rpois</span>(n, theta.t)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>a <span class="ot">=</span> <span class="dv">1</span>; b <span class="ot">=</span> <span class="dv">1</span>;</span>
+<span id="cb1-5"><a href="#cb1-5"></a>t.obs <span class="ot">=</span> <span class="fu">var</span>(y)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>nT <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>t.pred <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, nT)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nT) {</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  theta.post <span class="ot">=</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, a <span class="sc">+</span> <span class="fu">sum</span>(y),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>                         b <span class="sc">+</span> n)</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  y.pred <span class="ot">=</span> <span class="fu">rpois</span>(n, theta.post)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  t.pred[t] <span class="ot">=</span> <span class="fu">var</span>(y.pred)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">hist</span>(t.pred, </span>
+<span id="cb1-17"><a href="#cb1-17"></a>     <span class="at">xlim =</span> <span class="fu">range</span>(<span class="fu">c</span>(t.pred, t.obs)),</span>
+<span id="cb1-18"><a href="#cb1-18"></a>     <span class="at">xlab=</span><span class="st">"var"</span>, </span>
+<span id="cb1-19"><a href="#cb1-19"></a>     <span class="at">main=</span><span class="st">"Posterior Predictive Distribution"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="fu">abline</span>(<span class="at">v =</span> t.obs, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-predictive-checks_files/figure-revealjs/overdispersion-1.png" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="zero-inflated-distribution" class="slide level2">
+<section id="zero-inflated-distribution" class="slide level2 smaller">
 <h2>Zero Inflated Distribution</h2>
-
-<img data-src="04-predictive-checks_files/figure-revealjs/zero-1.png" style="width:50.0%" class="r-stretch quarto-figure-center"><ul>
-<li class="fragment">Let the <span class="math inline">\(t()\)</span> be the proportion of zeros</li>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-predictive-checks_files/figure-revealjs/zero-1.png" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>R Code to generate zero inflated</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>n <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>mu <span class="ot">=</span> <span class="dv">5</span>; phi <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>theta.t <span class="ot">=</span> <span class="fu">rgamma</span>(n,phi,phi<span class="sc">/</span>mu)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>z <span class="ot">=</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, .<span class="dv">90</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>y <span class="ot">=</span> <span class="fu">rpois</span>(n, theta.t)<span class="sc">*</span>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">Let the <span class="math inline">\(t()\)</span> be the proportion of zeros <span class="math display">\[\begin{aligned}
+d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
+   &amp; = 0.27
+\end{aligned}\]</span><br>
+</li>
 </ul>
-<p><span class="math display">\[t(y) = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n}\]</span></p>
+</div>
+</div>
 </section>
 <section id="posterior-predictive-distribution" class="slide level2">
 <h2>Posterior Predictive Distribution</h2>
 
 <img data-src="04-predictive-checks_files/figure-revealjs/zeroPP-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="modeling-over-dispersion" class="slide level2">
+<section id="posterior-predictive-p-values-ppps" class="slide level2 smaller">
+<h2>Posterior Predictive p-values (PPPs)</h2>
+<ul>
+<li class="fragment"><p>p-value is probability of seeing something as extreme or more so under a hypothetical “null” model</p></li>
+<li class="fragment"><p>from a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the “null” model</p></li>
+<li class="fragment"><p>PPPs advocated by Gelman &amp; Rubin in papers and BDA are not <strong>valid</strong> p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified</p></li>
+<li class="fragment"><p>the PPPs tend to be concentrated around 0.5, tends not to reject (conservative)</p></li>
+<li class="fragment"><p>theoretical reason for the incorrect distribution is due to double use of the data</p></li>
+<li class="fragment"><p><strong>DO NOT USE as a formal test!</strong> use as a diagnostic plot to see how model might fall flat, but be cautious!</p></li>
+</ul>
+</section>
+<section id="example-bivariate-normal" class="slide level2 smaller">
+<h2>Example: Bivariate Normal</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-predictive-checks_files/figure-revealjs/unnamed-chunk-4-1.png" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-predictive-checks_files/figure-revealjs/unnamed-chunk-5-1.png" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>PPP = 0.52</p></li>
+<li class="fragment"><p>What’s happening?</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="problems-with-ppc" class="slide level2 smaller">
+<h2>Problems with PPC</h2>
+<ul>
+<li class="fragment"><p>Bayarri &amp; Berger (2000) provides more discussion about why PPP are not always calibrated</p></li>
+<li class="fragment"><p>Double use of the data; <span class="math inline">\(Y^{\text{rep}}\)</span> depends on the observed diagnostic in last case</p></li>
+<li class="fragment"><p>Bayarri &amp; Berger propose the partial predicitve p-value and condtional predictive p-value that avoids double use of the data by “removing” the contribution of <span class="math inline">\(d_{\text{obs}}\)</span> to the posterior for <span class="math inline">\(\theta\)</span> or conditioning an a statistic, such as the MLE of <span class="math inline">\(\theta\)</span></p></li>
+<li class="fragment"><p>heuristically, need the diagnostic to be independent of posterior for <span class="math inline">\(\theta\)</span></p></li>
+<li class="fragment"><p>not always easy to find!</p></li>
+<li class="fragment"><p>Moran et al (2022) propose a workaround to avoid double use of the data by spliting the data <span class="math inline">\(y_{\text{obs}}, y_{\text{new}}\)</span>, use <span class="math inline">\(y_{\text{obs}}\)</span>, to learn <span class="math inline">\(\theta\)</span> and the other to calculate <span class="math inline">\(d_{\textrm{new}}\)</span></p></li>
+<li class="fragment"><p>can be calculated via simulation easily</p></li>
+</ul>
+</section>
+<section id="pop-pc-of-moran-et-al" class="slide level2">
+<h2>POP-PC of Moran et al</h2>
+
+<img data-src="04-predictive-checks_files/figure-revealjs/unnamed-chunk-6-1.png" width="1500" class="r-stretch quarto-figure-center"><ul>
+<li class="fragment">POP-PPC = 0.2</li>
+</ul>
+</section>
+<section id="modeling-over-dispersion" class="slide level2 smaller">
 <h2>Modeling Over-Dispersion</h2>
 <ul>
 <li class="fragment"><p>Original Model <span class="math inline">\(Y_i \mid \theta \sim \textsf{Poisson}(\theta)\)</span></p></li>
-<li class="fragment"><p>cause of overdispersion is variation in the rate</p></li>
-</ul>
-<p><span class="math display">\[ Y_i \mid \theta \sim \textsf{Poisson}(\theta_i)\]</span></p>
-<p><span class="math display">\[\theta_i \sim \pi_\theta()\]</span></p>
-<ul>
+<li class="fragment"><p>cause of overdispersion is variation in the rate <span class="math display">\[ Y_i \mid \theta_i \sim \textsf{Poisson}(\theta_i)\]</span></p></li>
+<li class="fragment"><p>model variation via prior <span class="math display">\[\theta_i \sim \pi_\theta()\]</span></p></li>
 <li class="fragment"><p><span class="math inline">\(\pi_\theta()\)</span> characterizes variation in the rate parameter across inviduals</p></li>
 <li class="fragment"><p>Simple Two Stage Hierarchical Model</p></li>
 </ul>
@@ -533,8 +624,35 @@ Merlise Clyde
 <li class="fragment"><p>Find <span class="math inline">\(\textsf{E}[Y_i \mid \mu, \phi]\)</span> and <span class="math inline">\(\textsf{Var}[Y_i \mid \mu, \phi]\)</span></p></li>
 <li class="fragment"><p>Homework: <span class="math display">\[\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)\]</span></p></li>
 <li class="fragment"><p>Can either of these model zero-inflation?</p></li>
-<li class="fragment"><p>See Bayarri &amp; Berger (2000) for more discussion about why PPP should not be used as a test</p></li>
 </ul>
+</section>
+<section id="modeling-perspectives" class="slide level2 smaller">
+<h2>Modeling Perspectives</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li class="fragment">start with a simple model</li>
+</ol>
+<ul>
+<li class="fragment">ask if there are surprises through Posterior Checks</li>
+<li class="fragment">need calibrated diagnostic(s) with good power</li>
+<li class="fragment">need these to work even if starting model is relatively complex</li>
+<li class="fragment">other informal diagnostics (residuals)</li>
+<li class="fragment">remodel if needed based on departures</li>
+<li class="fragment">Bayesian meaning?</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ol start="2" type="1">
+<li class="fragment">start with a fairly complex model or models</li>
+</ol>
+<ul>
+<li class="fragment">shrinkage to prevend overfitting</li>
+<li class="fragment">formal tests for simplifying models</li>
+<li class="fragment">methods to combine multiple models to express uncertaity</li>
+<li class="fragment">properties</li>
+</ul>
+</div>
+</div>
 
 
 <img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">

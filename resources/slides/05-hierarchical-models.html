@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Merlise Clyde">
+
+<title>STA 702 Fall 2023 - Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/font-awesome/css/all.min.css" rel="stylesheet">
+<link href="../../site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STA 702 Fall 2023</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text"><i class="fa-solid fa-home" aria-label="home"></i> Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html" rel="" target="">
+ <span class="menu-text"><i class="fa-solid fa-school-circle-check" aria-label="school-circle-check"></i> Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../schedule.html" rel="" target="">
+ <span class="menu-text"><i class="fa-solid fa-calendar-days" aria-label="calendar-days"></i> Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html" rel="" target="">
+ <span class="menu-text"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Resources</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/sta702-F23/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#normal-means-model" id="toc-normal-means-model" class="nav-link active" data-scroll-target="#normal-means-model">Normal Means Model</a></li>
+  <li><a href="#low-variability" id="toc-low-variability" class="nav-link" data-scroll-target="#low-variability">Low Variability</a></li>
+  <li><a href="#simple-example" id="toc-simple-example" class="nav-link" data-scroll-target="#simple-example">Simple Example</a></li>
+  <li><a href="#hiearchical-estimates" id="toc-hiearchical-estimates" class="nav-link" data-scroll-target="#hiearchical-estimates">Hiearchical Estimates</a></li>
+  <li><a href="#bayes-estimators-and-bias" id="toc-bayes-estimators-and-bias" class="nav-link" data-scroll-target="#bayes-estimators-and-bias">Bayes Estimators and Bias</a></li>
+  <li><a href="#modern-relevance" id="toc-modern-relevance" class="nav-link" data-scroll-target="#modern-relevance">Modern relevance</a></li>
+  <li><a href="#population-parameters" id="toc-population-parameters" class="nav-link" data-scroll-target="#population-parameters">Population Parameters</a></li>
+  <li><a href="#mles" id="toc-mles" class="nav-link" data-scroll-target="#mles">MLEs</a></li>
+  <li><a href="#empirical-bayes-estimates" id="toc-empirical-bayes-estimates" class="nav-link" data-scroll-target="#empirical-bayes-estimates">Empirical Bayes Estimates</a></li>
+  <li><a href="#bayes-and-hierarchical-models" id="toc-bayes-and-hierarchical-models" class="nav-link" data-scroll-target="#bayes-and-hierarchical-models">Bayes and Hierarchical Models</a></li>
+  <li><a href="#large-sample-approximations" id="toc-large-sample-approximations" class="nav-link" data-scroll-target="#large-sample-approximations">Large Sample Approximations</a></li>
+  <li><a href="#stochastic-integration" id="toc-stochastic-integration" class="nav-link" data-scroll-target="#stochastic-integration">Stochastic Integration</a></li>
+  <li><a href="#important-sampling-estimate" id="toc-important-sampling-estimate" class="nav-link" data-scroll-target="#important-sampling-estimate">Important Sampling Estimate</a></li>
+  <li><a href="#markov-chain-monte-carlo-mcmc" id="toc-markov-chain-monte-carlo-mcmc" class="nav-link" data-scroll-target="#markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li>
+  <li><a href="#metropolis-algorithm-1950s" id="toc-metropolis-algorithm-1950s" class="nav-link" data-scroll-target="#metropolis-algorithm-1950s">Metropolis Algorithm (1950’s)</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#joint-posterior" id="toc-joint-posterior" class="nav-link" data-scroll-target="#joint-posterior">Joint Posterior</a></li>
+  <li><a href="#marginal-posterior" id="toc-marginal-posterior" class="nav-link" data-scroll-target="#marginal-posterior">Marginal Posterior</a></li>
+  <li><a href="#trace-plots" id="toc-trace-plots" class="nav-link" data-scroll-target="#trace-plots">Trace Plots</a></li>
+  <li><a href="#autocorrelation-function" id="toc-autocorrelation-function" class="nav-link" data-scroll-target="#autocorrelation-function">AutoCorrelation Function</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta702-F23/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Merlise Clyde </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="normal-means-model" class="level2">
+<h2 class="anchored" data-anchor-id="normal-means-model">Normal Means Model</h2>
+<p>Suppose we have normal data with <span class="math display">\[Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)\]</span></p>
+<ul>
+<li>separate mean for each observation!</li>
+</ul>
+<p><strong>Question</strong>: How can we possibly hope to estimate all these <span class="math inline">\(\mu_i\)</span>? One <span class="math inline">\(y_i\)</span> per <span class="math inline">\(\mu_i\)</span> and <span class="math inline">\(n\)</span> observations!</p>
+<p><strong>Naive estimator</strong>: just consider only using <span class="math inline">\(y_i\)</span> in estimating and not the other observations.</p>
+<ul>
+<li>MLE <span class="math inline">\(\hat{\mu}_i = y_i\)</span></li>
+</ul>
+<p><strong>Hierarchical Viewpoint</strong>: Let’s borrow information from other observations!</p>
+<ul>
+<li><h2 id="motivation" class="anchored">Motivation</h2></li>
+<li><p>Example <span class="math inline">\(y_i\)</span> is difference in gene expression for the <span class="math inline">\(i^{\text{th}}\)</span> gene between cancer and control lines</p></li>
+<li><p>may be natural to think that the <span class="math inline">\(\mu_i\)</span> arise from some common distribution, <span class="math inline">\(\mu_i \overset{iid}{\sim} g\)</span></p></li>
+</ul>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/randomeffects-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>unbiased but high variance estimators of <span class="math inline">\(\mu_i\)</span> based on one observation!</li>
+</ul>
+<hr>
+</section>
+<section id="low-variability" class="level2">
+<h2 class="anchored" data-anchor-id="low-variability">Low Variability</h2>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/means-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>little variation in <span class="math inline">\(\mu_i\)</span>s so a better estimate might be <span class="math inline">\(\bar{y}\)</span></p></li>
+<li><p>Not forced to choose either - what about some weighted average between <span class="math inline">\(y_i\)</span> and <span class="math inline">\(\bar{y}\)</span>?</p></li>
+</ul>
+</section>
+<section id="simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="simple-example">Simple Example</h2>
+<p>Data Model</p>
+<p><span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)\]</span></p>
+<p>Means Model <span class="math display">\[\mu_i \mid \mu, \tau \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})\]</span></p>
+<ul>
+<li><p>not necessarily a prior!</p></li>
+<li><p>Now estimate <span class="math inline">\(\mu_i\)</span> (let <span class="math inline">\(\phi = 1/\sigma^2\)</span> and <span class="math inline">\(\phi_{\mu} = 1/\sigma^2_\mu\)</span>)</p></li>
+<li><p>Calculate the “posterior” <span class="math inline">\(\mu_i \mid y_i, \mu, \phi, \phi_\mu\)</span></p></li>
+</ul>
+</section>
+<section id="hiearchical-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="hiearchical-estimates">Hiearchical Estimates</h2>
+<ul>
+<li><p>Posterior: <span class="math inline">\(\mu_i \mid y_i, \mu, \phi, \phi_\mu \overset{ind}{\sim} \textsf{N}(\tilde{\mu}_i, 1/\tilde{\phi}_\mu)\)</span></p></li>
+<li><p>estimator of <span class="math inline">\(\mu_i\)</span> weighted average of data and population parameter <span class="math inline">\(\mu\)</span></p></li>
+</ul>
+<p><span class="math display">\[\tilde{\mu}_i = \frac{\phi_\mu \mu + \phi y_i}
+                          {\phi_\mu + \phi} \qquad \qquad \tilde{\phi}_\mu = \phi + \phi_\mu\]</span></p>
+<ul>
+<li><p>if <span class="math inline">\(\phi_\mu\)</span> is large relative to <span class="math inline">\(\phi\)</span> all of the <span class="math inline">\(\mu_i\)</span> are close together and benefit by borrowing information</p></li>
+<li><p>in limit as <span class="math inline">\(\sigma^2_\mu \to 0\)</span> or <span class="math inline">\(\phi_\mu \to \infty\)</span> we have <span class="math inline">\(\tilde{\mu}_i = \mu\)</span> (all means are the same)</p></li>
+<li><p>if <span class="math inline">\(\phi_\mu\)</span> is small relative to <span class="math inline">\(\phi\)</span> little borrowing of information</p></li>
+<li><p>in the limit as <span class="math inline">\(\phi_\mu \to 0\)</span> we have <span class="math inline">\(\tilde{\mu}_i = y_i\)</span></p></li>
+</ul>
+</section>
+<section id="bayes-estimators-and-bias" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-estimators-and-bias">Bayes Estimators and Bias</h2>
+<p>Note: you often benefit from a hierarchical model, even if its not obvious that the <span class="math inline">\(\mu_i\)</span>s are related!</p>
+<ul>
+<li><p>The MLE for the <span class="math inline">\(\mu_i\)</span> is just the sample <span class="math inline">\(y_i\)</span>.</p></li>
+<li><p><span class="math inline">\(y_i\)</span> is unbiased for <span class="math inline">\(\mu_i\)</span> but can have high variability!</p></li>
+<li><p>the posterior mean is actually biased.</p></li>
+<li><p>Usually through the weighting of the sample data and prior, Bayes procedures have the tendency to pull the estimate of <span class="math inline">\(\mu_i\)</span> toward the prior or <strong>shrinkage</strong> mean.</p></li>
+<li><div class="question">
+<p>Why would we ever want to do this? Why not just stick with the MLE?</p>
+</div></li>
+<li><p>MSE or Bias-Variance Tradeoff</p></li>
+</ul>
+</section>
+<section id="modern-relevance" class="level2">
+<h2 class="anchored" data-anchor-id="modern-relevance">Modern relevance</h2>
+<ul>
+<li><p>The fact that a biased estimator would do a better job in many estimation/prediction problems can be proven rigorously, and is referred to as <strong>Stein’s paradox</strong>.</p></li>
+<li><p>Stein’s result implies, in particular, that the sample mean is an <em>inadmissible</em> estimator of the mean of a multivariate normal distribution in more than two dimensions i.e.&nbsp;there are other estimators that will come closer to the true value in expectation.</p></li>
+<li><p>In fact, these are Bayes point estimators (the posterior expectation of the parameter <span class="math inline">\(\mu_i\)</span>).</p></li>
+<li><p>Most of what we do now in high-dimensional statistics is develop biased estimators that perform better than unbiased ones.</p></li>
+<li><p>Examples: lasso regression, ridge regression, various kinds of hierarchical Bayesian models, etc.</p></li>
+</ul>
+</section>
+<section id="population-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="population-parameters">Population Parameters</h2>
+<ul>
+<li><p>we don’t know <span class="math inline">\(\mu\)</span> (or <span class="math inline">\(\sigma^2\)</span> and <span class="math inline">\(\sigma^2_\mu\)</span> for that matter)</p></li>
+<li><p>Find marginal likelihood <span class="math inline">\(\cal{L}(\mu, \sigma^2, \sigma^2_\mu)\)</span> by integrating out <span class="math inline">\(\mu_i\)</span> with respect to <span class="math inline">\(g\)</span></p></li>
+</ul>
+<p><span class="math display">\[\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto \prod_{i = 1}^n
+\int \textsf{N}(y_i; \mu_i, \sigma^2)  \textsf{N}(\mu_i; \mu, \sigma^2_\mu) \, d \mu_i\]</span></p>
+<ul>
+<li>Product of predictive distributions for <span class="math inline">\(Y_i \mid \mu, \sigma^2, \sigma^2_\mu \overset{iid}{\sim} \textsf{N}(\mu, \sigma^2 + \sigma^2_\mu)\)</span></li>
+</ul>
+<p><span class="math display">\[\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto \prod_{i = 1}^n (\sigma^2 + \sigma^2_\mu)^{-1/2} \exp \left\{ - \frac{1}{2} \frac{\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}\]</span></p>
+<ul>
+<li>Find MLE’s</li>
+</ul>
+</section>
+<section id="mles" class="level2">
+<h2 class="anchored" data-anchor-id="mles">MLEs</h2>
+<p><span class="math display">\[\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto  (\sigma^2 + \sigma^2_\mu)^{-n/2} \exp\left\{ - \frac{1}{2} \sum_{i=1}^n\frac{\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}\]</span></p>
+<ul>
+<li><p>MLE of <span class="math inline">\(\mu\)</span>: <span class="math inline">\(\hat{\mu} = \bar{y}\)</span></p></li>
+<li><p>Can we say anything about <span class="math inline">\(\sigma^2_\mu\)</span>? or <span class="math inline">\(\sigma^2\)</span> individually?</p></li>
+<li><p>MLE of <span class="math inline">\(\sigma^2 + \sigma^2_\mu\)</span> is</p></li>
+</ul>
+<p><span class="math display">\[\widehat{\sigma^2 + \sigma^2_\mu} = \frac{\sum(y_i - \bar{y})^2}{n}\]</span></p>
+<ul>
+<li>Assume <span class="math inline">\(\sigma^2\)</span> is known (say 1)</li>
+</ul>
+<p><span class="math display">\[\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1\]</span></p>
+</section>
+<section id="empirical-bayes-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-bayes-estimates">Empirical Bayes Estimates</h2>
+<ul>
+<li><p>plug in estimates of hyperparameters into the prior and pretend they are known</p></li>
+<li><p>resulting estimates are known as Empirical Bayes</p></li>
+<li><p>underestimates uncertainty</p></li>
+<li><p>Estimates of variances may be negative - constrain to 0 on the boundary)</p></li>
+<li><p>Fully Bayes would put a prior on the unknowns</p></li>
+</ul>
+</section>
+<section id="bayes-and-hierarchical-models" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-and-hierarchical-models">Bayes and Hierarchical Models</h2>
+<ul>
+<li><p>We know the conditional posterior distribution of <span class="math inline">\(\mu_i\)</span> given the other parameters, lets work with the marginal likelihood <span class="math inline">\(\cal{L}(\theta)\)</span></p></li>
+<li><p>need a prior <span class="math inline">\(\pi(\theta)\)</span> for unknown parameters are <span class="math inline">\(\theta = (\mu, \sigma^2, \sigma^2_\mu)\)</span> (details later)</p></li>
+</ul>
+<p>Posterior</p>
+<p><span class="math display">\[\pi(\theta \mid y) = \frac{\pi(\theta) \cal{L}(\theta)}
+{\int_\Theta \pi(\theta) \cal{L}(\theta) \, d\theta} =
+\frac{\pi(\theta) \cal{L}(\theta)}
+{m(y)}\]</span></p>
+<p>Problems:</p>
+<ul>
+<li>Except for simple cases (conjugate models) <span class="math inline">\(m(y)\)</span> is not available analytically</li>
+</ul>
+</section>
+<section id="large-sample-approximations" class="level2">
+<h2 class="anchored" data-anchor-id="large-sample-approximations">Large Sample Approximations</h2>
+<ul>
+<li>Appeal to BvM (Bayesian Central Limit Theorem) and approximate <span class="math inline">\(\pi(\theta \mid y)\)</span> with a Gaussian distribution centered at the posterior mode <span class="math inline">\(\hat{\theta}\)</span> and asymptotic covariance matrix</li>
+</ul>
+<p><span class="math display">\[V_\theta = \left[- \frac{\partial^2}{\partial \theta \partial \theta^T} \left\{\log(\pi(\theta)) + \log(\cal{L}(\theta)) \right\} \right]^{-1}\]</span></p>
+<ul>
+<li><p>we can try to approximate <span class="math inline">\(m(y)\)</span> but this may involve a high dimensional integral</p></li>
+<li><p>Laplace approximation to integral (also large sample)</p></li>
+</ul>
+<p>Stochastic methods</p>
+</section>
+<section id="stochastic-integration" class="level2">
+<h2 class="anchored" data-anchor-id="stochastic-integration">Stochastic Integration</h2>
+<p><span class="math display">\[\textsf{E}[h(\theta) \mid y] =  \int_\Theta h(\theta) \pi(\theta \mid y) \, d\theta \approx \frac{1}{T}\sum_{t=1}^{T} h(\theta^{(t)}) \qquad \theta^{(t)} \sim \pi(\theta \mid y)\]</span></p>
+<p>what if we can’t sample from the posterior but can sample from some distribution <span class="math inline">\(q()\)</span></p>
+<p><span class="math display">\[\textsf{E}[h(\theta) \mid y] =  \int_\Theta h(\theta) \frac{\pi(\theta \mid y)}{q(\theta)} q(\theta)\, d\theta \approx \frac{1}{T}\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)} \mid y)} {q(\theta^{(t)})} \qquad\]</span> where <span class="math inline">\(\theta^{(t)} \sim q(\theta)\)</span></p>
+<p>Without the denominator in <span class="math inline">\(\pi(\theta \mid y)\)</span> we just have <span class="math inline">\(\pi(\theta \mid y) \propto \pi(\theta) \cal{L}(\theta)\)</span></p>
+<ul>
+<li>use twice for numerator and denominator</li>
+</ul>
+</section>
+<section id="important-sampling-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="important-sampling-estimate">Important Sampling Estimate</h2>
+<p>Estimate of <span class="math inline">\(m(y)\)</span></p>
+<p><span class="math display">\[m(y) \approx \frac{1}{T} \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})} \qquad \theta^{(t)} \sim q(\theta)\]</span></p>
+<p><span class="math display">\[\textsf{E}[h(\theta) \mid y] \approx \frac{\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
+{ \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
+\qquad \theta^{(t)} \sim q(\theta)\]</span></p>
+<p><span class="math display">\[\textsf{E}[h(\theta) \mid y] \approx \sum_{t=1}^{T} h(\theta^{(t)}) w(\theta^{(t)})  \qquad \theta^{(t)} \sim q(\theta)\]</span></p>
+<p>with un-normalized weights <span class="math inline">\(w(\theta^{(t)}) \propto \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}\)</span></p>
+<p>(normalize to sum to 1)</p>
+</section>
+<section id="markov-chain-monte-carlo-mcmc" class="level2">
+<h2 class="anchored" data-anchor-id="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</h2>
+<ul>
+<li>Typically <span class="math inline">\(\pi(\theta)\)</span> and <span class="math inline">\(\cal{L}(\theta)\)</span> are easy to evaluate</li>
+</ul>
+<div class="question">
+<p>How do we draw samples only using evaluations of the prior and likelihood in higher dimensional settings?</p>
+</div>
+<ul>
+<li>construct a Markov chain <span class="math inline">\(\theta^{(t)}\)</span> in such a way the the stationary distribution of the Markov chain is the posterior distribution <span class="math inline">\(\pi(\theta \mid y)\)</span>!</li>
+</ul>
+<p><span class="math display">\[\theta^{(0)} \overset{k}{\longrightarrow} \theta^{(1)} \overset{k}{\longrightarrow} \theta^{(2)} \cdots\]</span></p>
+<ul>
+<li><p><span class="math inline">\(k_t(\theta^{(t-1)} ; \theta^{(t)})\)</span> transition kernel</p></li>
+<li><p>initial state <span class="math inline">\(\theta^{(0)}\)</span></p></li>
+<li><p>choose some nice <span class="math inline">\(k_t\)</span> such that <span class="math inline">\(\theta^{(t)} \to \pi(\theta \mid y)\)</span> as <span class="math inline">\(t \to \infty\)</span></p></li>
+<li><p>biased samples initially but get closer to the target</p></li>
+</ul>
+</section>
+<section id="metropolis-algorithm-1950s" class="level2">
+<h2 class="anchored" data-anchor-id="metropolis-algorithm-1950s">Metropolis Algorithm (1950’s)</h2>
+<ul>
+<li><p>Markov chain <span class="math inline">\(\theta^{(t)}\)</span></p></li>
+<li><p>propose <span class="math inline">\(\theta^* \sim g(\theta^{(t-1)})\)</span> where <span class="math inline">\(g()\)</span> is a symmetric distribution centered at <span class="math inline">\(\theta^{(t-1)}\)</span></p></li>
+<li><p>set <span class="math inline">\(\theta^{(t)} = \theta^*\)</span> with some probability</p></li>
+<li><p>otherwise set <span class="math inline">\(\theta^{(t)} = \theta^{(t-1)}\)</span></p></li>
+</ul>
+<p>Acceptance probability is</p>
+<p><span class="math display">\[\alpha = \min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)}
+                           {\pi(\theta^{(t-1)}) \cal{L}(\theta^{(t-1)})}\right\}\]</span></p>
+<ul>
+<li>ratio of posterior densities where normalizing constant cancels!</li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<ul>
+<li><p>Let’s use a prior for <span class="math inline">\(p(\mu) \propto 1\)</span></p></li>
+<li><p>Posterior for <span class="math inline">\(\mu \mid \sigma^2, \sigma^2_\mu\)</span> is <span class="math inline">\(\textsf{N}\left(\bar{y}, \frac{\sigma^2 + \sigma^2_\mu}{n}\right)\)</span></p></li>
+</ul>
+<p><span class="math display">\[\cal{L}(\sigma^2, \sigma^2_\tau) \propto
+(\sigma^2 + \sigma^2_\mu)^{-\frac{n - 1}{2}} \exp \left\{ - \frac 1 2 \sum_i \frac{(y_i - \bar{y})^2}{\sigma^2 + \sigma^2_\mu)} \right\}\]</span></p>
+<ul>
+<li><p>Take <span class="math inline">\(\sigma^2 = 1\)</span></p></li>
+<li><p>Use a <span class="math inline">\(\textsf{Cauchy}(0,1)\)</span> prior on <span class="math inline">\(\sigma_\mu\)</span></p></li>
+<li><p>Symmetric proposal for <span class="math inline">\(\sigma_\tau\)</span>? Try a normal with variance <span class="math inline">\(\frac{2.4^2}{d} \textsf{var}(\sigma_\mu)\)</span> where <span class="math inline">\(d\)</span> is the dimension of <span class="math inline">\(\theta\)</span> (d = 1)</p></li>
+</ul>
+</section>
+<section id="joint-posterior" class="level2">
+<h2 class="anchored" data-anchor-id="joint-posterior">Joint Posterior</h2>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/joint-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="marginal-posterior" class="level2">
+<h2 class="anchored" data-anchor-id="marginal-posterior">Marginal Posterior</h2>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/marg-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>MLE of <span class="math inline">\(\sigma_\mu\)</span> is 0.11</p>
+</section>
+<section id="trace-plots" class="level2">
+<h2 class="anchored" data-anchor-id="trace-plots">Trace Plots</h2>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/traceplot-1.png" class="img-fluid figure-img" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Acceptance probability is 0.57</p></li>
+<li><p>Goal is around 0.44 in 1 dimension to 0.23 in higher dimensions</p></li>
+</ul>
+</section>
+<section id="autocorrelation-function" class="level2">
+<h2 class="anchored" data-anchor-id="autocorrelation-function">AutoCorrelation Function</h2>
+<div class="cell" data-layout-align="center" data-fig="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-hierarchical-models_files/figure-html/acf-1.png" class="img-fluid figure-img" width="1500"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2023, Merlise Clyde</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
