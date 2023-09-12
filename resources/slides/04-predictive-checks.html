@@ -414,7 +414,7 @@ Merlise Clyde
 <ul>
 <li class="fragment"><p>Plot the entire density or summarize</p></li>
 <li class="fragment"><p>Available analytically for conjugate families</p></li>
-<li class="fragment"><p>Monte Carlo Approximation <span class="math display">\[p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+t} \mid \theta^{(t)})\]</span> where <span class="math inline">\(\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)\)</span> for <span class="math inline">\(t = 1, \ldots, T\)</span></p></li>
+<li class="fragment"><p>Monte Carlo Approximation <span class="math display">\[p(y_{n+1} \mid y_1, \ldots y_n) \approx \frac 1 T \sum_{t = 1}^T  p(y_{n+1} \mid \theta^{(t)})\]</span> where <span class="math inline">\(\theta^{(t)} \sim \pi(\theta \mid y_1, \ldots y_n)\)</span> for <span class="math inline">\(t = 1, \ldots, T\)</span></p></li>
 <li class="fragment"><p>T samples from the posterior distribution</p></li>
 <li class="fragment"><p>Empirical Estimates &amp; Quantiles from Monte Carlo Samples</p></li>
 </ul>
@@ -450,7 +450,7 @@ Merlise Clyde
 <li class="fragment"><p><span class="math inline">\(y^{\text{rep}}\)</span> is a new dataset sampled from the posterior predictive <span class="math inline">\(p(y^{\text{rep}} \mid y^{\text{obs}})\)</span> of size <span class="math inline">\(n\)</span> (same size as the observed)</p></li>
 <li class="fragment"><p>Use a <span style="color:red">diagnostic statistic</span> <span class="math inline">\(d(y)\)</span> to capture some feature of the data that the model may fail to capture, say variance</p></li>
 <li class="fragment"><p>compare <span class="math inline">\(d(y^{\text{obs}})\)</span> to the reference distribution of <span class="math inline">\(d(y^{\text{rep}})\)</span></p></li>
-<li class="fragment"><p>Use Posterior Predictive P-value as a summary <span class="math display">\[ p_{PPC} = P(d(y^{\text{obs}}) &gt; d(y^{\text{rep}}) \mid d(y^{\text{obs}}))
+<li class="fragment"><p>Use Posterior Predictive P-value as a summary <span class="math display">\[ p_{PPC} = P(d(y^{\text{obs}}) &gt; d(y^{\text{rep}}) \mid y^{\text{obs}})
 \]</span></p></li>
 </ul>
 </section>
@@ -533,9 +533,9 @@ Merlise Clyde
 <span id="cb2-5"><a href="#cb2-5"></a>y <span class="ot">=</span> <span class="fu">rpois</span>(n, theta.t)<span class="sc">*</span>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li class="fragment">Let the <span class="math inline">\(t()\)</span> be the proportion of zeros <span class="math display">\[\begin{aligned}
+<li class="fragment">Let the <span class="math inline">\(d()\)</span> be the proportion of zeros in the sample <span class="math display">\[\begin{aligned}
 d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
-   &amp; = 0.27
+   &amp; = 0.25
 \end{aligned}\]</span><br>
 </li>
 </ul>
@@ -551,8 +551,8 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <ul>
 <li class="fragment"><p>p-value is probability of seeing something as extreme or more so under a hypothetical “null” model</p></li>
 <li class="fragment"><p>from a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the “null” model</p></li>
-<li class="fragment"><p>PPPs advocated by Gelman &amp; Rubin in papers and BDA are not <strong>valid</strong> p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified</p></li>
-<li class="fragment"><p>the PPPs tend to be concentrated around 0.5, tends not to reject (conservative)</p></li>
+<li class="fragment"><p>PPPs advocated by Gelman &amp; Rubin in papers and BDA are not <strong>valid</strong> p-values generally. They are do not have a uniform distribution under the hypothesis that the model is correctly specified</p></li>
+<li class="fragment"><p>the PPPs tend to be concentrated around 0.5, tend not to reject (conservative)</p></li>
 <li class="fragment"><p>theoretical reason for the incorrect distribution is due to double use of the data</p></li>
 <li class="fragment"><p><strong>DO NOT USE as a formal test!</strong> use as a diagnostic plot to see how model might fall flat, but be cautious!</p></li>
 </ul>
@@ -581,7 +581,7 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 </div>
 </div>
 <ul>
-<li class="fragment"><p>PPP = 0.52</p></li>
+<li class="fragment"><p>PPP = 0.53</p></li>
 <li class="fragment"><p>What’s happening?</p></li>
 </ul>
 </div>
@@ -592,8 +592,8 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <ul>
 <li class="fragment"><p>Bayarri &amp; Berger (2000) provides more discussion about why PPP are not always calibrated</p></li>
 <li class="fragment"><p>Double use of the data; <span class="math inline">\(Y^{\text{rep}}\)</span> depends on the observed diagnostic in last case</p></li>
-<li class="fragment"><p>Bayarri &amp; Berger propose the partial predicitve p-value and condtional predictive p-value that avoids double use of the data by “removing” the contribution of <span class="math inline">\(d_{\text{obs}}\)</span> to the posterior for <span class="math inline">\(\theta\)</span> or conditioning an a statistic, such as the MLE of <span class="math inline">\(\theta\)</span></p></li>
-<li class="fragment"><p>heuristically, need the diagnostic to be independent of posterior for <span class="math inline">\(\theta\)</span></p></li>
+<li class="fragment"><p>Bayarri &amp; Berger propose partial predictive p-values and conditional predictive p-values that avoid double use of the data by “removing” the contribution of <span class="math inline">\(d_{\text{obs}}\)</span> to the posterior for <span class="math inline">\(\theta\)</span> or conditioning on a statistic, such as the MLE of <span class="math inline">\(\theta\)</span></p></li>
+<li class="fragment"><p>heuristically, need the diagnostic to be independent of posterior for <span class="math inline">\(\theta\)</span> (asymptoptically) under the assumed model</p></li>
 <li class="fragment"><p>not always easy to find!</p></li>
 <li class="fragment"><p>Moran et al (2022) propose a workaround to avoid double use of the data by spliting the data <span class="math inline">\(y_{\text{obs}}, y_{\text{new}}\)</span>, use <span class="math inline">\(y_{\text{obs}}\)</span>, to learn <span class="math inline">\(\theta\)</span> and the other to calculate <span class="math inline">\(d_{\textrm{new}}\)</span></p></li>
 <li class="fragment"><p>can be calculated via simulation easily</p></li>
@@ -603,7 +603,7 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <h2>POP-PC of Moran et al</h2>
 
 <img data-src="04-predictive-checks_files/figure-revealjs/unnamed-chunk-6-1.png" width="1500" class="r-stretch quarto-figure-center"><ul>
-<li class="fragment">POP-PPC = 0.2</li>
+<li class="fragment">POP-PPC = 0.36</li>
 </ul>
 </section>
 <section id="modeling-over-dispersion" class="slide level2 smaller">
@@ -614,16 +614,6 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <li class="fragment"><p>model variation via prior <span class="math display">\[\theta_i \sim \pi_\theta()\]</span></p></li>
 <li class="fragment"><p><span class="math inline">\(\pi_\theta()\)</span> characterizes variation in the rate parameter across inviduals</p></li>
 <li class="fragment"><p>Simple Two Stage Hierarchical Model</p></li>
-</ul>
-</section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
-<p><span class="math display">\[\theta_i \sim \textsf{Gamma}(\phi \mu, \phi)\]</span></p>
-<ul>
-<li class="fragment"><p>Find pmf for <span class="math inline">\(Y_i \mid \mu, \phi\)</span></p></li>
-<li class="fragment"><p>Find <span class="math inline">\(\textsf{E}[Y_i \mid \mu, \phi]\)</span> and <span class="math inline">\(\textsf{Var}[Y_i \mid \mu, \phi]\)</span></p></li>
-<li class="fragment"><p>Homework: <span class="math display">\[\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)\]</span></p></li>
-<li class="fragment"><p>Can either of these model zero-inflation?</p></li>
 </ul>
 </section>
 <section id="modeling-perspectives" class="slide level2 smaller">
@@ -646,13 +636,23 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <li class="fragment">start with a fairly complex model or models</li>
 </ol>
 <ul>
-<li class="fragment">shrinkage to prevend overfitting</li>
+<li class="fragment">shrinkage to prevent overfitting</li>
 <li class="fragment">formal tests for simplifying models</li>
 <li class="fragment">methods to combine multiple models to express uncertaity</li>
 <li class="fragment">properties</li>
 </ul>
 </div>
 </div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<p><span class="math display">\[\theta_i \sim \textsf{Gamma}(\phi \mu, \phi)\]</span></p>
+<ul>
+<li class="fragment"><p>Find pmf for <span class="math inline">\(Y_i \mid \mu, \phi\)</span></p></li>
+<li class="fragment"><p>Find <span class="math inline">\(\textsf{E}[Y_i \mid \mu, \phi]\)</span> and <span class="math inline">\(\textsf{Var}[Y_i \mid \mu, \phi]\)</span></p></li>
+<li class="fragment"><p>Homework: <span class="math display">\[\theta_i \sim \textsf{Gamma}(\phi, \phi/\mu)\]</span></p></li>
+<li class="fragment"><p>Can either of these model zero-inflation?</p></li>
+</ul>
 
 
 <img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">

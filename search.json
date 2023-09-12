@@ -585,7 +585,7 @@
     "href": "resources/slides/04-predictive-checks.html#uses-of-posterior-predictive",
     "title": "Prior/Posterior Checks",
     "section": "Uses of Posterior Predictive",
-    "text": "Uses of Posterior Predictive\n\nPlot the entire density or summarize\nAvailable analytically for conjugate families\nMonte Carlo Approximation \\[p(y_{n+1} \\mid y_1, \\ldots y_n) \\approx \\frac 1 T \\sum_{t = 1}^T  p(y_{n+t} \\mid \\theta^{(t)})\\] where \\(\\theta^{(t)} \\sim \\pi(\\theta \\mid y_1, \\ldots y_n)\\) for \\(t = 1, \\ldots, T\\)\nT samples from the posterior distribution\nEmpirical Estimates & Quantiles from Monte Carlo Samples"
+    "text": "Uses of Posterior Predictive\n\nPlot the entire density or summarize\nAvailable analytically for conjugate families\nMonte Carlo Approximation \\[p(y_{n+1} \\mid y_1, \\ldots y_n) \\approx \\frac 1 T \\sum_{t = 1}^T  p(y_{n+1} \\mid \\theta^{(t)})\\] where \\(\\theta^{(t)} \\sim \\pi(\\theta \\mid y_1, \\ldots y_n)\\) for \\(t = 1, \\ldots, T\\)\nT samples from the posterior distribution\nEmpirical Estimates & Quantiles from Monte Carlo Samples"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#models",
@@ -606,7 +606,7 @@
     "href": "resources/slides/04-predictive-checks.html#posterior-predictive-checks",
     "title": "Prior/Posterior Checks",
     "section": "Posterior Predictive Checks",
-    "text": "Posterior Predictive Checks\n\nGuttman (1967), Rubin (1984) proposed the use of Posterior Predictive Checks (PPC)] for model criticism; further developed by Gelman et al (1996)\nthe spirit of posterior predictive checks is that “If my model is good, then its posterior predictive distribution will generate data that look like my oberved data”\n\\(y^{\\text{obs}}\\) is the observed data\n\\(y^{\\text{rep}}\\) is a new dataset sampled from the posterior predictive \\(p(y^{\\text{rep}} \\mid y^{\\text{obs}})\\) of size \\(n\\) (same size as the observed)\nUse a diagnostic statistic \\(d(y)\\) to capture some feature of the data that the model may fail to capture, say variance\ncompare \\(d(y^{\\text{obs}})\\) to the reference distribution of \\(d(y^{\\text{rep}})\\)\nUse Posterior Predictive P-value as a summary \\[ p_{PPC} = P(d(y^{\\text{obs}}) &gt; d(y^{\\text{rep}}) \\mid d(y^{\\text{obs}}))\n\\]"
+    "text": "Posterior Predictive Checks\n\nGuttman (1967), Rubin (1984) proposed the use of Posterior Predictive Checks (PPC)] for model criticism; further developed by Gelman et al (1996)\nthe spirit of posterior predictive checks is that “If my model is good, then its posterior predictive distribution will generate data that look like my oberved data”\n\\(y^{\\text{obs}}\\) is the observed data\n\\(y^{\\text{rep}}\\) is a new dataset sampled from the posterior predictive \\(p(y^{\\text{rep}} \\mid y^{\\text{obs}})\\) of size \\(n\\) (same size as the observed)\nUse a diagnostic statistic \\(d(y)\\) to capture some feature of the data that the model may fail to capture, say variance\ncompare \\(d(y^{\\text{obs}})\\) to the reference distribution of \\(d(y^{\\text{rep}})\\)\nUse Posterior Predictive P-value as a summary \\[ p_{PPC} = P(d(y^{\\text{obs}}) &gt; d(y^{\\text{rep}}) \\mid y^{\\text{obs}})\n\\]"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#formally",
@@ -627,7 +627,7 @@
     "href": "resources/slides/04-predictive-checks.html#zero-inflated-distribution",
     "title": "Prior/Posterior Checks",
     "section": "Zero Inflated Distribution",
-    "text": "Zero Inflated Distribution\n\n\n\n\n\n\n\n\n\n\n\n\nR Code to generate zero inflated\n\nn = 1000\nmu = 5; phi = 1\ntheta.t = rgamma(n,phi,phi/mu)\nz = rbinom(n, 1, .90)\ny = rpois(n, theta.t)*z\n\n\nLet the \\(t()\\) be the proportion of zeros \\[\\begin{aligned}\nd(y) & = \\frac{\\sum_{i = 1}^{n}1(y_i = 0)}{n} \\\\\n   & = 0.27\n\\end{aligned}\\]"
+    "text": "Zero Inflated Distribution\n\n\n\n\n\n\n\n\n\n\n\n\nR Code to generate zero inflated\n\nn = 1000\nmu = 5; phi = 1\ntheta.t = rgamma(n,phi,phi/mu)\nz = rbinom(n, 1, .90)\ny = rpois(n, theta.t)*z\n\n\nLet the \\(d()\\) be the proportion of zeros in the sample \\[\\begin{aligned}\nd(y) & = \\frac{\\sum_{i = 1}^{n}1(y_i = 0)}{n} \\\\\n   & = 0.25\n\\end{aligned}\\]"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#posterior-predictive-distribution",
@@ -641,28 +641,28 @@
     "href": "resources/slides/04-predictive-checks.html#posterior-predictive-p-values-ppps",
     "title": "Prior/Posterior Checks",
     "section": "Posterior Predictive p-values (PPPs)",
-    "text": "Posterior Predictive p-values (PPPs)\n\np-value is probability of seeing something as extreme or more so under a hypothetical “null” model\nfrom a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the “null” model\nPPPs advocated by Gelman & Rubin in papers and BDA are not valid p-values. They are do not have a uniform distribution under the hypothesis that the model is correctly specified\nthe PPPs tend to be concentrated around 0.5, tends not to reject (conservative)\ntheoretical reason for the incorrect distribution is due to double use of the data\nDO NOT USE as a formal test! use as a diagnostic plot to see how model might fall flat, but be cautious!"
+    "text": "Posterior Predictive p-values (PPPs)\n\np-value is probability of seeing something as extreme or more so under a hypothetical “null” model\nfrom a frequentist perspect, one appealing property of p-values is that they should be uniformally distributed under the “null” model\nPPPs advocated by Gelman & Rubin in papers and BDA are not valid p-values generally. They are do not have a uniform distribution under the hypothesis that the model is correctly specified\nthe PPPs tend to be concentrated around 0.5, tend not to reject (conservative)\ntheoretical reason for the incorrect distribution is due to double use of the data\nDO NOT USE as a formal test! use as a diagnostic plot to see how model might fall flat, but be cautious!"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#example-bivariate-normal",
     "href": "resources/slides/04-predictive-checks.html#example-bivariate-normal",
     "title": "Prior/Posterior Checks",
     "section": "Example: Bivariate Normal",
-    "text": "Example: Bivariate Normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPPP = 0.52\nWhat’s happening?"
+    "text": "Example: Bivariate Normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPPP = 0.53\nWhat’s happening?"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#problems-with-ppc",
     "href": "resources/slides/04-predictive-checks.html#problems-with-ppc",
     "title": "Prior/Posterior Checks",
     "section": "Problems with PPC",
-    "text": "Problems with PPC\n\nBayarri & Berger (2000) provides more discussion about why PPP are not always calibrated\nDouble use of the data; \\(Y^{\\text{rep}}\\) depends on the observed diagnostic in last case\nBayarri & Berger propose the partial predicitve p-value and condtional predictive p-value that avoids double use of the data by “removing” the contribution of \\(d_{\\text{obs}}\\) to the posterior for \\(\\theta\\) or conditioning an a statistic, such as the MLE of \\(\\theta\\)\nheuristically, need the diagnostic to be independent of posterior for \\(\\theta\\)\nnot always easy to find!\nMoran et al (2022) propose a workaround to avoid double use of the data by spliting the data \\(y_{\\text{obs}}, y_{\\text{new}}\\), use \\(y_{\\text{obs}}\\), to learn \\(\\theta\\) and the other to calculate \\(d_{\\textrm{new}}\\)\ncan be calculated via simulation easily"
+    "text": "Problems with PPC\n\nBayarri & Berger (2000) provides more discussion about why PPP are not always calibrated\nDouble use of the data; \\(Y^{\\text{rep}}\\) depends on the observed diagnostic in last case\nBayarri & Berger propose partial predictive p-values and conditional predictive p-values that avoid double use of the data by “removing” the contribution of \\(d_{\\text{obs}}\\) to the posterior for \\(\\theta\\) or conditioning on a statistic, such as the MLE of \\(\\theta\\)\nheuristically, need the diagnostic to be independent of posterior for \\(\\theta\\) (asymptoptically) under the assumed model\nnot always easy to find!\nMoran et al (2022) propose a workaround to avoid double use of the data by spliting the data \\(y_{\\text{obs}}, y_{\\text{new}}\\), use \\(y_{\\text{obs}}\\), to learn \\(\\theta\\) and the other to calculate \\(d_{\\textrm{new}}\\)\ncan be calculated via simulation easily"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#pop-pc-of-moran-et-al",
     "href": "resources/slides/04-predictive-checks.html#pop-pc-of-moran-et-al",
     "title": "Prior/Posterior Checks",
     "section": "POP-PC of Moran et al",
-    "text": "POP-PC of Moran et al\n\n\nPOP-PPC = 0.2"
+    "text": "POP-PC of Moran et al\n\n\nPOP-PPC = 0.36"
   },
   {
     "objectID": "resources/slides/04-predictive-checks.html#modeling-over-dispersion",
@@ -672,18 +672,18 @@
     "text": "Modeling Over-Dispersion\n\nOriginal Model \\(Y_i \\mid \\theta \\sim \\textsf{Poisson}(\\theta)\\)\ncause of overdispersion is variation in the rate \\[ Y_i \\mid \\theta_i \\sim \\textsf{Poisson}(\\theta_i)\\]\nmodel variation via prior \\[\\theta_i \\sim \\pi_\\theta()\\]\n\\(\\pi_\\theta()\\) characterizes variation in the rate parameter across inviduals\nSimple Two Stage Hierarchical Model"
   },
   {
-    "objectID": "resources/slides/04-predictive-checks.html#example-1",
-    "href": "resources/slides/04-predictive-checks.html#example-1",
-    "title": "Prior/Posterior Checks",
-    "section": "Example",
-    "text": "Example\n\\[\\theta_i \\sim \\textsf{Gamma}(\\phi \\mu, \\phi)\\]\n\nFind pmf for \\(Y_i \\mid \\mu, \\phi\\)\nFind \\(\\textsf{E}[Y_i \\mid \\mu, \\phi]\\) and \\(\\textsf{Var}[Y_i \\mid \\mu, \\phi]\\)\nHomework: \\[\\theta_i \\sim \\textsf{Gamma}(\\phi, \\phi/\\mu)\\]\nCan either of these model zero-inflation?"
-  },
-  {
     "objectID": "resources/slides/04-predictive-checks.html#modeling-perspectives",
     "href": "resources/slides/04-predictive-checks.html#modeling-perspectives",
     "title": "Prior/Posterior Checks",
     "section": "Modeling Perspectives",
-    "text": "Modeling Perspectives\n\n\n\nstart with a simple model\n\n\nask if there are surprises through Posterior Checks\nneed calibrated diagnostic(s) with good power\nneed these to work even if starting model is relatively complex\nother informal diagnostics (residuals)\nremodel if needed based on departures\nBayesian meaning?\n\n\n\nstart with a fairly complex model or models\n\n\nshrinkage to prevend overfitting\nformal tests for simplifying models\nmethods to combine multiple models to express uncertaity\nproperties\n\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Modeling Perspectives\n\n\n\nstart with a simple model\n\n\nask if there are surprises through Posterior Checks\nneed calibrated diagnostic(s) with good power\nneed these to work even if starting model is relatively complex\nother informal diagnostics (residuals)\nremodel if needed based on departures\nBayesian meaning?\n\n\n\nstart with a fairly complex model or models\n\n\nshrinkage to prevent overfitting\nformal tests for simplifying models\nmethods to combine multiple models to express uncertaity\nproperties"
+  },
+  {
+    "objectID": "resources/slides/04-predictive-checks.html#example-1",
+    "href": "resources/slides/04-predictive-checks.html#example-1",
+    "title": "Prior/Posterior Checks",
+    "section": "Example",
+    "text": "Example\n\\[\\theta_i \\sim \\textsf{Gamma}(\\phi \\mu, \\phi)\\]\n\nFind pmf for \\(Y_i \\mid \\mu, \\phi\\)\nFind \\(\\textsf{E}[Y_i \\mid \\mu, \\phi]\\) and \\(\\textsf{Var}[Y_i \\mid \\mu, \\phi]\\)\nHomework: \\[\\theta_i \\sim \\textsf{Gamma}(\\phi, \\phi/\\mu)\\]\nCan either of these model zero-inflation?\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/02-loss-functions.html#last-time",
@@ -1054,7 +1054,7 @@
     "href": "reading/04-reading.html#recommended",
     "title": "Lecture 4: Predictive Checks",
     "section": "Recommended",
-    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142"
+    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142\nBerger, J Could Fisher, Jeffreys and Neyman Have Agreed on Testing? Statistical Science, 18:1-12."
   },
   {
     "objectID": "reading/00-reading.html",
