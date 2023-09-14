@@ -1,6 +1,32 @@
 ---
-title: "Lecture 5: Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC"
+title: "Introduction to Hierarchical Modelling, Empirical Bayes, and MCMC"
+subtitle: "STA702 Lecture 5"
 author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
 ---
 
 
@@ -29,8 +55,8 @@ set.seed(42)
 
 
 
-## Normal Means Model
-Suppose we have normal data with 
+## Normal Means Model  {.smaller}
+- Suppose we have normal data with 
 $$Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
  
 
@@ -38,22 +64,30 @@ $$Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
 
  
 
-**Question**: How can we possibly hope to estimate all these $\mu_i$?  One $y_i$ per $\mu_i$ and $n$ observations!
+- **Question**: How can we possibly hope to estimate all these $\mu_i$?  One $y_i$ per $\mu_i$ and $n$ observations!
 
  
 
-**Naive estimator**:  just consider only using $y_i$ in estimating and not the other observations.
+- **Naive estimator**:  just consider only using $y_i$ in estimating and not the other observations.
 
  
 
 - MLE $\hat{\mu}_i = y_i$
 
- 
+  
 
-**Hierarchical Viewpoint**:  Let's borrow information from other observations!
+- **Hierarchical Viewpoint**:  Let's borrow information from other observations!
 
- -
-## Motivation
+
+## Motivation {.smaller}
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+&nbsp;
+
+&nbsp;
 
 - Example $y_i$ is difference in gene expression for the $i^{\text{th}}$ gene between cancer and control lines
 
@@ -61,21 +95,31 @@ $$Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
 
 - may be natural to think that the $\mu_i$ arise from some common distribution,
 $\mu_i \overset{iid}{\sim} g$
-```{r randomeffects, fig=TRUE, echo = FALSE, fig.width=5, fig.height=3.5, out.width="50%"}
+
+- unbiased but high variance estimators of $\mu_i$ based on one observation!
+
+
+:::
+
+
+::: {.column width=50%}
+
+
+
+```{r randomeffects, fig=TRUE, echo = FALSE, fig.width=5, fig.height=5, out.width="80%"}
 tau = .35
 
 th = sort(rnorm(100, 0, tau))
 y = rnorm(100, th, 1)
 x = seq(min(y), max(y), length=1000)
-plot(x, dnorm(x, 0, tau),  type="l", lwd=2, 
+plot(x, dnorm(x, 0, tau),  type="l", lwd=2, col="red",
      xlab=expression(mu), ylab=expression(g(mu)))
 points(y, rep(0, 100),  pch="X")
 ```
  
+:::
 
-- unbiased but high variance estimators of $\mu_i$ based on one observation!
-
- 
+::::
 
 ---
 ##  Low Variability
@@ -86,7 +130,7 @@ tau = .01
 th = sort(rnorm(100, 0, tau))
 y = rnorm(100, th, 1)
 x = seq(min(y), max(y), length=1000)
-plot(x, dnorm(x, 0, tau),  type="l", lwd=2, 
+plot(x, dnorm(x, 0, tau),  type="l", lwd=2,  col="red",
      xlab=expression(mu), ylab=expression(g(mu)))
 points(y, rep(0, 100),  pch="X")
 ```
@@ -99,16 +143,15 @@ points(y, rep(0, 100),  pch="X")
 - Not forced to choose either - what about some weighted average between $y_i$ and $\bar{y}$?
 
  
-## Simple Example
+## Simple Example {.smaller}
 
-Data Model
-
+- Data Model
 $$Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
 
  
 
-Means Model 
-$$\mu_i \mid \mu, \tau \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})$$ 
+- Means Model 
+$$\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})$$ 
  
 
 - not necessarily a prior!
@@ -122,13 +165,12 @@ $$\mu_i \mid \mu, \tau \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})$$
 - Calculate the "posterior"  $\mu_i \mid y_i, \mu, \phi, \phi_\mu$
 
  
-## Hiearchical Estimates
+## Hiearchical Estimates  {.smaller}
 
 - Posterior: $\mu_i \mid y_i, \mu, \phi, \phi_\mu \overset{ind}{\sim} \textsf{N}(\tilde{\mu}_i, 1/\tilde{\phi}_\mu)$
  
 
 - estimator of $\mu_i$ weighted average of data and population parameter $\mu$
-
 $$\tilde{\mu}_i = \frac{\phi_\mu \mu + \phi y_i}
                           {\phi_\mu + \phi} \qquad \qquad \tilde{\phi}_\mu = \phi + \phi_\mu$$
 
@@ -154,10 +196,10 @@ $$\tilde{\mu}_i = \frac{\phi_\mu \mu + \phi y_i}
 
 
  
-## Bayes Estimators and Bias
+## Bayes Estimators and Bias {.smaller}
 
 
-Note: you often benefit from a hierarchical model, even if its not obvious that the $\mu_i$s are related!
+- Note: you often benefit from a hierarchical model, even if its not obvious that the $\mu_i$ are related!
 
  
 
@@ -173,15 +215,17 @@ Note: you often benefit from a hierarchical model, even if its not obvious that 
 
  
 
-- Usually through the weighting of the sample data and prior, Bayes procedures have the tendency to pull the estimate of $\mu_i$ toward the prior  or **shrinkage**
+- Usually through the weighting of the sample data and prior, Bayes procedures have the tendency to pull the estimate of $\mu_i$ toward the prior  or  provide **shrinkage** to the 
 mean.
 
 
- 
+ . . . 
 
-- <div class="question">
+::: {.callout-note title="Question"}
+
 Why would we ever want to do this? Why not just stick with the MLE?
-</div>
+
+:::
 
 
 
@@ -197,7 +241,7 @@ Why would we ever want to do this? Why not just stick with the MLE?
 
 
  
-## Modern relevance
+## Modern Relevance {.smaller}
 
 - The fact that a biased estimator would do a better job in many estimation/prediction problems can be proven rigorously, and is referred to as **Stein's paradox**.
 
@@ -218,7 +262,7 @@ Why would we ever want to do this? Why not just stick with the MLE?
 - Examples: lasso regression, ridge regression, various kinds of hierarchical Bayesian models, etc.
 
  
-## Population Parameters
+## Population Parameters {.smaller}
 
 
 - we don't know $\mu$ (or $\sigma^2$ and $\sigma^2_\mu$ for that matter)
@@ -226,19 +270,12 @@ Why would we ever want to do this? Why not just stick with the MLE?
  
 
 - Find marginal likelihood $\cal{L}(\mu, \sigma^2, \sigma^2_\mu)$ by integrating out $\mu_i$ with respect to $g$
-
-
- 
-
 $$\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto \prod_{i = 1}^n 
 \int \textsf{N}(y_i; \mu_i, \sigma^2)  \textsf{N}(\mu_i; \mu, \sigma^2_\mu) \, d \mu_i$$
 
  
 
 - Product of predictive distributions for $Y_i \mid \mu, \sigma^2, \sigma^2_\mu \overset{iid}{\sim} \textsf{N}(\mu, \sigma^2 + \sigma^2_\mu)$  
-
- 
-
 $$\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto \prod_{i = 1}^n (\sigma^2 + \sigma^2_\mu)^{-1/2} \exp \left\{ - \frac{1}{2} \frac{\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}$$
 
  
@@ -246,7 +283,7 @@ $$\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto \prod_{i = 1}^n (\sigma^2 + \sigm
 - Find MLE's
 
  
-## MLEs
+## MLEs {.smaller}
 
 $$\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto  (\sigma^2 + \sigma^2_\mu)^{-n/2} \exp\left\{ - \frac{1}{2} \sum_{i=1}^n\frac{\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}$$
 
@@ -264,14 +301,12 @@ $$\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto  (\sigma^2 + \sigma^2_\mu)^{-n/2}
 
 
 - MLE of $\sigma^2 + \sigma^2_\mu$ is 
-
 $$\widehat{\sigma^2 + \sigma^2_\mu} = \frac{\sum(y_i - \bar{y})^2}{n}$$
 
 
  
 
 - Assume $\sigma^2$ is known (say 1)
-
 $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 
 
@@ -291,7 +326,7 @@ $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 
  
 
-- Estimates of variances may be negative -  constrain to 0 on the boundary)
+- Estimates of variances may be negative -  constrain to 0 on the boundary
 
 
  
@@ -299,7 +334,7 @@ $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 - Fully Bayes would put a prior on the unknowns
 
  
-##  Bayes and Hierarchical Models
+##  Bayes and Hierarchical Models {.smaller}
 
 
 
@@ -312,8 +347,7 @@ $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 
  
 
-Posterior
-
+- Posterior
 $$\pi(\theta \mid y) = \frac{\pi(\theta) \cal{L}(\theta)}
 {\int_\Theta \pi(\theta) \cal{L}(\theta) \, d\theta} =
 \frac{\pi(\theta) \cal{L}(\theta)}
@@ -321,45 +355,38 @@ $$\pi(\theta \mid y) = \frac{\pi(\theta) \cal{L}(\theta)}
 
  
 
-Problems:
-
-- Except for simple cases (conjugate models)  $m(y)$ is not available analytically
+- Problems:  Except for simple cases (conjugate models)  $m(y)$ is not available analytically
 
  
-## Large Sample Approximations
+## Large Sample Approximations {.smaller}
 
 - Appeal to BvM (Bayesian Central Limit Theorem) and approximate $\pi(\theta \mid y)$ with a Gaussian distribution centered at the posterior mode $\hat{\theta}$  and asymptotic covariance matrix 
-
 $$V_\theta = \left[- \frac{\partial^2}{\partial \theta \partial \theta^T} \left\{\log(\pi(\theta)) + \log(\cal{L}(\theta)) \right\} \right]^{-1}$$
 
+- related to Laplace approximation to integral (also large sample)
  
+- Use normal approximation  to find $\textsf{E}[h(\theta) \mid y]$
 
-- we can try to approximate $m(y)$  but this may involve a high dimensional integral
+- Integral may not exist in closed form (non-linear functions)
 
+ - use numerical quadrature (doesn't scale up)
+
+- Stochastic methods of integration
  
-
-- Laplace approximation to integral (also large sample)
-
- 
-
-Stochastic methods
- 
-## Stochastic Integration
+## Stochastic Integration {.smaller}
 
 
-
+- Stochastic integration
 $$\textsf{E}[h(\theta) \mid y] =  \int_\Theta h(\theta) \pi(\theta \mid y) \, d\theta \approx \frac{1}{T}\sum_{t=1}^{T} h(\theta^{(t)}) \qquad \theta^{(t)} \sim \pi(\theta \mid y)$$
  
 
-what if we can't sample from the posterior but can sample from some distribution $q()$
- 
- 
-$$\textsf{E}[h(\theta) \mid y] =  \int_\Theta h(\theta) \frac{\pi(\theta \mid y)}{q(\theta)} q(\theta)\, d\theta \approx \frac{1}{T}\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)} \mid y)} {q(\theta^{(t)})} \qquad$$
+- what if we can't sample from the $\pi(\theta \mid y)$ but can sample from some distribution $q()$
+ $$\textsf{E}[h(\theta) \mid y] =  \int_\Theta h(\theta) \frac{\pi(\theta \mid y)}{q(\theta)} q(\theta)\, d\theta \approx \frac{1}{T}\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)} \mid y)} {q(\theta^{(t)})} \qquad$$
 where $\theta^{(t)} \sim q(\theta)$
 
  
 
-Without the denominator  in $\pi(\theta \mid y)$ we just have $\pi(\theta \mid y) \propto  \pi(\theta) \cal{L}(\theta)$
+- Without the $m(y)$  in $\pi(\theta \mid y)$ we just have $\pi(\theta \mid y) \propto  \pi(\theta) \cal{L}(\theta)$
 
 
  
@@ -368,43 +395,44 @@ Without the denominator  in $\pi(\theta \mid y)$ we just have $\pi(\theta \mid y
 
 
  
-## Important Sampling Estimate
+## Important Sampling Estimate {.smaller}
 
-Estimate of $m(y)$
-
+- Estimate of $m(y)$
 $$m(y) \approx \frac{1}{T} \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})} \qquad \theta^{(t)} \sim q(\theta)$$
- 
 
+- Ratio estimator of $\textsf{E}[h(\theta) \mid y]$
 $$\textsf{E}[h(\theta) \mid y] \approx \frac{\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
 { \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
 \qquad \theta^{(t)} \sim q(\theta)$$
 
- 
+- Weighted average with importance weights $w(\theta^{(t)}) \propto \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}$
+$$\textsf{E}[h(\theta) \mid y] \approx \sum_{t=1}^{T} h(\theta^{(t)}) w(\theta^{(t)})/\sum_{t=1}^T w(\theta^{(t)}) \qquad \theta^{(t)} \sim q(\theta)$$ 
 
-$$\textsf{E}[h(\theta) \mid y] \approx \sum_{t=1}^{T} h(\theta^{(t)}) w(\theta^{(t)})  \qquad \theta^{(t)} \sim q(\theta)$$
+##  Issues 
 
-with un-normalized weights  $w(\theta^{(t)}) \propto \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}$
+- if $q()$ puts too little mass in regions with high posterior density,  we can have
+some extreme weights
 
-(normalize to sum to 1)
+- optimal case is that $q()$ is as close as possible to the posterior so that all weights are constant
 
+- Estimate may have large variance
 
- 
-## Markov Chain Monte Carlo (MCMC)
+- Problems with finding a good $q()$ in high dimensions $(d > 20)$ or with skewed distributions
+
+## Markov Chain Monte Carlo (MCMC) {.smaller}
 
 
 - Typically $\pi(\theta)$ and $\cal{L}(\theta)$ are easy to evaluate
 
  
+. . .
 
-
-
-<div class="question">How do we draw samples  only using evaluations of the prior and likelihood in higher dimensional settings?
-</div>
+::: {.callout-note title="Question"}
+How do we draw samples  only using evaluations of the prior and likelihood in higher dimensional settings?
+:::
  
 
 - construct a Markov chain $\theta^{(t)}$ in such a way the the stationary distribution of the Markov chain is the posterior distribution $\pi(\theta \mid y)$!
-
-
 $$\theta^{(0)} \overset{k}{\longrightarrow} \theta^{(1)} \overset{k}{\longrightarrow} \theta^{(2)} \cdots$$
  
 
@@ -422,169 +450,147 @@ $$\theta^{(0)} \overset{k}{\longrightarrow} \theta^{(1)} \overset{k}{\longrighta
 
 - biased samples initially but get closer to the target
 
- 
-##  Metropolis Algorithm  (1950's)
-
--  Markov chain $\theta^{(t)}$
+- Metropolis Algorithm (1950's)
 
  
 
-- propose $\theta^* \sim g(\theta^{(t-1)})$ where $g()$ is a symmetric distribution centered at $\theta^{(t-1)}$
+##  Stochastic Sampling Intuition {.smaller}
 
+- From a sampling perspective, we need to have a large sample or group of values, $\theta^{(1)}, \ldots, \theta^{(S)}$ from $\pi(\theta \mid  y)$ whose empirical distribution approximates $\pi(\theta \mid  y)$.
+
+
+
+-  for any two sets $A$ and $B$, we want
+$$\frac{\dfrac{\# \theta^{(s)} \in A}{S}}{\dfrac{\# \theta^{(s)} \in B}{S} } = \dfrac{\# \theta^{(s)} \in A}{\# \theta^{(s)} \in B} \approx \dfrac{\pi(\theta \in A \mid  y)}{\pi(\theta \in B \mid  y)}$$
+
+
+
+- Suppose we have a working group $\theta^{(1)}, \ldots, \theta^{(s)}$ at iteration $s$, and need to add a new value $\theta^{(s+1)}$.
+
+
+
+- Consider a candidate value $\theta^\star$ that is  _close_ to $\theta^{(s)}$ 
+
+
+
+
+- Should we set $\theta^{(s+1)} = \theta^\star$ or not?
+
+
+## Posterior Ratio. {.smaller}
+
+
+look at  the ratio 
+$$
+\begin{split}
+M & = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)} = \frac{\dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y)} } {\dfrac{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}{p(y)}}\\
+\\
+&  = \dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}
+\end{split}
+$$
+
+
+
+
+- does not depend on the marginal likelihood we don't know!
+
+
+
+
+
+## Metropolis algorithm {.smaller}
+
+- If $M > 1$
+  + Intuition: $\theta^{(s)}$ is already a part of the density we desire and the density at $\theta^\star$ is even higher than the density at $\theta^{(s)}$.
+  
+  + Action: set $\theta^{(s+1)} = \theta^\star$
+
+
+
+- If $M < 1$, 
+  + Intuition: relative frequency of values in our group $\theta^{(1)}, \ldots, \theta^{(s)}$ "equal" to $\theta^\star$ should be $\approx M = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)}$. 
  
 
-- set $\theta^{(t)} = \theta^*$ with some probability
+  + For every $\theta^{(s)}$, include only a fraction of an instance of $\theta^\star$.
 
- 
 
-- otherwise set $\theta^{(t)} = \theta^{(t-1)}$
+  + Action: set $\theta^{(s+1)} = \theta^\star$ with probability $M$ and $\theta^{(s+1)} = \theta^{(s)}$ with probability $1-M$.
 
- 
+## Proposal Distribution {.smaller}
 
-Acceptance probability is 
 
-$$\alpha = \min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)}
-                           {\pi(\theta^{(t-1)}) \cal{L}(\theta^{(t-1)})}\right\}$$
+- Where should the proposed value $\theta^\star$ come from? 
+
+
+
+- Sample $\theta^\star$ close to the current value $\theta^{(s)}$ using a **symmetric proposal distribution** $\theta^\star \sim q(\theta^\star \mid \theta^{(s)})$
+
+
+
+
+- $q()$ is actually a "family of proposal distributions", indexed by the specific value of $\theta^{(s)}$.
+
+
+
+- Here, symmetric means that $q(\theta^\star \mid \theta^{(s)}) = q(\theta^{(s)} \mid \theta^\star)$. 
+
+
+
+- Common choice 
+$$\textsf{N}(\theta^\star; \theta^{(s)}, \delta^2 \Sigma)$$
+ with $\Sigma$ based on the approximate $\textsf{Cov}(\theta \mid y)$ and $\delta = 2.44/\text{dim}(\theta)$ or 
+ $$\text{Unif}(\theta^\star; \theta^{(s)} - \delta, \theta^{(s)} + \delta)$$
+
+
+## Metropolis Algorithm Recap {.smaller}
+
+The algorithm proceeds as follows:
+
+  1. Given $\theta^{(1)}, \ldots, \theta^{(s)}$, generate a _candidate_ value $\theta^\star \sim q(\theta^\star \mid \theta^{(s)})$.
+  
+
+  2. Compute the acceptance ratio
+$$\begin{split}
+M & = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)} = \dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}.
+\end{split}$$
+
+  3. Set
+$$\begin{eqnarray*}
+\theta^{(s+1)} = \left\{ \begin{array}{ll}
+\theta^\star & \quad \text{with probability} \quad \text{min}(M,1) \\
+\theta^{(s)} & \quad \text{with probability} \quad 1 - \text{min}(M,1) \\
+\end{array} \right.
+\end{eqnarray*}$$
+equivalent to sampling $u \sim U(0,1)$ independently and setting
+ $$\begin{eqnarray*}
+\theta^{(s+1)} = \left\{ \begin{array}{ll}
+\theta^\star & \quad \text{if} \quad u < M \\
+\theta^{(s)} & \quad \text{if} \quad \text{otherwise} \\
+\end{array} \right. .
+\end{eqnarray*}
+$$
+
+
+##  Notes {.smaller}
+
+- Acceptance probability is 
+$$M = \min \left\{ 1, \frac{\pi(\theta^\star) \cal{L}(\theta^\star)}
+                           {\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})}\right\}$$
                             
  
 
 - ratio of posterior densities where normalizing constant cancels!
 
- 
-## Example
 
-- Let's use a prior for $p(\mu) \propto 1$
-
- 
-
-- Posterior for $\mu \mid \sigma^2, \sigma^2_\mu$  is 
-$\textsf{N}\left(\bar{y}, \frac{\sigma^2 + \sigma^2_\mu}{n}\right)$
-
- 
-
-$$\cal{L}(\sigma^2, \sigma^2_\tau) \propto
-(\sigma^2 + \sigma^2_\mu)^{-\frac{n - 1}{2}} \exp \left\{ - \frac 1 2 \sum_i \frac{(y_i - \bar{y})^2}{\sigma^2 + \sigma^2_\mu)} \right\}$$
-
- 
-
-- Take $\sigma^2 = 1$  
-
- 
-
-- Use a $\textsf{Cauchy}(0,1)$ prior on $\sigma_\mu$
-
- 
-
-- Symmetric proposal for $\sigma_\tau$?    Try  a normal with variance $\frac{2.4^2}{d} \textsf{var}(\sigma_\mu)$ where $d$ is the dimension of $\theta$  (d = 1)
+-  The Metropolis chain ALWAYS moves to the proposed $\theta^\star$ at iteration $s+1$ if $\theta^\star$ has
+higher target density than the current $\theta^{(s)}$.
 
 
 
-```{r metropolis, echo=FALSE}
-tau = .1
-
-sigma = 1
-n = 100
-mu.true = sort(rnorm(n, 0, tau))
-y = rnorm(n, mu.true, sigma)
-
-ssy = sum((y - mean(y))^2)
-
-R = 1000
-
-#initialize
-
-th = rep(NA, R)
-mu = th
-sigmamu.prop = th
-keep = mu
-
-log.lik =  function(sigma.mu, sigma,  ssy, n ) {
-  -.5*(( n - 1)* (sigma^2 + sigma.mu^2) + ssy/(sigma^2 + sigma.mu^2))
-}
-
-log.prior = function(x) { dt(x, 1, log=TRUE)}
-sigmamu.sd = 2*tau*2.44
-
-# initialize
-th[1] = 1
-mu[1] = rnorm(1, mean(y), sqrt(1 + th[1]^2)/sqrt(n))
-log.post = log.prior(th[1]) + log.lik(th[1], sigma, ssy, n)
-keep[1] = 1
-acc=0
-
-for (r in 2:R) {
-  th.star = rnorm(1, th[r - 1], sigmamu.sd)
-  log.prop = log.prior(th.star) + log.lik(th.star, sigma, ssy, n)
-  M = min(1, exp(log.prop - log.post))
-  sigmamu.prop[r] = th.star
-  if (runif(1) < M) {
-    th[r] =  th.star
-    log.post = log.prop
-    acc = acc + 1
-    keep[r] = 1
-  }
-  else { th[r] = th[r-1]
-         keep[r] = 2
-  }
-  mu[r] = rnorm(1, mean(y), sqrt(1 + th[r]^2)/sqrt(n))
-}
-  
-```
+- Sometimes, it also moves to a $\theta^\star$ value with lower density in proportion to the density value itself. 
 
 
 
- 
-## Joint Posterior
-
-```{r joint, fig=TRUE, echo = FALSE,out.width="75%", fig.height=3.5, fig.width=5}
-
-use = 1:100
-x = abs(sigmamu.prop[use])
-y = mu[use]
-plot(x, y, col= keep,  xlab=expression(sigma[mu]), ylab=expression(mu))
-
-lines(abs(th), mu, lty=2)
-points(x, y, col= keep)
-```
-
- 
-## Marginal Posterior
+- This leads to a random, Markov process that naturally explores the space according to the probability defined by $\pi(\theta \mid y)$, and hence generates a sequence that, while dependent, eventually represents draws from $\pi(\theta \mid y)$ (stationary distribution of the Markov Chain).
 
 
-```{r marg, fig=TRUE, echo = FALSE,out.width="50%", fig.height=5, fig.width=5}
-
-
-hist(abs(th), xlab=expression(sigma[mu]), ylab="posterior",
-     main = "")
-
-
-```
-
-
-MLE of $\sigma_\mu$ is `r round(ssy/n  -1, 2)`
-
-
- 
-## Trace Plots
-
-```{r traceplot, fig=TRUE, fig.height=3, fig.width=5, echo=FALSE}
-
-plot(abs(th), ylab=expression(sigma[mu]), type="l", xlab="t")
-```
-
-- Acceptance probability is `r round(acc/(R - 1), 2)`   
-
- 
-
-- Goal is around 0.44 in 1 dimension to 0.23 in higher dimensions
-
- 
-## AutoCorrelation Function
-
-```{r acf, fig=TRUE, fig.height=3, fig.width=5, echo=FALSE}
-
-acf(th, main=expression(sigma[mu]))
-
-
-
-```
