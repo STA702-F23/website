@@ -461,7 +461,7 @@ Merlise Clyde
 <li class="fragment"><p><span class="math inline">\(d(y^{\text{obs}}) \equiv d_{\textrm{obs}}\)</span> value of statistic in observed data</p></li>
 <li class="fragment"><p><span class="math inline">\(d(y^{\text{rep}}_t) \equiv d_{\textrm{pred}}\)</span> value of statistic for the <span class="math inline">\(t\)</span>th random dataset drawn from the posterior predictive distribution</p>
 <ol type="1">
-<li class="fragment">Generate <span class="math inline">\(\theta_t \stackrel{iid}{\sim}p(\theta y^{\textrm{obs}})\)</span></li>
+<li class="fragment">Generate <span class="math inline">\(\theta_t \stackrel{iid}{\sim}p(\theta \mid y^{\textrm{obs}})\)</span></li>
 <li class="fragment">Generate <span class="math inline">\(y^{\textrm{rep}_t} \mid \theta_t \stackrel{iid}{\sim} p(y \mid \theta_t)\)</span></li>
 <li class="fragment">Calculate <span class="math inline">\(d(y^{\text{rep}}_t)\)</span></li>
 </ol></li>
@@ -535,7 +535,7 @@ Merlise Clyde
 <ul>
 <li class="fragment">Let the <span class="math inline">\(d()\)</span> be the proportion of zeros in the sample <span class="math display">\[\begin{aligned}
 d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
-   &amp; = 0.25
+   &amp; = 0.24
 \end{aligned}\]</span><br>
 </li>
 </ul>
@@ -581,7 +581,7 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 </div>
 </div>
 <ul>
-<li class="fragment"><p>PPP = 0.53</p></li>
+<li class="fragment"><p>PPP = 0.52</p></li>
 <li class="fragment"><p>What’s happening?</p></li>
 </ul>
 </div>
@@ -603,7 +603,7 @@ d(y) &amp; = \frac{\sum_{i = 1}^{n}1(y_i = 0)}{n} \\
 <h2>POP-PC of Moran et al</h2>
 
 <img data-src="04-predictive-checks_files/figure-revealjs/unnamed-chunk-6-1.png" width="1500" class="r-stretch quarto-figure-center"><ul>
-<li class="fragment">POP-PPC = 0.36</li>
+<li class="fragment">POP-PPC = 0.35</li>
 </ul>
 </section>
 <section id="modeling-over-dispersion" class="slide level2 smaller">

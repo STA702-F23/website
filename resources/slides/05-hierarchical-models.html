@@ -347,7 +347,7 @@ Merlise Clyde
 <section id="normal-means-model" class="slide level2 smaller">
 <h2>Normal Means Model</h2>
 <ul>
-<li class="fragment"><p>Suppose we have normal data with <span class="math display">\[Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)\]</span></p></li>
+<li class="fragment"><p>Suppose we have normal data with <span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)\]</span></p></li>
 <li class="fragment"><p>separate mean for each observation!</p></li>
 <li class="fragment"><p><strong>Question</strong>: How can we possibly hope to estimate all these <span class="math inline">\(\mu_i\)</span>? One <span class="math inline">\(y_i\)</span> per <span class="math inline">\(\mu_i\)</span> and <span class="math inline">\(n\)</span> observations!</p></li>
 <li class="fragment"><p><strong>Naive estimator</strong>: just consider only using <span class="math inline">\(y_i\)</span> in estimating and not the other observations.</p></li>
@@ -390,8 +390,8 @@ Merlise Clyde
 <section id="simple-example" class="slide level2 smaller">
 <h2>Simple Example</h2>
 <ul>
-<li class="fragment"><p>Data Model <span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)\]</span></p></li>
-<li class="fragment"><p>Means Model <span class="math display">\[\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})\]</span></p></li>
+<li class="fragment"><p>Data Model <span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)\]</span></p></li>
+<li class="fragment"><p>Means Model <span class="math display">\[\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf{N}(\mu, \sigma^2_{\mu})\]</span></p></li>
 <li class="fragment"><p>not necessarily a prior!</p></li>
 <li class="fragment"><p>Now estimate <span class="math inline">\(\mu_i\)</span> (let <span class="math inline">\(\phi = 1/\sigma^2\)</span> and <span class="math inline">\(\phi_{\mu} = 1/\sigma^2_\mu\)</span>)</p></li>
 <li class="fragment"><p>Calculate the “posterior” <span class="math inline">\(\mu_i \mid y_i, \mu, \phi, \phi_\mu\)</span></p></li>
@@ -473,8 +473,8 @@ Merlise Clyde
 <ul>
 <li class="fragment"><p>plug in estimates of hyperparameters into the prior and pretend they are known</p></li>
 <li class="fragment"><p>resulting estimates are known as Empirical Bayes</p></li>
-<li class="fragment"><p>underestimates uncertainty</p></li>
 <li class="fragment"><p>Estimates of variances may be negative - constrain to 0 on the boundary</p></li>
+<li class="fragment"><p>underestimates uncertainty</p></li>
 <li class="fragment"><p>Fully Bayes would put a prior on the unknowns</p></li>
 </ul>
 </section>
