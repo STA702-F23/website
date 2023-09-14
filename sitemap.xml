@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/STA702-F23/website/about.html</loc>
-    <lastmod>2023-09-12T16:46:42.887Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/reading/05-reading.html</loc>
-    <lastmod>2023-09-12T16:46:42.267Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/reading/01-reading.html</loc>
-    <lastmod>2023-09-12T16:46:41.643Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/reading/07-reading.html</loc>
-    <lastmod>2023-09-12T16:46:41.015Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/reading/03-reading.html</loc>
-    <lastmod>2023-09-12T16:46:40.387Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/hw/hw-02.html</loc>
-    <lastmod>2023-09-12T16:46:39.767Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/labs/lab-01-r-review.html</loc>
-    <lastmod>2023-09-12T16:46:39.103Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/labs/lab-02-beta-binomial.html</loc>
-    <lastmod>2023-09-12T16:46:37.995Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/index.html</loc>
-    <lastmod>2023-09-12T16:46:37.207Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/01-basics-of-bayes.html</loc>
-    <lastmod>2023-09-12T16:46:32.171Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/02-loss-functions.html</loc>
-    <lastmod>2023-09-12T16:46:31.167Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/04-predictive-checks.html</loc>
-    <lastmod>2023-09-12T16:46:29.435Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/template.html</loc>
-    <lastmod>2023-09-12T16:46:26.035Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/syllabus.html</loc>
-    <lastmod>2023-09-12T16:46:25.411Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/03-normal-predictive-distributions.html</loc>
-    <lastmod>2023-09-12T16:46:27.683Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/05-hierarchical-models.html</loc>
-    <lastmod>2023-09-12T16:46:30.363Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/00-course-overview.html</loc>
-    <lastmod>2023-09-12T16:46:31.739Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/schedule.html</loc>
-    <lastmod>2023-09-12T16:46:36.719Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources.html</loc>
-    <lastmod>2023-09-12T16:46:37.623Z</lastmod>
+    <loc>https://github.com/STA702-F23/website/hw/hw-01.html</loc>
+    <lastmod>2023-09-14T01:40:59.030Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-00-getting-started.html</loc>
-    <lastmod>2023-09-12T16:46:38.447Z</lastmod>
+    <lastmod>2023-09-14T01:40:58.226Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/STA702-F23/website/hw/hw-01.html</loc>
-    <lastmod>2023-09-12T16:46:39.435Z</lastmod>
+    <loc>https://github.com/STA702-F23/website/labs/lab-02-beta-binomial.html</loc>
+    <lastmod>2023-09-14T01:40:57.485Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/STA702-F23/website/reading/08-reading.html</loc>
-    <lastmod>2023-09-12T16:46:40.087Z</lastmod>
+    <loc>https://github.com/STA702-F23/website/reading/01-reading.html</loc>
+    <lastmod>2023-09-14T01:40:56.537Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/STA702-F23/website/reading/04-reading.html</loc>
-    <lastmod>2023-09-12T16:46:40.703Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/reading/00-reading.html</loc>
-    <lastmod>2023-09-12T16:46:41.327Z</lastmod>
+    <loc>https://github.com/STA702-F23/website/reading/03-reading.html</loc>
+    <lastmod>2023-09-14T01:40:55.841Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/06-reading.html</loc>
-    <lastmod>2023-09-12T16:46:41.955Z</lastmod>
+    <lastmod>2023-09-14T01:40:55.181Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/reading/08-reading.html</loc>
+    <lastmod>2023-09-14T01:40:54.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/reading/00-reading.html</loc>
+    <lastmod>2023-09-14T01:40:53.769Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources.html</loc>
+    <lastmod>2023-09-14T01:40:48.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/04-predictive-checks.html</loc>
+    <lastmod>2023-09-14T01:40:47.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/02-loss-functions.html</loc>
+    <lastmod>2023-09-14T01:40:46.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/03-normal-predictive-distributions.html</loc>
+    <lastmod>2023-09-14T01:40:44.749Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/about.html</loc>
+    <lastmod>2023-09-14T01:40:42.401Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/index.html</loc>
+    <lastmod>2023-09-14T01:40:41.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/00-course-overview.html</loc>
+    <lastmod>2023-09-14T01:40:44.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/01-basics-of-bayes.html</loc>
+    <lastmod>2023-09-14T01:40:45.221Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/template.html</loc>
+    <lastmod>2023-09-14T01:40:46.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/05-hierarchical-models.html</loc>
+    <lastmod>2023-09-14T01:40:48.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/schedule.html</loc>
+    <lastmod>2023-09-14T01:40:53.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/reading/04-reading.html</loc>
+    <lastmod>2023-09-14T01:40:54.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/reading/07-reading.html</loc>
+    <lastmod>2023-09-14T01:40:54.841Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/reading/05-reading.html</loc>
+    <lastmod>2023-09-14T01:40:55.521Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/02-reading.html</loc>
-    <lastmod>2023-09-12T16:46:42.575Z</lastmod>
+    <lastmod>2023-09-14T01:40:56.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/syllabus.html</loc>
+    <lastmod>2023-09-14T01:40:57.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/labs/lab-01-r-review.html</loc>
+    <lastmod>2023-09-14T01:40:57.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/hw/hw-02.html</loc>
+    <lastmod>2023-09-14T01:40:58.590Z</lastmod>
   </url>
 </urlset>
