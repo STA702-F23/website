@@ -57,7 +57,7 @@ set.seed(42)
 
 ## Normal Means Model  {.smaller}
 - Suppose we have normal data with 
-$$Y_i \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
+$$Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)$$
  
 
 - separate mean for each observation!
@@ -146,12 +146,12 @@ points(y, rep(0, 100),  pch="X")
 ## Simple Example {.smaller}
 
 - Data Model
-$$Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)$$
+$$Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)$$
 
  
 
 - Means Model 
-$$\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf(\mu, \sigma^2_{\mu})$$ 
+$$\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf{N}(\mu, \sigma^2_{\mu})$$ 
  
 
 - not necessarily a prior!
@@ -322,7 +322,7 @@ $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 
  
 
--  underestimates uncertainty
+
 
  
 
@@ -330,6 +330,7 @@ $$\hat{\sigma}^2_\mu = \frac{\sum(y_i - \bar{y})^2}{n} - 1$$
 
 
  
+-  underestimates uncertainty 
 
 - Fully Bayes would put a prior on the unknowns
 

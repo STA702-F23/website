@@ -139,7 +139,7 @@ $$
   
 
 - $d(y^{\text{rep}}_t)  \equiv d_{\textrm{pred}}$ value of  statistic for the $t$th random dataset drawn from the posterior predictive distribution
-  1) Generate $\theta_t  \stackrel{iid}{\sim}p(\theta y^{\textrm{obs}})$
+  1) Generate $\theta_t  \stackrel{iid}{\sim}p(\theta \mid y^{\textrm{obs}})$
   2)  Generate $y^{\textrm{rep}_t} \mid \theta_t \stackrel{iid}{\sim} p(y \mid \theta_t)$
   3) Calculate $d(y^{\text{rep}}_t)$
   
