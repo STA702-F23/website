@@ -1,5 +1,5 @@
 ---
-title: "Lab 2: Beta-Binomial Model and Introduction to stan"
+title: "Lab 3: Posterior Predictive Checks"
 toc: true
 ---
 
