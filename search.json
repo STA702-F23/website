@@ -51,28 +51,28 @@
   {
     "objectID": "labs/lab-03.html#rrstudio",
     "href": "labs/lab-03.html#rrstudio",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "R/RStudio",
     "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
   },
   {
     "objectID": "labs/lab-03.html#r-knitr",
     "href": "labs/lab-03.html#r-knitr",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "R Knitr",
     "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
   },
   {
     "objectID": "labs/lab-03.html#github-classroom",
     "href": "labs/lab-03.html#github-classroom",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "Github Classroom",
     "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
   },
   {
     "objectID": "labs/lab-03.html#gradescope",
     "href": "labs/lab-03.html#gradescope",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "Gradescope",
     "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
