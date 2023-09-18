@@ -585,14 +585,14 @@
     "href": "resources/slides/06-metropolis.html#diagnostics-in-r",
     "title": "Lecture 6: Metropolis Algorithms and Stochastic Sampling",
     "section": "Diagnostics in R",
-    "text": "Diagnostics in R\n\nThe most popular package for MCMC diagnostics in R is coda.\ncoda uses a special MCMC format so you must always convert your posterior matrix into an MCMC object.\nFor the example, we have the following in R."
+    "text": "Diagnostics in R\n\nThe most popular package for MCMC diagnostics in R is coda.\ncoda uses a special MCMC format so you must always convert your posterior matrix into an MCMC object.\nFor the example, we have the following in R.\n\n\n\n#library(coda)\ntheta.mcmc &lt;- mcmc(theta,start=1) #no burn-in (simple problem!)"
   },
   {
     "objectID": "resources/slides/06-metropolis.html#diagnostics-in-r-1",
     "href": "resources/slides/06-metropolis.html#diagnostics-in-r-1",
     "title": "Lecture 6: Metropolis Algorithms and Stochastic Sampling",
     "section": "Diagnostics in R",
-    "text": "Diagnostics in R\n\n\n\nIterations = 1:10000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 10000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n             Mean     SD Naive SE Time-series SE\nmu       -0.07977 0.1046 0.001046       0.002839\nsigma_mu  0.17550 0.1273 0.001273       0.004397\n\n2. Quantiles for each variable:\n\n              2.5%     25%      50%      75%  97.5%\nmu       -0.283420 -0.1508 -0.08193 -0.00848 0.1337\nsigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693\n\n\n\nThe naive SE is the standard error of the mean, which captures simulation error of the mean rather than the posterior uncertainty.\nThe time-series SE adjusts the naive SE for autocorrelation."
+    "text": "Diagnostics in R\n\nsummary(theta.mcmc)\n\n\nIterations = 1:10000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 10000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n             Mean     SD Naive SE Time-series SE\nmu       -0.07977 0.1046 0.001046       0.002839\nsigma_mu  0.17550 0.1273 0.001273       0.004397\n\n2. Quantiles for each variable:\n\n              2.5%     25%      50%      75%  97.5%\nmu       -0.283420 -0.1508 -0.08193 -0.00848 0.1337\nsigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693\n\n\n\nThe naive SE is the standard error of the mean, which captures simulation error of the mean rather than the posterior uncertainty.\nThe time-series SE adjusts the naive SE for autocorrelation."
   },
   {
     "objectID": "resources/slides/06-metropolis.html#effective-sample-size.",
@@ -1264,14 +1264,14 @@
     "href": "reading/06-reading.html",
     "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
   },
   {
     "objectID": "reading/06-reading.html#readings",
     "href": "reading/06-reading.html#readings",
     "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
   },
   {
     "objectID": "reading/03-reading.html",
