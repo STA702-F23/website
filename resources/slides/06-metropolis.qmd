@@ -1,7 +1,6 @@
 ---
 title: "Lecture 6: Metropolis Algorithms and Stochastic Sampling"
 author: "Merlise Clyde"
-date: "September 20"
 institute: "Duke University"
 format: 
   revealjs:
@@ -625,7 +624,9 @@ hist(x, main="", xlab=expression(sigma[mu]))
   
 
 - For the example, we have the following in R.
-```{r fig.height=4}
+
+. . .
+```{r fig.height=4, echo=TRUE}
 #library(coda)
 theta.mcmc <- mcmc(theta,start=1) #no burn-in (simple problem!)
 ```
@@ -635,7 +636,7 @@ theta.mcmc <- mcmc(theta,start=1) #no burn-in (simple problem!)
  
 ## Diagnostics in R {.smaller}
 
-```{r fig.height=4}
+```{r fig.height=4, echo=TRUE}
 summary(theta.mcmc)
 ```
 

@@ -18,4 +18,5 @@ title: "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics"
   
 - [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
 
+See also [Dunson, D. & Johndrow, J. (2020)](https://academic.oup.com/biomet/article/107/1/1/5686745) The Hastings algorithm at fifty. _Biometrika_,107: pp. 1–23
     
