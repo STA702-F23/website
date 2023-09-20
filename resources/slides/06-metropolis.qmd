@@ -224,7 +224,7 @@ $$
 
 - Common choice 
 $$\textsf{N}(\theta^\star; \theta^{(s)}, \delta^2 \Sigma)$$
- with $\Sigma$ based on the approximate $\textsf{Cov}(\theta \mid y)$ and $\delta = 2.44/\text{dim}(\theta)$ or 
+ with $\Sigma$ based on the approximate $\textsf{Cov}(\theta \mid y)$ and $\delta^2 = 2.38^2/\text{dim}(\theta)$ or 
  $$\text{Unif}(\theta^\star; \theta^{(s)} - \delta, \theta^{(s)} + \delta)$$
 
 
@@ -350,7 +350,7 @@ $$p(\mu) \propto 1$$
 
   
 
--  Try independent normals $\frac{2.44^2}{d} \textsf{Cov}(\theta)$ where $d$ is the dimension of $\theta$  (d = 2)
+-  Try independent normals $\frac{2.38^2}{d} \textsf{Cov}(\theta)$ where $d$ is the dimension of $\theta$  (d = 2)
 
 
 
