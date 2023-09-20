@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Merlise Clyde">
-  <title>STA 702 Fall 2023 - Lecture 6: Metropolis Algorithms and Stochastic Sampling</title>
+  <title>STA 702 Fall 2023 - Lecture 7: MCMC Diagnostics &amp; Adaptive Metropolis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -394,7 +394,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 6: Metropolis Algorithms and Stochastic Sampling</h1>
+  <h1 class="title">Lecture 7: MCMC Diagnostics &amp; Adaptive Metropolis</h1>
+  <p class="subtitle">STA702</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -408,219 +409,16 @@ Merlise Clyde
 </div>
 
 </section>
-<section id="last-class-normal-means-model" class="slide level2 smaller">
-<h2>Last Class: Normal Means Model</h2>
+<section id="example-from-last-class" class="slide level2 smaller">
+<h2>Example from Last Class</h2>
 <ul>
-<li class="fragment"><p>Data Model <span class="math inline">\(Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)\)</span></p></li>
-<li class="fragment"><p>Means Model <span class="math inline">\(\mu_i \mid \mu, \sigma^2_\mu \overset{iid}{\sim} \textsf{N}(\mu, \sigma^2_{\mu})\)</span>$</p></li>
-<li class="fragment"><p>Found marginal likelihood <span class="math inline">\(\cal{L}(\mu, \sigma^2, \sigma^2_\mu)\)</span> by integrating out <span class="math inline">\(\mu_i\)</span> with respect to <span class="math inline">\(g\)</span> <span class="math display">\[\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto (\sigma^2 + \sigma^2_\mu)^{-n/2} \exp \left\{ - \frac{1}{2} \frac{\sum_{i=1}^n\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}\]</span></p></li>
-<li class="fragment"><p>Posterior for <span class="math inline">\(\theta = \mu, \sigma^2_\mu\)</span> with <span class="math inline">\(\sigma^2 = 1\)</span> <span class="math display">\[\pi(\theta \mid y) = \frac{\pi(\theta) \cal{L}(\theta)}
-{\int_\Theta \pi(\theta) \cal{L}(\theta) \, d\theta} =
-\frac{\pi(\theta) \cal{L}(\theta)}
-{m(y)}\]</span></p></li>
-<li class="fragment"><p>while we can integrate out <span class="math inline">\(\mu\)</span>, no closed form for posterior of <span class="math inline">\(\sigma^2_\mu\)</span> given <span class="math inline">\(\sigma^2\)</span></p></li>
+<li class="fragment"><p>Marginal Likelihood <span class="math display">\[\cal{L}(\mu, \sigma^2, \sigma^2_\mu) \propto (\sigma^2 + \sigma^2_\mu)^{-n/2} \exp \left\{ - \frac{1}{2} \frac{\sum_{i=1}^n\left(y_i - \mu \right)^2}{\sigma^2 + \sigma^2_\mu }\right\}\]</span></p></li>
+<li class="fragment"><p>Priors with <span class="math inline">\(\sigma^2 = 1\)</span>: <span class="math inline">\(p(\mu) \propto 1\)</span> and <span class="math inline">\(\sigma_\mu \sim \textsf{Cauchy}^+(0,1)\)</span> independent of <span class="math inline">\(\mu\)</span></p></li>
+<li class="fragment"><p>Symmetric proposal for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma_\tau\)</span></p></li>
+<li class="fragment"><p>Independent normals centered at current values of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma_\mu\)</span> with covariance <span class="math inline">\(\frac{2.38^2}{d} \textsf{Cov}(\theta)\)</span> where <span class="math inline">\(d = 2\)</span> (the dimension of <span class="math inline">\(\theta\)</span> )</p></li>
+<li class="fragment"><p><span class="math inline">\(\delta^2 = 2.38^2/d\)</span> optimal for multivariate normal target <a href="https://projecteuclid.org/journals/annals-of-applied-probability/volume-7/issue-1/Weak-convergence-and-optimal-scaling-of-random-walk-Metropolis-algorithms/10.1214/aoap/1034625254.full">Roberts, Gelman, and Gilks (1997)</a> with acceptance rate ranging from 40% to 23.4% (as <span class="math inline">\(d \to \infty\)</span>)</p></li>
 </ul>
 </section>
-<section id="important-sampling-estimate" class="slide level2 smaller">
-<h2>Important Sampling Estimate</h2>
-<ul>
-<li class="fragment"><p>Estimate of <span class="math inline">\(m(y)\)</span> <span class="math display">\[m(y) \approx \frac{1}{T} \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})} \qquad \theta^{(t)} \sim q(\theta)\]</span></p></li>
-<li class="fragment"><p>Ratio estimator of <span class="math inline">\(\textsf{E}[h(\theta) \mid y]\)</span> <span class="math display">\[\textsf{E}[h(\theta) \mid y] \approx \frac{\sum_{t=1}^{T} h(\theta^{(t)}) \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
-{ \sum_{t=1}^{T}  \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}}
-\qquad \theta^{(t)} \sim q(\theta)\]</span></p></li>
-<li class="fragment"><p>Weighted average with importance weights <span class="math inline">\(w(\theta^{(t)}) \propto \frac{\pi(\theta^{(t)}) \cal{L}(\theta^{(t)})}{q(\theta^{(t)})}\)</span> <span class="math display">\[\textsf{E}[h(\theta) \mid y] \approx \sum_{t=1}^{T} h(\theta^{(t)}) w(\theta^{(t)})/\sum_{t=1}^T w(\theta^{(t)}) \qquad \theta^{(t)} \sim q(\theta)\]</span></p></li>
-</ul>
-</section>
-<section id="issues" class="slide level2 smaller">
-<h2>Issues</h2>
-<ul>
-<li class="fragment"><p>if <span class="math inline">\(q()\)</span> puts too little mass in regions with high posterior density, we can have some extreme weights</p></li>
-<li class="fragment"><p>optimal case is that <span class="math inline">\(q()\)</span> is as close as possible to the posterior so that all weights are constant</p></li>
-<li class="fragment"><p>Estimate may have large variance</p></li>
-<li class="fragment"><p>Problems with finding a good <span class="math inline">\(q()\)</span> in high dimensions <span class="math inline">\((d &gt; 20)\)</span> or with skewed distributions</p></li>
-</ul>
-</section>
-<section id="markov-chain-monte-carlo-mcmc" class="slide level2 smaller">
-<h2>Markov Chain Monte Carlo (MCMC)</h2>
-<ul>
-<li class="fragment">Typically <span class="math inline">\(\pi(\theta)\)</span> and <span class="math inline">\(\cal{L}(\theta)\)</span> are easy to evaluate</li>
-</ul>
-<div class="fragment">
-<div class="callout callout-note callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Question</strong></p>
-</div>
-<div class="callout-content">
-<p>How do we draw samples only using evaluations of the prior and likelihood in higher dimensional settings?</p>
-</div>
-</div>
-</div>
-<ul>
-<li class="fragment"><p>construct a Markov chain <span class="math inline">\(\theta^{(t)}\)</span> in such a way the the stationary distribution of the Markov chain is the posterior distribution <span class="math inline">\(\pi(\theta \mid y)\)</span>! <span class="math display">\[\theta^{(0)} \overset{k}{\longrightarrow} \theta^{(1)} \overset{k}{\longrightarrow} \theta^{(2)} \cdots\]</span></p></li>
-<li class="fragment"><p><span class="math inline">\(k_t(\theta^{(t-1)} ; \theta^{(t)})\)</span> transition kernel</p></li>
-<li class="fragment"><p>initial state <span class="math inline">\(\theta^{(0)}\)</span></p></li>
-<li class="fragment"><p>choose some nice <span class="math inline">\(k_t\)</span> such that <span class="math inline">\(\theta^{(t)} \to \pi(\theta \mid y)\)</span> as <span class="math inline">\(t \to \infty\)</span></p></li>
-<li class="fragment"><p>biased samples initially but get closer to the target</p></li>
-<li class="fragment"><p>Metropolis Algorithm (1950’s)</p></li>
-</ul>
-</div>
-</section>
-<section id="stochastic-sampling-intuition" class="slide level2 smaller">
-<h2>Stochastic Sampling Intuition</h2>
-<ul>
-<li class="fragment"><p>From a sampling perspective, we need to have a large sample or group of values, <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(S)}\)</span> from <span class="math inline">\(\pi(\theta \mid y)\)</span> whose empirical distribution approximates <span class="math inline">\(\pi(\theta \mid y)\)</span>.</p></li>
-<li class="fragment"><p>for any two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we want <span class="math display">\[\frac{\dfrac{\# \theta^{(s)} \in A}{S}}{\dfrac{\# \theta^{(s)} \in B}{S} } = \dfrac{\# \theta^{(s)} \in A}{\# \theta^{(s)} \in B} \approx \dfrac{\pi(\theta \in A \mid  y)}{\pi(\theta \in B \mid  y)}\]</span></p></li>
-<li class="fragment"><p>Suppose we have a working group <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(s)}\)</span> at iteration <span class="math inline">\(s\)</span>, and need to add a new value <span class="math inline">\(\theta^{(s+1)}\)</span>.</p></li>
-<li class="fragment"><p>Consider a candidate value <span class="math inline">\(\theta^\star\)</span> that is <em>close</em> to <span class="math inline">\(\theta^{(s)}\)</span></p></li>
-<li class="fragment"><p>Should we set <span class="math inline">\(\theta^{(s+1)} = \theta^\star\)</span> or not?</p></li>
-</ul>
-</section>
-<section id="posterior-ratio" class="slide level2 smaller">
-<h2>Posterior Ratio</h2>
-<p>look at the ratio <span class="math display">\[
-\begin{split}
-M &amp; = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)} = \frac{\dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y)} } {\dfrac{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}{p(y)}}\\
-\\
-&amp;  = \dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}
-\end{split}
-\]</span></p>
-<ul>
-<li class="fragment">does not depend on the marginal likelihood we don’t know!</li>
-</ul>
-</section>
-<section id="metropolis-algorithm" class="slide level2 smaller">
-<h2>Metropolis Algorithm</h2>
-<ul>
-<li class="fragment">If <span class="math inline">\(M &gt; 1\)</span>
-<ul>
-<li class="fragment"><p>Intuition: <span class="math inline">\(\theta^{(s)}\)</span> is already a part of the density we desire and the density at <span class="math inline">\(\theta^\star\)</span> is even higher than the density at <span class="math inline">\(\theta^{(s)}\)</span>.</p></li>
-<li class="fragment"><p>Action: set <span class="math inline">\(\theta^{(s+1)} = \theta^\star\)</span></p></li>
-</ul></li>
-<li class="fragment">If <span class="math inline">\(M &lt; 1\)</span>,
-<ul>
-<li class="fragment"><p>Intuition: relative frequency of values in our group <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(s)}\)</span> “equal” to <span class="math inline">\(\theta^\star\)</span> should be <span class="math inline">\(\approx M = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)}\)</span>.</p></li>
-<li class="fragment"><p>For every <span class="math inline">\(\theta^{(s)}\)</span>, include only a fraction of an instance of <span class="math inline">\(\theta^\star\)</span>.</p></li>
-<li class="fragment"><p>Action: set <span class="math inline">\(\theta^{(s+1)} = \theta^\star\)</span> with probability <span class="math inline">\(M\)</span> and <span class="math inline">\(\theta^{(s+1)} = \theta^{(s)}\)</span> with probability <span class="math inline">\(1-M\)</span>.</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="proposal-distribution" class="slide level2 smaller">
-<h2>Proposal Distribution</h2>
-<ul>
-<li class="fragment"><p>Where should the proposed value <span class="math inline">\(\theta^\star\)</span> come from?</p></li>
-<li class="fragment"><p>Sample <span class="math inline">\(\theta^\star\)</span> close to the current value <span class="math inline">\(\theta^{(s)}\)</span> using a <strong>symmetric proposal distribution</strong> <span class="math inline">\(\theta^\star \sim q(\theta^\star \mid \theta^{(s)})\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(q()\)</span> is actually a “family of proposal distributions”, indexed by the specific value of <span class="math inline">\(\theta^{(s)}\)</span>.</p></li>
-<li class="fragment"><p>Here, symmetric means that <span class="math inline">\(q(\theta^\star \mid \theta^{(s)}) = q(\theta^{(s)} \mid \theta^\star)\)</span>.</p></li>
-<li class="fragment"><p>Common choice <span class="math display">\[\textsf{N}(\theta^\star; \theta^{(s)}, \delta^2 \Sigma)\]</span> with <span class="math inline">\(\Sigma\)</span> based on the approximate <span class="math inline">\(\textsf{Cov}(\theta \mid y)\)</span> and <span class="math inline">\(\delta^2 = 2.38^2/\text{dim}(\theta)\)</span> or <span class="math display">\[\text{Unif}(\theta^\star; \theta^{(s)} - \delta, \theta^{(s)} + \delta)\]</span></p></li>
-</ul>
-</section>
-<section id="metropolis-algorithm-recap" class="slide level2 smaller">
-<h2>Metropolis Algorithm Recap</h2>
-<p>The algorithm proceeds as follows:</p>
-<ol type="1">
-<li class="fragment"><p>Given <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(s)}\)</span>, generate a <em>candidate</em> value <span class="math inline">\(\theta^\star \sim q(\theta^\star \mid \theta^{(s)})\)</span>.</p></li>
-<li class="fragment"><p>Compute the acceptance ratio <span class="math display">\[\begin{split}
-M &amp; = \dfrac{\pi(\theta^\star \mid y)}{\pi(\theta^{(s)} \mid y)} = \dfrac{p(y \mid \theta^\star) \pi(\theta^\star)}{p(y \mid \theta^{(s)}) \pi(\theta^{(s)})}.
-\end{split}\]</span></p></li>
-<li class="fragment"><p>Set <span class="math display">\[\begin{eqnarray*}
-\theta^{(s+1)} = \left\{ \begin{array}{ll}
-\theta^\star &amp; \quad \text{with probability} \quad \text{min}(M,1) \\
-\theta^{(s)} &amp; \quad \text{with probability} \quad 1 - \text{min}(M,1) \\
-\end{array} \right.
-\end{eqnarray*}\]</span> equivalent to sampling <span class="math inline">\(u \sim U(0,1)\)</span> independently and setting <span class="math display">\[\begin{eqnarray*}
-\theta^{(s+1)} = \left\{ \begin{array}{ll}
-\theta^\star &amp; \quad \text{if} \quad u &lt; M \\
-\theta^{(s)} &amp; \quad \text{if} \quad \text{otherwise} \\
-\end{array} \right. .
-\end{eqnarray*}
-\]</span></p></li>
-</ol>
-</section>
-<section id="notes" class="slide level2 smaller">
-<h2>Notes</h2>
-<ul>
-<li class="fragment"><p>Acceptance probability is <span class="math display">\[M = \min \left\{ 1, \frac{\pi(\theta^\star) \cal{L}(\theta^\star)}
-                         {\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})}\right\}\]</span></p></li>
-<li class="fragment"><p>ratio of posterior densities where normalizing constant cancels!</p></li>
-<li class="fragment"><p>The Metropolis chain ALWAYS moves to the proposed <span class="math inline">\(\theta^\star\)</span> at iteration <span class="math inline">\(s+1\)</span> if <span class="math inline">\(\theta^\star\)</span> has higher target density than the current <span class="math inline">\(\theta^{(s)}\)</span>.</p></li>
-<li class="fragment"><p>Sometimes, it also moves to a <span class="math inline">\(\theta^\star\)</span> value with lower density in proportion to the density value itself.</p></li>
-<li class="fragment"><p>This leads to a random, Markov process that naturally explores the space according to the probability defined by <span class="math inline">\(\pi(\theta \mid y)\)</span>, and hence generates a sequence that, while dependent, eventually represents draws from <span class="math inline">\(\pi(\theta \mid y)\)</span> (stationary distribution of the Markov Chain).</p></li>
-</ul>
-</section>
-<section id="summarizing-samples" class="slide level2 smaller">
-<h2>Summarizing Samples</h2>
-<ul>
-<li class="fragment"><p>Once we obtain the samples, then we are back to using Monte Carlo approximations for quantities of interest!</p></li>
-<li class="fragment"><p>we can approximate posterior means, quantiles, and other quantities of interest using the empirical distribution of our sampled values.</p></li>
-<li class="fragment"><p>easy to compute the posterior distribution of nonlinear functions of parameters! <span class="math display">\[\psi^{(s)} = g(\theta^{(s)})\]</span></p></li>
-<li class="fragment"><p>some posterior summaries are hard to calculate based on samples <span class="math inline">\(\{ \theta^{(s)}\}\)</span></p>
-<ul>
-<li class="fragment"><p>mode/MAP (at least for continuous)</p></li>
-<li class="fragment"><p>marginal likelihood <span class="math inline">\(m(y) = \int \pi(\theta) p(y \mid \theta)\, d\theta\)</span></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="convergence" class="slide level2 smaller">
-<h2>Convergence</h2>
-<p>We will not cover the convergence theory behind Metropolis chains in detail, but …</p>
-<ul>
-<li class="fragment"><p>The Markov process generated under this procedure is <strong>ergodic</strong> (irreducible and aperiodic) and has a unique limiting distribution (stationary distribution)</p>
-<ul>
-<li class="fragment">ergodicity means that the chain can move anywhere at each step, which is ensured, if <span class="math inline">\(q(\theta^\star \mid \theta^{(s)}) &gt; 0\)</span> everywhere!</li>
-</ul></li>
-<li class="fragment"><p>By construction, Metropolis chains are <strong>reversible</strong>, so that <span class="math inline">\(\pi(\theta \mid y)\)</span> is the stationary distribution</p>
-<ul>
-<li class="fragment"><p>Think of reversibility as being equivalent to symmetry of the joint density of two consecutive <span class="math inline">\(\theta^{(s)}\)</span> and <span class="math inline">\(\theta^{(s+1)}\)</span> in the stationary process (which we get by using a symmetric proposal distribution)</p></li>
-<li class="fragment"><p>detailed balance</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="example" class="slide level2 smaller">
-<h2>Example</h2>
-<p>Priors with <span class="math inline">\(\sigma^2 = 1\)</span>: <span class="math display">\[p(\mu) \propto 1\]</span></p>
-<ul>
-<li class="fragment"><p>Use a <span class="math inline">\(\textsf{Cauchy}(0,1)\)</span> prior on <span class="math inline">\(\sigma_\mu\)</span> independent of <span class="math inline">\(\mu\)</span> and</p></li>
-<li class="fragment"><p>Symmetric proposal for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma_\tau\)</span>?</p></li>
-<li class="fragment"><p>Try independent normals <span class="math inline">\(\frac{2.38^2}{d} \textsf{Cov}(\theta)\)</span> where <span class="math inline">\(d\)</span> is the dimension of <span class="math inline">\(\theta\)</span> (d = 2)</p></li>
-</ul>
-</section>
-<section id="samples" class="slide level2 smaller">
-<h2>Samples</h2>
-
-<img data-src="06-metropolis_files/figure-revealjs/joint-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"><ul>
-<li class="fragment"><p>Overall Acceptance probability is 0.6 out of 10^{4} samples</p></li>
-<li class="fragment"><p>Goal is around 0.44 in 1 dimension to 0.23 in higher dimensions</p></li>
-</ul>
-</section>
-<section id="tuning" class="slide level2 smaller">
-<h2>Tuning</h2>
-<ul>
-<li class="fragment"><p>Sampled values are correlated</p></li>
-<li class="fragment"><p>Correlation between samples can be adjusted by selecting an optimal <span class="math inline">\(\delta\)</span> (i.e., spread of the distribution) in the proposal distribution</p></li>
-<li class="fragment"><p><span class="math inline">\(\delta\)</span> too small leads to <span class="math inline">\(M \approx 1\)</span> for most proposed values, a high acceptance rate, but very small moves, leading to highly correlated chain.</p></li>
-<li class="fragment"><p><span class="math inline">\(\delta\)</span> too large can get “stuck” because <span class="math inline">\(\theta^\star\)</span> may be very far away from high density regions, leading to a very low acceptance rate and again high correlation in the Markov chain.</p></li>
-<li class="fragment"><p>Burn-in and thinning can help!</p></li>
-</ul>
-</section>
-<section id="burn-in" class="slide level2 smaller">
-<h2>Burn-in</h2>
-<ul>
-<li class="fragment"><p>Convergence occurs regardless of our starting point (in theory), so we can usually pick any reasonable values in the parameter space as a starting point.</p></li>
-<li class="fragment"><p>May take a long time to reach high density regions</p></li>
-<li class="fragment"><p>Over representation of low density samples given finite iterations</p></li>
-<li class="fragment"><p>Generally, we throw out a certain number of the first draws, known as the <strong>burn-in</strong>, as an attempt to make our draws closer to the stationary distribution and less dependent on any single set of starting values.</p></li>
-<li class="fragment"><p>However, we don’t know exactly when convergence occurs, so it is not always clear how much burn-in we would need.</p></li>
-<li class="fragment"><p>If you run long enough you should not need to discard any samples! (ergodicity)</p></li>
-</ul>
-</section>
-<section id="example-1" class="slide level2 smaller">
-<h2>Example</h2>
-
-<img data-src="06-metropolis_files/figure-revealjs/joint2-1.png" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
 <section id="convergence-diagnostics" class="slide level2 smaller">
 <h2>Convergence diagnostics</h2>
 <ul>
@@ -675,8 +473,8 @@ sigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693</code></pre>
 <li class="fragment"><p>The time-series SE adjusts the naive SE for <strong>autocorrelation</strong>.</p></li>
 </ul>
 </section>
-<section id="effective-sample-size." class="slide level2 smaller">
-<h2>Effective sample size.</h2>
+<section id="effective-sample-size" class="slide level2 smaller">
+<h2>Effective Sample Size</h2>
 <ul>
 <li class="fragment"><p>The <strong>effective sample size</strong> translates the number of MCMC samples <span class="math inline">\(S\)</span> into an equivalent number of independent samples.</p></li>
 <li class="fragment"><p>It is defined as <span class="math display">\[\textrm{ESS} = \dfrac{S}{1 + 2 \sum_k \rho_k},\]</span></p></li>
@@ -699,11 +497,11 @@ sigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693</code></pre>
 <section id="trace-plot-for-mean" class="slide level2">
 <h2>Trace plot for mean</h2>
 
-<img data-src="06-metropolis_files/figure-revealjs/unnamed-chunk-6-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-6-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="trace-plot-for-sigma_mu" class="slide level2">
 <h2>Trace plot for <span class="math inline">\(\sigma_\mu\)</span></h2>
 
-<img data-src="06-metropolis_files/figure-revealjs/unnamed-chunk-7-1.png" width="3000" class="r-stretch quarto-figure-center"><p>OK (be careful of scaling in plots!)</p>
+<img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-7-1.png" width="3000" class="r-stretch quarto-figure-center"><p>OK (be careful of scaling in plots!)</p>
 </section>
 <section id="autocorrelation" class="slide level2 smaller">
 <h2>Autocorrelation</h2>
@@ -717,18 +515,18 @@ sigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693</code></pre>
 <section id="autocorrelation-for-mean" class="slide level2 smaller">
 <h2>Autocorrelation for mean</h2>
 
-<img data-src="06-metropolis_files/figure-revealjs/unnamed-chunk-8-1.png" width="3000" class="r-stretch quarto-figure-center"><p>So-So</p>
+<img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-8-1.png" width="3000" class="r-stretch quarto-figure-center"><p>So-So</p>
 </section>
 <section id="autocorrelation-for-variance" class="slide level2 smaller">
 <h2>Autocorrelation for variance</h2>
 
-<img data-src="06-metropolis_files/figure-revealjs/unnamed-chunk-9-1.png" width="3000" class="r-stretch quarto-figure-center"><p>worse</p>
+<img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-9-1.png" width="3000" class="r-stretch quarto-figure-center"><p>worse</p>
 </section>
 <section id="gelman-rubin" class="slide level2 smaller">
 <h2>Gelman-Rubin</h2>
 <p>Gelman &amp; Rubin suggested a diagnostic <span class="math inline">\(R\)</span> based on taking separate chains with dispersed initial values to test convergence</p>
 
-<img data-src="06-metropolis_files/figure-revealjs/unnamed-chunk-10-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-10-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="gelman-rubin-diagnostic" class="slide level2 smaller">
 <h2>Gelman-Rubin Diagnostic</h2>
 <ul>
@@ -778,9 +576,6 @@ Multivariate psrf
 </section>
 <section id="geweke-diagnostic" class="slide level2 smaller">
 <h2>Geweke Diagnostic</h2>
-<ul>
-<li class="fragment">The output is the z-score itself (not the p-value).</li>
-</ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">geweke.diag</span>(theta.mcmc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -802,6 +597,9 @@ Fraction in 2nd window = 0.5
   0.4454   0.6377 </code></pre>
 </div>
 </div>
+<ul>
+<li class="fragment">The output is the z-score itself (not the p-value).</li>
+</ul>
 </section>
 <section id="practical-advice-on-diagnostics" class="slide level2 smaller">
 <h2>Practical advice on diagnostics</h2>
@@ -813,16 +611,85 @@ Fraction in 2nd window = 0.5
 <li class="fragment"><p>Most common method of assessing convergence is visual examination of trace plots.</p></li>
 </ul>
 </section>
-<section id="improving" class="slide level2 smaller">
-<h2>Improving</h2>
+<section id="improving-results" class="slide level2 smaller">
+<h2>Improving Results</h2>
 <ul>
 <li class="fragment"><p>more iterations and multiple chains</p></li>
-<li class="fragment"><p>thinning to reduce correlations and increase ESS e.g.&nbsp;if autocorrelation drops to near zero at say lag 5, keep every 5th draw</p></li>
+<li class="fragment"><p>thinning to reduce correlations and increase ESS</p></li>
 <li class="fragment"><p>change the proposal distribution <span class="math inline">\(q\)</span></p></li>
+<li class="fragment"><p>adaptive Metropolis to tune <span class="math inline">\(q\)</span></p></li>
 </ul>
+</section>
+<section id="proposal-distribution" class="slide level2 smaller">
+<h2>Proposal Distribution</h2>
+<ul>
+<li class="fragment"><p>Common choice <span class="math display">\[\textsf{N}(\theta^\star; \theta^{(s)}, \delta^2 \Sigma)\]</span></p></li>
+<li class="fragment"><p>rough estimate of <span class="math inline">\(\Sigma\)</span> based on the asymptotic Gaussian approximation <span class="math inline">\(\textsf{Cov}(\theta \mid y)\)</span> and <span class="math inline">\(\delta = 2.38/\sqrt{\text{dim}(\theta)}\)</span></p></li>
+<li class="fragment"><p>find the MAP estimate (posterior mode) <span class="math inline">\(\hat{\theta}\)</span></p></li>
+<li class="fragment"><p>take <span class="math display">\[\Sigma =  \left[-
+  \frac{\partial^2 \log(\cal{L}(\theta)) + \log(\pi(\theta))}
+   {\partial \theta \partial \theta^T} \right]^{-1}_{\theta = \hat{\theta}}\]</span></p></li>
+<li class="fragment"><p>ignore prior and use inverse of Fisher Information (covariance of MLE)</p></li>
+</ul>
+</section>
+<section id="learn-covariance-in-proposal" class="slide level2 smaller">
+<h2>Learn Covariance in Proposal?</h2>
+<ul>
+<li class="fragment"><p>Can we learn the proposal distribution?</p></li>
+<li class="fragment"><p>ad hoc?</p>
+<ul>
+<li class="fragment">run an initial MCMC for an initial tuning phase (e.g.&nbsp;1000 samples) with a fixed <span class="math inline">\(\delta\)</span> and estimate <span class="math inline">\(\Sigma(\theta)\)</span> from samples.<br>
+</li>
+<li class="fragment">run more to tweak <span class="math inline">\(\delta\)</span> to get acceptance rate between <span class="math inline">\(23\%-40\%\)</span>.</li>
+<li class="fragment">fix the kernel for final run</li>
+</ul></li>
+<li class="fragment"><p>MCMC doesn’t allow you to use the full history of the chain <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(s)}\)</span> in constructing the proposal distributions as it violates the Markov assumption</p></li>
+<li class="fragment"><p>even with no further “learning”, no guarantee we will converge to posterior!</p></li>
+<li class="fragment"><p>more elegant approach - formal <strong>adaptive Metropolis</strong></p>
+<ul>
+<li class="fragment">keep adapting the entire time!</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>ad hoc adaptation may mess up convergence !</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adaptive-mcmc" class="slide level2 smaller">
+<h2>Adaptive MCMC</h2>
+<ul>
+<li class="fragment"><p>run RWM with a Gaussian proposal for a fixed number of iterations for <span class="math inline">\(s &lt; s_0\)</span></p></li>
+<li class="fragment"><p>estimate of covariance at state <span class="math inline">\(s\)</span> <span class="math display">\[\Sigma^{(s)} = \frac{1}{s}\left(\sum_{i=1}^s \theta^{(i)} {\theta^{(i)}}^T -
+s \bar{\theta}^{(s)} {\bar{\theta}^{(s)}}^T\right)\]</span></p></li>
+<li class="fragment"><p>proposal for <span class="math inline">\(s &gt; s_0\)</span> with <span class="math inline">\(\delta = 2.38/\sqrt{d}\)</span> <span class="math display">\[\theta^* \sim \textsf{N}(\theta^{(s)}, \delta^2 (\Sigma^{(s)} + \epsilon I_d))\]</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\epsilon &gt; 0\)</span> insures covariance is positive definite</p></li>
+<li class="fragment"><p>if <span class="math inline">\(s_0\)</span> is too large will take longer for adaptation to be seen</p></li>
+<li class="fragment"><p>need conditions for vanishing adaptation e.g.&nbsp;that the proposal depends less and less on recent states in the chain - see <a href="https://www-tandfonline-com.proxy.lib.duke.edu/doi/pdf/10.1198/jcgs.2009.06134?needAccess=true%7D%7BRoberts%20and%20Rosenthal%20(2009)">Roberts &amp; Rosenthal (2009)</a>for examples and other conditions</p></li>
+</ul>
+</section>
+<section id="example-again" class="slide level2">
+<h2>Example again</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="07-adaptive-metropolis_files/figure-revealjs/unnamed-chunk-14-1.png" width="3000"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Acceptance rate now around 30-35 % of 10,000 iterations!</p>
 
-
-<img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><img src="../../img/icon.png" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
 </div>
 </section>
