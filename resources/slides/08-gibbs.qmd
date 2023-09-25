@@ -1,0 +1,438 @@
+---
+title: "Lecture 8: Metropolis-Hastings, Gibbs and Blocking"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+require(lattice)
+require(MCMCpack)
+require(hdrcde)
+require(coda)
+require(mvtnorm)
+#require(rethinking)
+set.seed(42)
+```
+
+
+##  Metropolis-Hastings  (MH) {.smaller}
+
+- Metropolis requires that the proposal distribution be symmetric
+
+  
+
+- Hastings (1970)  generalizes Metropolis algorithms to allow asymmetric proposals - aka Metropolis-Hastings or MH  $q(\theta^* \mid \theta^{(s)})$ does not need to be the same as $q(\theta^{(s)} \mid \theta^*)$
+
+  
+-  propose $\theta^*  \mid \theta^{(s)} \sim q(\theta^* \mid \theta^{(s)})$
+
+  
+- Acceptance probability 
+$$\min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)/q(\theta^* \mid \theta^{(s)})}
+{\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})/q( \theta^{(s)} \mid \theta^*)} \right\}$$
+
+  
+
+- adjustment for asymmetry in acceptance ratio is key to ensuring convergence to stationary distribution!
+
+ 
+## Special cases {.smaller}
+
+- Metropolis
+
+  
+
+- Independence chain
+
+  
+
+- Gibbs samplers
+
+  
+
+- Metropolis-within-Gibbs
+
+  
+
+- combinations of the above!
+
+ 
+## Independence Chain {.smaller}
+
+- suppose we have a good approximation $\tilde{\pi}(\theta \mid y)$   to  $\pi(\theta \mid y)$
+
+  
+
+-  Draw $\theta^* \sim \tilde{\pi}(\theta \mid y)$ _without_ conditioning on $\theta^{(s)}$
+
+  
+
+- acceptance probability 
+$$\min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)/\tilde{\pi}(\theta^* \mid \theta^{(s)})}
+{\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})/\tilde{\pi}( \theta^{(s)} \mid \theta^*)} \right\}$$
+
+  
+
+- what happens if the approximation is really accurate?
+
+  
+
+- probability of acceptance is $\approx 1$
+
+  
+
+- Important caveat for convergence:  tails of the posterior should be at least as heavy as the tails of the posterior  (Tweedie 1994)
+
+  
+
+-  Replace Gaussian by a Student-t with low degrees of freedom
+
+  
+
+- transformations of $\theta$
+
+
+
+## Blocked Metropolis-Hastings {.smaller}
+
+So far all algorithms update all of the parameters simultaneously
+
+  
+
+- convenient to break problems in to $K$ blocks and update them separately
+
+  
+
+- $\theta = (\theta_{[1]}, \ldots, \theta_{[K]}) = (\theta_1, \ldots, \theta_p)$
+
+
+
+  
+
+- At iteration $s$, for $k = 1, \ldots, K$ Cycle thru blocks: (fixed order or random order)
+
+    - propose $\theta^*_{[k]} \sim q_k(\theta_{[k]} \mid \theta_{[<k]}^{(s)}, \theta_{[>k]}^{(s-1)})$
+   
+    - set $\theta_{[k]}^{(s)} = \theta^*_{[k]}$ with probability
+   $$\min \left\{ 1, \frac{
+   \pi(\theta_{[<k]}^{(s)},\theta_{[k]}^*, 
+        \theta_{[>k]}^{(s-1)})
+   \cal{L}(\theta_{[<k]}^{(s)},\theta_{[k]}^*,
+           \theta_{[>k]}^{(s-1)})/
+   q_k(\theta_{[k]}^* \mid \theta_{[<k]}^{(s)},    
+       \theta_{[>k]}^{(s-1)})}
+  {\pi(\theta_{[<k]}^{(s)},\theta_{[k]}^{(s-1)}, 
+        \theta_{[>k]}^{(s-1)})
+   \cal{L}(\theta_{[<k]}^{(s)},\theta_{[k]}^{(s-1)},
+           \theta_{[>k]}^{(s-1)})/
+   q_k(\theta_{[k]}^{(s-1)} \mid \theta_{[<k]}^{(s)},    
+       \theta_{[>k]}^{(s-1)})} \right\}$$
+ 
+## Gibbs Sampler {.smaller}
+
+- The Gibbs Sampler is special case of Blocked MH
+
+
+
+- proposal distribution $q_k$ for the $k$th block is the **full conditional** distribution for $\theta_{[k]}$
+$$\begin{split}
+\pi(\theta_{[k]} \mid \theta_{[-k]}, y) & = \frac{\pi(\theta_{[k]} , \theta_{[-k]} \mid y)}{ \pi(\theta_{[-k]} \mid y))} \propto \pi(\theta_{[k]} , \theta_{[-k]} \mid y)\\
+\   & \propto \cal{L}(\theta_{[k]} , \theta_{[-k]})\pi(\theta_{[k]} , \theta_{[-k]})
+\end{split}$$
+  
+
+- Acceptance probability 
+$$\min \left\{ 1, \frac{
+   \pi(\theta_{[<k]}^{(s)},\theta_{[k]}^*, 
+        \theta_{[>k]}^{(s-1)})
+   \cal{L}(\theta_{[<k]}^{(s)},\theta_{[k]}^*,
+           \theta_{[>k]}^{(s-1)})/
+   q_k(\theta_{[k]}^* \mid \theta_{[<k]}^{(s)},    
+       \theta_{[>k]}^{(s-1)})}
+  {\pi(\theta_{[<k]}^{(s)},\theta_{[k]}^{(s-1)}, 
+        \theta_{[>k]}^{(s-1)})
+   \cal{L}(\theta_{[<k]}^{(s)},\theta_{[k]}^{(s-1)},
+           \theta_{[>k]}^{(s-1)})/
+   q_k(\theta_{[k]}^{(s-1)} \mid \theta_{[<k]}^{(s)},    
+       \theta_{[>k]}^{(s-1)})} \right\}$$
+       
+  
+
+- Simplifies so that acceptance probability is always 1!
+
+  
+
+- even though joint distribution is messy, full conditionals may be (conditionally) conjugate and easy to sample from!
+
+
+ 
+##  Univariate Normal Example {.smaller}
+
+Model
+$$\begin{align*}
+Y_i \mid \mu, \sigma^2 & \overset{iid}{\sim} \textsf{N}(\mu, 1/\phi) \\
+\mu & \sim \textsf{N}(\mu_0, 1/\tau_0) \\
+\phi & \sim  \textsf{Gamma}(a/2, b/2)
+\end{align*}$$
+
+  
+-  Joint prior is a product of independent  Normal-Gamma
+
+  
+-  Is  $\pi(\mu, \phi \mid y_1, \ldots, y_n)$ also a Normal-Gamma family?
+
+
+
+ 
+## Full Conditional for the  Mean {.smaller}
+
+The full conditional distributions  $\mu \mid \phi, y_1, \ldots, y_n$ 
+$$\begin{align*}
+\mu & \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(\hat{\mu}, 1/\tau_n) \\
+\hat{\mu} & = \frac{\tau_0 \mu_0  + n \phi \bar{y}}{\tau_0 + n \phi} \\
+\tau_n & = \tau_0 + n \phi
+\end{align*}$$
+  
+  
+  
+ 
+## Full Conditional for the Precision {.smaller}
+
+- Full conditional for $\phi$
+$$\begin{align*}
+\phi  \mid \mu, y_1, \ldots, y_n & \sim \textsf{Gamma}( a_n/2, b_n/2) \\
+a_n & = a + n \\
+b_n & = b + \sum_i (y_i - \mu)^2
+\end{align*}$$
+
+ . . . 
+
+$$\textsf{E}[\phi \mid \mu, y_1, \ldots, y_n] = \frac{(a + n)/2}{(b + \sum_i (y_i - \mu)^2 )/2}$$
+
+  
+- What happens with a non-informative prior  i.e
+$a = b = \epsilon$ as $\epsilon \to 0$?
+
+ . . .
+  
+::: {.callout-warning}
+Proper full conditionals  with improper priors do not ensure proper joint posterior!
+:::
+ 
+## Normal Linear Regression Example {.smaller}
+
+- Model
+$$\begin{align*}
+Y_i \mid \beta, \phi & \overset{iid}{\sim} \textsf{N}(x_i^T\beta, 1/\phi) \\
+Y \mid \beta, \phi & \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
+\beta & \sim \textsf{N}(b_0, \Phi_0^{-1}) \\
+\phi & \sim \textsf{N}(v_0/2, s_0/2)
+\end{align*}$$
+
+- $x_i$ is a $p \times 1$ vector of predictors and $X$ is $n \times p$ matrix
+
+  
+
+- $\beta$ is a $p \times 1$ vector of coefficients
+
+  
+
+- $\Phi_0$ is a $p \times p$ prior precision matrix 
+
+  
+
+- Multivariate Normal density for $\beta$
+$$\pi(\beta \mid b_0, \Phi_0) = \frac{|\Phi_0|^{1/2}}{(2 \pi)^{p/2}}\exp\left\{- \frac{1}{2}(\beta - b_0)^T \Phi_0 (\beta - b_0)  \right\}$$
+ 
+## Full Conditional for $\beta$ {.smaller}
+
+$$\begin{align*}
+\beta & \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n^{-1}) \\
+b_n & =  (\Phi_0 + \phi X^TX)^{-1}(\Phi_0 b_0  +  \phi X^TX \hat{\beta})\\
+\Phi_n & = \Phi_0 + \phi X^TX
+\end{align*}$$
+
+ 
+## Derivation continued {.smaller}
+
+
+ 
+## Full Conditional for $\phi$ {.smaller}
+
+$$ \phi \mid \beta, y_1, \ldots, y_n \sim \textsf{Gamma}((v_0 + n)/2, (s_0 + \sum_i(y_i - x^T_i \beta)))$$
+
+
+
+ 
+##  Choice of Prior Precision {.smaller}
+
+- Non-Informative $\Phi_0 \to 0$ 
+
+  
+
+- Formal Posterior given $\phi$
+  $$\beta \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(\hat{\beta}, \phi^{-1} (X^TX)^{-1})$$
+  
+  
+
+- needs $X^TX$ to be full rank for distribution to be unique
+
+ 
+## Invariance and Choice of Mean/Precision {.smaller}
+
+-  the model in vector form
+$$ Y \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)$$
+
+  
+
+- What if we transform the $X$ matrix by $\tilde{X} = X H$ where $H$ is $p \times p$ and invertible
+
+  
+
+- obtain the posterior for $\tilde{\beta}$ using $Y$ and $\tilde{X}$  
+$$ Y \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)$$
+
+- since $\tilde{X} \tilde{\beta} = X H  \tilde{\beta} = X \beta$  invariance suggests that the posterior for $\beta$ and $H \tilde{\beta}$ should be the same 
+
+  
+- or the posterior of $H^{-1} \beta$
+and $\tilde{\beta}$ should be the same
+
+  
+
+- with some linear algebra we can show that this is true if $b_0 = 0$ and $\Phi_0$ is $k X^TX$ for some $k$  (show!)
+
+ 
+## Zellner's g-prior {.smaller}
+
+- Popular choice is to take $k = \phi/g$ which is a special case of Zellner's g-prior
+$$\beta \mid \phi, g \sim \textsf{N}\left(0, \frac{g}{\phi} (X^TX)^{-1}\right)$$
+
+  
+
+- Full conditional 
+$$\beta \mid \phi, g \sim \textsf{N}\left(\frac{g}{1 + g} \hat{\beta}, \frac{1}{\phi} \frac{g}{1 + g} (X^TX)^{-1}\right)$$
+  
+
+- one parameter $g$ controls shrinkage
+
+  
+
+- if $\phi \sim \textsf{Gamma}(v_0/2, s_0/2)$ then posterior is
+$$\phi \mid y_1, \ldots, y_n \sim \textsf{Gamma}(v_n/2, s_n/2)$$
+  
+
+- Conjugate so we could skip Gibbs sampling and sample directly from gamma and then conditional normal!
+
+ 
+## Ridge Regression  {.smaller}
+
+- If $X^TX$ is nearly singular, certain  elements of $\beta$ or (linear combinations of $\beta$) may have huge variances under the $g$-prior (or flat prior) as the MLEs are highly unstable!
+
+  
+
+- **Ridge regression** protects against the explosion of variances and ill-conditioning with the conjugate priors:
+$$\beta \mid \phi \sim \textsf{N}(0, \frac{1}{\phi \lambda} I_p)$$
+  
+
+- Posterior for $\beta$  (conjugate case)
+$$\beta \mid \phi, \lambda, y_1, \ldots, y_n \sim 
+\textsf{N}\left((\lambda I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\lambda I_p + X^TX)^{-1}
+\right)$$
+
+
+
+
+ 
+##  Bayes Regression {.smaller}
+
+- Posterior mean (or mode) given $\lambda$ is biased, but can show that there **always** is a value of $\lambda$  where the frequentist's expected squared error loss is smaller for the Ridge estimator than MLE!
+
+  
+
+- related to penalized maximum likelihood estimation 
+
+  
+
+-  Choice of $\lambda$
+
+  
+
+-  Bayes Regression and choice of $\Phi_0$ in general is a very important problem and provides the foundation  for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!
+
+  
+
+- Be sure that you can derive the full conditional posteriors for $\beta$ and $\phi$ as well as the joint posterior in the conjugate case!
+
+
+ 
+## Comments {.smaller}
+
+
+
+- Why don't we treat each individual $\beta_j$ as a separate block?
+
+  
+
+-  Gibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!
+
+  
+
+- Use block sizes in Gibbs that are as big as possible to improve  mixing (proven faster convergence)
+
+  
+
+- Collapse the sampler by integrating out as many parameters as possible  (as long as resulting sampler has good mixing)
+
+  
+
+- can use Gibbs steps and (adaptive) Metropolis Hastings steps together
+
+  
+
+
+-  Introduce latent variables (data augmentation) to allow Gibbs steps  (Next class)
+
+
+
+
+
