@@ -1,0 +1,267 @@
+---
+title: "Lecture 9: Gibbs and Data Augmentation"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+require(lattice)
+require(MCMCpack)
+require(hdrcde)
+require(coda)
+require(mvtnorm)
+#require(rethinking)
+set.seed(42)
+```
+
+
+
+## Binary Regression {.smaller}
+
+$$Y_i \mid \beta \sim \textsf{Ber}(p(x_i^T \beta))$$
+where $\Pr(Y_i  = 1 \mid \beta) = p(x_i^T \beta))$ and linear predictor $x_i^T\beta = \lambda_i$
+
+  
+
+- link function for binary regression is any 1-1 function  $g$ that will map $(0,1) \to \mathbb{R}$,  i.e.  $g(p(\lambda)) = \lambda$
+
+  
+
+- logistic regression uses the logit link  
+$$\log\left(\frac{p(\lambda_i)}{1 - p(\lambda_i) }\right) = x_i^T \beta = \lambda_i$$
+  
+
+- probit link
+$$p(x_i^T \beta) = \Phi(x_i^T \beta)$$
+
+- $\Phi()$ is the Normal cdf
+
+ 
+##  Likelihood and Posterior {.smaller}
+
+Likelihood:
+$$\cal{L}(\beta) \propto \prod_{i = 1}^n \Phi(x_i^T \beta)^{y_i} (1 - \Phi(x^T_i \beta))^{1 - y_i}$$
+  
+
+- prior  $\beta \sim \textsf{N}_p(b_0, \Phi_0)$
+
+  
+
+- posterior $\pi(\beta) \propto \pi(\beta) \cal{L}(\beta)$
+
+  
+
+- How to  approximate the posterior?
+
+  
+  + asymptotic Normal approximation
+  
+  
+  + MH or adaptive Metropolis
+  
+  
+  + stan (Hamiltonian Monte Carlo)
+  
+  
+  + Gibbs ?   
+  
+  
+
+- seemingly no, but there is a trick!
+  
+  
+ 
+##  Data Augmentation {.smaller}
+
+-  Consider an **augmented** posterior
+$$\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \theta)$$
+  
+
+- IF we choose $\pi(Z \mid \beta)$ and $\pi(y \mid Z, \theta)$ carefully, we can carry out Gibbs and get samples of $\pi(\beta \mid y)$ !
+
+  
+
+- Conditions: we need to have 
+$$\pi(\beta \mid y) = \int_{\cal{Z}} \pi(\beta, z \mid y) \, dz$$ (it is a marginal of joint augmented posterior)
+
+  
+
+-  We have to choose
+$$p(y \mid \beta) = \int_{\cal{Z}}  \pi(z \mid \beta) \pi(y \mid \beta, z) \, dz$$
+  
+
+- complete data likelihood
+
+ 
+##  Augmentation Strategy {.smaller}
+
+Set 
+
+- $y_i = 1_{(Z_i > 0)}$ i.e. ( $y_i = 1$ if $Z_i > 0$ ) 
+- $y_i = 1_{(Z_i < 0)}$ i.e.  ( $y_i = 0$ if $Z_i < 0$ )
+
+  
+
+- $Z_i = x_i^T \beta + \epsilon_i \qquad \epsilon_i \overset{iid}{\sim} \textsf{N(0,1)}$
+
+  
+
+- Relationship to probit model:
+$$\begin{align*}\Pr(y = 1 \mid \beta) & = P(Z_i > 0 \mid \beta) \\
+   & = P(Z_i - x_i^T \beta > -x^T\beta) \\
+   & = P(\epsilon_i > -x^T\beta) \\
+   & =  1 - \Phi(-x^T_i \beta) \\
+   & =  \Phi(x^T_i \beta)
+\end{align*}$$
+
+
+
+
+ 
+##  Augmented Posterior & Gibbs {.smaller}
+
+$$\begin{align*}\pi(& Z_1,  \ldots, Z_n,  \, \beta \mid y) \propto \\
+& \textsf{N}(\beta; b_0, \phi_0)  \left\{\prod_{i=1}^n \textsf{N}(Z_i; x_i^T\beta, 1)\right\} \left\{  \prod_{i=1}^n y_i 1_{(Z_i > 0)} + (1 - y_i)1_{(Z_i < 0)}\right\}
+\end{align*}$$
+
+  
+- full conditional for $\beta$
+$$\beta \mid Z_1, \ldots, Z_n, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n)$$   
+- standard Normal-Normal regression updating given $Z_i$'s  
+
+  
+- Full conditional for latent $Z_i$
+$$\begin{align*}
+\pi(Z_i \mid \beta, Z_{[-i]}, y_1, \ldots, y_n)  & \propto 
+\textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i > 0)} \text{   if  } y_1 = 1 \\
+\pi(Z_i \mid \beta, Z_{[-i]}, y_1, \ldots, y_n)  & \propto 
+\textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i < 0) }\text{   if  } y_1 = 0 \\
+\end{align*}$$
+
+- sample from independent truncated normal distributions !
+
+  
+
+- two block Gibbs sampler $\theta_{[1]} = \beta$ and $\theta_{[2]} = (Z_1, \ldots, Z_n)^T$
+
+ 
+## Truncated Normal Sampling {.smaller}
+
+- Use inverse cdf method for  cdf $F$
+
+- If $u \sim U(0,1)$ set $z = F^{-1}(u)$
+
+```{r inverseCDF, echo=FALSE, fig.height=5, out.height="55%", out.width="60%"}
+a = pnorm(0); b = 1
+Z = seq(-3.5, 3.5, length=1000) + .5
+plot(Z, pnorm(Z), type="l", ylab="u")
+u = .75
+z = qnorm(u) 
+segments(min(Z), u,  z, u, lty=2)
+segments(z,0, z, u, lty=2)
+
+abline(h = a, lty=3)
+abline(h=b, lty=3)
+```
+- if $Z \in (a, b)$, Draw $u \sim U(F(a),F(b))$
+  and set $z = F^{-1}(u)$
+
+ 
+## Data Augmentation in General {.smaller}
+
+DA is a broader than a computational trick allowing Gibbs sampling
+
+  
+
+- missing data
+
+  
+
+- random effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling
+
+
+  
+
+- Modeling heavy tailed distributions such as $t$ errors in regression 
+
+
+
+
+
+
+
+
+
+
+
+ 
+## Comments {.smaller}
+
+
+
+- Why don't we treat each individual $\theta_j$ as a separate block?
+
+  
+
+-  Gibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!
+
+  
+
+- Use block sizes in Gibbs that are as big as possible to improve  mixing (proven faster convergence)
+
+  
+
+- Collapse the sampler by integrating out as many parameters as possible  (as long as resulting sampler has good mixing)
+
+  
+
+- can use Gibbs steps and (adaptive) Metropolis Hastings steps together
+
+  
+
+
+- latent variables to allow Gibbs steps  but not always better!  
+
+
+
+
+

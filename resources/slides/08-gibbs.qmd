@@ -319,28 +319,28 @@ $$ \phi \mid \beta, y_1, \ldots, y_n \sim \textsf{Gamma}((v_0 + n)/2, (s_0 + \su
  
 ## Invariance and Choice of Mean/Precision {.smaller}
 
--  the model in vector form
-$$ Y \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)$$
+-  the model in vector form $Y  \mid \beta, \phi \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)$
 
   
 
-- What if we transform the $X$ matrix by $\tilde{X} = X H$ where $H$ is $p \times p$ and invertible
+- What if we transform  the mean $X\beta = X H H^{-1} \beta$ with new $X$ matrix $\tilde{X} = X H$ where $H$ is $p \times p$ and invertible and coefficients  $\tilde{\beta} = H^{-1} \beta$.
 
   
 
 - obtain the posterior for $\tilde{\beta}$ using $Y$ and $\tilde{X}$  
-$$ Y \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)$$
+$$ Y \mid  \tilde{\beta}, \phi \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)$$
 
 - since $\tilde{X} \tilde{\beta} = X H  \tilde{\beta} = X \beta$  invariance suggests that the posterior for $\beta$ and $H \tilde{\beta}$ should be the same 
 
   
-- or the posterior of $H^{-1} \beta$
+- plus the posterior of $H^{-1} \beta$
 and $\tilde{\beta}$ should be the same
 
-  
+. . .
 
-- with some linear algebra we can show that this is true if $b_0 = 0$ and $\Phi_0$ is $k X^TX$ for some $k$  (show!)
-
+::: {.callout-tip title="Exercise for the Energetic Student"}
+With some linear algebra, show that this is true for a normal prior if $b_0 = 0$ and $\Phi_0$ is $k X^TX$ for some $k$  
+:::
  
 ## Zellner's g-prior {.smaller}
 
