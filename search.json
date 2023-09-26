@@ -494,7 +494,7 @@
     "href": "resources/slides/08-gibbs.html#invariance-and-choice-of-meanprecision",
     "title": "Lecture 8: Metropolis-Hastings, Gibbs and Blocking",
     "section": "Invariance and Choice of Mean/Precision",
-    "text": "Invariance and Choice of Mean/Precision\n\nthe model in vector form \\[ Y \\sim \\textsf{N}_n (X\\beta, \\phi^{-1} I_n)\\]\nWhat if we transform the \\(X\\) matrix by \\(\\tilde{X} = X H\\) where \\(H\\) is \\(p \\times p\\) and invertible\nobtain the posterior for \\(\\tilde{\\beta}\\) using \\(Y\\) and \\(\\tilde{X}\\)\n\\[ Y \\sim \\textsf{N}_n (\\tilde{X}\\tilde{\\beta}, \\phi^{-1} I_n)\\]\nsince \\(\\tilde{X} \\tilde{\\beta} = X H \\tilde{\\beta} = X \\beta\\) invariance suggests that the posterior for \\(\\beta\\) and \\(H \\tilde{\\beta}\\) should be the same\nor the posterior of \\(H^{-1} \\beta\\) and \\(\\tilde{\\beta}\\) should be the same\nwith some linear algebra we can show that this is true if \\(b_0 = 0\\) and \\(\\Phi_0\\) is \\(k X^TX\\) for some \\(k\\) (show!)"
+    "text": "Invariance and Choice of Mean/Precision\n\nthe model in vector form \\(Y \\mid \\beta, \\phi \\sim \\textsf{N}_n (X\\beta, \\phi^{-1} I_n)\\)\nWhat if we transform the mean \\(X\\beta = X H H^{-1} \\beta\\) with new \\(X\\) matrix \\(\\tilde{X} = X H\\) where \\(H\\) is \\(p \\times p\\) and invertible and coefficients \\(\\tilde{\\beta} = H^{-1} \\beta\\).\nobtain the posterior for \\(\\tilde{\\beta}\\) using \\(Y\\) and \\(\\tilde{X}\\)\n\\[ Y \\mid  \\tilde{\\beta}, \\phi \\sim \\textsf{N}_n (\\tilde{X}\\tilde{\\beta}, \\phi^{-1} I_n)\\]\nsince \\(\\tilde{X} \\tilde{\\beta} = X H \\tilde{\\beta} = X \\beta\\) invariance suggests that the posterior for \\(\\beta\\) and \\(H \\tilde{\\beta}\\) should be the same\nplus the posterior of \\(H^{-1} \\beta\\) and \\(\\tilde{\\beta}\\) should be the same\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\nWith some linear algebra, show that this is true for a normal prior if \\(b_0 = 0\\) and \\(\\Phi_0\\) is \\(k X^TX\\) for some \\(k\\)"
   },
   {
     "objectID": "resources/slides/08-gibbs.html#zellners-g-prior",
@@ -896,27 +896,6 @@
     "text": "Improving\n\nmore iterations and multiple chains\nthinning to reduce correlations and increase ESS e.g. if autocorrelation drops to near zero at say lag 5, keep every 5th draw\nchange the proposal distribution \\(q\\)\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "title": "STA 702 Fall 2023",
-    "section": "Bayesian Statistical Modeling and Data Analysis",
-    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
-  },
-  {
-    "objectID": "index.html#course-info",
-    "href": "index.html#course-info",
-    "title": "STA 702 Fall 2023",
-    "section": "Course Info",
-    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
-  },
-  {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
     "href": "resources/slides/00-course-overview.html#what-is-this-course-about",
     "title": "Welcome to STA 702",
@@ -1034,6 +1013,83 @@
     "title": "Welcome to STA 702",
     "section": "Next Steps",
     "text": "Next Steps\nWork on Lab 0\nFinally, here are some readings to entertain you. Make sure to glance through them within the next week. See Course Resources\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760. 5. Dunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "title": "STA 702 Fall 2023",
+    "section": "Bayesian Statistical Modeling and Data Analysis",
+    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
+  },
+  {
+    "objectID": "index.html#course-info",
+    "href": "index.html#course-info",
+    "title": "STA 702 Fall 2023",
+    "section": "Course Info",
+    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#binary-regression",
+    "href": "resources/slides/09-data-augmentation.html#binary-regression",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Binary Regression",
+    "text": "Binary Regression\n\\[Y_i \\mid \\beta \\sim \\textsf{Ber}(p(x_i^T \\beta))\\] where \\(\\Pr(Y_i = 1 \\mid \\beta) = p(x_i^T \\beta))\\) and linear predictor \\(x_i^T\\beta = \\lambda_i\\)\n\nlink function for binary regression is any 1-1 function \\(g\\) that will map \\((0,1) \\to \\mathbb{R}\\), i.e. \\(g(p(\\lambda)) = \\lambda\\)\nlogistic regression uses the logit link\n\\[\\log\\left(\\frac{p(\\lambda_i)}{1 - p(\\lambda_i) }\\right) = x_i^T \\beta = \\lambda_i\\]\nprobit link \\[p(x_i^T \\beta) = \\Phi(x_i^T \\beta)\\]\n\\(\\Phi()\\) is the Normal cdf"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
+    "href": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Likelihood and Posterior",
+    "text": "Likelihood and Posterior\nLikelihood: \\[\\cal{L}(\\beta) \\propto \\prod_{i = 1}^n \\Phi(x_i^T \\beta)^{y_i} (1 - \\Phi(x^T_i \\beta))^{1 - y_i}\\]\n\nprior \\(\\beta \\sim \\textsf{N}_p(b_0, \\Phi_0)\\)\nposterior \\(\\pi(\\beta) \\propto \\pi(\\beta) \\cal{L}(\\beta)\\)\nHow to approximate the posterior?\n\nasymptotic Normal approximation\nMH or adaptive Metropolis\nstan (Hamiltonian Monte Carlo)\nGibbs ?\n\nseemingly no, but there is a trick!"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation",
+    "href": "resources/slides/09-data-augmentation.html#data-augmentation",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Data Augmentation",
+    "text": "Data Augmentation\n\nConsider an augmented posterior \\[\\pi(\\beta, Z \\mid y) \\propto \\pi(\\beta) \\pi(Z \\mid \\beta) \\pi(y \\mid Z, \\theta)\\]\nIF we choose \\(\\pi(Z \\mid \\beta)\\) and \\(\\pi(y \\mid Z, \\theta)\\) carefully, we can carry out Gibbs and get samples of \\(\\pi(\\beta \\mid y)\\) !\nConditions: we need to have \\[\\pi(\\beta \\mid y) = \\int_{\\cal{Z}} \\pi(\\beta, z \\mid y) \\, dz\\] (it is a marginal of joint augmented posterior)\nWe have to choose \\[p(y \\mid \\beta) = \\int_{\\cal{Z}}  \\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z) \\, dz\\]\ncomplete data likelihood"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#augmentation-strategy",
+    "href": "resources/slides/09-data-augmentation.html#augmentation-strategy",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Augmentation Strategy",
+    "text": "Augmentation Strategy\nSet\n\n\\(y_i = 1_{(Z_i &gt; 0)}\\) i.e. ( \\(y_i = 1\\) if \\(Z_i &gt; 0\\) )\n\\(y_i = 1_{(Z_i &lt; 0)}\\) i.e. ( \\(y_i = 0\\) if \\(Z_i &lt; 0\\) )\n\\(Z_i = x_i^T \\beta + \\epsilon_i \\qquad \\epsilon_i \\overset{iid}{\\sim} \\textsf{N(0,1)}\\)\nRelationship to probit model: \\[\\begin{align*}\\Pr(y = 1 \\mid \\beta) & = P(Z_i &gt; 0 \\mid \\beta) \\\\\n& = P(Z_i - x_i^T \\beta &gt; -x^T\\beta) \\\\\n& = P(\\epsilon_i &gt; -x^T\\beta) \\\\\n& =  1 - \\Phi(-x^T_i \\beta) \\\\\n& =  \\Phi(x^T_i \\beta)\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
+    "href": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Augmented Posterior & Gibbs",
+    "text": "Augmented Posterior & Gibbs\n\\[\\begin{align*}\\pi(& Z_1,  \\ldots, Z_n,  \\, \\beta \\mid y) \\propto \\\\\n& \\textsf{N}(\\beta; b_0, \\phi_0)  \\left\\{\\prod_{i=1}^n \\textsf{N}(Z_i; x_i^T\\beta, 1)\\right\\} \\left\\{  \\prod_{i=1}^n y_i 1_{(Z_i &gt; 0)} + (1 - y_i)1_{(Z_i &lt; 0)}\\right\\}\n\\end{align*}\\]\n\nfull conditional for \\(\\beta\\) \\[\\beta \\mid Z_1, \\ldots, Z_n, y_1, \\ldots, y_n \\sim \\textsf{N}(b_n, \\Phi_n)\\]\n\nstandard Normal-Normal regression updating given \\(Z_i\\)’s\nFull conditional for latent \\(Z_i\\) \\[\\begin{align*}\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &gt; 0)} \\text{   if  } y_1 = 1 \\\\\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &lt; 0) }\\text{   if  } y_1 = 0 \\\\\n\\end{align*}\\]\nsample from independent truncated normal distributions !\ntwo block Gibbs sampler \\(\\theta_{[1]} = \\beta\\) and \\(\\theta_{[2]} = (Z_1, \\ldots, Z_n)^T\\)"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
+    "href": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Truncated Normal Sampling",
+    "text": "Truncated Normal Sampling\n\nUse inverse cdf method for cdf \\(F\\)\nIf \\(u \\sim U(0,1)\\) set \\(z = F^{-1}(u)\\)\n\n\n\n\n\n\n\n\n\n\n\nif \\(Z \\in (a, b)\\), Draw \\(u \\sim U(F(a),F(b))\\) and set \\(z = F^{-1}(u)\\)"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
+    "href": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Data Augmentation in General",
+    "text": "Data Augmentation in General\nDA is a broader than a computational trick allowing Gibbs sampling\n\nmissing data\nrandom effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling\nModeling heavy tailed distributions such as \\(t\\) errors in regression"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#comments",
+    "href": "resources/slides/09-data-augmentation.html#comments",
+    "title": "Lecture 9: Gibbs and Data Augmentation",
+    "section": "Comments",
+    "text": "Comments\n\nWhy don’t we treat each individual \\(\\theta_j\\) as a separate block?\nGibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!\nUse block sizes in Gibbs that are as big as possible to improve mixing (proven faster convergence)\nCollapse the sampler by integrating out as many parameters as possible (as long as resulting sampler has good mixing)\ncan use Gibbs steps and (adaptive) Metropolis Hastings steps together\nlatent variables to allow Gibbs steps but not always better!\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/07-adaptive-metropolis.html#example-from-last-class",

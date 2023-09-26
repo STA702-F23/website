@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Merlise Clyde">
-  <title>STA 702 Fall 2023 - Lecture 8: Metropolis-Hastings, Gibbs and Blocking</title>
+  <title>STA 702 Fall 2023 - Lecture 9: Gibbs and Data Augmentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,7 +329,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 8: Metropolis-Hastings, Gibbs and Blocking</h1>
+  <h1 class="title">Lecture 9: Gibbs and Data Augmentation</h1>
   <p class="subtitle">STA702</p>
 
 <div class="quarto-title-authors">
@@ -344,242 +344,114 @@ Merlise Clyde
 </div>
 
 </section>
-<section id="metropolis-hastings-mh" class="slide level2 smaller">
-<h2>Metropolis-Hastings (MH)</h2>
+<section id="binary-regression" class="slide level2 smaller">
+<h2>Binary Regression</h2>
+<p><span class="math display">\[Y_i \mid \beta \sim \textsf{Ber}(p(x_i^T \beta))\]</span> where <span class="math inline">\(\Pr(Y_i = 1 \mid \beta) = p(x_i^T \beta))\)</span> and linear predictor <span class="math inline">\(x_i^T\beta = \lambda_i\)</span></p>
 <ul>
-<li class="fragment"><p>Metropolis requires that the proposal distribution be symmetric</p></li>
-<li class="fragment"><p>Hastings (1970) generalizes Metropolis algorithms to allow asymmetric proposals - aka Metropolis-Hastings or MH <span class="math inline">\(q(\theta^* \mid \theta^{(s)})\)</span> does not need to be the same as <span class="math inline">\(q(\theta^{(s)} \mid \theta^*)\)</span></p></li>
-<li class="fragment"><p>propose <span class="math inline">\(\theta^* \mid \theta^{(s)} \sim q(\theta^* \mid \theta^{(s)})\)</span></p></li>
-<li class="fragment"><p>Acceptance probability <span class="math display">\[\min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)/q(\theta^* \mid \theta^{(s)})}
-{\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})/q( \theta^{(s)} \mid \theta^*)} \right\}\]</span></p></li>
-<li class="fragment"><p>adjustment for asymmetry in acceptance ratio is key to ensuring convergence to stationary distribution!</p></li>
+<li class="fragment"><p>link function for binary regression is any 1-1 function <span class="math inline">\(g\)</span> that will map <span class="math inline">\((0,1) \to \mathbb{R}\)</span>, i.e.&nbsp;<span class="math inline">\(g(p(\lambda)) = \lambda\)</span></p></li>
+<li class="fragment"><p>logistic regression uses the logit link<br>
+<span class="math display">\[\log\left(\frac{p(\lambda_i)}{1 - p(\lambda_i) }\right) = x_i^T \beta = \lambda_i\]</span></p></li>
+<li class="fragment"><p>probit link <span class="math display">\[p(x_i^T \beta) = \Phi(x_i^T \beta)\]</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\Phi()\)</span> is the Normal cdf</p></li>
 </ul>
 </section>
-<section id="special-cases" class="slide level2 smaller">
-<h2>Special cases</h2>
+<section id="likelihood-and-posterior" class="slide level2 smaller">
+<h2>Likelihood and Posterior</h2>
+<p>Likelihood: <span class="math display">\[\cal{L}(\beta) \propto \prod_{i = 1}^n \Phi(x_i^T \beta)^{y_i} (1 - \Phi(x^T_i \beta))^{1 - y_i}\]</span></p>
 <ul>
-<li class="fragment"><p>Metropolis</p></li>
-<li class="fragment"><p>Independence chain</p></li>
-<li class="fragment"><p>Gibbs samplers</p></li>
-<li class="fragment"><p>Metropolis-within-Gibbs</p></li>
-<li class="fragment"><p>combinations of the above!</p></li>
-</ul>
-</section>
-<section id="independence-chain" class="slide level2 smaller">
-<h2>Independence Chain</h2>
+<li class="fragment"><p>prior <span class="math inline">\(\beta \sim \textsf{N}_p(b_0, \Phi_0)\)</span></p></li>
+<li class="fragment"><p>posterior <span class="math inline">\(\pi(\beta) \propto \pi(\beta) \cal{L}(\beta)\)</span></p></li>
+<li class="fragment"><p>How to approximate the posterior?</p>
 <ul>
-<li class="fragment"><p>suppose we have a good approximation <span class="math inline">\(\tilde{\pi}(\theta \mid y)\)</span> to <span class="math inline">\(\pi(\theta \mid y)\)</span></p></li>
-<li class="fragment"><p>Draw <span class="math inline">\(\theta^* \sim \tilde{\pi}(\theta \mid y)\)</span> <em>without</em> conditioning on <span class="math inline">\(\theta^{(s)}\)</span></p></li>
-<li class="fragment"><p>acceptance probability <span class="math display">\[\min \left\{ 1, \frac{\pi(\theta^*) \cal{L}(\theta^*)/\tilde{\pi}(\theta^* \mid \theta^{(s)})}
-{\pi(\theta^{(s)}) \cal{L}(\theta^{(s)})/\tilde{\pi}( \theta^{(s)} \mid \theta^*)} \right\}\]</span></p></li>
-<li class="fragment"><p>what happens if the approximation is really accurate?</p></li>
-<li class="fragment"><p>probability of acceptance is <span class="math inline">\(\approx 1\)</span></p></li>
-<li class="fragment"><p>Important caveat for convergence: tails of the posterior should be at least as heavy as the tails of the posterior (Tweedie 1994)</p></li>
-<li class="fragment"><p>Replace Gaussian by a Student-t with low degrees of freedom</p></li>
-<li class="fragment"><p>transformations of <span class="math inline">\(\theta\)</span></p></li>
-</ul>
-</section>
-<section id="blocked-metropolis-hastings" class="slide level2 smaller">
-<h2>Blocked Metropolis-Hastings</h2>
-<p>So far all algorithms update all of the parameters simultaneously</p>
-<ul>
-<li class="fragment"><p>convenient to break problems in to <span class="math inline">\(K\)</span> blocks and update them separately</p></li>
-<li class="fragment"><p><span class="math inline">\(\theta = (\theta_{[1]}, \ldots, \theta_{[K]}) = (\theta_1, \ldots, \theta_p)\)</span></p></li>
-<li class="fragment"><p>At iteration <span class="math inline">\(s\)</span>, for <span class="math inline">\(k = 1, \ldots, K\)</span> Cycle thru blocks: (fixed order or random order)</p>
-<ul>
-<li class="fragment"><p>propose <span class="math inline">\(\theta^*_{[k]} \sim q_k(\theta_{[k]} \mid \theta_{[&lt;k]}^{(s)}, \theta_{[&gt;k]}^{(s-1)})\)</span></p></li>
-<li class="fragment"><p>set <span class="math inline">\(\theta_{[k]}^{(s)} = \theta^*_{[k]}\)</span> with probability <span class="math display">\[\min \left\{ 1, \frac{
-\pi(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^*,
-  \theta_{[&gt;k]}^{(s-1)})
-\cal{L}(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^*,
-     \theta_{[&gt;k]}^{(s-1)})/
-q_k(\theta_{[k]}^* \mid \theta_{[&lt;k]}^{(s)},    
-\theta_{[&gt;k]}^{(s-1)})}
-{\pi(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^{(s-1)},
-  \theta_{[&gt;k]}^{(s-1)})
-\cal{L}(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^{(s-1)},
-     \theta_{[&gt;k]}^{(s-1)})/
-q_k(\theta_{[k]}^{(s-1)} \mid \theta_{[&lt;k]}^{(s)},    
-\theta_{[&gt;k]}^{(s-1)})} \right\}\]</span></p></li>
+<li class="fragment"><p>asymptotic Normal approximation</p></li>
+<li class="fragment"><p>MH or adaptive Metropolis</p></li>
+<li class="fragment"><p>stan (Hamiltonian Monte Carlo)</p></li>
+<li class="fragment"><p>Gibbs ?</p></li>
 </ul></li>
+<li class="fragment"><p>seemingly no, but there is a trick!</p></li>
 </ul>
 </section>
-<section id="gibbs-sampler" class="slide level2 smaller">
-<h2>Gibbs Sampler</h2>
+<section id="data-augmentation" class="slide level2 smaller">
+<h2>Data Augmentation</h2>
 <ul>
-<li class="fragment"><p>The Gibbs Sampler is special case of Blocked MH</p></li>
-<li class="fragment"><p>proposal distribution <span class="math inline">\(q_k\)</span> for the <span class="math inline">\(k\)</span>th block is the <strong>full conditional</strong> distribution for <span class="math inline">\(\theta_{[k]}\)</span> <span class="math display">\[\begin{split}
-\pi(\theta_{[k]} \mid \theta_{[-k]}, y) &amp; = \frac{\pi(\theta_{[k]} , \theta_{[-k]} \mid y)}{ \pi(\theta_{[-k]} \mid y))} \propto \pi(\theta_{[k]} , \theta_{[-k]} \mid y)\\
-\   &amp; \propto \cal{L}(\theta_{[k]} , \theta_{[-k]})\pi(\theta_{[k]} , \theta_{[-k]})
-\end{split}\]</span></p></li>
-<li class="fragment"><p>Acceptance probability <span class="math display">\[\min \left\{ 1, \frac{
-\pi(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^*,
-      \theta_{[&gt;k]}^{(s-1)})
-\cal{L}(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^*,
-         \theta_{[&gt;k]}^{(s-1)})/
-q_k(\theta_{[k]}^* \mid \theta_{[&lt;k]}^{(s)},    
-     \theta_{[&gt;k]}^{(s-1)})}
-{\pi(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^{(s-1)},
-      \theta_{[&gt;k]}^{(s-1)})
-\cal{L}(\theta_{[&lt;k]}^{(s)},\theta_{[k]}^{(s-1)},
-         \theta_{[&gt;k]}^{(s-1)})/
-q_k(\theta_{[k]}^{(s-1)} \mid \theta_{[&lt;k]}^{(s)},    
-     \theta_{[&gt;k]}^{(s-1)})} \right\}\]</span></p></li>
-<li class="fragment"><p>Simplifies so that acceptance probability is always 1!</p></li>
-<li class="fragment"><p>even though joint distribution is messy, full conditionals may be (conditionally) conjugate and easy to sample from!</p></li>
+<li class="fragment"><p>Consider an <strong>augmented</strong> posterior <span class="math display">\[\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \theta)\]</span></p></li>
+<li class="fragment"><p>IF we choose <span class="math inline">\(\pi(Z \mid \beta)\)</span> and <span class="math inline">\(\pi(y \mid Z, \theta)\)</span> carefully, we can carry out Gibbs and get samples of <span class="math inline">\(\pi(\beta \mid y)\)</span> !</p></li>
+<li class="fragment"><p>Conditions: we need to have <span class="math display">\[\pi(\beta \mid y) = \int_{\cal{Z}} \pi(\beta, z \mid y) \, dz\]</span> (it is a marginal of joint augmented posterior)</p></li>
+<li class="fragment"><p>We have to choose <span class="math display">\[p(y \mid \beta) = \int_{\cal{Z}}  \pi(z \mid \beta) \pi(y \mid \beta, z) \, dz\]</span></p></li>
+<li class="fragment"><p>complete data likelihood</p></li>
 </ul>
 </section>
-<section id="univariate-normal-example" class="slide level2 smaller">
-<h2>Univariate Normal Example</h2>
-<p>Model <span class="math display">\[\begin{align*}
-Y_i \mid \mu, \sigma^2 &amp; \overset{iid}{\sim} \textsf{N}(\mu, 1/\phi) \\
-\mu &amp; \sim \textsf{N}(\mu_0, 1/\tau_0) \\
-\phi &amp; \sim  \textsf{Gamma}(a/2, b/2)
-\end{align*}\]</span></p>
+<section id="augmentation-strategy" class="slide level2 smaller">
+<h2>Augmentation Strategy</h2>
+<p>Set</p>
 <ul>
-<li class="fragment"><p>Joint prior is a product of independent Normal-Gamma</p></li>
-<li class="fragment"><p>Is <span class="math inline">\(\pi(\mu, \phi \mid y_1, \ldots, y_n)\)</span> also a Normal-Gamma family?</p></li>
-</ul>
-</section>
-<section id="full-conditional-for-the-mean" class="slide level2 smaller">
-<h2>Full Conditional for the Mean</h2>
-<p>The full conditional distributions <span class="math inline">\(\mu \mid \phi, y_1, \ldots, y_n\)</span> <span class="math display">\[\begin{align*}
-\mu &amp; \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(\hat{\mu}, 1/\tau_n) \\
-\hat{\mu} &amp; = \frac{\tau_0 \mu_0  + n \phi \bar{y}}{\tau_0 + n \phi} \\
-\tau_n &amp; = \tau_0 + n \phi
-\end{align*}\]</span></p>
-</section>
-<section id="full-conditional-for-the-precision" class="slide level2 smaller">
-<h2>Full Conditional for the Precision</h2>
-<ul>
-<li class="fragment">Full conditional for <span class="math inline">\(\phi\)</span> <span class="math display">\[\begin{align*}
-\phi  \mid \mu, y_1, \ldots, y_n &amp; \sim \textsf{Gamma}( a_n/2, b_n/2) \\
-a_n &amp; = a + n \\
-b_n &amp; = b + \sum_i (y_i - \mu)^2
-\end{align*}\]</span></li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[\textsf{E}[\phi \mid \mu, y_1, \ldots, y_n] = \frac{(a + n)/2}{(b + \sum_i (y_i - \mu)^2 )/2}\]</span></p>
-<ul>
-<li class="fragment">What happens with a non-informative prior i.e <span class="math inline">\(a = b = \epsilon\)</span> as <span class="math inline">\(\epsilon \to 0\)</span>?</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="callout callout-warning callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p>Proper full conditionals with improper priors do not ensure proper joint posterior!</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="normal-linear-regression-example" class="slide level2 smaller">
-<h2>Normal Linear Regression Example</h2>
-<ul>
-<li class="fragment"><p>Model <span class="math display">\[\begin{align*}
-Y_i \mid \beta, \phi &amp; \overset{iid}{\sim} \textsf{N}(x_i^T\beta, 1/\phi) \\
-Y \mid \beta, \phi &amp; \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
-\beta &amp; \sim \textsf{N}(b_0, \Phi_0^{-1}) \\
-\phi &amp; \sim \textsf{N}(v_0/2, s_0/2)
+<li class="fragment"><p><span class="math inline">\(y_i = 1_{(Z_i &gt; 0)}\)</span> i.e.&nbsp;( <span class="math inline">\(y_i = 1\)</span> if <span class="math inline">\(Z_i &gt; 0\)</span> )</p></li>
+<li class="fragment"><p><span class="math inline">\(y_i = 1_{(Z_i &lt; 0)}\)</span> i.e.&nbsp;( <span class="math inline">\(y_i = 0\)</span> if <span class="math inline">\(Z_i &lt; 0\)</span> )</p></li>
+<li class="fragment"><p><span class="math inline">\(Z_i = x_i^T \beta + \epsilon_i \qquad \epsilon_i \overset{iid}{\sim} \textsf{N(0,1)}\)</span></p></li>
+<li class="fragment"><p>Relationship to probit model: <span class="math display">\[\begin{align*}\Pr(y = 1 \mid \beta) &amp; = P(Z_i &gt; 0 \mid \beta) \\
+&amp; = P(Z_i - x_i^T \beta &gt; -x^T\beta) \\
+&amp; = P(\epsilon_i &gt; -x^T\beta) \\
+&amp; =  1 - \Phi(-x^T_i \beta) \\
+&amp; =  \Phi(x^T_i \beta)
 \end{align*}\]</span></p></li>
-<li class="fragment"><p><span class="math inline">\(x_i\)</span> is a <span class="math inline">\(p \times 1\)</span> vector of predictors and <span class="math inline">\(X\)</span> is <span class="math inline">\(n \times p\)</span> matrix</p></li>
-<li class="fragment"><p><span class="math inline">\(\beta\)</span> is a <span class="math inline">\(p \times 1\)</span> vector of coefficients</p></li>
-<li class="fragment"><p><span class="math inline">\(\Phi_0\)</span> is a <span class="math inline">\(p \times p\)</span> prior precision matrix</p></li>
-<li class="fragment"><p>Multivariate Normal density for <span class="math inline">\(\beta\)</span> <span class="math display">\[\pi(\beta \mid b_0, \Phi_0) = \frac{|\Phi_0|^{1/2}}{(2 \pi)^{p/2}}\exp\left\{- \frac{1}{2}(\beta - b_0)^T \Phi_0 (\beta - b_0)  \right\}\]</span></p></li>
 </ul>
 </section>
-<section id="full-conditional-for-beta" class="slide level2 smaller">
-<h2>Full Conditional for <span class="math inline">\(\beta\)</span></h2>
-<p><span class="math display">\[\begin{align*}
-\beta &amp; \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n^{-1}) \\
-b_n &amp; =  (\Phi_0 + \phi X^TX)^{-1}(\Phi_0 b_0  +  \phi X^TX \hat{\beta})\\
-\Phi_n &amp; = \Phi_0 + \phi X^TX
+<section id="augmented-posterior-gibbs" class="slide level2 smaller">
+<h2>Augmented Posterior &amp; Gibbs</h2>
+<p><span class="math display">\[\begin{align*}\pi(&amp; Z_1,  \ldots, Z_n,  \, \beta \mid y) \propto \\
+&amp; \textsf{N}(\beta; b_0, \phi_0)  \left\{\prod_{i=1}^n \textsf{N}(Z_i; x_i^T\beta, 1)\right\} \left\{  \prod_{i=1}^n y_i 1_{(Z_i &gt; 0)} + (1 - y_i)1_{(Z_i &lt; 0)}\right\}
 \end{align*}\]</span></p>
-</section>
-<section id="derivation-continued" class="slide level2 smaller">
-<h2>Derivation continued</h2>
-</section>
-<section id="full-conditional-for-phi" class="slide level2 smaller">
-<h2>Full Conditional for <span class="math inline">\(\phi\)</span></h2>
-<p><span class="math display">\[ \phi \mid \beta, y_1, \ldots, y_n \sim \textsf{Gamma}((v_0 + n)/2, (s_0 + \sum_i(y_i - x^T_i \beta)))\]</span></p>
-</section>
-<section id="choice-of-prior-precision" class="slide level2 smaller">
-<h2>Choice of Prior Precision</h2>
 <ul>
-<li class="fragment"><p>Non-Informative <span class="math inline">\(\Phi_0 \to 0\)</span></p></li>
-<li class="fragment"><p>Formal Posterior given <span class="math inline">\(\phi\)</span> <span class="math display">\[\beta \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(\hat{\beta}, \phi^{-1} (X^TX)^{-1})\]</span></p></li>
-<li class="fragment"><p>needs <span class="math inline">\(X^TX\)</span> to be full rank for distribution to be unique</p></li>
+<li class="fragment"><p>full conditional for <span class="math inline">\(\beta\)</span> <span class="math display">\[\beta \mid Z_1, \ldots, Z_n, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n)\]</span><br>
+</p></li>
+<li class="fragment"><p>standard Normal-Normal regression updating given <span class="math inline">\(Z_i\)</span>’s</p></li>
+<li class="fragment"><p>Full conditional for latent <span class="math inline">\(Z_i\)</span> <span class="math display">\[\begin{align*}
+\pi(Z_i \mid \beta, Z_{[-i]}, y_1, \ldots, y_n)  &amp; \propto
+\textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i &gt; 0)} \text{   if  } y_1 = 1 \\
+\pi(Z_i \mid \beta, Z_{[-i]}, y_1, \ldots, y_n)  &amp; \propto
+\textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i &lt; 0) }\text{   if  } y_1 = 0 \\
+\end{align*}\]</span></p></li>
+<li class="fragment"><p>sample from independent truncated normal distributions !</p></li>
+<li class="fragment"><p>two block Gibbs sampler <span class="math inline">\(\theta_{[1]} = \beta\)</span> and <span class="math inline">\(\theta_{[2]} = (Z_1, \ldots, Z_n)^T\)</span></p></li>
 </ul>
 </section>
-<section id="invariance-and-choice-of-meanprecision" class="slide level2 smaller">
-<h2>Invariance and Choice of Mean/Precision</h2>
+<section id="truncated-normal-sampling" class="slide level2 smaller">
+<h2>Truncated Normal Sampling</h2>
 <ul>
-<li class="fragment"><p>the model in vector form <span class="math inline">\(Y \mid \beta, \phi \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)\)</span></p></li>
-<li class="fragment"><p>What if we transform the mean <span class="math inline">\(X\beta = X H H^{-1} \beta\)</span> with new <span class="math inline">\(X\)</span> matrix <span class="math inline">\(\tilde{X} = X H\)</span> where <span class="math inline">\(H\)</span> is <span class="math inline">\(p \times p\)</span> and invertible and coefficients <span class="math inline">\(\tilde{\beta} = H^{-1} \beta\)</span>.</p></li>
-<li class="fragment"><p>obtain the posterior for <span class="math inline">\(\tilde{\beta}\)</span> using <span class="math inline">\(Y\)</span> and <span class="math inline">\(\tilde{X}\)</span><br>
-<span class="math display">\[ Y \mid  \tilde{\beta}, \phi \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)\]</span></p></li>
-<li class="fragment"><p>since <span class="math inline">\(\tilde{X} \tilde{\beta} = X H \tilde{\beta} = X \beta\)</span> invariance suggests that the posterior for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(H \tilde{\beta}\)</span> should be the same</p></li>
-<li class="fragment"><p>plus the posterior of <span class="math inline">\(H^{-1} \beta\)</span> and <span class="math inline">\(\tilde{\beta}\)</span> should be the same</p></li>
+<li class="fragment"><p>Use inverse cdf method for cdf <span class="math inline">\(F\)</span></p></li>
+<li class="fragment"><p>If <span class="math inline">\(u \sim U(0,1)\)</span> set <span class="math inline">\(z = F^{-1}(u)\)</span></p></li>
 </ul>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Exercise for the Energetic Student</strong></p>
-</div>
-<div class="callout-content">
-<p>With some linear algebra, show that this is true for a normal prior if <span class="math inline">\(b_0 = 0\)</span> and <span class="math inline">\(\Phi_0\)</span> is <span class="math inline">\(k X^TX\)</span> for some <span class="math inline">\(k\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-data-augmentation_files/figure-revealjs/inverseCDF-1.png" style="width:60.0%;height:55.0%"></p>
+</figure>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="zellners-g-prior" class="slide level2 smaller">
-<h2>Zellner’s g-prior</h2>
 <ul>
-<li class="fragment"><p>Popular choice is to take <span class="math inline">\(k = \phi/g\)</span> which is a special case of Zellner’s g-prior <span class="math display">\[\beta \mid \phi, g \sim \textsf{N}\left(0, \frac{g}{\phi} (X^TX)^{-1}\right)\]</span></p></li>
-<li class="fragment"><p>Full conditional <span class="math display">\[\beta \mid \phi, g \sim \textsf{N}\left(\frac{g}{1 + g} \hat{\beta}, \frac{1}{\phi} \frac{g}{1 + g} (X^TX)^{-1}\right)\]</span></p></li>
-<li class="fragment"><p>one parameter <span class="math inline">\(g\)</span> controls shrinkage</p></li>
-<li class="fragment"><p>if <span class="math inline">\(\phi \sim \textsf{Gamma}(v_0/2, s_0/2)\)</span> then posterior is <span class="math display">\[\phi \mid y_1, \ldots, y_n \sim \textsf{Gamma}(v_n/2, s_n/2)\]</span></p></li>
-<li class="fragment"><p>Conjugate so we could skip Gibbs sampling and sample directly from gamma and then conditional normal!</p></li>
+<li class="fragment">if <span class="math inline">\(Z \in (a, b)\)</span>, Draw <span class="math inline">\(u \sim U(F(a),F(b))\)</span> and set <span class="math inline">\(z = F^{-1}(u)\)</span></li>
 </ul>
 </section>
-<section id="ridge-regression" class="slide level2 smaller">
-<h2>Ridge Regression</h2>
+<section id="data-augmentation-in-general" class="slide level2 smaller">
+<h2>Data Augmentation in General</h2>
+<p>DA is a broader than a computational trick allowing Gibbs sampling</p>
 <ul>
-<li class="fragment"><p>If <span class="math inline">\(X^TX\)</span> is nearly singular, certain elements of <span class="math inline">\(\beta\)</span> or (linear combinations of <span class="math inline">\(\beta\)</span>) may have huge variances under the <span class="math inline">\(g\)</span>-prior (or flat prior) as the MLEs are highly unstable!</p></li>
-<li class="fragment"><p><strong>Ridge regression</strong> protects against the explosion of variances and ill-conditioning with the conjugate priors: <span class="math display">\[\beta \mid \phi \sim \textsf{N}(0, \frac{1}{\phi \lambda} I_p)\]</span></p></li>
-<li class="fragment"><p>Posterior for <span class="math inline">\(\beta\)</span> (conjugate case) <span class="math display">\[\beta \mid \phi, \lambda, y_1, \ldots, y_n \sim
-\textsf{N}\left((\lambda I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\lambda I_p + X^TX)^{-1}
-\right)\]</span></p></li>
-</ul>
-</section>
-<section id="bayes-regression" class="slide level2 smaller">
-<h2>Bayes Regression</h2>
-<ul>
-<li class="fragment"><p>Posterior mean (or mode) given <span class="math inline">\(\lambda\)</span> is biased, but can show that there <strong>always</strong> is a value of <span class="math inline">\(\lambda\)</span> where the frequentist’s expected squared error loss is smaller for the Ridge estimator than MLE!</p></li>
-<li class="fragment"><p>related to penalized maximum likelihood estimation</p></li>
-<li class="fragment"><p>Choice of <span class="math inline">\(\lambda\)</span></p></li>
-<li class="fragment"><p>Bayes Regression and choice of <span class="math inline">\(\Phi_0\)</span> in general is a very important problem and provides the foundation for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!</p></li>
-<li class="fragment"><p>Be sure that you can derive the full conditional posteriors for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\phi\)</span> as well as the joint posterior in the conjugate case!</p></li>
+<li class="fragment"><p>missing data</p></li>
+<li class="fragment"><p>random effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling</p></li>
+<li class="fragment"><p>Modeling heavy tailed distributions such as <span class="math inline">\(t\)</span> errors in regression</p></li>
 </ul>
 </section>
 <section id="comments" class="slide level2 smaller">
 <h2>Comments</h2>
 <ul>
-<li class="fragment"><p>Why don’t we treat each individual <span class="math inline">\(\beta_j\)</span> as a separate block?</p></li>
+<li class="fragment"><p>Why don’t we treat each individual <span class="math inline">\(\theta_j\)</span> as a separate block?</p></li>
 <li class="fragment"><p>Gibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!</p></li>
 <li class="fragment"><p>Use block sizes in Gibbs that are as big as possible to improve mixing (proven faster convergence)</p></li>
 <li class="fragment"><p>Collapse the sampler by integrating out as many parameters as possible (as long as resulting sampler has good mixing)</p></li>
 <li class="fragment"><p>can use Gibbs steps and (adaptive) Metropolis Hastings steps together</p></li>
-<li class="fragment"><p>Introduce latent variables (data augmentation) to allow Gibbs steps (Next class)</p></li>
+<li class="fragment"><p>latent variables to allow Gibbs steps but not always better!</p></li>
 </ul>
 
 
