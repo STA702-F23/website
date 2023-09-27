@@ -203,18 +203,32 @@
     "text": "Optional\n\nBayesian Computation with R (Second Edition) by Jim Albert:\n\nSection 2: Introduction to Bayesian thinking"
   },
   {
-    "objectID": "reading/03-reading.html",
-    "href": "reading/03-reading.html",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "objectID": "reading/09-reading.html",
+    "href": "reading/09-reading.html",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
   },
   {
-    "objectID": "reading/03-reading.html#readings",
-    "href": "reading/03-reading.html#readings",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "objectID": "reading/09-reading.html#readings",
+    "href": "reading/09-reading.html#readings",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/05-reading.html",
+    "href": "reading/05-reading.html",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/05-reading.html#readings",
+    "href": "reading/05-reading.html#readings",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
   },
   {
     "objectID": "reading/06-reading.html",
@@ -1705,7 +1719,7 @@
     "href": "schedule.html",
     "title": " Schedule",
     "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n hw-06\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nLab: Review\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 7: Variable Selection\n\n\n\n\n hw-07\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18:\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19:  Outliers\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Hypothesis Testing\n\n\n\n\n\n    \nFri, Oct 6\n\nLab 6: Hypothesis & Multiple Testing\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Multiple Testing and Hierachical Models\n\n\n\n\n hw-06\n\n    \nThu, Oct 12\n\nLec 13: Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 13\n\nLab: Review\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 7: Variable Selection\n\n\n\n\n hw-07\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14: Bayesian Linear Regression\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15: Priors in Bayesian Linear Regression\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18:\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19:  Outliers\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
   },
   {
     "objectID": "reading/04-reading.html",
@@ -1750,18 +1764,32 @@
     "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
   },
   {
-    "objectID": "reading/05-reading.html",
-    "href": "reading/05-reading.html",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "objectID": "reading/10-reading.html",
+    "href": "reading/10-reading.html",
+    "title": "Lecture 19: Missing Data",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
   },
   {
-    "objectID": "reading/05-reading.html#readings",
-    "href": "reading/05-reading.html#readings",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "objectID": "reading/10-reading.html#readings",
+    "href": "reading/10-reading.html#readings",
+    "title": "Lecture 19: Missing Data",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/03-reading.html",
+    "href": "reading/03-reading.html",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+  },
+  {
+    "objectID": "reading/03-reading.html#readings",
+    "href": "reading/03-reading.html#readings",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
   },
   {
     "objectID": "reading/02-reading.html",
