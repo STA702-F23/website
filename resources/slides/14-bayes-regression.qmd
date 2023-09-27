@@ -1,0 +1,161 @@
+---
+title: "Lecture 14: Bayesian Regression"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Conjugate versus Semi-Conjugate Normal Linear Regression Example {.smaller}
+
+- Semi-Conjugate Model
+$$\begin{align*}
+Y \mid \beta, \phi & \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
+\beta & \sim \textsf{N}(b_0, \Phi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, s_0/2)
+\end{align*}$$
+
+
+- Conjugate Normal-Gamma Model (Joint Posterior is also Normal-Gamma )
+$$\begin{align*}
+Y \mid \beta, \phi & \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
+\beta \mid \phi & \sim \textsf{N}(b_0, \phi^{-1}\Phi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, s_0/2)
+\end{align*}$$
+
+
+
+
+-  Conditional Normal for $\beta \mid \phi, Y$  and $\phi \mid Y$ is Gamma (Show!)
+
+
+
+ 
+
+
+ 
+## Invariance and Choice of Mean/Precision {.smaller}
+
+-  the model in vector form $Y  \mid \beta, \phi \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)$
+
+  
+
+- What if we transform  the mean $X\beta = X H H^{-1} \beta$ with new $X$ matrix $\tilde{X} = X H$ where $H$ is $p \times p$ and invertible and coefficients  $\tilde{\beta} = H^{-1} \beta$.
+
+  
+
+- obtain the posterior for $\tilde{\beta}$ using $Y$ and $\tilde{X}$  
+$$ Y \mid  \tilde{\beta}, \phi \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)$$
+
+- since $\tilde{X} \tilde{\beta} = X H  \tilde{\beta} = X \beta$  invariance suggests that the posterior for $\beta$ and $H \tilde{\beta}$ should be the same 
+
+  
+- plus the posterior of $H^{-1} \beta$
+and $\tilde{\beta}$ should be the same
+
+. . .
+
+::: {.callout-tip title="Exercise for the Energetic Student"}
+With some linear algebra, show that this is true for a normal prior if $b_0 = 0$ and $\Phi_0$ is $k X^TX$ for some $k$  
+:::
+ 
+## Zellner's g-prior {.smaller}
+
+- Popular choice is to take $k = \phi/g$ which is a special case of Zellner's g-prior
+$$\beta \mid \phi, g \sim \textsf{N}\left(0, \frac{g}{\phi} (X^TX)^{-1}\right)$$
+
+  
+
+- Full conditional 
+$$\beta \mid \phi, g \sim \textsf{N}\left(\frac{g}{1 + g} \hat{\beta}, \frac{1}{\phi} \frac{g}{1 + g} (X^TX)^{-1}\right)$$
+  
+
+- one parameter $g$ controls shrinkage
+
+  
+
+- if $\phi \sim \textsf{Gamma}(v_0/2, s_0/2)$ then posterior is
+$$\phi \mid y_1, \ldots, y_n \sim \textsf{Gamma}(v_n/2, s_n/2)$$
+  
+
+- Conjugate so we could skip Gibbs sampling and sample directly from gamma and then conditional normal!
+
+ 
+## Ridge Regression  {.smaller}
+
+- If $X^TX$ is nearly singular, certain  elements of $\beta$ or (linear combinations of $\beta$) may have huge variances under the $g$-prior (or flat prior) as the MLEs are highly unstable!
+
+  
+
+- **Ridge regression** protects against the explosion of variances and ill-conditioning with the conjugate priors:
+$$\beta \mid \phi \sim \textsf{N}(0, \frac{1}{\phi \lambda} I_p)$$
+  
+
+- Posterior for $\beta$  (conjugate case)
+$$\beta \mid \phi, \lambda, y_1, \ldots, y_n \sim 
+\textsf{N}\left((\lambda I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\lambda I_p + X^TX)^{-1}
+\right)$$
+
+
+
+
+ 
+##  Bayes Regression {.smaller}
+
+- Posterior mean (or mode) given $\lambda$ is biased, but can show that there **always** is a value of $\lambda$  where the frequentist's expected squared error loss is smaller for the Ridge estimator than MLE!
+
+  
+
+- related to penalized maximum likelihood estimation 
+
+  
+
+-  Choice of $\lambda$
+
+  
+
+-  Bayes Regression and choice of $\Phi_0$ in general is a very important problem and provides the foundation  for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!
+
+  
+
+- Be sure that you can derive the full conditional posteriors for $\beta$ and $\phi$ as well as the joint posterior in the conjugate case!
+
+
+

@@ -82,7 +82,7 @@ schedule |>
          Slides = add_slide_pdf(Slides),
          HW = add_hw_link(HW)
      ) |> 
-  # select(-Slides) |>
+  select(-Old) |>
   gt() |>
           fmt_markdown(columns = c(Week, Date, Lesson,Slides, Reading, Labs, HW)
      ) |>

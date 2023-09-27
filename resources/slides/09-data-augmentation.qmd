@@ -1,5 +1,5 @@
 ---
-title: "Lecture 9: Gibbs and Data Augmentation"
+title: "Lecture 9: Gibbs Sampling and Data Augmentation"
 subtitle: "STA702"
 author: "Merlise Clyde"
 institute: "Duke University"
@@ -52,8 +52,65 @@ require(mvtnorm)
 #require(rethinking)
 set.seed(42)
 ```
+## Normal Linear Regression Example {.smaller}
+
+- Model
+$$\begin{align*}
+Y_i \mid \beta, \phi & \overset{  ind}{\sim} \textsf{N}(x_i^T\beta, 1/\phi) \\
+Y \mid \beta, \phi & \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
+\beta & \sim \textsf{N}(b_0, \Phi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, s_0/2)
+\end{align*}$$
+
+- $x_i$ is a $p \times 1$ vector of predictors and $X$ is $n \times p$ matrix
+
+  
+
+- $\beta$ is a $p \times 1$ vector of coefficients
+
+  
+
+- $\Phi_0$ is a $p \times p$ prior precision matrix 
+
+  
+
+- Multivariate Normal density for $\beta$
+$$\pi(\beta \mid b_0, \Phi_0) = \frac{|\Phi_0|^{1/2}}{(2 \pi)^{p/2}}\exp\left\{- \frac{1}{2}(\beta - b_0)^T \Phi_0 (\beta - b_0)  \right\}$$
+ 
+## Full Conditional for $\beta$ {.smaller}
+
+$$\begin{align*}
+\beta & \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n^{-1}) \\
+b_n & =  (\Phi_0 + \phi X^TX)^{-1}(\Phi_0 b_0  +  \phi X^TX \hat{\beta})\\
+\Phi_n & = \Phi_0 + \phi X^TX
+\end{align*}$$
+
+ 
+## Derivation continued {.smaller}
 
 
+ 
+## Full Conditional for $\phi$ {.smaller}
+
+$$\phi \mid \beta, y_1, \ldots, y_n \sim \textsf{Gamma}\left(\frac{v_0 + n}{2}, \frac{s_0 + \sum_i(y_i - x^T_i \beta)^2}{2}\right)$$
+
+
+
+ 
+##  Choice of Prior Precision {.smaller}
+
+- Non-Informative $\Phi_0 \to 0$ 
+
+  
+
+- Formal Posterior given $\phi$
+  $$\beta \mid \phi, y_1, \ldots, y_n \sim \textsf{N}(\hat{\beta}, \phi^{-1} (X^TX)^{-1})$$
+  
+  
+
+- needs $X^TX$ to be full rank for distribution to be unique!
+
+ 
 
 ## Binary Regression {.smaller}
 
@@ -96,7 +153,7 @@ $$\cal{L}(\beta) \propto \prod_{i = 1}^n \Phi(x_i^T \beta)^{y_i} (1 - \Phi(x^T_i
   + asymptotic Normal approximation
   
   
-  + MH or adaptive Metropolis
+  + MH with Independence chain or adaptive Metropolis
   
   
   + stan (Hamiltonian Monte Carlo)
@@ -120,16 +177,16 @@ $$\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \theta
 
   
 
-- Conditions: we need to have 
-$$\pi(\beta \mid y) = \int_{\cal{Z}} \pi(\beta, z \mid y) \, dz$$ (it is a marginal of joint augmented posterior)
+- desired marginal of joint augmented posterior
+$$\pi(\beta \mid y) = \int_{\cal{Z}} \pi(\beta, z \mid y) \, dz$$ 
 
   
 
--  We have to choose
+-  We have to choose latent prior and sampling model such that
 $$p(y \mid \beta) = \int_{\cal{Z}}  \pi(z \mid \beta) \pi(y \mid \beta, z) \, dz$$
   
 
-- complete data likelihood
+- complete data likelihood $\pi(z \mid \beta) \pi(y \mid \beta, z)$
 
  
 ##  Augmentation Strategy {.smaller}
@@ -159,17 +216,18 @@ $$\begin{align*}\Pr(y = 1 \mid \beta) & = P(Z_i > 0 \mid \beta) \\
  
 ##  Augmented Posterior & Gibbs {.smaller}
 
+- two block Gibbs sampler $\theta_{[1]} = \beta$ and $\theta_{[2]} = (Z_1, \ldots, Z_n)^T$
 $$\begin{align*}\pi(& Z_1,  \ldots, Z_n,  \, \beta \mid y) \propto \\
 & \textsf{N}(\beta; b_0, \phi_0)  \left\{\prod_{i=1}^n \textsf{N}(Z_i; x_i^T\beta, 1)\right\} \left\{  \prod_{i=1}^n y_i 1_{(Z_i > 0)} + (1 - y_i)1_{(Z_i < 0)}\right\}
 \end{align*}$$
 
   
-- full conditional for $\beta$
+- full conditional for $\beta$  given $Z_i$'s based on Normal-Normal regression
 $$\beta \mid Z_1, \ldots, Z_n, y_1, \ldots, y_n \sim \textsf{N}(b_n, \Phi_n)$$   
-- standard Normal-Normal regression updating given $Z_i$'s  
+
 
   
-- Full conditional for latent $Z_i$
+- Full conditional for latent $Z_i$ (product of independent dist's)
 $$\begin{align*}
 \pi(Z_i \mid \beta, Z_{[-i]}, y_1, \ldots, y_n)  & \propto 
 \textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i > 0)} \text{   if  } y_1 = 1 \\
@@ -177,20 +235,27 @@ $$\begin{align*}
 \textsf{N}(Z_i; x_i^T \beta, 1)1_{(Z_i < 0) }\text{   if  } y_1 = 0 \\
 \end{align*}$$
 
-- sample from independent truncated normal distributions !
-
   
 
-- two block Gibbs sampler $\theta_{[1]} = \beta$ and $\theta_{[2]} = (Z_1, \ldots, Z_n)^T$
-
  
-## Truncated Normal Sampling {.smaller}
+## Truncated Sampling {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 - Use inverse cdf method for  cdf $F$
 
-- If $u \sim U(0,1)$ set $z = F^{-1}(u)$
+- If $U\sim U(0,1)$ set $X = F^{-1}(U)$
 
-```{r inverseCDF, echo=FALSE, fig.height=5, out.height="55%", out.width="60%"}
+- if $X \in (a, b)$, Draw $X \sim U(F(a),F(b))$
+  and set $X = F^{-1}(u)$
+
+:::
+
+::: {.column width="50%"}
+
+```{r inverseCDF, echo=FALSE, fig.height=4, fig.width=4 }
 a = pnorm(0); b = 1
 Z = seq(-3.5, 3.5, length=1000) + .5
 plot(Z, pnorm(Z), type="l", ylab="u")
@@ -202,39 +267,56 @@ segments(z,0, z, u, lty=2)
 abline(h = a, lty=3)
 abline(h=b, lty=3)
 ```
-- if $Z \in (a, b)$, Draw $u \sim U(F(a),F(b))$
-  and set $z = F^{-1}(u)$
 
- 
-## Data Augmentation in General {.smaller}
+:::
 
-DA is a broader than a computational trick allowing Gibbs sampling
+::::
 
-  
+## Truncated Normal Sampling {.smaller}
 
-- missing data
+:::: {.columns}
 
-  
+::: {.column width="50%"}
+- sample from independent truncated normal distributions  for full conditional for $Z_i$
 
-- random effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling
+- if $Y_i = 1$ then $Z_i \sim \textsf{Normal}(x_i^T\beta, 1) I(0, \infty)$ 
+
+- standard truncated normal $\tilde{Z} = Z_i - x_i^T \beta \in (-x_i^T \beta, \infty)$
+
+1) Generate $U \sim \textsf{Uniform}(\Phi(-x_i^T\beta), \Phi(\infty))$
+
+2) Set $\tilde{z} =  \Phi^{-1}(U)$ (Standard truncated normal)
+
+3) Shift $Z_i = x_i^T \beta + \tilde{z}$
+:::
+
+::: {.column width="50%"}
+
+```{r inverseNCDF, echo=FALSE, fig.height=4, fig.width=4 }
+set.seed(sample(1:42))
+mu = .5
+a = pnorm(-mu); b = 1
+Z = seq(-3.5, 3.5, length=1000) + mu
+plot(Z, pnorm(Z, mu), type="l", ylab="u", col="red")
+lines(Z, dnorm(Z, mu))
+u = runif(1, min=a, max=b)
+z = qnorm(u) + mu
+segments(min(Z), u,  z, u, lty=2, col="red")
+segments(z,0, z, u, lty=2, col="red")
+
+abline(h = a, lty=3)
+segments(0,0, 0, a, lty=3)
+abline(h=b, lty=3)
+```
 
 
-  
+-  `r paste("U = ",round(u,2))`, $Z_i = x_i^T \beta + \Phi^{-1}(U)$ `r  paste( "=", round(z, 2))` 
 
-- Modeling heavy tailed distributions such as $t$ errors in regression 
+:::
 
+::::
 
-
-
-
-
-
-
-
-
-
- 
-## Comments {.smaller}
+## Comments  on Gibbs {.smaller}
 
 
 
@@ -259,7 +341,41 @@ DA is a broader than a computational trick allowing Gibbs sampling
   
 
 
-- latent variables to allow Gibbs steps  but not always better!  
+- latent variables may allow Gibbs steps, but not always better compared to MH!  
+
+
+ 
+## Data Augmentation in General {.smaller}
+
+DA is a broader than a computational trick allowing Gibbs sampling
+
+  
+
+
+
+  
+
+- random effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling
+
+
+  
+
+- Modeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals
+
+- outliesr
+
+- variable selection
+
+
+- missing data
+
+- Next class: 
+
+    - Multivariate Normal data  
+    - Wishart and inverse-Wishart distributions
+    - missing data 
+
+
 
 
 
