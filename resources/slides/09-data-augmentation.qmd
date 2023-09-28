@@ -170,10 +170,10 @@ $$\cal{L}(\beta) \propto \prod_{i = 1}^n \Phi(x_i^T \beta)^{y_i} (1 - \Phi(x^T_i
 ##  Data Augmentation {.smaller}
 
 -  Consider an **augmented** posterior
-$$\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \theta)$$
+$$\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \beta)$$
   
 
-- IF we choose $\pi(Z \mid \beta)$ and $\pi(y \mid Z, \theta)$ carefully, we can carry out Gibbs and get samples of $\pi(\beta \mid y)$ !
+- IF we choose $\pi(Z \mid \beta)$ and $\pi(y \mid Z, \beta)$ carefully, we can carry out Gibbs and get samples of $\pi(\beta \mid y)$ !
 
   
 
@@ -362,7 +362,7 @@ DA is a broader than a computational trick allowing Gibbs sampling
 
 - Modeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals
 
-- outliesr
+- outliers
 
 - variable selection
 
