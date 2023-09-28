@@ -1,5 +1,5 @@
 ---
-title: "Lecture 19: Missing Data"
+title: "Lecture 10: Missing Data"
 ---
 
 ```{r setup, include=FALSE}
@@ -24,7 +24,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
 
-  + Chapter 15
+  + Section 3.6 Multivariate Normal
+  + Chapter 21: Missing Data
 
 
 - [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
