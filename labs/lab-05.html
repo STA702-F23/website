@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 702 Fall 2023 - Lecture 10: Missing Data</title>
+<title>STA 702 Fall 2023 - Lab 5: Gibbs Sampling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#readings" id="toc-readings" class="nav-link active" data-scroll-target="#readings">Readings</a></li>
+  <li><a href="#due-1100pm-sunday-oct-1" id="toc-due-1100pm-sunday-oct-1" class="nav-link active" data-scroll-target="#due-1100pm-sunday-oct-1">Due: 11:00pm, Sunday, Oct 1</a></li>
+  <li><a href="#housekeeping" id="toc-housekeeping" class="nav-link" data-scroll-target="#housekeeping">Housekeeping</a>
+  <ul class="collapse">
+  <li><a href="#rrstudio" id="toc-rrstudio" class="nav-link" data-scroll-target="#rrstudio">R/RStudio</a></li>
+  <li><a href="#r-knitr" id="toc-r-knitr" class="nav-link" data-scroll-target="#r-knitr">R Knitr</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <ul class="collapse">
+  <li><a href="#github-classroom" id="toc-github-classroom" class="nav-link" data-scroll-target="#github-classroom">Github Classroom</a></li>
+  <li><a href="#gradescope" id="toc-gradescope" class="nav-link" data-scroll-target="#gradescope">Gradescope</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta702-F23/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -131,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 10: Missing Data</h1>
+<h1 class="title">Lab 5: Gibbs Sampling</h1>
 </div>
 
 
@@ -146,24 +156,37 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<ul>
-<li><p><a href="https://find.library.duke.edu/catalog/DUKE004968562">A First Course in Bayesian Statistical Methods</a> by Peter D. Hoff</p>
-<ul>
-<li>Section 7.1 Multivariate normal</li>
-<li>Section 7.2 Semi-conjugate prior for the mean</li>
-<li>Section 7.3 Inverse-Wishart</li>
-</ul></li>
-<li><p><a href="https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&amp;utm_content=bento_result_link&amp;utm_source=library.duke.edu&amp;utm_medium=referral">Bayesian Data Analysis (Third Edition)</a> by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin</p>
-<ul>
-<li>Section 3.6 Multivariate Normal</li>
-<li>Chapter 21: Missing Data</li>
-</ul></li>
-<li><p><a href="https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf">The Bayesian Choice (Second Edition)</a> by Christian Robert</p></li>
-</ul>
+<section id="due-1100pm-sunday-oct-1" class="level2">
+<h2 class="anchored" data-anchor-id="due-1100pm-sunday-oct-1">Due: 11:00pm, Sunday, Oct 1</h2>
+</section>
+<section id="housekeeping" class="level1">
+<h1>Housekeeping</h1>
+<section id="rrstudio" class="level2">
+<h2 class="anchored" data-anchor-id="rrstudio">R/RStudio</h2>
+<p>You all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: <a href="https://cran.rstudio.com">https://cran.rstudio.com</a> remember to select the right installer for your operating system). Next, install the latest version of RStudio here: <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a>. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system.</p>
+</section>
+<section id="r-knitr" class="level2">
+<h2 class="anchored" data-anchor-id="r-knitr">R Knitr</h2>
+<p>You are required to use R knitr with the Rnw format to type up this lab report. To get started see <a href="https://kbroman.org/knitr_knutshell/pages/latex.html">basics</a> about knitr. Make sure to knit to <code>pdf</code> ; ask the TA about knitting to pdf if you cannot figure it out.</p>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<p>Go to Github classroom to create a repository for this assignment at <a href="https://classroom.github.com/a/elTFu1mE">lab5</a></p>
+<p>This will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf; please link your github account.</p>
+<p>Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.</p>
+<p>Follow the instructions in the <code>README</code> in your repo and follow along in lab to complete the assignment.</p>
+<section id="github-classroom" class="level2">
+<h2 class="anchored" data-anchor-id="github-classroom">Github Classroom</h2>
+<p>You MUST submit both your final <code>.Rnw</code> and <code>.pdf</code> files to the repo on Github by the due date.</p>
+</section>
+<section id="gradescope" class="level2">
+<h2 class="anchored" data-anchor-id="gradescope">Gradescope</h2>
+<p>You must upload the final <code>pdf</code> from your Github repo to <a href="https://www.gradescope.com/courses/585736">Gradescope</a>.</p>
+<p>Be sure to submit under the right assignment entry by the due date!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
