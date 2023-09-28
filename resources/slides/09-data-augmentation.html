@@ -412,8 +412,8 @@ b_n &amp; =  (\Phi_0 + \phi X^TX)^{-1}(\Phi_0 b_0  +  \phi X^TX \hat{\beta})\\
 <section id="data-augmentation" class="slide level2 smaller">
 <h2>Data Augmentation</h2>
 <ul>
-<li class="fragment"><p>Consider an <strong>augmented</strong> posterior <span class="math display">\[\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \theta)\]</span></p></li>
-<li class="fragment"><p>IF we choose <span class="math inline">\(\pi(Z \mid \beta)\)</span> and <span class="math inline">\(\pi(y \mid Z, \theta)\)</span> carefully, we can carry out Gibbs and get samples of <span class="math inline">\(\pi(\beta \mid y)\)</span> !</p></li>
+<li class="fragment"><p>Consider an <strong>augmented</strong> posterior <span class="math display">\[\pi(\beta, Z \mid y) \propto \pi(\beta) \pi(Z \mid \beta) \pi(y \mid Z, \beta)\]</span></p></li>
+<li class="fragment"><p>IF we choose <span class="math inline">\(\pi(Z \mid \beta)\)</span> and <span class="math inline">\(\pi(y \mid Z, \beta)\)</span> carefully, we can carry out Gibbs and get samples of <span class="math inline">\(\pi(\beta \mid y)\)</span> !</p></li>
 <li class="fragment"><p>desired marginal of joint augmented posterior <span class="math display">\[\pi(\beta \mid y) = \int_{\cal{Z}} \pi(\beta, z \mid y) \, dz\]</span></p></li>
 <li class="fragment"><p>We have to choose latent prior and sampling model such that <span class="math display">\[p(y \mid \beta) = \int_{\cal{Z}}  \pi(z \mid \beta) \pi(y \mid \beta, z) \, dz\]</span></p></li>
 <li class="fragment"><p>complete data likelihood <span class="math inline">\(\pi(z \mid \beta) \pi(y \mid \beta, z)\)</span></p></li>
@@ -518,7 +518,7 @@ b_n &amp; =  (\Phi_0 + \phi X^TX)^{-1}(\Phi_0 b_0  +  \phi X^TX \hat{\beta})\\
 <ul>
 <li class="fragment"><p>random effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling</p></li>
 <li class="fragment"><p>Modeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals</p></li>
-<li class="fragment"><p>outliesr</p></li>
+<li class="fragment"><p>outliers</p></li>
 <li class="fragment"><p>variable selection</p></li>
 <li class="fragment"><p>missing data</p></li>
 <li class="fragment"><p>Next class:</p>

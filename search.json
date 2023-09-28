@@ -1229,7 +1229,7 @@
     "href": "resources/slides/09-data-augmentation.html#data-augmentation",
     "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
     "section": "Data Augmentation",
-    "text": "Data Augmentation\n\nConsider an augmented posterior \\[\\pi(\\beta, Z \\mid y) \\propto \\pi(\\beta) \\pi(Z \\mid \\beta) \\pi(y \\mid Z, \\theta)\\]\nIF we choose \\(\\pi(Z \\mid \\beta)\\) and \\(\\pi(y \\mid Z, \\theta)\\) carefully, we can carry out Gibbs and get samples of \\(\\pi(\\beta \\mid y)\\) !\ndesired marginal of joint augmented posterior \\[\\pi(\\beta \\mid y) = \\int_{\\cal{Z}} \\pi(\\beta, z \\mid y) \\, dz\\]\nWe have to choose latent prior and sampling model such that \\[p(y \\mid \\beta) = \\int_{\\cal{Z}}  \\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z) \\, dz\\]\ncomplete data likelihood \\(\\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z)\\)"
+    "text": "Data Augmentation\n\nConsider an augmented posterior \\[\\pi(\\beta, Z \\mid y) \\propto \\pi(\\beta) \\pi(Z \\mid \\beta) \\pi(y \\mid Z, \\beta)\\]\nIF we choose \\(\\pi(Z \\mid \\beta)\\) and \\(\\pi(y \\mid Z, \\beta)\\) carefully, we can carry out Gibbs and get samples of \\(\\pi(\\beta \\mid y)\\) !\ndesired marginal of joint augmented posterior \\[\\pi(\\beta \\mid y) = \\int_{\\cal{Z}} \\pi(\\beta, z \\mid y) \\, dz\\]\nWe have to choose latent prior and sampling model such that \\[p(y \\mid \\beta) = \\int_{\\cal{Z}}  \\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z) \\, dz\\]\ncomplete data likelihood \\(\\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z)\\)"
   },
   {
     "objectID": "resources/slides/09-data-augmentation.html#augmentation-strategy",
@@ -1271,7 +1271,7 @@
     "href": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
     "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
     "section": "Data Augmentation in General",
-    "text": "Data Augmentation in General\nDA is a broader than a computational trick allowing Gibbs sampling\n\nrandom effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling\nModeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals\noutliesr\nvariable selection\nmissing data\nNext class:\n\nMultivariate Normal data\n\nWishart and inverse-Wishart distributions\nmissing data\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Data Augmentation in General\nDA is a broader than a computational trick allowing Gibbs sampling\n\nrandom effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling\nModeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals\noutliers\nvariable selection\nmissing data\nNext class:\n\nMultivariate Normal data\n\nWishart and inverse-Wishart distributions\nmissing data\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/05-hierarchical-models.html#normal-means-model",
