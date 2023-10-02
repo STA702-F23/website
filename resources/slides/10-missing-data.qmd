@@ -1,0 +1,835 @@
+---
+title: "Multivariate Normal Models, Missing Data and Imputation"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rvest)
+library(mvtnorm)
+library(lattice)
+library(MCMCpack)
+library(hdrcde)
+library(coda)
+set.seed(42)
+```
+
+## Introduction to Missing Data {.smaller}
+
+- Missing data/nonresponse is fairly common in real data.
+  + Failure to respond to survey question
+  + Subject misses some clinic visits out of all possible
+  + Only subset of subjects asked certain questions
+  
+  
+
+- posterior computation usually depends on the data through $\mathcal{p}(Y \mid  X, \theta)$, which can be difficult to compute (at least directly) when some of the $y_i$ (multivariate $Y$) or $x^T_i$ values are missing.
+
+  
+
+- Most software packages often throw away all subjects with incomplete data (can lead to bias and precision loss).
+
+  
+
+- Some individuals impute missing values with a mean or some other fixed value (ignores uncertainty).
+
+  
+
+- Imputing missing data is actually quite natural in the Bayesian context.
+
+
+
+
+ 
+## Missing data mechanisms {.smaller}
+
+- Data are said to be [missing completely at random (MCAR)]{style="color:red"} if the reason for missingness does not depend on the values of the observed data or missing data.
+
+  
+
+- For example, suppose
+  - you handed out a double-sided survey questionnaire of 20 questions to a sample of participants;
+  - questions 1-15 were on the first page but questions 16-20 were at the back; and
+  - some of the participants did not respond to questions 16-20.
+ 
+  
+ 
+- Then, the values for questions 16-20 for those people who did not respond would be [MCAR]{style="color:red"}  if they simply did not realize the pages were double-sided; they had no reason to ignore those questions.
+ 
+  
+ 
+- **This is rarely plausible in practice!**
+
+
+ 
+## Missing Data Mechanisms {.smaller}
+
+- Data are said to be    [missing at random (MAR)]{style="color:red"} if, conditional on the values of the observed data, the reason for missingness does not depend on the missing data.
+
+  
+
+- Using our previous example, suppose
+  - questions 1-15 include demographic information such as age and education;
+  - questions 16-20 include income related questions; and
+  - once again, some participants did not respond to questions 16-20.
+
+  
+  
+- Then, the values for questions 16-20 for those people who did not respond would be    [MAR]{style="color:red"}  if younger people are more likely not to respond to those income related questions than old people, where age is observed for all participants. (missingness reason must be independent of income)
+  
+  
+
+- **This is the most commonly assumed mechanism in practice!**
+
+
+ 
+## Missing data mechanisms {.smaller}
+
+- Data are said to be    [missing not at random (MNAR or NMAR)]{style="color:red"} if the reason for missingness depends on the actual values of the missing (unobserved) data.
+
+  
+
+-  suppose again that
+  - questions 1-15 include demographic information such as age and education;
+  - questions 16-20 include income related questions; and
+  - once again, some of the participants did not respond to questions 16-20.
+
+  
+  
+- Then, the values for questions 16-20 for those people who did not respond would be    [MNAR]{style="color:red"} if people who earn more money are less likely to respond to those income related questions than those with lower  incomes.
+
+  
+  
+- **This is usually the case in real data, but analysis can be complex!**
+
+
+ 
+## Multivariate Formulation {.smaller}
+
+- Consider the multivariate data scenario with $\boldsymbol{Y}_i = (\boldsymbol{Y}_1,\ldots,\boldsymbol{Y}_n)^T$, where $\boldsymbol{Y}_i = (Y_{i1},\ldots,Y_{ip})^T$, for $i = 1,\ldots, n$.
+
+  
+
+- For now, we will assume the multivariate normal model as the sampling model, so that each $p$ dimensional $\boldsymbol{Y}_i = (Y_{i1},\ldots,Y_{ip})^T \sim \mathcal{N}_p(\boldsymbol{\theta}, \Sigma)$.
+$$p(\boldsymbol{Y}_i \mid \boldsymbol{\theta}, \Sigma) = \frac{|\Sigma|^{-1/2}}{(2\pi)^{p/2}} \exp\left\{ -\frac{1}{2} (\boldsymbol{Y} - \boldsymbol{\theta})^T \Sigma^{-1} (\boldsymbol{Y} - \boldsymbol{\theta}) \right\}$$
+
+  
+	
+- Suppose now that $\boldsymbol{Y}$ contains missing values.
+
+  
+
+- We can separate $\boldsymbol{Y}$ into the observed and missing parts so that for for each individual, $$\boldsymbol{Y}_i = (\boldsymbol{Y}_{i,obs},\boldsymbol{Y}_{i,mis})$$
+
+  
+
+
+
+ 
+## Mathematical Formulation {.smaller}
+
+- Let
+  + $j$ index variables (where $i$ already indexes individuals),
+  + $r_{ij} = 1$ when $y_{ij}$ is missing,
+  + $r_{ij} = 0$ when $y_{ij}$ is observed.
+
+  
+
+- Here, $r_{ij}$ is known as the missingness indicator of variable $j$ for person $i$. 
+
+  
+
+- Also, let 
+  + $\boldsymbol{R}_i = (r_{i1},\ldots,r_{ip})^T$ be the vector of missing indicators for person $i$.
+  + $\boldsymbol{R} = (\boldsymbol{R}_1,\ldots,\boldsymbol{R}_n)$ be the matrix of missing indicators for everyone.
+  + $\boldsymbol{\psi}$ be the set of parameters associated with $\boldsymbol{R}$.
+
+  
+
+- Assume $\boldsymbol{\psi}$ and $(\boldsymbol{\theta}, \Sigma)$ are distinct.
+
+
+ 
+## Mathematical Formulation {.smaller}
+
+- MCAR:
+$$p(\boldsymbol{R} | \boldsymbol{Y},\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) = p(\boldsymbol{R} | \boldsymbol{\psi})$$
+
+
+  
+
+- MAR:
+$$p(\boldsymbol{R} | \boldsymbol{Y},\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) = p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{\psi})$$
+
+
+  
+
+- MNAR:
+$$p(\boldsymbol{R} | \boldsymbol{Y},\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) = p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis},\boldsymbol{\psi})$$
+
+
+
+
+ 
+## Implications for Likelihood Function {.smaller}
+
+- Each type of mechanism has a different implication on the likelihood of the observed data $\boldsymbol{Y}_{obs}$, and the missing data indicator $\boldsymbol{R}$.
+
+  
+
+- Without missingness in $\boldsymbol{Y}$, the likelihood of the observed data is
+$$p(\boldsymbol{Y}_{obs} | \boldsymbol{\theta}, \Sigma)$$
+
+
+  
+
+- With missingness in $\boldsymbol{Y}$, the likelihood of the observed data is instead
+$$
+\begin{split}
+p(\boldsymbol{Y}_{obs}, \boldsymbol{R} |\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) & = \int p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis},\boldsymbol{\psi}) \cdot p(\boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis} | \boldsymbol{\theta}, \Sigma) \textrm{d}\boldsymbol{Y}_{mis} 
+\end{split}
+$$
+
+
+ 
+  
+
+- Since we do not actually observe $\boldsymbol{Y}_{mis}$, we would like to be able to integrate it out so we don't have to deal with it and infer $(\boldsymbol{\theta}, \Sigma)$ using only the observed data.
+
+
+
+
+ 
+## Likelihood function: MAR {.smaller}
+
+- Focus on MAR
+$$
+\begin{split}
+p(\boldsymbol{Y}_{obs}, \boldsymbol{R} |\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) & = \int p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis},\boldsymbol{\psi}) \cdot p(\boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis} | \boldsymbol{\theta}, \Sigma) \textrm{d}\boldsymbol{Y}_{mis} \\
+& = \int p(\boldsymbol{R} | \boldsymbol{Y}_{obs}, \boldsymbol{\psi}) \cdot p(\boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis} | \boldsymbol{\theta}, \Sigma) \textrm{d}\boldsymbol{Y}_{mis} \\
+& = p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{\psi}) \cdot \int p(\boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis} | \boldsymbol{\theta}, \Sigma) \textrm{d}\boldsymbol{Y}_{mis} \\
+& = p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{\psi}) \cdot p(\boldsymbol{Y}_{obs} | \boldsymbol{\theta}, \Sigma). \\
+\end{split}
+$$
+
+
+  
+
+- For inference on $(\boldsymbol{\theta}, \Sigma)$, we only need $p(\boldsymbol{Y}_{obs} | \boldsymbol{\theta}, \Sigma)$ in the likelihood function for inference $(\boldsymbol{\theta}, \Sigma)$.
+
+  
+
+- Still is hard, as we need marginal model!
+
+ 
+## Bayesian Inference with Missing Data {.smaller}
+
+
+- For posterior sampling for most models (especially multivariate models), sampling is easier with complete data  $\boldsymbol{Y}$'s to update the parameters.
+
+
+  
+
+- Think of the missing data as [latent variables]{style="color:red"} and sample from the [posterior predictive distribution ]{style="color:red"} of the missing data conditional on the observed data and parameters:
+$$
+\begin{split}
+p(\boldsymbol{Y}_{mis} | \boldsymbol{Y}_{obs},\boldsymbol{\theta}, \Sigma) \propto \prod^n_{i=1} p(\boldsymbol{Y}_{i,mis} | \boldsymbol{Y}_{i,obs},\boldsymbol{\theta}, \Sigma).
+\end{split}
+$$
+  
+
+- In the case of the multivariate  normal model, each $p(\boldsymbol{Y}_{i,mis} | \boldsymbol{Y}_{i,obs},\boldsymbol{\theta}, \Sigma)$ is just a normal distribution, and we can leverage results on conditional distributions for normal models.
+
+ 
+## Model for Missing Data {.smaller}
+
+- Rewrite  as $\boldsymbol{Y}_i$ in block form
+\begin{eqnarray*}
+\boldsymbol{Y}_i =
+\begin{pmatrix}\boldsymbol{Y}_{i,mis}\\
+\boldsymbol{Y}_{i,obs}
+\end{pmatrix} & \sim & \mathcal{N}_p\left[\left(\begin{array}{c}
+\boldsymbol{\theta}_1\\
+\boldsymbol{\theta}_2
+\end{array}\right),\left(\begin{array}{cc}
+\Sigma_{11} & \Sigma_{12} \\
+\Sigma_{21} & \Sigma_{22}
+\end{array}\right)\right],\\
+\end{eqnarray*}
+
+
+   
+  
+  
+
+- Missing data has a conditional 
+$$\boldsymbol{Y}_{i,mis} | \boldsymbol{Y}_{i,obs} = \boldsymbol{y}_{i,obs} \sim \mathcal{N}\left(\boldsymbol{\theta}_1 + \Sigma_{12}\Sigma_{22}^{-1}  (\boldsymbol{y}_{i,obs}-\boldsymbol{\theta}_2), \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right).$$
+
+
+- multivariate normal distribution (or univariate normal distribution if $\boldsymbol{Y}_i$ only has one missing entry) 
+  
+  
+
+- This sampling technique actually encodes MAR since the imputations for $\boldsymbol{Y}_{mis}$ depend on the $\boldsymbol{Y}_{obs}$.
+  
+
+ 
+
+## Semi-Conjugate Prior {.smaller}
+
+- We need prior distributions for  $\boldsymbol{\theta}$ and $\Sigma$
+
+  
+
+- Multivariate Normal Prior for $\boldsymbol{\theta} \sim \mathcal{N}_p(\boldsymbol{\mu}_0, \Lambda_0^{-1})$
+
+  
+
+- Analogous to the univariate case, the [inverse-Wishart distribution]{style="color:red"} is the corresponding conditionally conjugate prior for $\Sigma$ (multivariate generalization of the inverse-gamma).
+
+  
+
+
+- A random variable $\Sigma \sim \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1})$, where $\Sigma$ is positive definite and $p \times p$, has pdf
+$$p(\Sigma) \propto  \left|\Sigma\right|^{\frac{-(\eta_0 + p + 1)}{2}} \textrm{exp} \left\{-\frac{1}{2} \textsf{tr}(\boldsymbol{S}_0\Sigma^{-1}) \right\}$$
+  
+    + $\eta_0 > p - 1$ is the "degrees of freedom", and 
+    + $\boldsymbol{S}_0$ is a $p \times p$ positive definite matrix.
+  
+ 
+## Mean {.smaller}
+
+- For this distribution, $E[\Sigma] = \frac{1}{\eta_0 - p - 1} \boldsymbol{S}_0$, for $\eta_0 > p + 1$.
+
+
+  
+
+- If we are very confident in a prior guess $\Sigma_0$, for $\Sigma$, then we might set
+  + $\eta_0$, the degrees of freedom to be very large, and
+  + $\boldsymbol{S}_0 = (\eta_0 - p - 1)\Sigma_0$. 
+  +  $E[\Sigma] = \frac{1}{\eta_0 - p - 1} \boldsymbol{S}_0 = \frac{1}{\eta_0 - p - 1}(\eta_0 - p - 1)\Sigma_0 = \Sigma_0$, and $\Sigma$ is tightly (depending on the value of $\eta_0$) centered around $\Sigma_0$.
+  
+  
+
+- If we are not at all confident but we still have a prior guess $\Sigma_0$, we might set
+  + $\eta_0 = p + 2$, so that the $E[\Sigma] = \frac{1}{\eta_0 - p - 1} \boldsymbol{S}_0$ is finite.
+  + $\boldsymbol{S}_0 = \Sigma_0$
+  
+  
+
+- Jeffreys prior (improper limiting case)
+  
+
+ 
+## Wishart distribution {.smaller}
+
+- Just as we had with the gamma and inverse-gamma relationship in the univariate case, we can also work in terms of the [Wishart distribution]{style="color:red"} (multivariate generalization of the gamma) instead.
+
+  
+
+- The **Wishart distribution** provides a conditionally-conjugate prior for the precision matrix $\Sigma^{-1}$ in a multivariate normal model.
+
+  
+
+- if $\Sigma \sim \textrm{IW}_p(\eta_0, \boldsymbol{S}_0)$, then $\Phi = \Sigma^{-1} \sim \textrm{W}_p(\eta_0, \boldsymbol{S}_0^{-1})$.
+
+  
+
+- A random variable $\Phi \sim \textrm{W}_p(\eta_0, \boldsymbol{S}_0^{-1})$, where $\Phi$ has dimension $(p \times p)$, has pdf
+$$\begin{align*}
+f(\Phi) \ \propto \ \left|\Phi\right|^{\frac{\eta_0 - p - 1}{2}} \textrm{exp} \left\{-\frac{1}{2} \text{tr}(\boldsymbol{S}_0\Phi) \right\}.
+\end{align*}$$
+
+
+  
+
+- Here, $E[\Phi] = \eta_0 \boldsymbol{S}_0$.
+
+
+  
+ 
+## Conditional posterior for $\Sigma$ {.smaller}
+
+$$\begin{align}Y_i  \mid  \boldsymbol{\theta}, \Sigma & \overset{ind}{\sim} N(\boldsymbol{\theta}, \Sigma)\\
+\Sigma  & \sim  \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1}) \\
+\boldsymbol{\theta} & \sim N(\mu_0, \Psi_0^{-1}) 
+\end{align}$$
+
+- The conditional posterior (full conditional) $\Sigma \mid \boldsymbol{\theta}, \boldsymbol{Y}$, is then
+$$\Sigma \mid \boldsymbol{\theta}, \boldsymbol{Y} \sim \textrm{IW}_p\left(\eta_0 + n, \left(\boldsymbol{S}_0+ \sum_{i=1}^n (\boldsymbol{Y}_i - \boldsymbol{\theta})(\boldsymbol{Y}_i - \boldsymbol{\theta})^T\right)^{-1} \right)$$ 
+
+- posterior sample size $\eta_0 + n$
+
+  
+
+- posterior sum of squares $\boldsymbol{S}_0+ \sum_{i=1}^n (\boldsymbol{Y}_i - \boldsymbol{\theta})(\boldsymbol{Y}_i - \boldsymbol{\theta})^T$
+
+
+
+ 
+## Posterior Derivation {.smaller}
+- The conditional posterior (full conditional) $\Sigma \mid \boldsymbol{\theta}, \boldsymbol{Y}$, is 
+$$\begin{align*}
+\pi(\Sigma & \mid \boldsymbol{\theta}, \boldsymbol{Y})\propto p(\Sigma) \cdot p( \boldsymbol{Y}  \mid \boldsymbol{\theta}, \Sigma)\\
+& \propto \left|\Sigma\right|^{\frac{-(\eta_0 + p + 1)}{2}} \textrm{exp} \left\{-\frac{1}{2} \text{tr}(\boldsymbol{S}_0\Sigma^{-1}) \right\} \cdot \prod_{i = 1}^{n}\left|\Sigma\right|^{-\frac{1}{2}} \ \textrm{exp} \left\{-\frac{1}{2}\left[(\boldsymbol{Y}_i - \boldsymbol{\theta})^T \Sigma^{-1} (\boldsymbol{Y}_i - \boldsymbol{\theta})\right] \right\} \\
+ & \\
+ & \\
+ & \\
+ & 
+\end{align*}
+$$
+
+. . .
+
+$$\Sigma \mid \boldsymbol{\theta}, \boldsymbol{Y} \sim \textrm{IW}_p\left(\eta_0 + n, \left(\boldsymbol{S}_0+ \sum_{i=1}^n (\boldsymbol{Y}_i - \boldsymbol{\theta})(\boldsymbol{Y}_i - \boldsymbol{\theta})^T\right)^{-1} \right)$$ 
+
+  
+
+
+
+ 
+## Gibbs sampler with missing data {.smaller}
+
+At iteration $s+1$, do the following
+
+1. Sample $\boldsymbol{\theta}^{(s+1)}$ from its multivariate normal full conditional
+$p(\boldsymbol{\theta}^{(s+1)} | \boldsymbol{Y}_{obs}, \boldsymbol{Y}_{mis}^{(s)}, \Sigma^{(s)})$
+
+  
+  
+
+2. Sample $\Sigma^{(s+1)}$ from its inverse-Wishart full conditional
+$p(\Sigma^{(s+1)} | \boldsymbol{Y}_{obs}, \boldsymbol{Y}_{mis}^{(s)}, \boldsymbol{\theta}^{(s+1)})$
+
+
+  
+
+3. For each $i = 1, \ldots, n$, with at least one "1" value in the missingness indicator vector $\boldsymbol{R}_i$, sample $\boldsymbol{Y}_{i,mis}^{(s+1)}$ from the full conditional
+$$\begin{align}
+\boldsymbol{Y}_{i,mis}^{(s+1)}| \boldsymbol{Y}_{i,obs},  \boldsymbol{\theta}^{(s+1)},  \Sigma^{(s+1)}  \sim \mathcal{N}(& \boldsymbol{\theta}_1^{(s+1)} + \Sigma_{12}^{(s+1)}{\Sigma_{22}^{(s+1)}}^{-1}  (\boldsymbol{Y}_{i,obs}-\boldsymbol{\theta}_2^{(s+1)}),  \\
+ &  \Sigma_{11}^{(s+1)} - \Sigma_{12}^{(s+1)}{\Sigma_{22}^{(s+1)}}^{-1}\Sigma_{21}^{(s+1)})
+\end{align}$$
+
+ . . .
+ 
+- derived from the original sampling model but with the updated parameters,  $\boldsymbol{Y}_i^{(s+1)} = (\boldsymbol{Y}_{i,obs},\boldsymbol{Y}_{i,mis}^{(s+1)})^T \sim \mathcal{N}_p(\boldsymbol{\theta}^{(s+1)}, \Sigma^{(s+1)})$.
+
+
+
+ 
+ 
+## Reading example from Hoff with missing data {.smaller}
+
+```{r}
+Y <- as.matrix(dget("http://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.reading"))
+
+#Add 20% missing data; MCAR
+set.seed(1234)
+Y_WithMiss <- Y #So we can keep the full data
+Miss_frac <- 0.20
+R <- matrix(rbinom(nrow(Y_WithMiss)*ncol(Y_WithMiss),1,Miss_frac),
+            nrow(Y_WithMiss),ncol(Y_WithMiss))
+Y_WithMiss[R==1]<-NA
+Y_WithMiss[1:12,]
+colMeans(is.na(Y_WithMiss))
+```
+
+## MCMC Summary for $\Sigma$ {.smaller}
+
+
+```{r, echo=FALSE, include=FALSE}
+#ACTUAL ANALYSIS STARTS HERE!!!
+#Data dimensions
+n <- nrow(Y_WithMiss); p <- ncol(Y_WithMiss)
+
+#Hyperparameters for the priors
+mu_0 <- c(50,50)
+Lambda_0 <- matrix(c(156,78,78,156),nrow=2,ncol=2)
+nu_0 <- 4
+S_0 <- matrix(c(625,312.5,312.5,625),nrow=2,ncol=2)
+
+#Define missing data indicators
+##we already know R. This is to write a more general code for when we don't
+R <- 1*(is.na(Y_WithMiss))
+R[1:12,]
+```
+
+
+
+```{r, echo=FALSE, include=FALSE}
+#Initial values for Gibbs sampler
+Y_Full <- Y_WithMiss #So we can keep the data with missing values as is
+for (j in 1:p) {
+Y_Full[is.na(Y_Full[,j]),j] <- mean(Y_Full[,j],na.rm=TRUE) #start with mean imputation
+}
+
+Sigma <- S_0 # can't really rely on cov(Y) because we don't have full Y
+
+#Set null objects to save samples
+THETA_WithMiss <- NULL
+SIGMA_WithMiss <- NULL
+Y_MISS <- NULL
+
+#first set number of iterations and burn-in, then set seed
+n_iter <- 20000; burn_in <- 0.3*n_iter
+```
+
+
+
+```{r, cache=T, echo =F}
+Lambda_0_inv <- solve(Lambda_0) #move outside sampler since it does not change
+
+for (s in 1:(n_iter+burn_in)){
+  ##first we must recalculate ybar inside the loop now since it changes every iteration
+  ybar <- apply(Y_Full,2,mean)
+  
+  ##update theta
+  Sigma_inv <- solve(Sigma) #invert once
+  Lambda_n <- solve(Lambda_0_inv + n*Sigma_inv)
+  mu_n <- Lambda_n %*% (Lambda_0_inv%*%mu_0 + n*Sigma_inv%*%ybar)
+  theta <- rmvnorm(1,mu_n,Lambda_n)
+
+  ##update Sigma
+  S_theta <- (t(Y_Full)-c(theta))%*%t(t(Y_Full)-c(theta))
+  S_n <- S_0 + S_theta
+  nu_n <- nu_0 + n
+  Sigma <- riwish(nu_n, S_n)
+  
+  ##update missing data using updated draws of theta and Sigma
+  for(i in 1:n) {
+    if(sum(R[i,]>0)){
+       obs_index <- R[i,]==0
+       mis_index <- R[i,]==1
+       
+       Sigma_22_obs_inv <- solve(Sigma[obs_index,obs_index]) #invert just once
+       Sigma_12_Sigma_22_obs_inv <- Sigma[mis_index,obs_index]%*%Sigma_22_obs_inv
+       
+       Sigma_cond_mis <- Sigma[mis_index,mis_index] - 
+         Sigma_12_Sigma_22_obs_inv%*%Sigma[obs_index,mis_index]
+       
+       mu_cond_mis <- theta[mis_index] + 
+         Sigma_12_Sigma_22_obs_inv%*%(t(Y_Full[i,obs_index])-theta[obs_index])
+      
+      Y_Full[i,mis_index] <- rmvnorm(1,mu_cond_mis,Sigma_cond_mis)
+      }
+    }
+
+  #save results only past burn-in
+  if(s > burn_in){
+  THETA_WithMiss <- rbind(THETA_WithMiss,theta)
+  SIGMA_WithMiss <- rbind(SIGMA_WithMiss,c(Sigma))
+  Y_MISS <- rbind(Y_MISS, Y_Full[R==1] )
+  }
+}
+
+colnames(THETA_WithMiss) <- c("theta_1","theta_2")
+colnames(SIGMA_WithMiss) <- c("sigma_11","sigma_12","sigma_21","sigma_22") #symmetry in sigma
+```
+
+
+
+```{r, eval=F, include=FALSE, echo=FALSE}
+#library(mvtnorm) for multivariate normal
+#library(MCMCpack) for inverse-Wishart
+
+Lambda_0_inv <- solve(Lambda_0) #move outside sampler since it does not change
+
+for (s in 1:(n_iter+burn_in)){
+  ##first we must recalculate ybar inside the loop now since it changes every iteration
+  ybar <- apply(Y_Full,2,mean)
+  
+  ##update theta
+  Sigma_inv <- solve(Sigma) #invert once
+  Lambda_n <- solve(Lambda_0_inv + n*Sigma_inv)
+  mu_n <- Lambda_n %*% (Lambda_0_inv%*%mu_0 + n*Sigma_inv%*%ybar)
+  theta <- rmvnorm(1,mu_n,Lambda_n)
+
+  ##update Sigma
+  S_theta <- (t(Y_Full)-c(theta))%*%t(t(Y_Full)-c(theta))
+  S_n <- S_0 + S_theta
+  nu_n <- nu_0 + n
+  Sigma <- riwish(nu_n, S_n)
+```
+
+
+
+
+```{r, eval=F, include=FALSE}
+##update missing data using updated draws of theta and Sigma
+  for(i in 1:n) {
+    if(sum(R[i,]>0)){
+       obs_index <- R[i,]==0
+       mis_index <- R[i,]==1
+       Sigma_22_obs_inv <- solve(Sigma[obs_index,obs_index]) #invert just once
+       Sigma_12_Sigma_22_obs_inv <- Sigma[mis_index,obs_index]%*%Sigma_22_obs_inv
+       
+       Sigma_cond_mis <- Sigma[mis_index,mis_index] - 
+         Sigma_12_Sigma_22_obs_inv%*%Sigma[obs_index,mis_index]
+       
+       mu_cond_mis <- theta[mis_index] + 
+         Sigma_12_Sigma_22_obs_inv%*%(t(Y_Full[i,obs_index])-theta[obs_index])
+      
+      Y_Full[i,mis_index] <- rmvnorm(1,mu_cond_mis,Sigma_cond_mis)
+      }
+    }
+
+  #save results only past burn-in
+  if(s > burn_in){
+  THETA_WithMiss <- rbind(THETA_WithMiss,theta)
+  SIGMA_WithMiss <- rbind(SIGMA_WithMiss,c(Sigma))
+  Y_MISS <- rbind(Y_MISS, Y_Full[R==1] )
+  }
+}
+
+colnames(THETA_WithMiss) <- c("theta_1","theta_2")
+colnames(SIGMA_WithMiss) <- c("sigma_11","sigma_12","sigma_21","sigma_22") #symmetry in sigma
+```
+
+
+
+
+
+```{r fig.height=4, include=FALSE, echo=FALSE}
+#library(coda)
+THETA_WithMiss.mcmc <- mcmc(THETA_WithMiss,start=1); summary(THETA_WithMiss.mcmc)
+```
+
+
+
+
+```{r fig.height=4, include-FALSE}
+SIGMA_WithMiss.mcmc <- mcmc(SIGMA_WithMiss,start=1); summary(SIGMA_WithMiss.mcmc)
+```
+
+
+ 
+## Compare to inference from full data {.smaller}
+
+- With missing data:
+
+. . .
+
+```{r fig.height=4}
+apply(THETA_WithMiss,2,summary)
+```
+
+- Based on true data:
+
+. . .
+
+```{r, echo=F, cache=T}
+Y <- as.matrix(dget("http://www2.stat.duke.edu/~pdh10/FCBS/Inline/Y.reading"))
+#Data summaries
+n <- nrow(Y)
+ybar <- apply(Y,2,mean)
+
+#Hyperparameters for the priors
+mu_0 <- c(50,50)
+Lambda_0 <- matrix(c(156,78,78,156),nrow=2,ncol=2)
+nu_0 <- 4
+S_0 <- matrix(c(625,312.5,312.5,625),nrow=2,ncol=2)
+
+#Initial values for Gibbs sampler
+#No need to set initial value for theta, we can simply sample it first
+Sigma <- cov(Y)
+
+#Set null matrices to save samples
+THETA <- SIGMA <- NULL
+
+#Now, to the Gibbs sampler
+#library(mvtnorm) for multivariate normal
+#library(MCMCpack) for inverse-Wishart
+
+#first set number of iterations and burn-in, then set seed
+n_iter <- 20000; burn_in <- 0.3*n_iter
+set.seed(1234)
+
+for (s in 1:(n_iter+burn_in)){
+##update theta using its full conditional
+Lambda_n <- solve(solve(Lambda_0) + n*solve(Sigma))
+mu_n <- Lambda_n %*% (solve(Lambda_0)%*%mu_0 + n*solve(Sigma)%*%ybar)
+theta <- rmvnorm(1,mu_n,Lambda_n)
+
+#update Sigma
+S_theta <- (t(Y)-c(theta))%*%t(t(Y)-c(theta))
+S_n <- S_0 + S_theta
+nu_n <- nu_0 + n
+Sigma <- riwish(nu_n, S_n)
+
+#save results only past burn-in
+if(s > burn_in){
+  THETA <- rbind(THETA,theta)
+  SIGMA <- rbind(SIGMA,c(Sigma))
+  }
+}
+colnames(THETA) <- c("theta_1","theta_2")
+colnames(SIGMA) <- c("sigma_11","sigma_12","sigma_21","sigma_22") #symmetry in sigma
+
+THETA.mcmc <- mcmc(THETA,start=1)
+SIGMA.mcmc <- mcmc(SIGMA,start=1)
+```
+
+```{r fig.height=4}
+apply(THETA,2,summary) 
+```
+
+- Very similar for the most part.
+
+ 
+## Compare to inference from full data {.smaller}
+
+- With missing data:
+
+. . .
+
+```{r fig.height=4}
+apply(SIGMA_WithMiss,2,summary)
+```
+
+
+
+- Based on true data:
+
+. . .
+
+```{r fig.height=4}
+apply(SIGMA,2,summary) 
+```
+
+- Also very similar. A bit more uncertainty in dimension of $Y_{i2}$ because we have more missing data there.
+
+
+
+ 
+## Posterior distribution of the mean {.smaller}
+
+```{r fig.height=4.8, echo=F}
+theta.kde <- kde2d(THETA_WithMiss[,1], THETA_WithMiss[,2], n = 50)
+image(theta.kde,xlab=expression(theta[1]),ylab=expression(theta[2]))
+contour(theta.kde, add = T)
+```
+
+
+
+ 
+## Missing data vs predictions for new observations {.smaller}
+
+- How about predictions for completely new observations?
+
+  
+
+- That is, suppose your original dataset plus sampling model is $\boldsymbol{y_i} = (y_{i,1},y_{i,2})^T \sim \mathcal{N}_2(\boldsymbol{\theta}, \Sigma)$, $i = 1, \ldots, n$.
+
+  
+
+- Suppose now you have $n^\star$ new observations with $y_{2}^\star$ values but no $y_{1}^\star$.
+
+  
+
+- How can we predict $y_{i,1}^\star$ given $y_{i,2}^\star$, for $i = 1, \ldots, n^\star$?
+
+  
+
+- Well, we can view this as a "train $\rightarrow$ test" prediction problem rather than a missing data problem on an original data.
+
+
+ 
+## Missing data vs predictions for new observations {.smaller}
+
+- That is, given the posterior samples of the parameters, and the test values for $y_{i2}^\star$, draw from the posterior predictive distribution of $(y_{i,1}^\star | y_{i,2}^\star, \{(y_{1,1},y_{1,2}), \ldots, (y_{n,1},y_{n,2})\})$. 
+
+  
+
+- To sample from this predictive distribution, think of compositional sampling.
+
+  
+
+- for each posterior sample of $(\boldsymbol{\theta}, \Sigma)$, sample from $(y_{i,1} | y_{i,2}, \boldsymbol{\theta}, \Sigma)$, which is just from the form of the sampling distribution.
+
+  
+
+- In this case, $(y_{i,1} | y_{i,2}, \boldsymbol{\theta}, \Sigma)$ is just a normal distribution derived from $(y_{i,1}, y_{i,2} | \boldsymbol{\theta}, \Sigma)$, based on the conditional normal formula.
+
+  
+
+- No need to incorporate the prediction problem into your original Gibbs sampler!
+
+
+
+
+ 
+## MNAR Likelihood function:  {.smaller}
+
+- For MNAR, we have:
+$$
+\begin{split}
+p(\boldsymbol{Y}_{obs}, \boldsymbol{R} |\boldsymbol{\theta}, \Sigma, \boldsymbol{\psi}) & = \int p(\boldsymbol{R} | \boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis},\boldsymbol{\psi}) \cdot p(\boldsymbol{Y}_{obs},\boldsymbol{Y}_{mis} | \boldsymbol{\theta}, \Sigma) \textrm{d}\boldsymbol{Y}_{mis} \\
+\end{split}
+$$
+
+
+  
+
+- The likelihood under MNAR cannot simplify any further.
+  
+  
+
+- In this case, we cannot ignore the missing data when making inferences about $(\boldsymbol{\theta}, \Sigma)$.
+  
+  
+
+- We must include the model for $\boldsymbol{R}$ and also infer the missing data $\boldsymbol{Y}_{mis}$.
+ 
+  
+
+- So how can we tell the type of mechanism we are dealing with? 
+
+  
+
+- In general, we don't know!!!
+
+  
+
+- Rare that data are MCAR (unless planned beforehand); more likely that data are MNAR or MNAR.
+
+
