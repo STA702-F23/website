@@ -2,154 +2,158 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/STA702-F23/website/hw/hw-04.html</loc>
-    <lastmod>2023-10-02T01:08:54.374Z</lastmod>
+    <lastmod>2023-10-02T04:32:19.048Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/hw/hw-01.html</loc>
-    <lastmod>2023-10-02T01:08:53.626Z</lastmod>
+    <lastmod>2023-10-02T04:32:18.356Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/00-reading.html</loc>
-    <lastmod>2023-10-02T01:08:52.918Z</lastmod>
+    <lastmod>2023-10-02T04:32:17.688Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/02-reading.html</loc>
-    <lastmod>2023-10-02T01:08:48.438Z</lastmod>
+    <lastmod>2023-10-02T04:32:13.564Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/06-reading.html</loc>
-    <lastmod>2023-10-02T01:08:47.770Z</lastmod>
+    <lastmod>2023-10-02T04:32:12.936Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/01-reading.html</loc>
-    <lastmod>2023-10-02T01:08:47.094Z</lastmod>
+    <lastmod>2023-10-02T04:32:12.300Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/09-reading.html</loc>
-    <lastmod>2023-10-02T01:08:46.402Z</lastmod>
+    <lastmod>2023-10-02T04:32:11.640Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/08-reading.html</loc>
-    <lastmod>2023-10-02T01:08:41.870Z</lastmod>
+    <lastmod>2023-10-02T04:32:07.420Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-01-r-review.html</loc>
-    <lastmod>2023-10-02T01:08:41.158Z</lastmod>
+    <lastmod>2023-10-02T04:32:06.756Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-00-getting-started.html</loc>
-    <lastmod>2023-10-02T01:08:40.422Z</lastmod>
+    <lastmod>2023-10-02T04:32:06.092Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-03.html</loc>
-    <lastmod>2023-10-02T01:08:39.678Z</lastmod>
+    <lastmod>2023-10-02T04:32:05.360Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/index.html</loc>
-    <lastmod>2023-10-02T01:08:39.026Z</lastmod>
+    <lastmod>2023-10-02T04:32:04.740Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/14-bayes-regression.html</loc>
-    <lastmod>2023-10-02T01:08:37.838Z</lastmod>
+    <lastmod>2023-10-02T04:32:03.628Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/08-gibbs.html</loc>
-    <lastmod>2023-10-02T01:08:32.666Z</lastmod>
+    <lastmod>2023-10-02T04:31:58.716Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/04-predictive-checks.html</loc>
-    <lastmod>2023-10-02T01:08:31.602Z</lastmod>
+    <lastmod>2023-10-02T04:31:57.704Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/05-hierarchical-models.html</loc>
-    <lastmod>2023-10-02T01:08:30.402Z</lastmod>
+    <lastmod>2023-10-02T04:31:56.552Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/09-data-augmentation.html</loc>
-    <lastmod>2023-10-02T01:08:29.122Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources/slides/06-metropolis.html</loc>
-    <lastmod>2023-10-02T01:08:27.838Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/resources.html</loc>
-    <lastmod>2023-10-02T01:08:20.270Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/syllabus.html</loc>
-    <lastmod>2023-10-02T01:08:19.502Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/STA702-F23/website/schedule.html</loc>
-    <lastmod>2023-10-02T01:08:25.786Z</lastmod>
+    <loc>https://github.com/STA702-F23/website/resources/slides/10-missing-data.html</loc>
+    <lastmod>2023-10-02T04:31:55.328Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/07-adaptive-metropolis.html</loc>
-    <lastmod>2023-10-02T01:08:28.682Z</lastmod>
+    <lastmod>2023-10-02T04:31:54.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/schedule.html</loc>
+    <lastmod>2023-10-02T04:31:51.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/syllabus.html</loc>
+    <lastmod>2023-10-02T04:31:45.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources.html</loc>
+    <lastmod>2023-10-02T04:31:46.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/06-metropolis.html</loc>
+    <lastmod>2023-10-02T04:31:53.380Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/STA702-F23/website/resources/slides/09-data-augmentation.html</loc>
+    <lastmod>2023-10-02T04:31:54.632Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/00-course-overview.html</loc>
-    <lastmod>2023-10-02T01:08:29.738Z</lastmod>
+    <lastmod>2023-10-02T04:31:55.932Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/01-basics-of-bayes.html</loc>
-    <lastmod>2023-10-02T01:08:30.866Z</lastmod>
+    <lastmod>2023-10-02T04:31:57.012Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/03-normal-predictive-distributions.html</loc>
-    <lastmod>2023-10-02T01:08:32.166Z</lastmod>
+    <lastmod>2023-10-02T04:31:58.244Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/02-loss-functions.html</loc>
-    <lastmod>2023-10-02T01:08:33.522Z</lastmod>
+    <lastmod>2023-10-02T04:31:59.608Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/resources/slides/template.html</loc>
-    <lastmod>2023-10-02T01:08:38.470Z</lastmod>
+    <lastmod>2023-10-02T04:32:04.244Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/about.html</loc>
-    <lastmod>2023-10-02T01:08:39.326Z</lastmod>
+    <lastmod>2023-10-02T04:32:05.024Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-02-beta-binomial.html</loc>
-    <lastmod>2023-10-02T01:08:40.042Z</lastmod>
+    <lastmod>2023-10-02T04:32:05.692Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-04.html</loc>
-    <lastmod>2023-10-02T01:08:40.802Z</lastmod>
+    <lastmod>2023-10-02T04:32:06.428Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/labs/lab-05.html</loc>
-    <lastmod>2023-10-02T01:08:41.514Z</lastmod>
+    <lastmod>2023-10-02T04:32:07.088Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/07-reading.html</loc>
-    <lastmod>2023-10-02T01:08:42.210Z</lastmod>
+    <lastmod>2023-10-02T04:32:07.744Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/03-reading.html</loc>
-    <lastmod>2023-10-02T01:08:46.746Z</lastmod>
+    <lastmod>2023-10-02T04:32:11.940Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/04-reading.html</loc>
-    <lastmod>2023-10-02T01:08:47.434Z</lastmod>
+    <lastmod>2023-10-02T04:32:12.612Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/05-reading.html</loc>
-    <lastmod>2023-10-02T01:08:48.106Z</lastmod>
+    <lastmod>2023-10-02T04:32:13.256Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/reading/10-reading.html</loc>
-    <lastmod>2023-10-02T01:08:52.582Z</lastmod>
+    <lastmod>2023-10-02T04:32:17.368Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/hw/hw-02.html</loc>
-    <lastmod>2023-10-02T01:08:53.278Z</lastmod>
+    <lastmod>2023-10-02T04:32:18.020Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/STA702-F23/website/hw/hw-03.html</loc>
-    <lastmod>2023-10-02T01:08:54.006Z</lastmod>
+    <lastmod>2023-10-02T04:32:18.716Z</lastmod>
   </url>
 </urlset>
