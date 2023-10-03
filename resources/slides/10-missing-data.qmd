@@ -355,11 +355,16 @@ $$p(\Sigma) \propto  \left|\Sigma\right|^{\frac{-(\eta_0 + p + 1)}{2}} \textrm{e
   + $\eta_0 = p + 2$, so that the $E[\Sigma] = \frac{1}{\eta_0 - p - 1} \boldsymbol{S}_0$ is finite.
   + $\boldsymbol{S}_0 = \Sigma_0$
   
+## Alternatives
   
 
 - Jeffreys prior (improper limiting case)
-  
 
+- unit-information (data dependent)
+  
+-  [Sun, D. and Berger, J.O (2006)](https://www2.stat.duke.edu/~berger/papers/mult-normal.pdf) Objective Bayesian Analysis for the Multivariate Normal Model
+
+- [Mulder, J. Pericchi, L.R. (2018)](https://projecteuclid.org/journals/bayesian-analysis/volume-13/issue-4/The-Matrix-F-Prior-for-Estimating-and-Testing-Covariance-Matrices/10.1214/17-BA1092.full) The Matrix-F Prior for Estimating and Testing Covariance Matrices.
  
 ## Wishart distribution {.smaller}
 

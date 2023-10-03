@@ -30,4 +30,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
 
+[ Sun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model](https://www2.stat.duke.edu/~berger/papers/mult-normal.pdf) with Discussion. _Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics
+Benidorm (Alicante, Spain)_
+
+ [Mulder, J. Pericchi, L.R. (2018)](https://projecteuclid.org/journals/bayesian-analysis/volume-13/issue-4/The-Matrix-F-Prior-for-Estimating-and-Testing-Covariance-Matrices/10.1214/17-BA1092.full) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis,  13: 1193-1214
     
