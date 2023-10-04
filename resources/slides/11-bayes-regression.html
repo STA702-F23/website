@@ -7,11 +7,12 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Merlise Clyde">
-  <title>STA 702 Fall 2023 - Lecture 14: Bayesian Regression</title>
+  <title>STA 702 Fall 2023 - Lecture 11: Conjugate Priors and Bayesian Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -323,13 +324,14 @@
   </style>
   <link href="../../site_libs/font-awesome/css/all.min.css" rel="stylesheet">
   <link href="../../site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet">
+  
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 14: Bayesian Regression</h1>
+  <h1 class="title">Lecture 11: Conjugate Priors and Bayesian Regression</h1>
   <p class="subtitle">STA702</p>
 
 <div class="quarto-title-authors">
@@ -344,21 +346,353 @@ Merlise Clyde
 </div>
 
 </section>
-<section id="conjugate-versus-semi-conjugate-normal-linear-regression-example" class="slide level2 smaller">
-<h2>Conjugate versus Semi-Conjugate Normal Linear Regression Example</h2>
+<section id="semi-conjugate-priors-in-linear-regression" class="slide level2 smaller">
+<h2>Semi-Conjugate Priors in Linear Regression</h2>
 <ul>
-<li class="fragment"><p>Semi-Conjugate Model <span class="math display">\[\begin{align*}
-Y \mid \beta, \phi &amp; \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
-\beta &amp; \sim \textsf{N}(b_0, \Phi_0^{-1}) \\
-\phi &amp; \sim \textsf{Gamma}(v_0/2, s_0/2)
-\end{align*}\]</span></p></li>
-<li class="fragment"><p>Conjugate Normal-Gamma Model (Joint Posterior is also Normal-Gamma ) <span class="math display">\[\begin{align*}
-Y \mid \beta, \phi &amp; \sim \textsf{N}(X \beta, \phi^{-1} I_n) \\
-\beta \mid \phi &amp; \sim \textsf{N}(b_0, \phi^{-1}\Phi_0^{-1}) \\
-\phi &amp; \sim \textsf{Gamma}(v_0/2, s_0/2)
-\end{align*}\]</span></p></li>
-<li class="fragment"><p>Conditional Normal for <span class="math inline">\(\beta \mid \phi, Y\)</span> and <span class="math inline">\(\phi \mid Y\)</span> is Gamma (Show!)</p></li>
+<li class="fragment"><p>Regression Model (Sampling model) <span class="math display">\[\mathbf{Y}\mid \boldsymbol{\beta}, \phi  \sim \textsf{N}(\mathbf{X}\boldsymbol{\beta}, \phi^{-1} \mathbf{I}_n)
+\]</span></p></li>
+<li class="fragment"><p>Semi-Conjugate Prior Independent Normal Gamma <span class="math display">\[\begin{align*}
+\boldsymbol{\beta}&amp; \sim \textsf{N}(\mathbf{b}_0, \boldsymbol{\Phi}_0^{-1}) \\
+\phi &amp; \sim \textsf{Gamma}(\nu_0/2, \textsf{SS}_0/2)
+\end{align*}\]</span></p>
+<ul>
+<li class="fragment">Conditional Normal for <span class="math inline">\(\boldsymbol{\beta}\mid \phi, \mathbf{Y}\)</span> and</li>
+<li class="fragment">Conditional Gamma <span class="math inline">\(\phi \mid \mathbf{Y}, \boldsymbol{\beta}\)</span></li>
+<li class="fragment">requires Gibbs sampling or other Metropolis-Hastings algorithms</li>
+</ul></li>
 </ul>
+</section>
+<section id="conjugate-priors-in-linear-regression" class="slide level2 smaller">
+<h2>Conjugate Priors in Linear Regression</h2>
+<ul>
+<li class="fragment"><p>Regression Model (Sampling model) <span class="math display">\[\mathbf{Y}\mid \boldsymbol{\beta}, \phi  \sim \textsf{N}(\mathbf{X}\boldsymbol{\beta}, \phi^{-1} \mathbf{I}_n)
+\]</span></p></li>
+<li class="fragment"><p>Conjugate Normal-Gamma Model: factor joint prior <span class="math inline">\(p(\boldsymbol{\beta}, \phi ) = p(\boldsymbol{\beta}\mid \phi)p(\phi)\)</span> <span class="math display">\[\begin{align*}
+\boldsymbol{\beta}\mid \phi &amp; \sim \textsf{N}(\mathbf{b}_0, \phi^{-1}\boldsymbol{\Phi}_0^{-1}) &amp; p(\boldsymbol{\beta}\mid \phi) &amp; = \frac{|\phi \boldsymbol{\Phi}_0|^{1/2}}{(2 \pi)^{p/2}}e^{\left\{- \frac{\phi}{2}(\boldsymbol{\beta}- \mathbf{b}_0)^T \boldsymbol{\Phi}_0 (\boldsymbol{\beta}- \mathbf{b}_0)  \right\}}\\
+\phi &amp; \sim \textsf{Gamma}(v_0/2, \textsf{SS}_0/2)  &amp; p(\phi) &amp; = \frac{1}{\Gamma{(\nu_0/2)}}
+\left(\frac{\textsf{SS}_0}{2} \right)^{\nu_0/2}
+\phi^{\nu_0/2 - 1}
+e^{- \phi \frac{\textsf{SS}_0}{2}}\\
+\Rightarrow (\boldsymbol{\beta}, \phi) &amp; \sim \textsf{NG}(\mathbf{b}_0, \boldsymbol{\Phi}_0, \nu_o, \textsf{SS}_0)
+\end{align*}\]</span></p></li>
+<li class="fragment"><p>Normal-Gamma distribution indexed by 4 hyperparameters</p></li>
+<li class="fragment"><p>Note Prior Covariance for <span class="math inline">\(\boldsymbol{\beta}\)</span> is scaled by <span class="math inline">\(\sigma^2 = 1/\phi\)</span></p></li>
+</ul>
+</section>
+<section id="finding-the-posterior-distribution" class="slide level2 smaller">
+<h2>Finding the Posterior Distribution</h2>
+<ul>
+<li class="fragment"><p>Likelihood: <span class="math inline">\({\cal{L}}(\beta, \phi) \propto \phi^{n/2} e^{- \frac{\phi}{2} (\mathbf{Y}- \mathbf{X}\boldsymbol{\beta})^T(\mathbf{Y}- \mathbf{X}\boldsymbol{\beta})}\)</span><br>
+<span class="math display">\[\begin{eqnarray*}
+p(\boldsymbol{\beta}, \phi \mid \mathbf{Y}) &amp;\propto&amp;  \phi^{\frac {n}{2}}
+e^{- \frac \phi 2  (\mathbf{Y}- \mathbf{X}\boldsymbol{\beta})^T(\mathbf{Y}- \mathbf{X}\boldsymbol{\beta}) } \times \\
+&amp; &amp; \phi^{\frac{\nu_0}{2} - 1} e^{- \phi \frac{\textsf{SS}_0}{2} }\times
+\phi^{\frac{p}{2}} e^{- \frac{\phi}{2} (\boldsymbol{\beta}- \mathbf{b}_0)^T \boldsymbol{\Phi}_0 (\boldsymbol{\beta}- \mathbf{b}_0) }
+\end{eqnarray*}\]</span></p></li>
+<li class="fragment"><p>Quadratic in Exponential <span class="math display">\[\exp\left\{- \frac{\phi}{2} (\boldsymbol{\beta}- \mathbf{b})^T \boldsymbol{\Phi}(\boldsymbol{\beta}- \mathbf{b}) \right\} = \exp\left\{-
+\frac{\phi}{2} (\boldsymbol{\beta}^T \boldsymbol{\Phi}\boldsymbol{\beta}- 2 \boldsymbol{\beta}^T \boldsymbol{\Phi}\mathbf{b}+ \mathbf{b}^T\boldsymbol{\Phi}\mathbf{b})\right\}\]</span></p>
+<ul>
+<li class="fragment">Expand quadratics and regroup terms<br>
+</li>
+<li class="fragment">Read off posterior precision from Quadratic in <span class="math inline">\(\boldsymbol{\beta}\)</span><br>
+</li>
+<li class="fragment">Read off posterior mean from Linear term in <span class="math inline">\(\boldsymbol{\beta}\)</span><br>
+</li>
+<li class="fragment">will need to complete the quadratic in the posterior mean due to <span class="math inline">\(\phi\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="expand-and-regroup" class="slide level2 smaller">
+<h2>Expand and Regroup</h2>
+<p><span class="math display">\[\begin{eqnarray*}
+p(\boldsymbol{\beta}, \phi \mid \mathbf{Y}) &amp;\propto&amp;  \phi^{\frac {n}{2}}
+e^{- \frac \phi 2 ( \mathbf{Y}^T\mathbf{Y}- 2 \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{Y}+ \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X}\boldsymbol{\beta})} \times \\
+&amp; &amp; \phi^{\frac{\nu_0}{2} - 1} e^{- \phi \frac{\textsf{SS}_0}{2} }\times
+\phi^{\frac{p}{2}} e^{- \frac{\phi}{2} (\boldsymbol{\beta}\boldsymbol{\Phi}_0\boldsymbol{\beta}- 2 \boldsymbol{\beta}^T \boldsymbol{\Phi}_0 \mathbf{b}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0) }
+\end{eqnarray*}\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray*}
+p(\boldsymbol{\beta}, \phi \mid \mathbf{Y}) &amp;\propto&amp;  \phi^{\frac {n + p + \nu_0}{ 2} - 1}
+e^{- \frac \phi 2 (\textsf{SS}_0 +  \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0) } \times  \\
+&amp; &amp; e^{-\frac{\phi}{2} (\boldsymbol{\beta}^T(\mathbf{X}^T\mathbf{X})\boldsymbol{\beta}-2 \boldsymbol{\beta}^T\textcolor{red}{\mathbf{X}^T\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}}\mathbf{X}^T\mathbf{Y}+ \boldsymbol{\beta}\boldsymbol{\Phi}_0\boldsymbol{\beta}- 2 \boldsymbol{\beta}^T \boldsymbol{\Phi}_0 \mathbf{b}) }  
+\end{eqnarray*}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray*}
+&amp; = &amp; \phi^{\frac {n + p + \nu_0}{ 2} - 1}
+e^{- \frac \phi 2 (\textsf{SS}_0 +  \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0)} \times  \\
+&amp; &amp;  e^{ -\frac{\phi}{2} \left(  \boldsymbol{\beta}^T (\mathbf{X}^T\mathbf{X}+ \boldsymbol{\Phi}_0) \boldsymbol{\beta}\right) } \times  \\
+&amp; &amp;  e^{  -\frac{\phi}{2} \left( -2 \boldsymbol{\beta}^T (\mathbf{X}^T\mathbf{X}\textcolor{red}{\hat{\boldsymbol{\beta}}}  + \boldsymbol{\Phi}_0 \mathbf{b}_0)
+   \right)}
+\end{eqnarray*}\]</span></p>
+</div>
+</section>
+<section id="complete-the-quadratic" class="slide level2 smaller">
+<h2>Complete the Quadratic</h2>
+<p><span class="math display">\[\begin{eqnarray*}
+p(\boldsymbol{\beta}, \phi \mid \mathbf{Y}) &amp;\propto&amp;  \phi^{\frac {n + p + \nu_0}{ 2} - 1}
+e^{- \frac \phi 2 (\textsf{SS}_0 +  \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0
+  )}     \times \\
+&amp; &amp;  e^{ -\frac{\phi}{2} \left(  \boldsymbol{\beta}^T \textcolor{\red}{(\mathbf{X}^T\mathbf{X}+ \boldsymbol{\Phi}_0)} \boldsymbol{\beta}
+  \right) }  \times \qquad \qquad  \qquad \qquad \boldsymbol{\Phi}_n \equiv \mathbf{X}^T\mathbf{X}+ \boldsymbol{\Phi}_0  \\
+&amp; &amp;  e^{  -\frac{\phi}{2} \left( -2 \boldsymbol{\beta}^T  \textcolor{red}{\boldsymbol{\Phi}_n \boldsymbol{\Phi}_n^{-1}} (\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\beta}}+ \boldsymbol{\Phi}_0 \mathbf{b}_0)
+   \right)}  \times   \qquad \qquad  \mathbf{b}_n \equiv \boldsymbol{\Phi}_n^{-1} (\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\beta}}+ \boldsymbol{\Phi}_0 \mathbf{b}_0) \\
+&amp; &amp;  e^{ -\frac{\phi}{2} ( \textcolor{red}{\mathbf{b}_ n^T \boldsymbol{\Phi}_n \mathbf{b}_n - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n}) }  
+\end{eqnarray*}\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray*}
+&amp; = &amp;
+  \phi^{\frac {n +  \nu_0}{ 2} - 1}
+e^{- \frac \phi 2 ( \textsf{SS}_0   + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n)}    \times  \\
+&amp; &amp;   \textcolor{red}{\phi^{\frac p 2}}  e^{ -\frac{\phi}{2} \left(  (\boldsymbol{\beta}^T - \mathbf{b}_n)^T  \boldsymbol{\Phi}_n (\boldsymbol{\beta}-
+                               \mathbf{b}_n) \right) }
+\end{eqnarray*}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray*}
+&amp; \propto &amp;
+  \phi^{\frac {n +  \nu_0}{ 2} - 1}
+e^{- \frac \phi 2 ( \textsf{SS}_0   + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n)}    \times  \\
+&amp; &amp;   \textcolor{red}{|\phi \Phi_n |^{\frac 1 2}}  e^{ -\frac{\phi}{2} \left(  (\boldsymbol{\beta}^T - \mathbf{b}_n)^T  \boldsymbol{\Phi}_n (\boldsymbol{\beta}-
+                               \mathbf{b}_n) \right) }
+\end{eqnarray*}\]</span></p>
+</div>
+</section>
+<section id="posterior-distributions" class="slide level2 smaller">
+<h2>Posterior Distributions</h2>
+<p>Posterior density (up to normalizing contants) <span class="math inline">\(p(\boldsymbol{\beta}, \phi \mid \mathbf{Y}) = p(\phi \mid \mathbf{Y}) p(\boldsymbol{\beta}\mid \phi \mathbf{Y})\)</span> <span class="math display">\[\begin{eqnarray*}
+   p(\phi \mid \mathbf{Y}) p(\boldsymbol{\beta}\mid \phi \mathbf{Y}) &amp; \propto &amp;
+  \phi^{\frac {n +  \nu_0}{ 2} - 1}
+  e^{- \frac \phi 2 ( \textsf{SS}_0   + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n)}  \times \\
+   &amp; &amp; (2 \pi)^{- \frac p 2} |\phi \Phi_n |^{\frac 1 2}e^{- \frac{\phi}{2} (\boldsymbol{\beta}- \mathbf{b}_n)^T \boldsymbol{\Phi}_n (\boldsymbol{\beta}-
+   \mathbf{b}_n) }      
+   \end{eqnarray*}\]</span></p>
+<div class="fragment">
+<p>Marginal <span class="math display">\[\begin{eqnarray*}
+   p(\phi \mid \mathbf{Y})  &amp; \propto &amp;
+  \phi^{\frac {n +  \nu_0}{ 2} - 1}
+  e^{- \frac \phi 2 ( \textsf{SS}_0   + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n)}  \times \\
+   &amp; &amp;  \int_{\mathbb{R}^p} (2 \pi)^{- \frac p 2} |\phi \Phi_n |^{\frac 1 2}e^{- \frac{\phi}{2} (\boldsymbol{\beta}- \mathbf{b}_n)^T \boldsymbol{\Phi}_n (\boldsymbol{\beta}-
+   \mathbf{b}_n) \ d\boldsymbol{\beta}}   \\
+   &amp; =  &amp;
+  \phi^{\frac {n +  \nu_0}{ 2} - 1}
+  e^{- \frac \phi 2 ( \textsf{SS}_0   + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n)}
+   \end{eqnarray*}\]</span></p>
+<ul>
+<li class="fragment"><p>Conditional Normal for <span class="math inline">\(\boldsymbol{\beta}\mid \phi, \mathbf{Y}\)</span> and marginal Gamma for <span class="math inline">\(\phi \mid \mathbf{Y}\)</span></p></li>
+<li class="fragment"><p>No need for Gibbs sampling!</p></li>
+</ul>
+</div>
+</section>
+<section id="textsfng-posterior-distribution" class="slide level2 smaller">
+<h2><span class="math inline">\(\textsf{NG}\)</span> Posterior Distribution</h2>
+<p><span class="math display">\[\begin{eqnarray*}
+\boldsymbol{\beta}\mid \phi, \mathbf{Y}&amp; \sim &amp;\textsf{N}(\mathbf{b}_n, (\phi \boldsymbol{\Phi}_n)^{-1})   \\
+\phi \mid \mathbf{Y}&amp;\sim &amp;\textsf{Gamma}(\frac{\nu_n}{2}, \frac{\textsf{SS}_n}{2}) \\
+(\boldsymbol{\beta}, \phi) \mid \mathbf{Y}&amp; \sim &amp; \textsf{NG}(\mathbf{b}_n, \boldsymbol{\Phi}_n, \nu_n, \textsf{SS}_n)
+  \end{eqnarray*}\]</span></p>
+<p>Hyperparameters: <span class="math display">\[\begin{align*}
+\Phi_n &amp; =  \mathbf{X}^T\mathbf{X}+  \boldsymbol{\Phi}_0   &amp; \quad
+\mathbf{b}_n &amp;  =  \boldsymbol{\Phi}_n^{-1} (\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\beta}}+ \boldsymbol{\Phi}_0 \mathbf{b}_0)  \\
+\nu_n &amp;  =   n + \nu_0  &amp; \quad  
+\textsf{SS}_n &amp;  =   \textsf{SS}_0 + \mathbf{Y}^T\mathbf{Y}+ \mathbf{b}_0^T \boldsymbol{\Phi}_0 \mathbf{b}_0 - \mathbf{b}_n^T \boldsymbol{\Phi}_n \mathbf{b}_n
+\end{align*}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\begin{align*}
+\textsf{SS}_n &amp;  = \textsf{SS}_0 + \| \mathbf{Y}- \mathbf{X}\mathbf{b}_n \|^2 +  (\mathbf{b}_0 - \mathbf{b}_n)^T \boldsymbol{\Phi}_0 (\mathbf{b}_0 - \mathbf{b}_n) \\
+
+&amp; = \textsf{SS}_0 + \| \mathbf{Y}- \mathbf{X}\mathbf{b}_n \|^2 +  \| \mathbf{b}_0 - \mathbf{b}_n \|^2_{\boldsymbol{\Phi}_0}
+\end{align*}\]</span></p>
+<ul>
+<li class="fragment"><p>Inner product induced by prior precision <span class="math inline">\(\langle u, v \rangle_A \equiv u^TAv\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\| \mathbf{b}_0 - \mathbf{b}_n \|^2_{\boldsymbol{\Phi}_0}\)</span> mismatch of prior and posterior mean under prior</p></li>
+</ul>
+</div>
+</section>
+<section id="marginal-distribution" class="slide level2 smaller">
+<h2>Marginal Distribution</h2>
+<div id="student-t" class="Theorem unnumbered" title="Student-t">
+<p></p><details class="Theorem fbx-simplebox fbx-default" open=""><summary><strong>Theorem: </strong>Student-t</summary><div>Let <span class="math inline">\(\boldsymbol{\theta}\mid \phi \sim \textsf{N}(m, \frac{1}{\phi} \boldsymbol{\Sigma})\)</span> and <span class="math inline">\(\phi \sim  \textsf{Gamma}(\nu/2, \nu {\hat{\sigma}}^2/2)\)</span>.<p></p>
+<p>Then <span class="math inline">\(\boldsymbol{\theta}\)</span> <span class="math inline">\((p \times 1)\)</span> has a <span class="math inline">\(p\)</span> dimensional multivariate <span class="math inline">\(t\)</span> distribution <span class="math display">\[\boldsymbol{\theta}\sim t_\nu( m,
+    {\hat{\sigma}}^2\boldsymbol{\Sigma})\]</span> with location <span class="math inline">\(m\)</span>, scale matrix <span class="math inline">\({\hat{\sigma}}^2\boldsymbol{\Sigma}\)</span> and density</p>
+<p><span class="math display">\[p(\boldsymbol{\theta}) \propto  \left[ 1 + \frac{1}{\nu}  \frac{ (\boldsymbol{\theta}- m)^T
+    \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)}{{\hat{\sigma}}^2} \right]^{- \frac{p + \nu}{2}}\]</span></p>
+</div></details>
+</div>
+<div class="fragment">
+<p>Note - true for prior or posterior given <span class="math inline">\(\mathbf{Y}\)</span></p>
+</div>
+</section>
+<section id="derivation" class="slide level2 smaller">
+<h2>Derivation</h2>
+<p>Marginal density <span class="math inline">\(p(\boldsymbol{\theta}) = \int_0^\infty p(\boldsymbol{\theta}\mid \phi) p(\phi) \, d\phi\)</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p(\boldsymbol{\theta}) &amp; \propto &amp; \int |  \boldsymbol{\Sigma}/\phi|^{-1/2}
+e^{- \frac{\phi}{2} (\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)}  \phi^{\nu/2 - 1} e^{- \phi \frac{\nu
+      {\hat{\sigma}}^2}{2}}\, d \phi    \\
+  &amp; \propto &amp; \int \phi^{p/2} \phi^{\nu/2 - 1}
+e^{- \phi \frac{(\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)+  \nu
+      {\hat{\sigma}}^2}{2}}\, d \phi    \\
+&amp; \propto &amp; \int \phi^{\frac{p +\nu}{2} - 1}
+e^{- \phi \frac{(\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)+  \nu
+      {\hat{\sigma}}^2}{2}} \, d \phi    \\
+&amp; = &amp; \Gamma((p + \nu)/2 ) \left( \frac{(\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)+  \nu
+      {\hat{\sigma}}^2}{2} \right)^{- \frac{p + \nu}{2}}    \\
+&amp; \propto &amp;  \left( (\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)+  \nu
+      {\hat{\sigma}}^2\right)^{- \frac{p + \nu}{2}}    \\
+&amp; \propto &amp;  \left( 1 + \frac{1}{\nu}  \frac{(\boldsymbol{\theta}- m)^T
+      \boldsymbol{\Sigma}^{-1} (\boldsymbol{\theta}- m)}{{\hat{\sigma}}^2}
+       \right)^{- \frac{p + \nu}{2}}
+\end{eqnarray*}\]</span></p>
+</section>
+<section id="marginal-posterior-distribution-of-boldsymbolbeta" class="slide level2 smaller">
+<h2>Marginal Posterior Distribution of <span class="math inline">\(\boldsymbol{\beta}\)</span></h2>
+<p><span class="math display">\[\begin{eqnarray*}
+\boldsymbol{\beta}\mid \phi, \mathbf{Y}&amp; \sim &amp; \textsf{N}( \mathbf{b}_n, \phi^{-1} \boldsymbol{\Phi}_n^{-1}) \\
+\phi \mid \mathbf{Y}&amp; \sim &amp; \textsf{Gamma}\left(\frac{\nu_n}{2},  \frac{\textsf{SS}_n}{ 2} \right)
+  \end{eqnarray*}\]</span> </p>
+<ul>
+<li class="fragment"><p>Let <span class="math inline">\({\hat{\sigma}}^2= \textsf{SS}_n/\nu_n\)</span> (Bayesian MSE)</p></li>
+<li class="fragment"><p>The marginal posterior distribution of <span class="math inline">\(\boldsymbol{\beta}\)</span> is multivariate Student-t <span class="math display">\[
+\boldsymbol{\beta}\mid \mathbf{Y}\sim t_{\nu_n} (\mathbf{b}_n, {\hat{\sigma}}^2\boldsymbol{\Phi}_n^{-1})
+\]</span> </p></li>
+<li class="fragment"><p>Any linear combination <span class="math inline">\(\lambda^T\boldsymbol{\beta}\)</span> has a univariate <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(\mathbf{v}_n\)</span> degrees of freedom <span class="math display">\[\lambda^T\boldsymbol{\beta}\mid \mathbf{Y}\sim t_{\nu_n}
+(\lambda^T\mathbf{b}_n, {\hat{\sigma}}^2\lambda^T\Phi_n^{-1}\lambda)\]</span></p></li>
+<li class="fragment"><p>use for individual <span class="math inline">\(\boldsymbol{\beta}_j\)</span>, the mean of <span class="math inline">\(Y\)</span>, <span class="math inline">\(\mathbf{x}^T \boldsymbol{\beta}\)</span>, at <span class="math inline">\(\mathbf{x}\)</span>, or predictions <span class="math inline">\(Y^* = {\mathbf{x}^*}^T \boldsymbol{\beta}+ \epsilon_i^*\)</span></p></li>
+</ul>
+</section>
+<section id="predictive-distributions" class="slide level2 smaller">
+<h2>Predictive Distributions</h2>
+<p>Suppose <span class="math inline">\(\mathbf{Y}^* \mid \boldsymbol{\beta}, \phi \sim \textsf{N}_s(\mathbf{X}^* \boldsymbol{\beta}, \mathbf{I}_s/\phi)\)</span> and is conditionally independent of <span class="math inline">\(\mathbf{Y}\)</span> given <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\phi\)</span></p>
+<ul>
+<li class="fragment"><p>What is the predictive distribution of <span class="math inline">\(\mathbf{Y}^* \mid \mathbf{Y}\)</span>?</p></li>
+<li class="fragment"><p>Use the representation that <span class="math inline">\(\mathbf{Y}^* \mathrel{\mathop{=}\limits^{\rm D}}\mathbf{X}^* \boldsymbol{\beta}+ \boldsymbol{\epsilon}^*\)</span> and <span class="math inline">\(\boldsymbol{\epsilon}^*\)</span> is independent of <span class="math inline">\(\mathbf{Y}\)</span> given <span class="math inline">\(\phi\)</span></p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray*}
+\mathbf{X}^* \boldsymbol{\beta}+ \boldsymbol{\epsilon}^* \mid \phi, \mathbf{Y}&amp; \sim &amp; \textsf{N}(\mathbf{X}^*\mathbf{b}_n, (\mathbf{X}^{*} \boldsymbol{\Phi}_n^{-1} \mathbf{X}^{*T}
++ \mathbf{I}_s)/\phi)   \\
+\mathbf{Y}^* \mid \phi, \mathbf{Y}&amp; \sim &amp; \textsf{N}(\mathbf{X}^*\mathbf{b}_n, (\mathbf{X}^{*} \Phi_n^{-1} \mathbf{X}^{*T}
++ \mathbf{I}_s)/\phi)  \\
+\phi \mid \mathbf{Y}&amp; \sim &amp; \textsf{Gamma}\left(\frac{\nu_n}{2},
+  \frac{{\hat{\sigma}}^2\nu_n}{ 2} \right)
+\end{eqnarray*}\]</span></p>
+<ul>
+<li class="fragment">Use the Theorem to conclude that <span class="math display">\[\mathbf{Y}^* \mid \mathbf{Y}\sim  t_{\nu_n}( \mathbf{X}^*\mathbf{b}_n, {\hat{\sigma}}^2(\mathbf{I}+ \mathbf{X}^* \boldsymbol{\Phi}_n^{-1} \mathbf{X}^T))\]</span></li>
+</ul>
+</div>
+</section>
+<section id="choice-of-conjugate-or-semi-conjugate-prior" class="slide level2 smaller">
+<h2>Choice of Conjugate (or Semi-Conjugate) Prior</h2>
+<ul>
+<li class="fragment"><p>need to specify Normal prior mean <span class="math inline">\(\mathbf{b}_0\)</span> and precision <span class="math inline">\(\boldsymbol{\Phi}_0\)</span></p></li>
+<li class="fragment"><p>need to specify Gamma shape (<span class="math inline">\(\nu_o\)</span> prior df) and rate (estimate of <span class="math inline">\(\sigma^2\)</span>)</p></li>
+<li class="fragment"><p>hard in higher dimensions!</p></li>
+<li class="fragment"><p>default choices?</p>
+<ul>
+<li class="fragment">Jeffreys’ prior</li>
+<li class="fragment">unit-information prior</li>
+<li class="fragment">Zellner’s g-prior</li>
+<li class="fragment">ridge priors</li>
+<li class="fragment">mixtures of conjugate priors</li>
+</ul></li>
+</ul>
+</section>
+<section id="jeffreys-prior" class="slide level2 smaller">
+<h2>Jeffreys’ Prior</h2>
+<ul>
+<li class="fragment"><p>Jeffreys prior is invariant to model parameterization of <span class="math inline">\(\boldsymbol{\theta}= (\boldsymbol{\beta},\phi)\)</span> <span class="math display">\[p(\boldsymbol{\theta}) \propto |{\cal{I}}(\boldsymbol{\theta})|^{1/2}\]</span></p></li>
+<li class="fragment"><p><span class="math inline">\({\cal{I}}(\boldsymbol{\theta})\)</span> is the Expected Fisher Information matrix <span class="math display">\[{\cal{I}}(\theta) = - \textsf{E}[ \left[ \frac{\partial^2 \log({\cal{L}}(\boldsymbol{\theta}))}{\partial
+\theta_i \partial \theta_j} \right] ]\]</span></p></li>
+<li class="fragment"><p>log likelihood expressed as function of sufficient statistics</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\log({\cal{L}}(\boldsymbol{\beta}, \phi))  =  \frac{n}{2} \log(\phi)  - \frac{\phi}{2} \| (\mathbf{I}_n - \mathbf{P}_\mathbf{x}) \mathbf{Y}\|^2
+- \frac{\phi}{2}(\boldsymbol{\beta}- \hat{\boldsymbol{\beta}})^T(\mathbf{X}^T\mathbf{X})(\boldsymbol{\beta}- \hat{\boldsymbol{\beta}})\]</span></p>
+<ul>
+<li class="fragment">projection matrix <span class="math inline">\(\mathbf{P}_{\mathbf{X}} = \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1} \mathbf{X}^T\)</span></li>
+</ul>
+</div>
+</section>
+<section id="information-matrix" class="slide level2 smaller">
+<h2>Information matrix</h2>
+<p><span class="math display">\[\begin{eqnarray*}
+\frac{\partial^2 \log {\cal{L}}} { \partial \boldsymbol{\theta}\partial \boldsymbol{\theta}^T} &amp; = &amp;
+\left[
+  \begin{array}{cc}
+    -\phi (\mathbf{X}^T\mathbf{X}) &amp; -(\mathbf{X}^T\mathbf{X}) (\boldsymbol{\beta}- \hat{\boldsymbol{\beta}}) \\
+  - (\boldsymbol{\beta}- \hat{\boldsymbol{\beta}})^T (\mathbf{X}^T\mathbf{X}) &amp; -\frac{n}{2} \frac{1}{\phi^2} \\
+  \end{array}
+\right] \\
+\textsf{E}[\frac{\partial^2 \log {\cal{L}}} { \partial \boldsymbol{\theta}\partial \boldsymbol{\theta}^T}] &amp; = &amp;
+\left[
+  \begin{array}{cc}
+    -\phi (\mathbf{X}^T\mathbf{X}) &amp; \mathbf{0}_p \\
+  \mathbf{0}_p^T &amp; -\frac{n}{2} \frac{1}{\phi^2} \\
+  \end{array}
+\right] \\
+&amp; &amp; \\
+{\cal{I}}((\boldsymbol{\beta}, \phi)^T) &amp; = &amp; \left[
+  \begin{array}{cc}
+    \phi (\mathbf{X}^T\mathbf{X}) &amp; \mathbf{0}_p \\
+  \mathbf{0}_p^T &amp; \frac{n}{2} \frac{1}{\phi^2}
+  \end{array}
+\right]
+  \end{eqnarray*}\]</span></p>
+<div class="fragment">
+<p>Jeffreys’ Prior (don’t use!) <span class="math display">\[\begin{eqnarray*}
+  p_J(\boldsymbol{\beta}, \phi)  &amp; \propto &amp; |{\cal{I}}((\boldsymbol{\beta}, \phi)^T) |^{1/2}   
+                =  |\phi \mathbf{X}^T\mathbf{X}|^{1/2} \left(\frac{n}{2}
+                 \frac{1}{\phi^2} \right)^{1/2}
+  \propto    \phi^{p/2 - 1} |\mathbf{X}^T\mathbf{X}|^{1/2} \\
+  &amp; \propto &amp; \phi^{p/2 - 1}  
+  \end{eqnarray*}\]</span></p>
+</div>
+</section>
+<section id="recommended-independent-jeffreys-prior" class="slide level2">
+<h2>Recommended Independent Jeffreys Prior</h2>
+<ul>
+<li class="fragment">Treat <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\phi\)</span> separately (<em>orthogonal parameterization</em>)</li>
+<li class="fragment"><span class="math inline">\(p_{IJ}(\boldsymbol{\beta}) \propto |{\cal{I}}(\boldsymbol{\beta})|^{1/2}\)</span> and <span class="math inline">\(p_{IJ}(\phi) \propto |{\cal{I}}(\phi)|^{1/2}\)</span></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+{\cal{I}}((\boldsymbol{\beta}, \phi)^T)  =  \left[
+  \begin{array}{cc}
+    \phi (\mathbf{X}^T\mathbf{X}) &amp; \mathbf{0}_p \\
+  \mathbf{0}_p^T &amp; \frac{n}{2} \frac{1}{\phi^2}
+  \end{array}
+\right]
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{align*} p_{IJ}(\boldsymbol{\beta}) &amp; \propto |\phi \mathbf{X}^T\mathbf{X}|^{1/2} \propto 1 \\
+               p_{IJ}(\phi) &amp; \propto \phi^{-1} \\
+               p_{IJ}(\beta, \phi) &amp; \propto p_{IJ}(\boldsymbol{\beta}) p_{IJ}(\phi) = \phi^{-1}
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="formal-posterior-distribution" class="slide level2 smaller">
+<h2>Formal Posterior Distribution</h2>
+<ul>
+<li class="fragment"><p>Use Independent Jeffreys Prior <span class="math inline">\(p_{IJ}(\beta, \phi) \propto p_{IJ}(\boldsymbol{\beta}) p_{IJ}(\phi) = \phi^{-1}\)</span></p></li>
+<li class="fragment"><p>Formal Posterior Distribution <span class="math display">\[\begin{eqnarray*}
+\boldsymbol{\beta}\mid \phi, \mathbf{Y}&amp; \sim &amp; \textsf{N}(\hat{\boldsymbol{\beta}}, (\mathbf{X}^T\mathbf{X})^{-1} \phi^{-1})  \\
+\phi \mid \mathbf{Y}&amp; \sim&amp; \textsf{Gamma}((n-p)/2, \| \mathbf{Y}- \mathbf{X}\hat{\boldsymbol{\beta}}\|^2/2) \\
+\boldsymbol{\beta}\mid \mathbf{Y}&amp; \sim &amp; t_{n-p}(\hat{\boldsymbol{\beta}}, {\hat{\sigma}}^2(\mathbf{X}^T\mathbf{X})^{-1})
+\end{eqnarray*}\]</span></p></li>
+<li class="fragment"><p>Bayesian Credible Sets <span class="math inline">\(p(\boldsymbol{\beta}\in C_\alpha) \mid \mathbf{Y}) = 1- \alpha\)</span> correspond to frequentist Confidence Regions <span class="math display">\[\frac{\mathbf{x}^T\boldsymbol{\beta}- \mathbf{x}^T \hat{\boldsymbol{\beta}}} {\sqrt{{\hat{\sigma}}^2\mathbf{x}^T(\mathbf{X}^T\mathbf{X})^{-1} \mathbf{x}} }\sim t_{n-p}\]</span></p></li>
+<li class="fragment"><p>conditional on <span class="math inline">\(\mathbf{Y}\)</span> for Bayes and conditional on <span class="math inline">\(\boldsymbol{\beta}\)</span> for frequentist</p></li>
+</ul>
+</section>
+<section id="other-priors-next" class="slide level2">
+<h2>Other priors next</h2>
 </section>
 <section id="invariance-and-choice-of-meanprecision" class="slide level2 smaller">
 <h2>Invariance and Choice of Mean/Precision</h2>
