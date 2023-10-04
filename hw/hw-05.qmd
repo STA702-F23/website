@@ -1,27 +1,19 @@
 ---
-title: "Homework 4"
+title: "Homework 5"
 link-citations: true
 toc: true
 ---
 
 
 
-## Due: 11:59am, Oct 4
+## Due: 11:59am, Oct 11
 
 Please see [Gradescope](https://www.gradescope.com/courses/585736/assignments) for any updates on due dates.
-
-## RStudio
-
-You all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the "Installers for Supported Platforms" section and find the right installer for your operating system.
-
-## R Knitr
-
-You are required to use `R knitr` with the `.Rnw` format to type up this lab report.  To get started see [basics](https://kbroman.org/knitr_knutshell/pages/latex.html) about `knitr`.
 
 
 ## Getting started with Github Classroom
 
-Go to Github classroom to  accept the invitation to create a repository for this assignment  at [HW4](https://classroom.github.com/a/SJhkVrxC)
+Go to Github classroom to  accept the invitation to create a repository for this assignment  at [HW5](https://classroom.github.com/a/FltJ9VCD)
 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf. 
 
 Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.
