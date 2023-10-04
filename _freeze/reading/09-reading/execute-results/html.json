@@ -1,0 +1,14 @@
+{
+  "hash": "a11deb74a8502021673782fd3eb3eec7",
+  "result": {
+    "markdown": "---\ntitle: \"Lecture 9: Gibbs Sampling and Data Augmentation\"\n---\n\n\n\n\n\n## Readings\n\n- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff\n  + Chapter 6:  Posterior approximation with the Gibbs sampler\n  + Section 9.1: The linear regression model (review)\n  + Section 9.2: Bayesian estimation for a regression model\n  + Section 10.4: Metropolis, Metropolis-Hastings and Gibbs\n  + Section 10.5: Combining the Metropolis and Gibbs algorithm\n  + Section 10.6: Discussion and further references\n  + Section 12.1 Latent Variables for Ordinal Data\n  \n\n\n\n- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n  + Section 11.1: Gibbs sampler\n  + Section 11.2: Metropolis and Metropolis-Hastings algorithms \n  + Section 11.3: Using Gibbs and Metropolis as building blocks\n  + Section 11.7: Bibliographic note\n  + Section 14.1: Conditional modeling\n  + Section 14.2: Bayesian analysis of the classical regression model\n\n- [Albert & Chib](http://www.stat.cmu.edu/~brian/905-2009/all-papers/albert-chib-1993.pdf) Bayesian Analysis of Binary and Polychotomous Response Data, \nJournal of the American Statistical Association, Vol. 88, No. 422  pp. 669- 679\n) \n- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert\n\n    ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

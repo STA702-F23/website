@@ -1,0 +1,33 @@
+---
+title: "Lecture 11: Bayesian Conjugate Regression "
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+  
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
+ 
+  + Section 9.1: The linear regression model (review)
+  + Section 9.2: Bayesian estimation for a regression model
+  
+ 
+
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+
+  + Sectoin 14.1: Conditional Modeling
+  + Section 14.2: Bayesian analysis of the classical regression model
+  + Section 14.3: Regression for Causal Inference
+  + Section 14.4: Goals of Regression Analysis
+
+
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+
+    

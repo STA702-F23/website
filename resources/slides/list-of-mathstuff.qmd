@@ -1,0 +1,2 @@
+\providecommand{\Pageref}[1]{\hfill p.\pageref{#1}}
+ [**Theorem**](#student-t): Student-t\Pageref{student-t}
