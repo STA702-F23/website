@@ -430,7 +430,7 @@ $$\log(\cL(\b, \phi))  =  \frac{n}{2} \log(\phi)  - \frac{\phi}{2} \| (\I_n - \P
   & \propto & \phi^{p/2 - 1}  
   \end{eqnarray*}
   
-## Recommended Independent Jeffreys  Prior 
+## Recommended Independent Jeffreys  Prior  {.smaller}
 
 -   Treat $\b$ and $\phi$ separately  (_orthogonal
     parameterization_) 
