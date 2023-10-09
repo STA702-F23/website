@@ -177,7 +177,7 @@ $$\log(\cL(\b, \phi))  =  \frac{n}{2} \log(\phi)  - \frac{\phi}{2} \| (\I_n - \P
 ## Recommended Independent Jeffreys  Prior  {.smaller}
 
 -   Treat $\b$ and $\phi$ separately  (_orthogonal
-    parameterization_) 
+    parameterization_ which implies asymptoptic independence of $\b$ and $\phi$) 
 -    $p_{IJ}(\b) \propto |\cI(\b)|^{1/2}$ and
       $p_{IJ}(\phi) \propto |\cI(\phi)|^{1/2}$ 
     
@@ -201,7 +201,7 @@ $$
 
 . . .
 
-Reference prior 
+Two group _reference prior_
 
 
 ## Formal Posterior Distribution {.smaller}
@@ -217,7 +217,7 @@ $p_{IJ}(\beta, \phi) \propto p_{IJ}(\b) p_{IJ}(\phi) = \phi^{-1}$
 \end{eqnarray*}
 
 - Bayesian Credible Sets
-$p(\b \in C_\alpha) \mid \Y) = 1- \alpha$ correspond to frequentist Confidence
+$p(\b \in C_\alpha\mid \Y) = 1- \alpha$ correspond to frequentist Confidence
 Regions
 $$\frac{\x^T\b - \x^T \bhat} {\sqrt{\shat \x^T(\X^T\X)^{-1} \x} }\sim t_{n-p}$$
 - conditional on $\Y$ for Bayes and conditional on $\b$ for frequentist
@@ -227,17 +227,21 @@ $$\frac{\x^T\b - \x^T \bhat} {\sqrt{\shat \x^T(\X^T\X)^{-1} \x} }\sim t_{n-p}$$
 Unit information prior $\b \mid \phi \sim \N(\bhat, n
    (\X^T\X)^{-1}/\phi)$
 
-- Expected Fisher Information for $\b$ is $\phi \X^T\X$ based on a sample of $n$
-  observations 
+- Based on a fraction of the likelihood $p(\b ,\phi) \propto \cL(\b, \phi)^{1/n}$ 
 
-- ``average information'' in one observation is  $\phi \X^T\X /n$ 
-- center prior at MLE and base covariance on the inverse Information in
-  ``1'' observation 
--  Posterior mean
-$$\frac{n}{1 + n} \bhat +  \frac{1}{1 + n}\bhat = \bhat$$ \pause
+. . .
+
+$$\log(p(\b, \phi) \propto  \frac{1}{n}\frac{n}{2} \log(\phi)  - \frac{\phi}{2} \frac{\| (\I_n - \P_\x) \Y\|^2}{n}
+ - \frac{\phi}{2}(\b - \bhat)^T\frac{(\X^T\X)}{n}(\b - \bhat)$$ 
+
+- ``average information'' in one observation is  $\phi \X^T\X /n$  or "unit information"
+
+  
+-  Posterior mean $\frac{n}{1 + n} \bhat +  \frac{1}{1 + n}\bhat = \bhat$
+
 - Posterior Distribution
 $$\b \mid \Y, \phi \sim \N\left( \bhat, \frac{n}{1 + n} (\X^T\X)^{-1}
-  \phi^{-1} \right)$$ \pause
+  \phi^{-1} \right)$$ 
   
 ## Unit Information Prior  {.smaller}
 
@@ -245,14 +249,14 @@ $$\b \mid \Y, \phi \sim \N\left( \bhat, \frac{n}{1 + n} (\X^T\X)^{-1}
 
     - Proper
     - Invariant to model parameteriztion of $\X$ (next) 
-    - Asymtoptically equivalent to MLE
+    - Equivalent to MLE (no bias) and  tighter intervals
 
 
 - Disadvantages
 
     - cannot represent  _prior_  beliefs; 
     - double use of data!  
-    - no shrinakge of $\b$ 
+    - no shrinkage of $\b$  with noisy data  (larger variance than biased estimators)
 
 . . . 
 
@@ -334,7 +338,7 @@ $(\X^T\X)^{-1}$ and the MLE $\hat{\b}$
 
 - there is no unique posterior distribution if any $\lambda_j = 0$!  ($p > n$ or non-full rank)
 
-- Posterior Precision and Mean
+- Posterior Precision and Mean in conjugate prior 
  \begin{align}
  \Phib_n & = \X^T\X + \Phib_0 \\
  \bv_n & = \Phib^{-1} (\X^T\Y + \Phib_0 \bv_0)
@@ -385,18 +389,30 @@ $$\b \mid \phi, \kappa, \Y \sim
   
 
 - related to penalized maximum likelihood estimation 
+$$-\frac{\phi}{2}\left(\|\Y - \X \b\|^2 + \kappa \| \b \|^2 \right)
+$$
 
   
 
 -  Choice of $\kappa$ ?
+    + Cross-validation (frequentist)
+    + Empirical Bayes?   (frequentist/Bayes)
+    + fixed _a priori_ Bayes (and how to choose)
 
-  
+- Should there be a common $\kappa$? Or a $\kappa_j$ per variable? (or shared in a group?)
 
--  Bayes Regression and choice of $\Phi_0$ in general is a very important problem and provides the foundation  for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!
+## Mixture of Conjugate Priors {.smaller}
 
-  
+- can place a prior on $\kappa$ or $\kappa_j$ for fully Bayes
 
-- Be sure that you can derive the full conditional posteriors for $\beta$ and $\phi$ as well as the joint posterior in the conjugate case!
+- similar issue for $g$ in the $g$ priors
+
+- often improved robustness over fixed choices of hyperparameter
+
+- may not have cloosed form posterior but sampling is still often easy!
+
+- Examples: Bayesian Lasso, Double Laplace, Horseshoe prior, mixtures of $g$-priors
+
 
 
 
