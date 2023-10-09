@@ -439,7 +439,7 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 <section id="recommended-independent-jeffreys-prior" class="slide level2 smaller">
 <h2>Recommended Independent Jeffreys Prior</h2>
 <ul>
-<li class="fragment">Treat <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\phi\)</span> separately (<em>orthogonal parameterization</em>)</li>
+<li class="fragment">Treat <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\phi\)</span> separately (<em>orthogonal parameterization</em> which implies asymptoptic independence of <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\phi\)</span>)</li>
 <li class="fragment"><span class="math inline">\(p_{IJ}(\boldsymbol{\beta}) \propto |{\cal{I}}(\boldsymbol{\beta})|^{1/2}\)</span> and <span class="math inline">\(p_{IJ}(\phi) \propto |{\cal{I}}(\phi)|^{1/2}\)</span></li>
 </ul>
 <div class="fragment">
@@ -459,7 +459,7 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 \end{align*}\]</span></p>
 </div>
 <div class="fragment">
-<p>Reference prior</p>
+<p>Two group <em>reference prior</em></p>
 </div>
 </section>
 <section id="formal-posterior-distribution" class="slide level2 smaller">
@@ -471,7 +471,7 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 \phi \mid \mathbf{Y}&amp; \sim&amp; \textsf{Gamma}((n-p)/2, \| \mathbf{Y}- \mathbf{X}\hat{\boldsymbol{\beta}}\|^2/2) \\
 \boldsymbol{\beta}\mid \mathbf{Y}&amp; \sim &amp; t_{n-p}(\hat{\boldsymbol{\beta}}, {\hat{\sigma}}^2(\mathbf{X}^T\mathbf{X})^{-1})
 \end{eqnarray*}\]</span></p></li>
-<li class="fragment"><p>Bayesian Credible Sets <span class="math inline">\(p(\boldsymbol{\beta}\in C_\alpha) \mid \mathbf{Y}) = 1- \alpha\)</span> correspond to frequentist Confidence Regions <span class="math display">\[\frac{\mathbf{x}^T\boldsymbol{\beta}- \mathbf{x}^T \hat{\boldsymbol{\beta}}} {\sqrt{{\hat{\sigma}}^2\mathbf{x}^T(\mathbf{X}^T\mathbf{X})^{-1} \mathbf{x}} }\sim t_{n-p}\]</span></p></li>
+<li class="fragment"><p>Bayesian Credible Sets <span class="math inline">\(p(\boldsymbol{\beta}\in C_\alpha\mid \mathbf{Y}) = 1- \alpha\)</span> correspond to frequentist Confidence Regions <span class="math display">\[\frac{\mathbf{x}^T\boldsymbol{\beta}- \mathbf{x}^T \hat{\boldsymbol{\beta}}} {\sqrt{{\hat{\sigma}}^2\mathbf{x}^T(\mathbf{X}^T\mathbf{X})^{-1} \mathbf{x}} }\sim t_{n-p}\]</span></p></li>
 <li class="fragment"><p>conditional on <span class="math inline">\(\mathbf{Y}\)</span> for Bayes and conditional on <span class="math inline">\(\boldsymbol{\beta}\)</span> for frequentist</p></li>
 </ul>
 </section>
@@ -479,13 +479,18 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 <h2>Unit Information Prior</h2>
 <p>Unit information prior <span class="math inline">\(\boldsymbol{\beta}\mid \phi \sim \textsf{N}(\hat{\boldsymbol{\beta}}, n  (\mathbf{X}^T\mathbf{X})^{-1}/\phi)\)</span></p>
 <ul>
-<li class="fragment"><p>Expected Fisher Information for <span class="math inline">\(\boldsymbol{\beta}\)</span> is <span class="math inline">\(\phi \mathbf{X}^T\mathbf{X}\)</span> based on a sample of <span class="math inline">\(n\)</span> observations</p></li>
-<li class="fragment"><p>``average information’’ in one observation is <span class="math inline">\(\phi \mathbf{X}^T\mathbf{X}/n\)</span></p></li>
-<li class="fragment"><p>center prior at MLE and base covariance on the inverse Information in ``1’’ observation</p></li>
-<li class="fragment"><p>Posterior mean <span class="math display">\[\frac{n}{1 + n} \hat{\boldsymbol{\beta}}+  \frac{1}{1 + n}\hat{\boldsymbol{\beta}}= \hat{\boldsymbol{\beta}}\]</span> </p></li>
-<li class="fragment"><p>Posterior Distribution <span class="math display">\[\boldsymbol{\beta}\mid \mathbf{Y}, \phi \sim \textsf{N}\left( \hat{\boldsymbol{\beta}}, \frac{n}{1 + n} (\mathbf{X}^T\mathbf{X})^{-1}
-\phi^{-1} \right)\]</span> </p></li>
+<li class="fragment">Based on a fraction of the likelihood <span class="math inline">\(p(\boldsymbol{\beta},\phi) \propto {\cal{L}}(\boldsymbol{\beta}, \phi)^{1/n}\)</span></li>
 </ul>
+<div class="fragment">
+<p><span class="math display">\[\log(p(\boldsymbol{\beta}, \phi) \propto  \frac{1}{n}\frac{n}{2} \log(\phi)  - \frac{\phi}{2} \frac{\| (\mathbf{I}_n - \mathbf{P}_\mathbf{x}) \mathbf{Y}\|^2}{n}
+- \frac{\phi}{2}(\boldsymbol{\beta}- \hat{\boldsymbol{\beta}})^T\frac{(\mathbf{X}^T\mathbf{X})}{n}(\boldsymbol{\beta}- \hat{\boldsymbol{\beta}})\]</span></p>
+<ul>
+<li class="fragment"><p>``average information’’ in one observation is <span class="math inline">\(\phi \mathbf{X}^T\mathbf{X}/n\)</span> or “unit information”</p></li>
+<li class="fragment"><p>Posterior mean <span class="math inline">\(\frac{n}{1 + n} \hat{\boldsymbol{\beta}}+ \frac{1}{1 + n}\hat{\boldsymbol{\beta}}= \hat{\boldsymbol{\beta}}\)</span></p></li>
+<li class="fragment"><p>Posterior Distribution <span class="math display">\[\boldsymbol{\beta}\mid \mathbf{Y}, \phi \sim \textsf{N}\left( \hat{\boldsymbol{\beta}}, \frac{n}{1 + n} (\mathbf{X}^T\mathbf{X})^{-1}
+\phi^{-1} \right)\]</span></p></li>
+</ul>
+</div>
 </section>
 <section id="unit-information-prior-1" class="slide level2 smaller">
 <h2>Unit Information Prior</h2>
@@ -494,14 +499,14 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 <ul>
 <li class="fragment">Proper</li>
 <li class="fragment">Invariant to model parameteriztion of <span class="math inline">\(\mathbf{X}\)</span> (next)</li>
-<li class="fragment">Asymtoptically equivalent to MLE</li>
+<li class="fragment">Equivalent to MLE (no bias) and tighter intervals</li>
 </ul></li>
 <li class="fragment"><p>Disadvantages</p>
 <ul>
 <li class="fragment">cannot represent <em>prior</em> beliefs;</li>
 <li class="fragment">double use of data!<br>
 </li>
-<li class="fragment">no shrinakge of <span class="math inline">\(\boldsymbol{\beta}\)</span></li>
+<li class="fragment">no shrinkage of <span class="math inline">\(\boldsymbol{\beta}\)</span> with noisy data (larger variance than biased estimators)</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -579,7 +584,7 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 <li class="fragment"><p>The posterior in Jeffereys’ prior(s), the unit information prior, and Zellner’s g-priors depend on <span class="math inline">\((\mathbf{X}^T\mathbf{X})^{-1}\)</span> and the MLE <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
 <li class="fragment"><p>If <span class="math inline">\(\mathbf{X}^T\mathbf{X}= \mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^T\)</span> is nearly singular (<span class="math inline">\(\lambda_j \approx 0\)</span> for one or more eigenvalues), certain elements of <span class="math inline">\(\beta\)</span> or (linear combinations of <span class="math inline">\(\beta\)</span>) may have huge posterior variances and the MLEs (and posterior means) are highly unstable!</p></li>
 <li class="fragment"><p>there is no unique posterior distribution if any <span class="math inline">\(\lambda_j = 0\)</span>! (<span class="math inline">\(p &gt; n\)</span> or non-full rank)</p></li>
-<li class="fragment"><p>Posterior Precision and Mean <span class="math display">\[\begin{align}
+<li class="fragment"><p>Posterior Precision and Mean in conjugate prior <span class="math display">\[\begin{align}
 \boldsymbol{\Phi}_n &amp; = \mathbf{X}^T\mathbf{X}+ \boldsymbol{\Phi}_0 \\
 \mathbf{b}_n &amp; = \boldsymbol{\Phi}^{-1} (\mathbf{X}^T\mathbf{Y}+ \boldsymbol{\Phi}_0 \mathbf{b}_0)
 \end{align}\]</span></p></li>
@@ -611,10 +616,25 @@ e^{- \phi \frac{\textsf{SS}_0}{2}}\\
 <ul>
 <li class="fragment"><p>Posterior mean (or mode) given <span class="math inline">\(\kappa\)</span> is biased, but can show that there <strong>always</strong> is a value of <span class="math inline">\(\kappa\)</span> where the frequentist’s expected squared error loss is smaller for the Ridge estimator than MLE!</p></li>
 <li class="fragment"><p>Unfortunately the optimal choice depends on “true” <span class="math inline">\(\boldsymbol{\beta}\)</span>!</p></li>
-<li class="fragment"><p>related to penalized maximum likelihood estimation</p></li>
-<li class="fragment"><p>Choice of <span class="math inline">\(\kappa\)</span> ?</p></li>
-<li class="fragment"><p>Bayes Regression and choice of <span class="math inline">\(\Phi_0\)</span> in general is a very important problem and provides the foundation for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!</p></li>
-<li class="fragment"><p>Be sure that you can derive the full conditional posteriors for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\phi\)</span> as well as the joint posterior in the conjugate case!</p></li>
+<li class="fragment"><p>related to penalized maximum likelihood estimation <span class="math display">\[-\frac{\phi}{2}\left(\|\mathbf{Y}- \mathbf{X}\boldsymbol{\beta}\|^2 + \kappa \| \boldsymbol{\beta}\|^2 \right)
+\]</span></p></li>
+<li class="fragment"><p>Choice of <span class="math inline">\(\kappa\)</span> ?</p>
+<ul>
+<li class="fragment">Cross-validation (frequentist)</li>
+<li class="fragment">Empirical Bayes? (frequentist/Bayes)</li>
+<li class="fragment">fixed <em>a priori</em> Bayes (and how to choose)</li>
+</ul></li>
+<li class="fragment"><p>Should there be a common <span class="math inline">\(\kappa\)</span>? Or a <span class="math inline">\(\kappa_j\)</span> per variable? (or shared in a group?)</p></li>
+</ul>
+</section>
+<section id="mixture-of-conjugate-priors" class="slide level2 smaller">
+<h2>Mixture of Conjugate Priors</h2>
+<ul>
+<li class="fragment"><p>can place a prior on <span class="math inline">\(\kappa\)</span> or <span class="math inline">\(\kappa_j\)</span> for fully Bayes</p></li>
+<li class="fragment"><p>similar issue for <span class="math inline">\(g\)</span> in the <span class="math inline">\(g\)</span> priors</p></li>
+<li class="fragment"><p>often improved robustness over fixed choices of hyperparameter</p></li>
+<li class="fragment"><p>may not have cloosed form posterior but sampling is still often easy!</p></li>
+<li class="fragment"><p>Examples: Bayesian Lasso, Double Laplace, Horseshoe prior, mixtures of <span class="math inline">\(g\)</span>-priors</p></li>
 </ul>
 
 
