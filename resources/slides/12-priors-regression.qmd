@@ -1,0 +1,402 @@
+---
+title: "Lecture 12: Choice of Priors in Regression"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Conjugate Priors in Linear Regression    {.smaller}
+{{< include macros.qmd >}}
+
+- Regression Model (Sampling model)
+$$\Y \mid \b, \phi  \sim \N(\X \b, \phi^{-1} \I_n) 
+$$
+- Conjugate Normal-Gamma Model: factor joint prior $p(\b, \phi ) = p(\b \mid \phi)p(\phi)$ 
+$$\begin{align*}
+\b \mid \phi & \sim \N(\bv_0, \phi^{-1}\Phib_0^{-1}) & p(\b \mid \phi) & = \frac{|\phi \Phib_0|^{1/2}}{(2 \pi)^{p/2}}e^{\left\{- \frac{\phi}{2}(\b - \bv_0)^T \Phib_0 (\b - \bv_0)  \right\}}\\
+\phi & \sim \Gam(v_0/2, \SS_0/2)  & p(\phi) & = \frac{1}{\Gamma{(\nu_0/2)}}
+\left(\frac{\SS_0}{2} \right)^{\nu_0/2}
+\phi^{\nu_0/2 - 1}
+ e^{- \phi \frac{\SS_0}{2}}\\
+\Rightarrow (\b, \phi) & \sim \NG(\bv_0, \Phib_0, \nu_o, \SS_0)
+\end{align*}$$
+
+
+- Need to specify the  4 hyperparameters of the Normal-Gamma distribution!
+
+- hard in higher dimensions!
+
+## Choice of Conjugate Prior {.smaller}
+
+
+
+Seek default choices
+
+- Jeffreys' prior
+- unit-information prior
+- Zellner's g-prior 
+- ridge regression priors
+- mixtures of conjugate priors
+    + Zellner-Siow Cauchy Prior
+    + (Bayesian) Lasso
+    + Horseshoe
+    
+. . . 
+
+Which? Why?    
+    
+## Jeffreys' Prior {.smaller}
+
+- Jeffreys prior is invariant to model parameterization of $\tb = (\b ,\phi)$ 
+  $$p(\tb) \propto |\cI(\tb)|^{1/2}$$
+- $\cI(\tb)$ is the  Expected Fisher Information matrix
+$$\cI(\theta) = - \E[ \left[ \frac{\partial^2 \log(\cL(\tb))}{\partial
+  \theta_i \partial \theta_j} \right] ]$$
+  
+- log likelihood expressed as function of sufficient statistics
+
+. . .
+
+$$\log(\cL(\b, \phi))  =  \frac{n}{2} \log(\phi)  - \frac{\phi}{2} \| (\I_n - \P_\x) \Y\|^2
+ - \frac{\phi}{2}(\b - \bhat)^T(\X^T\X)(\b - \bhat)$$ 
+
+- projection  $\P_{\X} = \X (\X^T\X)^{-1} \X^T$ onto the column space of $\X$
+
+## Information matrix {.smaller}
+\begin{eqnarray*}
+\frac{\partial^2 \log \cL} { \partial \tb \partial \tb^T} & = &
+\left[
+  \begin{array}{cc}
+    -\phi (\X^T\X) & -(\X^T\X) (\b - \bhat) \\
+  - (\b - \bhat)^T (\X^T\X) & -\frac{n}{2} \frac{1}{\phi^2} \\
+  \end{array}
+\right] \\
+\E[\frac{\partial^2 \log \cL} { \partial \tb \partial \tb^T}] & = &
+\left[
+  \begin{array}{cc}
+    -\phi (\X^T\X) & \zero_p \\
+  \zero_p^T & -\frac{n}{2} \frac{1}{\phi^2} \\
+  \end{array}
+\right] \\
+& & \\
+\cI((\b, \phi)^T) & = & \left[
+  \begin{array}{cc}
+    \phi (\X^T\X) & \zero_p \\
+  \zero_p^T & \frac{n}{2} \frac{1}{\phi^2}
+  \end{array}
+\right]
+  \end{eqnarray*}
+  
+. . .
+
+ 
+  \begin{eqnarray*}
+  p_J(\b, \phi)  & \propto & |\cI((\b, \phi)^T) |^{1/2}   
+                =  |\phi \X^T\X|^{1/2} \left(\frac{n}{2}
+                 \frac{1}{\phi^2} \right)^{1/2} 
+  \propto    \phi^{p/2 - 1} |\X^T\X|^{1/2} \\
+  & \propto & \phi^{p/2 - 1}  
+  \end{eqnarray*}
+  
+  . . . 
+  
+  Jeffreys' did not recommend - marginal for $\phi$ dies not account for dimension $p$
+  
+## Recommended Independent Jeffreys  Prior  {.smaller}
+
+-   Treat $\b$ and $\phi$ separately  (_orthogonal
+    parameterization_) 
+-    $p_{IJ}(\b) \propto |\cI(\b)|^{1/2}$ and
+      $p_{IJ}(\phi) \propto |\cI(\phi)|^{1/2}$ 
+    
+. . .
+
+$$
+\cI((\b, \phi)^T)  =  \left[
+  \begin{array}{cc}
+    \phi (\X^T\X) & \zero_p \\
+  \zero_p^T & \frac{n}{2} \frac{1}{\phi^2}
+  \end{array}
+\right]
+$$
+
+. . .
+
+\begin{align*} p_{IJ}(\b) & \propto |\phi \X^T\X|^{1/2} \propto 1 \\
+               p_{IJ}(\phi) & \propto \phi^{-1} \\
+               p_{IJ}(\beta, \phi) & \propto p_{IJ}(\b) p_{IJ}(\phi) = \phi^{-1}
+\end{align*}               
+
+. . .
+
+Reference prior 
+
+
+## Formal Posterior Distribution {.smaller}
+
+- Use Independent Jeffreys Prior
+$p_{IJ}(\beta, \phi) \propto p_{IJ}(\b) p_{IJ}(\phi) = \phi^{-1}$
+
+- Formal Posterior Distribution
+\begin{eqnarray*}
+  \b \mid \phi, \Y & \sim & \N(\bhat, (\X^T\X)^{-1} \phi^{-1})  \\
+  \phi \mid \Y & \sim& \Gam((n-p)/2, \| \Y - \X\bhat \|^2/2) \\
+\b \mid \Y & \sim & t_{n-p}(\bhat, \shat (\X^T\X)^{-1})
+\end{eqnarray*}
+
+- Bayesian Credible Sets
+$p(\b \in C_\alpha) \mid \Y) = 1- \alpha$ correspond to frequentist Confidence
+Regions
+$$\frac{\x^T\b - \x^T \bhat} {\sqrt{\shat \x^T(\X^T\X)^{-1} \x} }\sim t_{n-p}$$
+- conditional on $\Y$ for Bayes and conditional on $\b$ for frequentist
+
+## Unit Information Prior {.smaller}
+
+Unit information prior $\b \mid \phi \sim \N(\bhat, n
+   (\X^T\X)^{-1}/\phi)$
+
+- Expected Fisher Information for $\b$ is $\phi \X^T\X$ based on a sample of $n$
+  observations 
+
+- ``average information'' in one observation is  $\phi \X^T\X /n$ 
+- center prior at MLE and base covariance on the inverse Information in
+  ``1'' observation 
+-  Posterior mean
+$$\frac{n}{1 + n} \bhat +  \frac{1}{1 + n}\bhat = \bhat$$ \pause
+- Posterior Distribution
+$$\b \mid \Y, \phi \sim \N\left( \bhat, \frac{n}{1 + n} (\X^T\X)^{-1}
+  \phi^{-1} \right)$$ \pause
+  
+## Unit Information Prior  {.smaller}
+
+- Advantages:
+
+    - Proper
+    - Invariant to model parameteriztion of $\X$ (next) 
+    - Asymtoptically equivalent to MLE
+
+
+- Disadvantages
+
+    - cannot represent  _prior_  beliefs; 
+    - double use of data!  
+    - no shrinakge of $\b$ 
+
+. . . 
+
+::: {.callout-tip title="Exercise for the Energetic Student"}
+
+-  What would be a "Unit information prior"  for $\phi$?
+-  What is the marginal posterior for $\b$ using both unit-information priors?
+:::
+
+## Invariance and Choice of Mean/Precision {.smaller}
+
+-  the model in vector form $Y  \mid \beta, \phi \sim \textsf{N}_n (X\beta, \phi^{-1} I_n)$
+
+  
+
+- What if we transform  the mean $X\beta = X H H^{-1} \beta$ with new $X$ matrix $\tilde{X} = X H$ where $H$ is $p \times p$ and invertible and coefficients  $\tilde{\beta} = H^{-1} \beta$.
+
+  
+
+- obtain the posterior for $\tilde{\beta}$ using $Y$ and $\tilde{X}$  
+$$ Y \mid  \tilde{\beta}, \phi \sim \textsf{N}_n (\tilde{X}\tilde{\beta}, \phi^{-1} I_n)$$
+
+- since $\tilde{X} \tilde{\beta} = X H  \tilde{\beta} = X \beta$  invariance suggests that the posterior for $\beta$ and $H \tilde{\beta}$ should be the same 
+
+  
+- plus the posterior of $H^{-1} \beta$
+and $\tilde{\beta}$ should be the same
+
+. . .
+
+::: {.callout-tip title="Exercise for the Energetic Student"}
+With some linear algebra, show that this is true for a normal prior if $b_0 = 0$ and $\Phi_0$ is $k X^TX$ for some $k$  
+:::
+ 
+## Zellner's g-prior {.smaller}
+
+- Popular choice is to take $k = \phi/g$ which is a special case of Zellner's g-prior
+$$\beta \mid \phi, g \sim \textsf{N}\left(\bv_0, \frac{g}{\phi} (X^TX)^{-1}\right)$$
+
+  
+
+- Full conditional 
+$$\beta \mid \phi, g \sim \textsf{N}\left(\frac{g}{1 + g} \hat{\beta} + \frac{1}{1 + g}\bv_0, \frac{1}{\phi} \frac{g}{1 + g} (X^TX)^{-1}\right)$$
+  
+
+- one parameter $g$ controls shrinkage
+
+- invariance  under linear transformations of $\X$ with $\bv_0 = 0$ or  transform mean $\tilde{\bv}_0 = H^{-1}\bv_0$
+
+  
+
+- often paired with the Jeffereys' reference prior for $\phi$
+
+- allows an informative mean, but keeps the same correlation structure as the MLE
+  
+## Zellner's Blocked g-prior {.smaller}
+
+- Zellner also realized that different blocks might have different degrees of prior information 
+
+- Two blocks $\X_1$ and $\X_2$ with $\X_1^T \X_2 = 0$ so Fisher Information is block diagonal
+
+- Model $\Y = \X_1 \alphav + \X_2 \b + \eps$
+  
+- Priors
+  \begin{align}
+  \alphav \mid \phi & \sim \N(\alphav_1, \frac{g_{\alphav}}{\phi} (\X_1^T\X_1)^{-1})\\
+  \b \mid \phi & \sim \N(\bv_0, \frac{g_{\b}}{\phi} (\X_2^T\X_2)^{-1})
+  \end{align}
+ 
+ - Important case $\X_1 = \one_n$ corresponding to intercept with limiting case  $g_{\alphav} \to \infty$
+ $$p(\alphav) \propto 1$$
+
+## Potential Problems {.smaller}
+
+- The posterior in Jeffereys' prior(s), the unit information prior, and Zellner's g-priors depend on
+$(\X^T\X)^{-1}$ and the MLE $\hat{\b}$ 
+
+- If $\X^T\X = \U \Lambdab \U^T$ is nearly singular ($\lambda_j \approx 0$ for one or more eigenvalues), certain  elements of $\beta$ or (linear combinations of $\beta$) may have huge posterior variances and the MLEs (and posterior means) are highly unstable!
+
+- there is no unique posterior distribution if any $\lambda_j = 0$!  ($p > n$ or non-full rank)
+
+- Posterior Precision and Mean
+ \begin{align}
+ \Phib_n & = \X^T\X + \Phib_0 \\
+ \bv_n & = \Phib^{-1} (\X^T\Y + \Phib_0 \bv_0)
+ \end{align}
+ 
+- Need a proper prior with $\Phib_0 >0$ (OK for $\bv_0 = 0$ )
+
+- Simplest case: take $\Phib_0 = \kappa \I_p$ so that $\Phib_n = \X^T\X + \kappa \I_p = \U(\Lambdab + \kappa \I_p) \U^T > 0$
+
+
+## Ridge Regression  {.smaller}
+
+Model: $\Y = \one_n \alpha + \X \b + \eps$
+
+- WLOG assume that $\X$ has been centered and scaled so that $\X^T\X = \corr(\X)$ 
+
+- typically expect the  intercept $\alpha$ to be a different order of magnitude from the other predictors. 
+
+    - Adopt a two block prior with $p(\alpha) \propto 1$
+    - If $\X$ is centered, $\one_n^T \X = \zero_p$
+
+
+- Prior $\b \mid \phi \sim \N(\zero_b, \frac{1} {\phi \kappa} \I_p$) implies  the $\bv$ are exchangable _a priori_  (i.e. distribution is invariant under permuting the labels and with a common scale and mean)
+
+    - if different predictors have different variances, rescale $\X$ to have variance 1 
+
+
+
+  
+
+
+
+- Posterior for $\b$ 
+$$\b \mid \phi, \kappa, \Y \sim 
+\textsf{N}\left((\kappa I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\kappa I_p + X^TX)^{-1}
+\right)$$
+
+
+
+
+ 
+##  Bayes Ridge Regression {.smaller}
+
+- Posterior mean (or mode) given $\kappa$ is biased, but can show that there **always** is a value of $\kappa$  where the frequentist's expected squared error loss is smaller for the Ridge estimator than MLE!
+
+- Unfortunately the optimal choice depends on "true" $\b$!
+
+  
+
+- related to penalized maximum likelihood estimation 
+
+  
+
+-  Choice of $\kappa$ ?
+
+  
+
+-  Bayes Regression and choice of $\Phi_0$ in general is a very important problem and provides the foundation  for many variations on shrinkage estimators, variable selection, hierarchical models, nonparameteric regression and more!
+
+  
+
+- Be sure that you can derive the full conditional posteriors for $\beta$ and $\phi$ as well as the joint posterior in the conjugate case!
+
+
+
