@@ -416,7 +416,7 @@ Merlise Clyde
 <p>Model: <span class="math inline">\(\mathbf{Y}= \mathbf{1}_n \alpha + \mathbf{X}\boldsymbol{\beta}+ \boldsymbol{\epsilon}\)</span></p>
 <ul>
 <li class="fragment"><p>typically expect the intercept <span class="math inline">\(\alpha\)</span> to be a different order of magnitude from the other predictors. Adopt a two block prior with <span class="math inline">\(p(\alpha) \propto 1\)</span></p></li>
-<li class="fragment"><p>Prior <span class="math inline">\(\boldsymbol{\beta}\mid \phi \sim \textsf{N}(\mathbf{0}_b, \frac{1} {\phi \kappa} \mathbf{I}_p\)</span>) implies the <span class="math inline">\(\mathbf{b}\)</span> are exchangable <em>a priori</em> (i.e.&nbsp;distribution is invariant under permuting the labels and with a common scale and mean)</p></li>
+<li class="fragment"><p>Prior <span class="math inline">\(\boldsymbol{\beta}\mid \phi \sim \textsf{N}(\mathbf{0}_b, \frac{1} {\phi \kappa} \mathbf{I}_p\)</span>) implies the <span class="math inline">\(\boldsymbol{\beta}\)</span> are exchangable <em>a priori</em> (i.e.&nbsp;distribution is invariant under permuting the labels and with a common scale and mean)</p></li>
 <li class="fragment"><p>Posterior for <span class="math inline">\(\boldsymbol{\beta}\)</span> <span class="math display">\[\boldsymbol{\beta}\mid \phi, \kappa, \mathbf{Y}\sim
 \textsf{N}\left((\kappa I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\kappa I_p + X^TX)^{-1}
 \right)\]</span></p></li>
@@ -478,7 +478,7 @@ Merlise Clyde
   &amp; \textsf{  subject to }    \sum |\beta_j| \le t
 \end{align}\]</span></p></li>
 <li class="fragment"><p>Equivalent Quadratic Programming Problem for ``penalized’’ Likelihood <span class="math display">\[\min_{\boldsymbol{\beta}} \| \mathbf{Y}- \mathbf{1}_n \alpha - \mathbf{X}\boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1\]</span></p></li>
-<li class="fragment"><p>Equivaletnt to finding posterior mode <span class="math display">\[
+<li class="fragment"><p>Equivalent to finding posterior mode <span class="math display">\[
 \max_{\boldsymbol{\beta}} -\frac{\phi}{2} \{ \| \mathbf{Y}- \mathbf{1}_n \alpha - \mathbf{X}\boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1 \}
 \]</span></p></li>
 </ul>
@@ -539,7 +539,7 @@ f(x) =  \sqrt{\frac{\lambda^2}{2 \pi}}  x^{-3/2} e^{- \frac{1}{2} \frac{
 <li class="fragment"><p>Posterior mode (like in the LASSO) may set some coefficients exactly to zero leading to variable selection - optimization problem (quadratic programming)</p></li>
 <li class="fragment"><p>Posterior distribution for <span class="math inline">\(\beta_j\)</span> does not assign any probability to <span class="math inline">\(\beta_j = 0\)</span> so posterior mean results in no selection, but shrinkage of coeffiecients to prior mean of zero</p></li>
 <li class="fragment"><p>In both cases, large coefficients may be over-shrunk (true for LASSO too)!</p></li>
-<li class="fragment"><p>Issue is that the tails of the prior under the double exponential are not heavier than the the normal likelihood</p></li>
+<li class="fragment"><p>Issue is that the tails of the prior under the double exponential are not heavier than the normal likelihood</p></li>
 <li class="fragment"><p>Only one parameter <span class="math inline">\(\lambda\)</span> that controls shrinkage and selection (with the mode)</p></li>
 <li class="fragment"><p>Need priors with heavier tails than the normal!!!</p></li>
 </ul>
@@ -566,20 +566,21 @@ p(\alpha, \phi) &amp; \propto 1/\phi)
 <section id="bounded-influence-for-mean" class="slide level2 smaller">
 <h2>Bounded Influence for Mean</h2>
 <ul>
-<li class="fragment"><p>canonical representation (normal means problem) <span class="math inline">\(\mathbf{Y}^* = \mathbf{I}\boldsymbol{\beta}+ \boldsymbol{\epsilon}\)</span> <span class="math display">\[
-E[\beta_i \mid \mathbf{Y}] = \int_0^1 (1 - \kappa_i) y^*_i p(\kappa_i \mid \mathbf{Y})\ d\kappa_i = (1 - \textsf{E}[\kappa \mid y^*_i]) y^*_i\]</span></p></li>
-<li class="fragment"><p><span class="math inline">\(\kappa_i = 1/(1 + \tau_i^2)\)</span> shrinkage factor</p></li>
+<li class="fragment"><p>canonical representation (normal means problem) <span class="math inline">\(\mathbf{Y}= \mathbf{I}_p \boldsymbol{\beta}+ \boldsymbol{\epsilon}\)</span> so <span class="math inline">\(\hat{\beta}_i = y_i\)</span> <span class="math display">\[
+E[\beta_i \mid \mathbf{Y}] = \int_0^1 (1 - \psi_i) y^*_i p(\psi_i \mid \mathbf{Y})\ d\psi_i = (1 - \textsf{E}[\psi_i \mid y^*_i]) y^*_i\]</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\psi_i = 1/(1 + \tau_i^2)\)</span> shrinkage factor</p></li>
 <li class="fragment"><p>Posterior mean <span class="math inline">\(E[\beta \mid y] = y + \frac{d} {d y} \log m(y)\)</span> where <span class="math inline">\(m(y)\)</span> is the predictive density under the prior (known <span class="math inline">\(\lambda\)</span>)</p></li>
-<li class="fragment"><p>HS has Bounded Influence: if <span class="math inline">\(\lim_{|y| \to \infty} \frac{d}{dy} \log m(y) = 0\)</span> <span class="math display">\[\lim_{|y| \to \infty} E[\beta \mid y) \to y \]</span></p></li>
-<li class="fragment"><p>DE prior also has bounded influence, but bound does not decay to zero in tails</p></li>
+<li class="fragment"><p>Bounded Influence: if <span class="math inline">\(\lim_{|y| \to \infty} \frac{d}{dy} \log m(y) = c\)</span> (for some constant <span class="math inline">\(c\)</span>)</p></li>
+<li class="fragment"><p>HS has bounded influence where <span class="math inline">\(c = 0\)</span> so <span class="math display">\[\lim_{|y| \to \infty} E[\beta \mid y) \to y \]</span></p></li>
+<li class="fragment"><p>DE has bounded influence but <span class="math inline">\((c \ne 0\)</span>); bound does not decay to zero and bias for large <span class="math inline">\(|y_i|\)</span></p></li>
 </ul>
 </section>
 <section id="properties-for-shrinkage-and-selection" class="slide level2 smaller">
 <h2>Properties for Shrinkage and Selection</h2>
-<p>Fan &amp; Li (JASA 2001) discuss Variable selection via nonconcave penalties and oracle properties</p>
+<p>Fan &amp; Li (JASA 2001) discuss Variable Selection via Nonconcave Penalties and Oracle Properties</p>
 <ul>
-<li class="fragment"><p>Model <span class="math inline">\(Y = \mathbf{1}_n \alpha \mathbf{X}\boldsymbol{\beta}+ \boldsymbol{\epsilon}\)</span> with <span class="math inline">\(\mathbf{X}^T\mathbf{X}= \mathbf{I}_p\)</span> (orthonormal) and <span class="math inline">\(\boldsymbol{\epsilon}\sim N(0, \mathbf{I}_n)\)</span></p></li>
-<li class="fragment"><p>Penalized Log Likelihood <span class="math display">\[\frac 1 2 \|\mathbf{Y}+ \hat{\mathbf{Y}}\|^2 +\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{ pen}_\lambda(|\beta_j|)\]</span></p></li>
+<li class="fragment"><p>Model <span class="math inline">\(Y = \mathbf{1}_n \alpha + \mathbf{X}\boldsymbol{\beta}+ \boldsymbol{\epsilon}\)</span> with <span class="math inline">\(\mathbf{X}^T\mathbf{X}= \mathbf{I}_p\)</span> (orthonormal) and <span class="math inline">\(\boldsymbol{\epsilon}\sim N(0, \mathbf{I}_n)\)</span></p></li>
+<li class="fragment"><p>Penalized Log Likelihood <span class="math display">\[\frac 1 2 \|\mathbf{Y}- \hat{\mathbf{Y}}\|^2 +\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{ pen}_\lambda(|\beta_j|)\]</span></p></li>
 <li class="fragment"><p>duality <span class="math inline">\(\text{pen}_\lambda(|\beta|) \equiv - \log(p(|\beta_j|))\)</span> (negative log prior)</p></li>
 <li class="fragment"><p>Objectives:</p>
 <ul>
@@ -614,7 +615,7 @@ E[\beta_i \mid \mathbf{Y}] = \int_0^1 (1 - \kappa_i) y^*_i p(\kappa_i \mid \math
 <p><strong>Homework</strong></p>
 </div>
 <div class="callout-content">
-<p>Check the conditions for the Generalized Double Pareto</p>
+<p>Check the conditions for the DE, Generalized Double Pareto and Cauchy priors</p>
 </div>
 </div>
 </div>
@@ -624,11 +625,12 @@ E[\beta_i \mid \mathbf{Y}] = \int_0^1 (1 - \kappa_i) y^*_i p(\kappa_i \mid \math
 <h2>Selection</h2>
 <ul>
 <li class="fragment"><p>Only get variable selection if we use the posterior mode</p></li>
-<li class="fragment"><p>If selection is a goal of analysis build it into the model/analysis</p>
+<li class="fragment"><p>If selection is a goal of analysis build it into the model/analysis/post-analysis</p>
 <ul>
 <li class="fragment"><p>prior belief that coefficient is zero</p></li>
 <li class="fragment"><p>selection solved as a post-analysis decision problem</p></li>
 </ul></li>
+<li class="fragment"><p>Even if selection is not an objective, account for the uncertainty that some predictors may be unrelated</p></li>
 </ul>
 
 
