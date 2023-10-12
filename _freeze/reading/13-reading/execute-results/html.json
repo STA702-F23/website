@@ -1,0 +1,14 @@
+{
+  "hash": "c4361672d9c6a8930eb03deaffd5dcbd",
+  "result": {
+    "markdown": "---\ntitle: \"Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression \"\n---\n\n\n\n\n\n## Readings\n\n  \n\n- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff\n \n  + Section 9.1: The linear regression model (review)\n  + Section 9.2: Bayesian estimation for a regression model\n  \n \n\n\n\n- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\n  + Section 14.5: Ssembling the Matrix of Explanatory Variables\n  + Section 14.6: Regularization and Dimension Reduction\n\n\n- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert\n\nPapers: \n\n  + Park, T.  & Casella, G.  (2008) The Bayesian Lasso, [Journal of the American Statistical Association, 103:681-686](10.1198/016214508000000337)\n  + Hans, C. (2010)\n  + Carvalho, C. Polson, N. and Scott, J\n  + Armagan, Dunson, D, and Lee\n  + George, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, [Statistical Science, 27:82-94](https://www.jstor.org/stable/23208825) \n\n    ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
