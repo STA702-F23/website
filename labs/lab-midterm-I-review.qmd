@@ -1,0 +1,11 @@
+---
+title: "Lab: Midterm I Review"
+toc: true
+---
+
+## Nothing to Submit
+
+Go to Github classroom to create a repository for this assignment  at [Midterm I Review](https://classroom.github.com/a/oMuVDVRK) with the old exams
+
+
+    
