@@ -847,256 +847,396 @@
     "text": "Notes\n\nAcceptance probability is \\[M = \\min \\left\\{ 1, \\frac{\\pi(\\theta^\\star) \\cal{L}(\\theta^\\star)}\n                         {\\pi(\\theta^{(s)}) \\cal{L}(\\theta^{(s)})}\\right\\}\\]\nratio of posterior densities where normalizing constant cancels!\nThe Metropolis chain ALWAYS moves to the proposed \\(\\theta^\\star\\) at iteration \\(s+1\\) if \\(\\theta^\\star\\) has higher target density than the current \\(\\theta^{(s)}\\).\nSometimes, it also moves to a \\(\\theta^\\star\\) value with lower density in proportion to the density value itself.\nThis leads to a random, Markov process that naturally explores the space according to the probability defined by \\(\\pi(\\theta \\mid y)\\), and hence generates a sequence that, while dependent, eventually represents draws from \\(\\pi(\\theta \\mid y)\\) (stationary distribution of the Markov Chain).\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources/slides/12-priors-regression.html#conjugate-priors-in-linear-regression",
-    "href": "resources/slides/12-priors-regression.html#conjugate-priors-in-linear-regression",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Conjugate Priors in Linear Regression",
-    "text": "Conjugate Priors in Linear Regression\n\nRegression Model (Sampling model) \\[\\mathbf{Y}\\mid \\boldsymbol{\\beta}, \\phi  \\sim \\textsf{N}(\\mathbf{X}\\boldsymbol{\\beta}, \\phi^{-1} \\mathbf{I}_n)\n\\]\nConjugate Normal-Gamma Model: factor joint prior \\(p(\\boldsymbol{\\beta}, \\phi ) = p(\\boldsymbol{\\beta}\\mid \\phi)p(\\phi)\\) \\[\\begin{align*}\n\\boldsymbol{\\beta}\\mid \\phi & \\sim \\textsf{N}(\\mathbf{b}_0, \\phi^{-1}\\boldsymbol{\\Phi}_0^{-1}) & p(\\boldsymbol{\\beta}\\mid \\phi) & = \\frac{|\\phi \\boldsymbol{\\Phi}_0|^{1/2}}{(2 \\pi)^{p/2}}e^{\\left\\{- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\mathbf{b}_0)^T \\boldsymbol{\\Phi}_0 (\\boldsymbol{\\beta}- \\mathbf{b}_0)  \\right\\}}\\\\\n\\phi & \\sim \\textsf{Gamma}(v_0/2, \\textsf{SS}_0/2)  & p(\\phi) & = \\frac{1}{\\Gamma{(\\nu_0/2)}}\n\\left(\\frac{\\textsf{SS}_0}{2} \\right)^{\\nu_0/2}\n\\phi^{\\nu_0/2 - 1}\ne^{- \\phi \\frac{\\textsf{SS}_0}{2}}\\\\\n\\Rightarrow (\\boldsymbol{\\beta}, \\phi) & \\sim \\textsf{NG}(\\mathbf{b}_0, \\boldsymbol{\\Phi}_0, \\nu_o, \\textsf{SS}_0)\n\\end{align*}\\]\nNeed to specify the 4 hyperparameters of the Normal-Gamma distribution!\nhard in higher dimensions!"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#choice-of-conjugate-prior",
-    "href": "resources/slides/12-priors-regression.html#choice-of-conjugate-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Choice of Conjugate Prior",
-    "text": "Choice of Conjugate Prior\nSeek default choices\n\nJeffreys’ prior\nunit-information prior\nZellner’s g-prior\nridge regression priors\nmixtures of conjugate priors\n\nZellner-Siow Cauchy Prior\n(Bayesian) Lasso\nHorseshoe\n\n\n\nWhich? Why?"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#jeffreys-prior",
-    "href": "resources/slides/12-priors-regression.html#jeffreys-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Jeffreys’ Prior",
-    "text": "Jeffreys’ Prior\n\nJeffreys prior is invariant to model parameterization of \\(\\boldsymbol{\\theta}= (\\boldsymbol{\\beta},\\phi)\\) \\[p(\\boldsymbol{\\theta}) \\propto |{\\cal{I}}(\\boldsymbol{\\theta})|^{1/2}\\]\n\\({\\cal{I}}(\\boldsymbol{\\theta})\\) is the Expected Fisher Information matrix \\[{\\cal{I}}(\\theta) = - \\textsf{E}[ \\left[ \\frac{\\partial^2 \\log({\\cal{L}}(\\boldsymbol{\\theta}))}{\\partial\n\\theta_i \\partial \\theta_j} \\right] ]\\]\nlog likelihood expressed as function of sufficient statistics\n\n\n\\[\\log({\\cal{L}}(\\boldsymbol{\\beta}, \\phi))  =  \\frac{n}{2} \\log(\\phi)  - \\frac{\\phi}{2} \\| (\\mathbf{I}_n - \\mathbf{P}_\\mathbf{x}) \\mathbf{Y}\\|^2\n- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T(\\mathbf{X}^T\\mathbf{X})(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})\\]\n\nprojection \\(\\mathbf{P}_{\\mathbf{X}} = \\mathbf{X}(\\mathbf{X}^T\\mathbf{X})^{-1} \\mathbf{X}^T\\) onto the column space of \\(\\mathbf{X}\\)"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#information-matrix",
-    "href": "resources/slides/12-priors-regression.html#information-matrix",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Information matrix",
-    "text": "Information matrix\n\\[\\begin{eqnarray*}\n\\frac{\\partial^2 \\log {\\cal{L}}} { \\partial \\boldsymbol{\\theta}\\partial \\boldsymbol{\\theta}^T} & = &\n\\left[\n  \\begin{array}{cc}\n    -\\phi (\\mathbf{X}^T\\mathbf{X}) & -(\\mathbf{X}^T\\mathbf{X}) (\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}}) \\\\\n  - (\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T (\\mathbf{X}^T\\mathbf{X}) & -\\frac{n}{2} \\frac{1}{\\phi^2} \\\\\n  \\end{array}\n\\right] \\\\\n\\textsf{E}[\\frac{\\partial^2 \\log {\\cal{L}}} { \\partial \\boldsymbol{\\theta}\\partial \\boldsymbol{\\theta}^T}] & = &\n\\left[\n  \\begin{array}{cc}\n    -\\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & -\\frac{n}{2} \\frac{1}{\\phi^2} \\\\\n  \\end{array}\n\\right] \\\\\n& & \\\\\n{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T) & = & \\left[\n  \\begin{array}{cc}\n    \\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & \\frac{n}{2} \\frac{1}{\\phi^2}\n  \\end{array}\n\\right]\n  \\end{eqnarray*}\\]\n\n\\[\\begin{eqnarray*}\n  p_J(\\boldsymbol{\\beta}, \\phi)  & \\propto & |{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T) |^{1/2}   \n                =  |\\phi \\mathbf{X}^T\\mathbf{X}|^{1/2} \\left(\\frac{n}{2}\n                 \\frac{1}{\\phi^2} \\right)^{1/2}\n  \\propto    \\phi^{p/2 - 1} |\\mathbf{X}^T\\mathbf{X}|^{1/2} \\\\\n  & \\propto & \\phi^{p/2 - 1}  \n  \\end{eqnarray*}\\]\n\n\nJeffreys’ did not recommend - marginal for \\(\\phi\\) dies not account for dimension \\(p\\)"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#recommended-independent-jeffreys-prior",
-    "href": "resources/slides/12-priors-regression.html#recommended-independent-jeffreys-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Recommended Independent Jeffreys Prior",
-    "text": "Recommended Independent Jeffreys Prior\n\nTreat \\(\\boldsymbol{\\beta}\\) and \\(\\phi\\) separately (orthogonal parameterization which implies asymptoptic independence of \\(\\boldsymbol{\\beta}\\) and \\(\\phi\\))\n\\(p_{IJ}(\\boldsymbol{\\beta}) \\propto |{\\cal{I}}(\\boldsymbol{\\beta})|^{1/2}\\) and \\(p_{IJ}(\\phi) \\propto |{\\cal{I}}(\\phi)|^{1/2}\\)\n\n\n\\[\n{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T)  =  \\left[\n  \\begin{array}{cc}\n    \\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & \\frac{n}{2} \\frac{1}{\\phi^2}\n  \\end{array}\n\\right]\n\\]\n\n\n\\[\\begin{align*} p_{IJ}(\\boldsymbol{\\beta}) & \\propto |\\phi \\mathbf{X}^T\\mathbf{X}|^{1/2} \\propto 1 \\\\\n               p_{IJ}(\\phi) & \\propto \\phi^{-1} \\\\\n               p_{IJ}(\\beta, \\phi) & \\propto p_{IJ}(\\boldsymbol{\\beta}) p_{IJ}(\\phi) = \\phi^{-1}\n\\end{align*}\\]\n\n\nTwo group reference prior"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#formal-posterior-distribution",
-    "href": "resources/slides/12-priors-regression.html#formal-posterior-distribution",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Formal Posterior Distribution",
-    "text": "Formal Posterior Distribution\n\nUse Independent Jeffreys Prior \\(p_{IJ}(\\beta, \\phi) \\propto p_{IJ}(\\boldsymbol{\\beta}) p_{IJ}(\\phi) = \\phi^{-1}\\)\nFormal Posterior Distribution \\[\\begin{eqnarray*}\n\\boldsymbol{\\beta}\\mid \\phi, \\mathbf{Y}& \\sim & \\textsf{N}(\\hat{\\boldsymbol{\\beta}}, (\\mathbf{X}^T\\mathbf{X})^{-1} \\phi^{-1})  \\\\\n\\phi \\mid \\mathbf{Y}& \\sim& \\textsf{Gamma}((n-p)/2, \\| \\mathbf{Y}- \\mathbf{X}\\hat{\\boldsymbol{\\beta}}\\|^2/2) \\\\\n\\boldsymbol{\\beta}\\mid \\mathbf{Y}& \\sim & t_{n-p}(\\hat{\\boldsymbol{\\beta}}, {\\hat{\\sigma}}^2(\\mathbf{X}^T\\mathbf{X})^{-1})\n\\end{eqnarray*}\\]\nBayesian Credible Sets \\(p(\\boldsymbol{\\beta}\\in C_\\alpha\\mid \\mathbf{Y}) = 1- \\alpha\\) correspond to frequentist Confidence Regions \\[\\frac{\\mathbf{x}^T\\boldsymbol{\\beta}- \\mathbf{x}^T \\hat{\\boldsymbol{\\beta}}} {\\sqrt{{\\hat{\\sigma}}^2\\mathbf{x}^T(\\mathbf{X}^T\\mathbf{X})^{-1} \\mathbf{x}} }\\sim t_{n-p}\\]\nconditional on \\(\\mathbf{Y}\\) for Bayes and conditional on \\(\\boldsymbol{\\beta}\\) for frequentist"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#unit-information-prior",
-    "href": "resources/slides/12-priors-regression.html#unit-information-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Unit Information Prior",
-    "text": "Unit Information Prior\nUnit information prior \\(\\boldsymbol{\\beta}\\mid \\phi \\sim \\textsf{N}(\\hat{\\boldsymbol{\\beta}}, n  (\\mathbf{X}^T\\mathbf{X})^{-1}/\\phi)\\)\n\nBased on a fraction of the likelihood \\(p(\\boldsymbol{\\beta},\\phi) \\propto {\\cal{L}}(\\boldsymbol{\\beta}, \\phi)^{1/n}\\)\n\n\n\\[\\log(p(\\boldsymbol{\\beta}, \\phi) \\propto  \\frac{1}{n}\\frac{n}{2} \\log(\\phi)  - \\frac{\\phi}{2} \\frac{\\| (\\mathbf{I}_n - \\mathbf{P}_\\mathbf{x}) \\mathbf{Y}\\|^2}{n}\n- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T\\frac{(\\mathbf{X}^T\\mathbf{X})}{n}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})\\]\n\n``average information’’ in one observation is \\(\\phi \\mathbf{X}^T\\mathbf{X}/n\\) or “unit information”\nPosterior mean \\(\\frac{n}{1 + n} \\hat{\\boldsymbol{\\beta}}+ \\frac{1}{1 + n}\\hat{\\boldsymbol{\\beta}}= \\hat{\\boldsymbol{\\beta}}\\)\nPosterior Distribution \\[\\boldsymbol{\\beta}\\mid \\mathbf{Y}, \\phi \\sim \\textsf{N}\\left( \\hat{\\boldsymbol{\\beta}}, \\frac{n}{1 + n} (\\mathbf{X}^T\\mathbf{X})^{-1}\n\\phi^{-1} \\right)\\]"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#unit-information-prior-1",
-    "href": "resources/slides/12-priors-regression.html#unit-information-prior-1",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Unit Information Prior",
-    "text": "Unit Information Prior\n\nAdvantages:\n\nProper\nInvariant to model parameteriztion of \\(\\mathbf{X}\\) (next)\nEquivalent to MLE (no bias) and tighter intervals\n\nDisadvantages\n\ncannot represent prior beliefs;\ndouble use of data!\n\nno shrinkage of \\(\\boldsymbol{\\beta}\\) with noisy data (larger variance than biased estimators)\n\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\n\nWhat would be a “Unit information prior” for \\(\\phi\\)?\nWhat is the marginal posterior for \\(\\boldsymbol{\\beta}\\) using both unit-information priors?"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#invariance-and-choice-of-meanprecision",
-    "href": "resources/slides/12-priors-regression.html#invariance-and-choice-of-meanprecision",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Invariance and Choice of Mean/Precision",
-    "text": "Invariance and Choice of Mean/Precision\n\nthe model in vector form \\(Y \\mid \\beta, \\phi \\sim \\textsf{N}_n (X\\beta, \\phi^{-1} I_n)\\)\nWhat if we transform the mean \\(X\\beta = X H H^{-1} \\beta\\) with new \\(X\\) matrix \\(\\tilde{X} = X H\\) where \\(H\\) is \\(p \\times p\\) and invertible and coefficients \\(\\tilde{\\beta} = H^{-1} \\beta\\).\nobtain the posterior for \\(\\tilde{\\beta}\\) using \\(Y\\) and \\(\\tilde{X}\\)\n\\[ Y \\mid  \\tilde{\\beta}, \\phi \\sim \\textsf{N}_n (\\tilde{X}\\tilde{\\beta}, \\phi^{-1} I_n)\\]\nsince \\(\\tilde{X} \\tilde{\\beta} = X H \\tilde{\\beta} = X \\beta\\) invariance suggests that the posterior for \\(\\beta\\) and \\(H \\tilde{\\beta}\\) should be the same\nplus the posterior of \\(H^{-1} \\beta\\) and \\(\\tilde{\\beta}\\) should be the same\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\nWith some linear algebra, show that this is true for a normal prior if \\(b_0 = 0\\) and \\(\\Phi_0\\) is \\(k X^TX\\) for some \\(k\\)"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#zellners-g-prior",
-    "href": "resources/slides/12-priors-regression.html#zellners-g-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Zellner’s g-prior",
-    "text": "Zellner’s g-prior\n\nPopular choice is to take \\(k = \\phi/g\\) which is a special case of Zellner’s g-prior \\[\\beta \\mid \\phi, g \\sim \\textsf{N}\\left(\\mathbf{b}_0, \\frac{g}{\\phi} (X^TX)^{-1}\\right)\\]\nFull conditional \\[\\beta \\mid \\phi, g \\sim \\textsf{N}\\left(\\frac{g}{1 + g} \\hat{\\beta} + \\frac{1}{1 + g}\\mathbf{b}_0, \\frac{1}{\\phi} \\frac{g}{1 + g} (X^TX)^{-1}\\right)\\]\none parameter \\(g\\) controls shrinkage\ninvariance under linear transformations of \\(\\mathbf{X}\\) with \\(\\mathbf{b}_0 = 0\\) or transform mean \\(\\tilde{\\mathbf{b}}_0 = H^{-1}\\mathbf{b}_0\\)\noften paired with the Jeffereys’ reference prior for \\(\\phi\\)\nallows an informative mean, but keeps the same correlation structure as the MLE"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#zellners-blocked-g-prior",
-    "href": "resources/slides/12-priors-regression.html#zellners-blocked-g-prior",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Zellner’s Blocked g-prior",
-    "text": "Zellner’s Blocked g-prior\n\nZellner also realized that different blocks might have different degrees of prior information\nTwo blocks \\(\\mathbf{X}_1\\) and \\(\\mathbf{X}_2\\) with \\(\\mathbf{X}_1^T \\mathbf{X}_2 = 0\\) so Fisher Information is block diagonal\nModel \\(\\mathbf{Y}= \\mathbf{X}_1 \\boldsymbol{\\alpha}+ \\mathbf{X}_2 \\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\)\nPriors \\[\\begin{align}\n\\boldsymbol{\\alpha}\\mid \\phi & \\sim \\textsf{N}(\\boldsymbol{\\alpha}_1, \\frac{g_{\\boldsymbol{\\alpha}}}{\\phi} (\\mathbf{X}_1^T\\mathbf{X}_1)^{-1})\\\\\n\\boldsymbol{\\beta}\\mid \\phi & \\sim \\textsf{N}(\\mathbf{b}_0, \\frac{g_{\\boldsymbol{\\beta}}}{\\phi} (\\mathbf{X}_2^T\\mathbf{X}_2)^{-1})\n\\end{align}\\]\nImportant case \\(\\mathbf{X}_1 = \\mathbf{1}_n\\) corresponding to intercept with limiting case \\(g_{\\boldsymbol{\\alpha}} \\to \\infty\\) \\[p(\\boldsymbol{\\alpha}) \\propto 1\\]"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#potential-problems",
-    "href": "resources/slides/12-priors-regression.html#potential-problems",
-    "title": "Lecture 12: Choice of Priors in Regression",
-    "section": "Potential Problems",
-    "text": "Potential Problems\n\nThe posterior in Jeffereys’ prior(s), the unit information prior, and Zellner’s g-priors depend on \\((\\mathbf{X}^T\\mathbf{X})^{-1}\\) and the MLE \\(\\hat{\\boldsymbol{\\beta}}\\)\nIf \\(\\mathbf{X}^T\\mathbf{X}= \\mathbf{U}\\boldsymbol{\\Lambda}\\mathbf{U}^T\\) is nearly singular (\\(\\lambda_j \\approx 0\\) for one or more eigenvalues), certain elements of \\(\\beta\\) or (linear combinations of \\(\\beta\\)) may have huge posterior variances and the MLEs (and posterior means) are highly unstable!\nthere is no unique posterior distribution if any \\(\\lambda_j = 0\\)! (\\(p &gt; n\\) or non-full rank)\nPosterior Precision and Mean in conjugate prior \\[\\begin{align}\n\\boldsymbol{\\Phi}_n & = \\mathbf{X}^T\\mathbf{X}+ \\boldsymbol{\\Phi}_0 \\\\\n\\mathbf{b}_n & = \\boldsymbol{\\Phi}^{-1} (\\mathbf{X}^T\\mathbf{Y}+ \\boldsymbol{\\Phi}_0 \\mathbf{b}_0)\n\\end{align}\\]\nNeed a proper prior with \\(\\boldsymbol{\\Phi}_0 &gt;0\\) (OK for \\(\\mathbf{b}_0 = 0\\) )\nSimplest case: take \\(\\boldsymbol{\\Phi}_0 = \\kappa \\mathbf{I}_p\\) so that \\(\\boldsymbol{\\Phi}_n = \\mathbf{X}^T\\mathbf{X}+ \\kappa \\mathbf{I}_p = \\mathbf{U}(\\boldsymbol{\\Lambda}+ \\kappa \\mathbf{I}_p) \\mathbf{U}^T &gt; 0\\)"
-  },
-  {
-    "objectID": "resources/slides/12-priors-regression.html#ridge-regression",
-    "href": "resources/slides/12-priors-regression.html#ridge-regression",
-    "title": "Lecture 12: Choice of Priors in Regression",
+    "objectID": "resources/slides/13-ridge-mixtures.html#ridge-regression",
+    "href": "resources/slides/13-ridge-mixtures.html#ridge-regression",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
     "section": "Ridge Regression",
-    "text": "Ridge Regression\nModel: \\(\\mathbf{Y}= \\mathbf{1}_n \\alpha + \\mathbf{X}\\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\)\n\nWLOG assume that \\(\\mathbf{X}\\) has been centered and scaled so that \\(\\mathbf{X}^T\\mathbf{X}= \\textsf{corr}(\\mathbf{X})\\)\ntypically expect the intercept \\(\\alpha\\) to be a different order of magnitude from the other predictors.\n\nAdopt a two block prior with \\(p(\\alpha) \\propto 1\\)\nIf \\(\\mathbf{X}\\) is centered, \\(\\mathbf{1}_n^T \\mathbf{X}= \\mathbf{0}_p\\)\n\nPrior \\(\\boldsymbol{\\beta}\\mid \\phi \\sim \\textsf{N}(\\mathbf{0}_b, \\frac{1} {\\phi \\kappa} \\mathbf{I}_p\\)) implies the \\(\\mathbf{b}\\) are exchangable a priori (i.e. distribution is invariant under permuting the labels and with a common scale and mean)\n\nif different predictors have different variances, rescale \\(\\mathbf{X}\\) to have variance 1\n\nPosterior for \\(\\boldsymbol{\\beta}\\) \\[\\boldsymbol{\\beta}\\mid \\phi, \\kappa, \\mathbf{Y}\\sim\n\\textsf{N}\\left((\\kappa I_p + X^TX)^{-1} X^T Y,  \\frac{1}{\\phi}(\\kappa I_p + X^TX)^{-1}\n\\right)\\]"
+    "text": "Ridge Regression\nModel: \\(\\mathbf{Y}= \\mathbf{1}_n \\alpha + \\mathbf{X}\\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\)\n\ntypically expect the intercept \\(\\alpha\\) to be a different order of magnitude from the other predictors. Adopt a two block prior with \\(p(\\alpha) \\propto 1\\)\nPrior \\(\\boldsymbol{\\beta}\\mid \\phi \\sim \\textsf{N}(\\mathbf{0}_b, \\frac{1} {\\phi \\kappa} \\mathbf{I}_p\\)) implies the \\(\\mathbf{b}\\) are exchangable a priori (i.e. distribution is invariant under permuting the labels and with a common scale and mean)\nPosterior for \\(\\boldsymbol{\\beta}\\) \\[\\boldsymbol{\\beta}\\mid \\phi, \\kappa, \\mathbf{Y}\\sim\n\\textsf{N}\\left((\\kappa I_p + X^TX)^{-1} X^T Y,  \\frac{1}{\\phi}(\\kappa I_p + X^TX)^{-1}\n\\right)\\]\nassume that \\(\\mathbf{X}\\) has been centered and scaled so that \\(\\mathbf{X}^T\\mathbf{X}= \\textsf{corr}(\\mathbf{X})\\) and \\(\\mathbf{1}_n^T \\mathbf{X}= \\mathbf{0}_p\\)\n\n\n\nX = scale(X)/sqrt{nrow(X) - 1}"
   },
   {
-    "objectID": "resources/slides/12-priors-regression.html#bayes-ridge-regression",
-    "href": "resources/slides/12-priors-regression.html#bayes-ridge-regression",
-    "title": "Lecture 12: Choice of Priors in Regression",
+    "objectID": "resources/slides/13-ridge-mixtures.html#bayes-ridge-regression",
+    "href": "resources/slides/13-ridge-mixtures.html#bayes-ridge-regression",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
     "section": "Bayes Ridge Regression",
-    "text": "Bayes Ridge Regression\n\nPosterior mean (or mode) given \\(\\kappa\\) is biased, but can show that there always is a value of \\(\\kappa\\) where the frequentist’s expected squared error loss is smaller for the Ridge estimator than MLE!\nUnfortunately the optimal choice depends on “true” \\(\\boldsymbol{\\beta}\\)!\nrelated to penalized maximum likelihood estimation \\[-\\frac{\\phi}{2}\\left(\\|\\mathbf{Y}- \\mathbf{X}\\boldsymbol{\\beta}\\|^2 + \\kappa \\| \\boldsymbol{\\beta}\\|^2 \\right)\n\\]\nChoice of \\(\\kappa\\) ?\n\nCross-validation (frequentist)\nEmpirical Bayes? (frequentist/Bayes)\nfixed a priori Bayes (and how to choose)\n\nShould there be a common \\(\\kappa\\)? Or a \\(\\kappa_j\\) per variable? (or shared in a group?)"
+    "text": "Bayes Ridge Regression\n\nrelated to penalized maximum likelihood estimation \\[-\\frac{\\phi}{2}\\left(\\|\\mathbf{Y}- \\mathbf{X}\\boldsymbol{\\beta}\\|^2 + \\kappa \\| \\boldsymbol{\\beta}\\|^2 \\right)\n\\]\nfrequentist’s expected mean squared error loss for using \\(\\mathbf{b}_n\\) \\[\\textsf{E}_{\\mathbf{Y}\\mid \\boldsymbol{\\beta}_*}[\\| \\mathbf{b}_n - \\boldsymbol{\\beta}_* \\|^2] = \\sigma^2 \\sum_{j = 1}^2 \\frac{\\lambda_j}{(\\lambda_j + \\kappa)^2} +\n\\kappa^2 \\boldsymbol{\\beta}_*^T(\\mathbf{X}^T\\mathbf{X}+ \\kappa \\mathbf{I}_p)^{-2} \\boldsymbol{\\beta}_*\\]\neigenvalues of \\(\\mathbf{X}^T\\mathbf{X}= \\mathbf{V}\\boldsymbol{\\Lambda}\\mathbf{V}^T\\) with \\([\\boldsymbol{\\Lambda}]_{jj} = \\lambda_j\\)\ncan show that there always is a value of \\(\\kappa\\) where is smaller for the (Bayes) Ridge estimator than MLE\nUnfortunately the optimal choice depends on “true” \\(\\boldsymbol{\\beta}_*\\)!\northogonal \\(\\mathbf{X}\\) leads to James-Stein solution related to Empirical Bayes"
   },
   {
-    "objectID": "resources/slides/12-priors-regression.html#mixture-of-conjugate-priors",
-    "href": "resources/slides/12-priors-regression.html#mixture-of-conjugate-priors",
-    "title": "Lecture 12: Choice of Priors in Regression",
+    "objectID": "resources/slides/13-ridge-mixtures.html#choice-of-kappa",
+    "href": "resources/slides/13-ridge-mixtures.html#choice-of-kappa",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Choice of \\(\\kappa\\)?",
+    "text": "Choice of \\(\\kappa\\)?\n\nfixed a priori Bayes (and how to choose?)\n\nCross-validation (frequentist)\nEmpirical Bayes? (frequentist/Bayes)\nShould there be a common \\(\\kappa\\)? (same shrinkage across all variables?)\nOr a \\(\\kappa_j\\) per variable? (or shared among a group of variables (eg. factors) ?)\nTreat as unknown!"
+  },
+  {
+    "objectID": "resources/slides/13-ridge-mixtures.html#mixture-of-conjugate-priors",
+    "href": "resources/slides/13-ridge-mixtures.html#mixture-of-conjugate-priors",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
     "section": "Mixture of Conjugate Priors",
-    "text": "Mixture of Conjugate Priors\n\ncan place a prior on \\(\\kappa\\) or \\(\\kappa_j\\) for fully Bayes\nsimilar issue for \\(g\\) in the \\(g\\) priors\noften improved robustness over fixed choices of hyperparameter\nmay not have cloosed form posterior but sampling is still often easy!\nExamples: Bayesian Lasso, Double Laplace, Horseshoe prior, mixtures of \\(g\\)-priors\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Mixture of Conjugate Priors\n\ncan place a prior on \\(\\kappa\\) or \\(\\kappa_j\\) for fully Bayes\nsimilar option for \\(g\\) in the \\(g\\) priors\noften improved robustness over fixed choices of hyperparameter\nmay not have cloosed form posterior but sampling is still often easy!\nExamples:\n\nBayesian Lasso (Park & Casella, Hans)\nGeneralized Double Pareto (Armagan, Dunson & Lee)\nHorseshoe (Carvalho, Polson & Scott)\nNormal-Exponential-Gamma (Griffen & Brown)\nmixtures of \\(g\\)-priors (Liang et al)"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#example-from-last-class",
-    "href": "resources/slides/07-adaptive-metropolis.html#example-from-last-class",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Example from Last Class",
-    "text": "Example from Last Class\n\nMarginal Likelihood \\[\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu) \\propto (\\sigma^2 + \\sigma^2_\\mu)^{-n/2} \\exp \\left\\{ - \\frac{1}{2} \\frac{\\sum_{i=1}^n\\left(y_i - \\mu \\right)^2}{\\sigma^2 + \\sigma^2_\\mu }\\right\\}\\]\nPriors with \\(\\sigma^2 = 1\\): \\(p(\\mu) \\propto 1\\) and \\(\\sigma_\\mu \\sim \\textsf{Cauchy}^+(0,1)\\) independent of \\(\\mu\\)\nSymmetric proposal for \\(\\mu\\) and \\(\\sigma_\\tau\\)\nIndependent normals centered at current values of \\(\\mu\\) and \\(\\sigma_\\mu\\) with covariance \\(\\frac{2.38^2}{d} \\textsf{Cov}(\\theta)\\) where \\(d = 2\\) (the dimension of \\(\\theta\\) )\n\\(\\delta^2 = 2.38^2/d\\) optimal for multivariate normal target Roberts, Gelman, and Gilks (1997) with acceptance rate ranging from 40% to 23.4% (as \\(d \\to \\infty\\))"
+    "objectID": "resources/slides/13-ridge-mixtures.html#lasso",
+    "href": "resources/slides/13-ridge-mixtures.html#lasso",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Lasso",
+    "text": "Lasso\nTibshirani (JRSS B 1996) proposed estimating coefficients through \\(L_1\\) constrained least squares ``Least Absolute Shrinkage and Selection Operator’’\n\nControl how large coefficients may grow \\[\\begin{align}  \\min_{\\boldsymbol{\\beta}} & \\| \\mathbf{Y}- \\mathbf{1}_n \\alpha - \\mathbf{X}\\boldsymbol{\\beta}\\|^2 \\\\\n  & \\textsf{  subject to }    \\sum |\\beta_j| \\le t\n\\end{align}\\]\nEquivalent Quadratic Programming Problem for ``penalized’’ Likelihood \\[\\min_{\\boldsymbol{\\beta}} \\| \\mathbf{Y}- \\mathbf{1}_n \\alpha - \\mathbf{X}\\boldsymbol{\\beta}\\|^2 + \\lambda \\|\\boldsymbol{\\beta}\\|_1\\]\nEquivaletnt to finding posterior mode \\[\n\\max_{\\boldsymbol{\\beta}} -\\frac{\\phi}{2} \\{ \\| \\mathbf{Y}- \\mathbf{1}_n \\alpha - \\mathbf{X}\\boldsymbol{\\beta}\\|^2 + \\lambda \\|\\boldsymbol{\\beta}\\|_1 \\}\n\\]"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#convergence-diagnostics",
-    "href": "resources/slides/07-adaptive-metropolis.html#convergence-diagnostics",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Convergence diagnostics",
-    "text": "Convergence diagnostics\n\nDiagnostics available to help decide on number of burn-in & collected samples.\nNote: no definitive tests of convergence but you should do as many diagnostics as you can, on all parameters in your model.\nWith “experience”, visual inspection of trace plots perhaps most useful approach.\nThere are a number of useful automated tests in R.\nCAUTION: diagnostics cannot guarantee that a chain has converged, but they can indicate it has not converged."
+    "objectID": "resources/slides/13-ridge-mixtures.html#bayesian-lasso",
+    "href": "resources/slides/13-ridge-mixtures.html#bayesian-lasso",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Bayesian Lasso",
+    "text": "Bayesian Lasso\nPark & Casella (JASA 2008) and Hans (Biometrika 2010) propose Bayesian versions of the Lasso\n\\[\\begin{eqnarray*}\n    \\mathbf{Y}\\mid \\alpha, \\boldsymbol{\\beta}, \\phi & \\sim & \\textsf{N}(\\mathbf{1}_n \\alpha + \\mathbf{X}\\boldsymbol{\\beta}, \\mathbf{I}_n/\\phi)  \\\\\n    \\boldsymbol{\\beta}\\mid \\alpha, \\phi, \\boldsymbol{\\tau}& \\sim & \\textsf{N}(\\mathbf{0}, \\textsf{diag}(\\boldsymbol{\\tau}^2)/\\phi)  \\\\\n    \\tau_1^2 \\ldots, \\tau_p^2 \\mid \\alpha, \\phi & \\mathrel{\\mathop{\\sim}\\limits^{\\rm iid}}& \\textsf{Exp}(\\lambda^2/2)  \\\\\n    p(\\alpha, \\phi) & \\propto& 1/\\phi  \\\\\n  \\end{eqnarray*}\\]\n\nCan show that \\(\\beta_j \\mid \\phi, \\lambda \\mathrel{\\mathop{\\sim}\\limits^{\\rm iid}}DE(\\lambda \\sqrt{\\phi})\\) \\[\\int_0^\\infty \\frac{1}{\\sqrt{2 \\pi s}}\ne^{-\\frac{1}{2} \\phi \\frac{\\beta^2}{s }}\n\\, \\frac{\\lambda^2}{2} e^{- \\frac{\\lambda^2 s}{2}}\\, ds =\n\\frac{\\lambda \\phi^{1/2}}{2} e^{-\\lambda \\phi^{1/2} |\\beta|}\n\\]\nequivalent to penalized regression with \\(\\lambda^* = \\lambda/\\phi^{1/2}\\)\nScale Mixture of Normals (Andrews and Mallows 1974)"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r",
-    "href": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Diagnostics in R",
-    "text": "Diagnostics in R\n\nThe most popular package for MCMC diagnostics in R is coda.\ncoda uses a special MCMC format so you must always convert your posterior matrix into an MCMC object.\nFor the example, we have the following in R.\n\n\n\n#library(coda)\ntheta.mcmc &lt;- mcmc(theta,start=1) #no burn-in (simple problem!)"
+    "objectID": "resources/slides/13-ridge-mixtures.html#gibbs-sampling",
+    "href": "resources/slides/13-ridge-mixtures.html#gibbs-sampling",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Gibbs Sampling",
+    "text": "Gibbs Sampling\n\nIntegrate out \\(\\alpha\\): \\(\\alpha \\mid \\mathbf{Y}, \\phi \\sim \\textsf{N}(\\bar{y}, 1/(n \\phi)\\)\n\n\\(\\boldsymbol{\\beta}\\mid \\boldsymbol{\\tau}, \\phi, \\lambda, \\mathbf{Y}\\sim \\textsf{N}(, )\\)\n\n\\(\\phi \\mid \\boldsymbol{\\tau}, \\boldsymbol{\\beta}, \\lambda, \\mathbf{Y}\\sim \\mathbf{G}( , )\\)\n\n\\(1/\\tau_j^2 \\mid \\boldsymbol{\\beta}, \\phi, \\lambda, \\mathbf{Y}\\sim \\textsf{InvGaussian}( , )\\)\nFor \\(X \\sim \\textsf{InvGaussian}(\\mu, \\lambda)\\), the density is \\[\nf(x) =  \\sqrt{\\frac{\\lambda^2}{2 \\pi}}  x^{-3/2} e^{- \\frac{1}{2} \\frac{\n  \\lambda^2( x - \\mu)^2} {\\mu^2 x}} \\qquad x &gt; 0\n\\]\n\n\n\n\n\n\n\n\nHomework\n\n\nDerive the full conditionals for \\(\\boldsymbol{\\beta}\\), \\(\\phi\\), \\(1/\\tau^2\\) for the model in Park & Casella"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r-1",
-    "href": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r-1",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Diagnostics in R",
-    "text": "Diagnostics in R\n\nsummary(theta.mcmc)\n\n\nIterations = 1:10000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 10000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n             Mean     SD Naive SE Time-series SE\nmu       -0.07977 0.1046 0.001046       0.002839\nsigma_mu  0.17550 0.1273 0.001273       0.004397\n\n2. Quantiles for each variable:\n\n              2.5%     25%      50%      75%  97.5%\nmu       -0.283420 -0.1508 -0.08193 -0.00848 0.1337\nsigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693\n\n\n\nThe naive SE is the standard error of the mean, which captures simulation error of the mean rather than the posterior uncertainty.\nThe time-series SE adjusts the naive SE for autocorrelation."
+    "objectID": "resources/slides/13-ridge-mixtures.html#choice-of-estimator",
+    "href": "resources/slides/13-ridge-mixtures.html#choice-of-estimator",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Choice of Estimator",
+    "text": "Choice of Estimator\n\nPosterior mode (like in the LASSO) may set some coefficients exactly to zero leading to variable selection - optimization problem (quadratic programming)\nPosterior distribution for \\(\\beta_j\\) does not assign any probability to \\(\\beta_j = 0\\) so posterior mean results in no selection, but shrinkage of coeffiecients to prior mean of zero\nIn both cases, large coefficients may be over-shrunk (true for LASSO too)!\nIssue is that the tails of the prior under the double exponential are not heavier than the the normal likelihood\nOnly one parameter \\(\\lambda\\) that controls shrinkage and selection (with the mode)\nNeed priors with heavier tails than the normal!!!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#effective-sample-size",
-    "href": "resources/slides/07-adaptive-metropolis.html#effective-sample-size",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Effective Sample Size",
-    "text": "Effective Sample Size\n\nThe effective sample size translates the number of MCMC samples \\(S\\) into an equivalent number of independent samples.\nIt is defined as \\[\\textrm{ESS} = \\dfrac{S}{1 + 2 \\sum_k \\rho_k},\\]\n\\(S\\) is the sample size and \\(\\rho_k\\) is the lag \\(k\\) autocorrelation.\nFor our data, we have\n\n\n\neffectiveSize(theta.mcmc)\n\n       mu  sigma_mu \n1356.6495  838.2613 \n\n\n\nSo our 10,000 samples are equivalent to 1356.6 independent samples for \\(\\mu\\) and 838.3 independent samples for \\(\\sigma_\\mu\\)."
+    "objectID": "resources/slides/13-ridge-mixtures.html#shrinkage-comparison-with-posterior-mean",
+    "href": "resources/slides/13-ridge-mixtures.html#shrinkage-comparison-with-posterior-mean",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Shrinkage Comparison with Posterior Mean",
+    "text": "Shrinkage Comparison with Posterior Mean\n\n\n\n\nHS - Horseshoe of Carvalho, Polson & Scott (slight difference in CPS notation)\n\\[\\begin{align}\n\\boldsymbol{\\beta}\\mid \\phi, \\boldsymbol{\\tau}& \\sim \\textsf{N}(\\mathbf{0}_p, \\frac{\\textsf{diag}(\\boldsymbol{\\tau}^2)}{ \\phi    }) \\\\\n\\tau_j \\mid \\lambda & \\mathrel{\\mathop{\\sim}\\limits^{\\rm iid}}\\textsf{C}^+(0, \\lambda^2) \\\\\n\\lambda & \\sim \\textsf{C}^+(0, 1) \\\\\np(\\alpha, \\phi) & \\propto 1/\\phi)\n\\end{align}\\]\n\nresulting prior on \\(\\boldsymbol{\\beta}\\) has heavy tails like a Cauchy!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-mean",
-    "href": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-mean",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Trace plot for mean",
-    "text": "Trace plot for mean"
+    "objectID": "resources/slides/13-ridge-mixtures.html#bounded-influence-for-mean",
+    "href": "resources/slides/13-ridge-mixtures.html#bounded-influence-for-mean",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Bounded Influence for Mean",
+    "text": "Bounded Influence for Mean\n\ncanonical representation (normal means problem) \\(\\mathbf{Y}^* = \\mathbf{I}\\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\) \\[\nE[\\beta_i \\mid \\mathbf{Y}] = \\int_0^1 (1 - \\kappa_i) y^*_i p(\\kappa_i \\mid \\mathbf{Y})\\ d\\kappa_i = (1 - \\textsf{E}[\\kappa \\mid y^*_i]) y^*_i\\]\n\\(\\kappa_i = 1/(1 + \\tau_i^2)\\) shrinkage factor\nPosterior mean \\(E[\\beta \\mid y] = y + \\frac{d} {d y} \\log m(y)\\) where \\(m(y)\\) is the predictive density under the prior (known \\(\\lambda\\))\nHS has Bounded Influence: if \\(\\lim_{|y| \\to \\infty} \\frac{d}{dy} \\log m(y) = 0\\) \\[\\lim_{|y| \\to \\infty} E[\\beta \\mid y) \\to y \\]\nDE prior also has bounded influence, but bound does not decay to zero in tails"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-sigma_mu",
-    "href": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-sigma_mu",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Trace plot for \\(\\sigma_\\mu\\)",
-    "text": "Trace plot for \\(\\sigma_\\mu\\)\n\nOK (be careful of scaling in plots!)"
+    "objectID": "resources/slides/13-ridge-mixtures.html#properties-for-shrinkage-and-selection",
+    "href": "resources/slides/13-ridge-mixtures.html#properties-for-shrinkage-and-selection",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Properties for Shrinkage and Selection",
+    "text": "Properties for Shrinkage and Selection\nFan & Li (JASA 2001) discuss Variable selection via nonconcave penalties and oracle properties\n\nModel \\(Y = \\mathbf{1}_n \\alpha \\mathbf{X}\\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\) with \\(\\mathbf{X}^T\\mathbf{X}= \\mathbf{I}_p\\) (orthonormal) and \\(\\boldsymbol{\\epsilon}\\sim N(0, \\mathbf{I}_n)\\)\nPenalized Log Likelihood \\[\\frac 1 2 \\|\\mathbf{Y}+ \\hat{\\mathbf{Y}}\\|^2 +\\frac 1 2 \\sum_j(\\beta_j - \\hat{\\beta}_j)^2 +  \\sum_j \\text{ pen}_\\lambda(|\\beta_j|)\\]\nduality \\(\\text{pen}_\\lambda(|\\beta|) \\equiv - \\log(p(|\\beta_j|))\\) (negative log prior)\nObjectives:\n\nUnbiasedness: for large \\(|\\beta_j|\\)\nSparsity: thresholding rule sets small coefficients to 0\nContinuity: continuous in \\(\\hat{\\beta}_j\\)"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation",
-    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Autocorrelation",
-    "text": "Autocorrelation\n\nAnother way to evaluate convergence is to look at the autocorrelation between draws of our Markov chain.\nThe lag \\(k\\) autocorrelation, \\(\\rho_k\\), is the correlation between each draw and its \\(k\\)th lag, defined as \\[\\rho_k = \\dfrac{\\sum_{s=1}^{S-k}(\\theta_s - \\bar{\\theta})(\\theta_{s+k} - \\bar{\\theta})}{\\sum_{s=1}^{S-k}(\\theta_s - \\bar{\\theta})^2}\\]\nWe expect the autocorrelation to decrease as \\(k\\) increases.\nIf autocorrelation remains high as \\(k\\) increases, we have slow mixing due to the inability of the sampler to move around the space well."
+    "objectID": "resources/slides/13-ridge-mixtures.html#conditions-on-priorpenalty",
+    "href": "resources/slides/13-ridge-mixtures.html#conditions-on-priorpenalty",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Conditions on Prior/Penalty",
+    "text": "Conditions on Prior/Penalty\nDerivative of \\(\\frac 1 2 \\sum_j(\\beta_j - \\hat{\\beta}_j)^2 + \\sum_j \\text{pen}_\\lambda(|\\beta_j|)\\) is \\(\\mathop{\\mathrm{sgn}}(\\beta_j)\\left\\{|\\beta_j| + \\text{pen}^\\prime_\\lambda(|\\beta_j|) \\right\\} - \\hat{\\beta}_j\\)\n\n\nConditions:\n\nunbiased: if \\(\\text{pen}^\\prime_\\lambda(|\\beta|) = 0\\) for large \\(|\\beta|\\); estimator is \\(\\hat{\\beta}_j\\)\nthresholding: \\(\\min \\left\\{ |\\beta_j| + \\text{pen}^\\prime_\\lambda(|\\beta_j|)\\right\\} &gt; 0\\) then estimator is 0 if \\(|\\hat{\\beta}_j| &lt; \\min \\left\\{ |\\beta_j| + \\text{pen}^\\prime_\\lambda(|\\beta_j|) \\right\\}\\)\ncontinuity: minimum of \\(|\\beta_j| + \\text{pen}^\\prime_\\lambda(|\\beta_j|)\\) is at zero\n\nCan show that LASSO/ Bayesian Lasso fails conditions for unbiasedness\nWhat about other Bayes methods?\n\n\n\n\n\n\n\n\n\nHomework\n\n\nCheck the conditions for the Generalized Double Pareto"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-mean",
-    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-mean",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Autocorrelation for mean",
-    "text": "Autocorrelation for mean\n\nSo-So"
+    "objectID": "resources/slides/13-ridge-mixtures.html#selection",
+    "href": "resources/slides/13-ridge-mixtures.html#selection",
+    "title": "Lecture 13: Ridge Regression, Lasso and Mixture Priors",
+    "section": "Selection",
+    "text": "Selection\n\nOnly get variable selection if we use the posterior mode\nIf selection is a goal of analysis build it into the model/analysis\n\nprior belief that coefficient is zero\nselection solved as a post-analysis decision problem\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-variance",
-    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-variance",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Autocorrelation for variance",
-    "text": "Autocorrelation for variance\n\nworse"
+    "objectID": "resources/slides/10-missing-data.html#introduction-to-missing-data",
+    "href": "resources/slides/10-missing-data.html#introduction-to-missing-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Introduction to Missing Data",
+    "text": "Introduction to Missing Data\n\nMissing data/nonresponse is fairly common in real data.\n\nFailure to respond to survey question\nSubject misses some clinic visits out of all possible\nOnly subset of subjects asked certain questions\n\nposterior computation usually depends on the data through \\(\\mathcal{p}(Y \\mid X, \\theta)\\), which can be difficult to compute (at least directly) when some of the \\(y_i\\) (multivariate \\(Y\\)) or \\(x^T_i\\) values are missing.\nMost software packages often throw away all subjects with incomplete data (can lead to bias and precision loss).\nSome individuals impute missing values with a mean or some other fixed value (ignores uncertainty).\nImputing missing data is actually quite natural in the Bayesian context."
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin",
-    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Gelman-Rubin",
-    "text": "Gelman-Rubin\nGelman & Rubin suggested a diagnostic \\(R\\) based on taking separate chains with dispersed initial values to test convergence"
+    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms",
+    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Missing data mechanisms",
+    "text": "Missing data mechanisms\n\nData are said to be missing completely at random (MCAR) if the reason for missingness does not depend on the values of the observed data or missing data.\nFor example, suppose\n\nyou handed out a double-sided survey questionnaire of 20 questions to a sample of participants;\nquestions 1-15 were on the first page but questions 16-20 were at the back; and\nsome of the participants did not respond to questions 16-20.\n\nThen, the values for questions 16-20 for those people who did not respond would be MCAR if they simply did not realize the pages were double-sided; they had no reason to ignore those questions.\nThis is rarely plausible in practice!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic",
-    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Gelman-Rubin Diagnostic",
-    "text": "Gelman-Rubin Diagnostic\n\nRun m &gt; 2 chains of length 2S from overdispersed starting values.\nDiscard the first S draws in each chain.\nCalculate the pooled within-chain variance \\(W\\) and between-chain variance \\(B\\). \\[R = \\frac{\\frac{S-1}{S} W + \\frac{1}{S} B }{W}\\]\nnumerator and denominator are both unbiased estimates of the variance if the two chains have converged\n\notherwise \\(W\\) is an underestimate (hasn’t explored enough)\nnumerator will overestimate as \\(B\\) is too large (overdispersed starting points)\n\nAs \\(S \\to \\infty\\) and \\(B \\to 0\\), \\(R \\to 1\\)\nversion in R is slightly different"
+    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms-1",
+    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms-1",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Missing Data Mechanisms",
+    "text": "Missing Data Mechanisms\n\nData are said to be missing at random (MAR) if, conditional on the values of the observed data, the reason for missingness does not depend on the missing data.\nUsing our previous example, suppose\n\nquestions 1-15 include demographic information such as age and education;\nquestions 16-20 include income related questions; and\nonce again, some participants did not respond to questions 16-20.\n\nThen, the values for questions 16-20 for those people who did not respond would be MAR if younger people are more likely not to respond to those income related questions than old people, where age is observed for all participants. (missingness reason must be independent of income)\nThis is the most commonly assumed mechanism in practice!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic-1",
-    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic-1",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Gelman-Rubin Diagnostic",
-    "text": "Gelman-Rubin Diagnostic\n\ntheta.mcmc = mcmc.list(mcmc(theta1, start=5000), mcmc(theta2, start=5000))\ngelman.diag(theta.mcmc)\n\nPotential scale reduction factors:\n\n         Point est. Upper C.I.\nmu                1          1\nsigma_mu          1          1\n\nMultivariate psrf\n\n1\n\n\n\nValues of \\(R &gt; 1.1\\) suggest lack of convergence\nLooks OK\nSee also gelman.plot"
+    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms-2",
+    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms-2",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Missing data mechanisms",
+    "text": "Missing data mechanisms\n\nData are said to be missing not at random (MNAR or NMAR) if the reason for missingness depends on the actual values of the missing (unobserved) data.\nsuppose again that\nquestions 1-15 include demographic information such as age and education;\nquestions 16-20 include income related questions; and\nonce again, some of the participants did not respond to questions 16-20.\nThen, the values for questions 16-20 for those people who did not respond would be MNAR if people who earn more money are less likely to respond to those income related questions than those with lower incomes.\nThis is usually the case in real data, but analysis can be complex!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#geweke-statistic",
-    "href": "resources/slides/07-adaptive-metropolis.html#geweke-statistic",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Geweke statistic",
-    "text": "Geweke statistic\n\nGeweke proposed taking two non-overlapping parts of a single Markov chain (usually the first 10% and the last 50%) and comparing the mean of both parts, using a difference of means test\nThe null hypothesis would be that the two parts of the chain are from the same distribution.\nThe test statistic is a z-score with standard errors adjusted for autocorrelation, and if the p-value is significant for a variable, you need more draws.\nOutput in R is the Z score"
+    "objectID": "resources/slides/10-missing-data.html#multivariate-formulation",
+    "href": "resources/slides/10-missing-data.html#multivariate-formulation",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Multivariate Formulation",
+    "text": "Multivariate Formulation\n\nConsider the multivariate data scenario with \\(\\boldsymbol{Y}_i = (\\boldsymbol{Y}_1,\\ldots,\\boldsymbol{Y}_n)^T\\), where \\(\\boldsymbol{Y}_i = (Y_{i1},\\ldots,Y_{ip})^T\\), for \\(i = 1,\\ldots, n\\).\nFor now, we will assume the multivariate normal model as the sampling model, so that each \\(p\\) dimensional \\(\\boldsymbol{Y}_i = (Y_{i1},\\ldots,Y_{ip})^T \\sim \\mathcal{N}_p(\\boldsymbol{\\theta}, \\Sigma)\\). \\[p(\\boldsymbol{Y}_i \\mid \\boldsymbol{\\theta}, \\Sigma) = \\frac{|\\Sigma|^{-1/2}}{(2\\pi)^{p/2}} \\exp\\left\\{ -\\frac{1}{2} (\\boldsymbol{Y} - \\boldsymbol{\\theta})^T \\Sigma^{-1} (\\boldsymbol{Y} - \\boldsymbol{\\theta}) \\right\\}\\]\nSuppose now that \\(\\boldsymbol{Y}\\) contains missing values.\nWe can separate \\(\\boldsymbol{Y}\\) into the observed and missing parts so that for for each individual, \\[\\boldsymbol{Y}_i = (\\boldsymbol{Y}_{i,obs},\\boldsymbol{Y}_{i,mis})\\]"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#geweke-diagnostic",
-    "href": "resources/slides/07-adaptive-metropolis.html#geweke-diagnostic",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Geweke Diagnostic",
-    "text": "Geweke Diagnostic\n\ngeweke.diag(theta.mcmc)\n\n[[1]]\n\nFraction in 1st window = 0.1\nFraction in 2nd window = 0.5 \n\n      mu sigma_mu \n -0.7779   0.7491 \n\n\n[[2]]\n\nFraction in 1st window = 0.1\nFraction in 2nd window = 0.5 \n\n      mu sigma_mu \n  0.4454   0.6377 \n\n\n\nThe output is the z-score itself (not the p-value)."
+    "objectID": "resources/slides/10-missing-data.html#mathematical-formulation",
+    "href": "resources/slides/10-missing-data.html#mathematical-formulation",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Mathematical Formulation",
+    "text": "Mathematical Formulation\n\nLet\n\n\\(j\\) index variables (where \\(i\\) already indexes individuals),\n\\(r_{ij} = 1\\) when \\(y_{ij}\\) is missing,\n\\(r_{ij} = 0\\) when \\(y_{ij}\\) is observed.\n\nHere, \\(r_{ij}\\) is known as the missingness indicator of variable \\(j\\) for person \\(i\\).\nAlso, let\n\n\\(\\boldsymbol{R}_i = (r_{i1},\\ldots,r_{ip})^T\\) be the vector of missing indicators for person \\(i\\).\n\\(\\boldsymbol{R} = (\\boldsymbol{R}_1,\\ldots,\\boldsymbol{R}_n)\\) be the matrix of missing indicators for everyone.\n\\(\\boldsymbol{\\psi}\\) be the set of parameters associated with \\(\\boldsymbol{R}\\).\n\nAssume \\(\\boldsymbol{\\psi}\\) and \\((\\boldsymbol{\\theta}, \\Sigma)\\) are distinct."
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#practical-advice-on-diagnostics",
-    "href": "resources/slides/07-adaptive-metropolis.html#practical-advice-on-diagnostics",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Practical advice on diagnostics",
-    "text": "Practical advice on diagnostics\n\nThere are more tests we can use: Raftery and Lewis diagnostic, Heidelberger and Welch, etc.\nThe Gelman-Rubin approach is quite appealing in using multiple chains\nGeweke (and Heidelberger and Welch) sometimes reject even when the trace plots look good.\nOverly sensitive to minor departures from stationarity that do not impact inferences.\nMost common method of assessing convergence is visual examination of trace plots."
+    "objectID": "resources/slides/10-missing-data.html#mathematical-formulation-1",
+    "href": "resources/slides/10-missing-data.html#mathematical-formulation-1",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Mathematical Formulation",
+    "text": "Mathematical Formulation\n\nMCAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{\\psi})\\]\nMAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi})\\]\nMNAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi})\\]"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#improving-results",
-    "href": "resources/slides/07-adaptive-metropolis.html#improving-results",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Improving Results",
-    "text": "Improving Results\n\nmore iterations and multiple chains\nthinning to reduce correlations and increase ESS\nchange the proposal distribution \\(q\\)\nadaptive Metropolis to tune \\(q\\)"
+    "objectID": "resources/slides/10-missing-data.html#implications-for-likelihood-function",
+    "href": "resources/slides/10-missing-data.html#implications-for-likelihood-function",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Implications for Likelihood Function",
+    "text": "Implications for Likelihood Function\n\nEach type of mechanism has a different implication on the likelihood of the observed data \\(\\boldsymbol{Y}_{obs}\\), and the missing data indicator \\(\\boldsymbol{R}\\).\nWithout missingness in \\(\\boldsymbol{Y}\\), the likelihood of the observed data is \\[p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma)\\]\nWith missingness in \\(\\boldsymbol{Y}\\), the likelihood of the observed data is instead \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis}\n\\end{split}\n\\]\nSince we do not actually observe \\(\\boldsymbol{Y}_{mis}\\), we would like to be able to integrate it out so we don’t have to deal with it and infer \\((\\boldsymbol{\\theta}, \\Sigma)\\) using only the observed data."
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#proposal-distribution",
-    "href": "resources/slides/07-adaptive-metropolis.html#proposal-distribution",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Proposal Distribution",
-    "text": "Proposal Distribution\n\nCommon choice \\[\\textsf{N}(\\theta^\\star; \\theta^{(s)}, \\delta^2 \\Sigma)\\]\nrough estimate of \\(\\Sigma\\) based on the asymptotic Gaussian approximation \\(\\textsf{Cov}(\\theta \\mid y)\\) and \\(\\delta = 2.38/\\sqrt{\\text{dim}(\\theta)}\\)\nfind the MAP estimate (posterior mode) \\(\\hat{\\theta}\\)\ntake \\[\\Sigma =  \\left[-\n  \\frac{\\partial^2 \\log(\\cal{L}(\\theta)) + \\log(\\pi(\\theta))}\n   {\\partial \\theta \\partial \\theta^T} \\right]^{-1}_{\\theta = \\hat{\\theta}}\\]\nignore prior and use inverse of Fisher Information (covariance of MLE)"
+    "objectID": "resources/slides/10-missing-data.html#likelihood-function-mar",
+    "href": "resources/slides/10-missing-data.html#likelihood-function-mar",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Likelihood function: MAR",
+    "text": "Likelihood function: MAR\n\nFocus on MAR \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs}, \\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi}) \\cdot \\int p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma). \\\\\n\\end{split}\n\\]\nFor inference on \\((\\boldsymbol{\\theta}, \\Sigma)\\), we only need \\(p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma)\\) in the likelihood function for inference \\((\\boldsymbol{\\theta}, \\Sigma)\\).\nStill is hard, as we need marginal model!"
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#learn-covariance-in-proposal",
-    "href": "resources/slides/07-adaptive-metropolis.html#learn-covariance-in-proposal",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Learn Covariance in Proposal?",
-    "text": "Learn Covariance in Proposal?\n\nCan we learn the proposal distribution?\nad hoc?\n\nrun an initial MCMC for an initial tuning phase (e.g. 1000 samples) with a fixed \\(\\delta\\) and estimate \\(\\Sigma(\\theta)\\) from samples.\n\nrun more to tweak \\(\\delta\\) to get acceptance rate between \\(23\\%-40\\%\\).\nfix the kernel for final run\n\nMCMC doesn’t allow you to use the full history of the chain \\(\\theta^{(1)}, \\ldots, \\theta^{(s)}\\) in constructing the proposal distributions as it violates the Markov assumption\neven with no further “learning”, no guarantee we will converge to posterior!\nmore elegant approach - formal adaptive Metropolis\n\nkeep adapting the entire time!\n\n\n\n\n\n\n\n\n\nad hoc adaptation may mess up convergence !"
+    "objectID": "resources/slides/10-missing-data.html#bayesian-inference-with-missing-data",
+    "href": "resources/slides/10-missing-data.html#bayesian-inference-with-missing-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Bayesian Inference with Missing Data",
+    "text": "Bayesian Inference with Missing Data\n\nFor posterior sampling for most models (especially multivariate models), sampling is easier with complete data \\(\\boldsymbol{Y}\\)’s to update the parameters.\nThink of the missing data as latent variables and sample from the posterior predictive distribution of the missing data conditional on the observed data and parameters: \\[\n\\begin{split}\np(\\boldsymbol{Y}_{mis} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\theta}, \\Sigma) \\propto \\prod^n_{i=1} p(\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs},\\boldsymbol{\\theta}, \\Sigma).\n\\end{split}\n\\]\nIn the case of the multivariate normal model, each \\(p(\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs},\\boldsymbol{\\theta}, \\Sigma)\\) is just a normal distribution, and we can leverage results on conditional distributions for normal models."
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#adaptive-mcmc",
-    "href": "resources/slides/07-adaptive-metropolis.html#adaptive-mcmc",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Adaptive MCMC",
-    "text": "Adaptive MCMC\n\nrun RWM with a Gaussian proposal for a fixed number of iterations for \\(s &lt; s_0\\)\nestimate of covariance at state \\(s\\) \\[\\Sigma^{(s)} = \\frac{1}{s}\\left(\\sum_{i=1}^s \\theta^{(i)} {\\theta^{(i)}}^T -\ns \\bar{\\theta}^{(s)} {\\bar{\\theta}^{(s)}}^T\\right)\\]\nproposal for \\(s &gt; s_0\\) with \\(\\delta = 2.38/\\sqrt{d}\\) \\[\\theta^* \\sim \\textsf{N}(\\theta^{(s)}, \\delta^2 (\\Sigma^{(s)} + \\epsilon I_d))\\]\n\\(\\epsilon &gt; 0\\) insures covariance is positive definite\nif \\(s_0\\) is too large will take longer for adaptation to be seen\nneed conditions for vanishing adaptation e.g. that the proposal depends less and less on recent states in the chain - see Roberts & Rosenthal (2009)for examples and other conditions"
+    "objectID": "resources/slides/10-missing-data.html#model-for-missing-data",
+    "href": "resources/slides/10-missing-data.html#model-for-missing-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Model for Missing Data",
+    "text": "Model for Missing Data\n\nRewrite as \\(\\boldsymbol{Y}_i\\) in block form \\[\\begin{eqnarray*}\n\\boldsymbol{Y}_i =\n\\begin{pmatrix}\\boldsymbol{Y}_{i,mis}\\\\\n\\boldsymbol{Y}_{i,obs}\n\\end{pmatrix} & \\sim & \\mathcal{N}_p\\left[\\left(\\begin{array}{c}\n\\boldsymbol{\\theta}_1\\\\\n\\boldsymbol{\\theta}_2\n\\end{array}\\right),\\left(\\begin{array}{cc}\n\\Sigma_{11} & \\Sigma_{12} \\\\\n\\Sigma_{21} & \\Sigma_{22}\n\\end{array}\\right)\\right],\\\\\n\\end{eqnarray*}\\]\nMissing data has a conditional \\[\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs} = \\boldsymbol{y}_{i,obs} \\sim \\mathcal{N}\\left(\\boldsymbol{\\theta}_1 + \\Sigma_{12}\\Sigma_{22}^{-1}  (\\boldsymbol{y}_{i,obs}-\\boldsymbol{\\theta}_2), \\Sigma_{11} - \\Sigma_{12}\\Sigma_{22}^{-1}\\Sigma_{21}\\right).\\]\nmultivariate normal distribution (or univariate normal distribution if \\(\\boldsymbol{Y}_i\\) only has one missing entry)\nThis sampling technique actually encodes MAR since the imputations for \\(\\boldsymbol{Y}_{mis}\\) depend on the \\(\\boldsymbol{Y}_{obs}\\)."
   },
   {
-    "objectID": "resources/slides/07-adaptive-metropolis.html#example-again",
-    "href": "resources/slides/07-adaptive-metropolis.html#example-again",
-    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
-    "section": "Example again",
-    "text": "Example again\n\n\n\n\n\n\n\n\n\nAcceptance rate now around 30-35 % of 10,000 iterations!\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "objectID": "resources/slides/10-missing-data.html#semi-conjugate-prior",
+    "href": "resources/slides/10-missing-data.html#semi-conjugate-prior",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Semi-Conjugate Prior",
+    "text": "Semi-Conjugate Prior\n\nWe need prior distributions for \\(\\boldsymbol{\\theta}\\) and \\(\\Sigma\\)\nMultivariate Normal Prior for \\(\\boldsymbol{\\theta} \\sim \\mathcal{N}_p(\\boldsymbol{\\mu}_0, \\Lambda_0^{-1})\\)\nAnalogous to the univariate case, the inverse-Wishart distribution is the corresponding conditionally conjugate prior for \\(\\Sigma\\) (multivariate generalization of the inverse-gamma).\nA random variable \\(\\Sigma \\sim \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\), where \\(\\Sigma\\) is positive definite and \\(p \\times p\\), has pdf \\[p(\\Sigma) \\propto  \\left|\\Sigma\\right|^{\\frac{-(\\eta_0 + p + 1)}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\textsf{tr}(\\boldsymbol{S}_0\\Sigma^{-1}) \\right\\}\\]\n\n\\(\\eta_0 &gt; p - 1\\) is the “degrees of freedom”, and\n\\(\\boldsymbol{S}_0\\) is a \\(p \\times p\\) positive definite matrix."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#mean",
+    "href": "resources/slides/10-missing-data.html#mean",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Mean",
+    "text": "Mean\n\nFor this distribution, \\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0\\), for \\(\\eta_0 &gt; p + 1\\).\nIf we are very confident in a prior guess \\(\\Sigma_0\\), for \\(\\Sigma\\), then we might set\n\n\\(\\eta_0\\), the degrees of freedom to be very large, and\n\\(\\boldsymbol{S}_0 = (\\eta_0 - p - 1)\\Sigma_0\\).\n\\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0 = \\frac{1}{\\eta_0 - p - 1}(\\eta_0 - p - 1)\\Sigma_0 = \\Sigma_0\\), and \\(\\Sigma\\) is tightly (depending on the value of \\(\\eta_0\\)) centered around \\(\\Sigma_0\\).\n\nIf we are not at all confident but we still have a prior guess \\(\\Sigma_0\\), we might set\n\n\\(\\eta_0 = p + 2\\), so that the \\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0\\) is finite.\n\\(\\boldsymbol{S}_0 = \\Sigma_0\\)"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#alternatives",
+    "href": "resources/slides/10-missing-data.html#alternatives",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Alternatives",
+    "text": "Alternatives\n\nJeffreys prior (improper limiting case)\nunit-information (data dependent)\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#wishart-distribution",
+    "href": "resources/slides/10-missing-data.html#wishart-distribution",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Wishart distribution",
+    "text": "Wishart distribution\n\nJust as we had with the gamma and inverse-gamma relationship in the univariate case, we can also work in terms of the Wishart distribution (multivariate generalization of the gamma) instead.\nThe Wishart distribution provides a conditionally-conjugate prior for the precision matrix \\(\\Sigma^{-1}\\) in a multivariate normal model.\nif \\(\\Sigma \\sim \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0)\\), then \\(\\Phi = \\Sigma^{-1} \\sim \\textrm{W}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\).\nA random variable \\(\\Phi \\sim \\textrm{W}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\), where \\(\\Phi\\) has dimension \\((p \\times p)\\), has pdf \\[\\begin{align*}\nf(\\Phi) \\ \\propto \\ \\left|\\Phi\\right|^{\\frac{\\eta_0 - p - 1}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\text{tr}(\\boldsymbol{S}_0\\Phi) \\right\\}.\n\\end{align*}\\]\nHere, \\(E[\\Phi] = \\eta_0 \\boldsymbol{S}_0\\)."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#conditional-posterior-for-sigma",
+    "href": "resources/slides/10-missing-data.html#conditional-posterior-for-sigma",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Conditional posterior for \\(\\Sigma\\)",
+    "text": "Conditional posterior for \\(\\Sigma\\)\n\\[\\begin{align}Y_i  \\mid  \\boldsymbol{\\theta}, \\Sigma & \\overset{ind}{\\sim} N(\\boldsymbol{\\theta}, \\Sigma)\\\\\n\\Sigma  & \\sim  \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0^{-1}) \\\\\n\\boldsymbol{\\theta} & \\sim N(\\mu_0, \\Psi_0^{-1})\n\\end{align}\\]\n\nThe conditional posterior (full conditional) \\(\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y}\\), is then \\[\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y} \\sim \\textrm{IW}_p\\left(\\eta_0 + n, \\left(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\right)^{-1} \\right)\\]\nposterior sample size \\(\\eta_0 + n\\)\nposterior sum of squares \\(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\)"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#posterior-derivation",
+    "href": "resources/slides/10-missing-data.html#posterior-derivation",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Posterior Derivation",
+    "text": "Posterior Derivation\n\nThe conditional posterior (full conditional) \\(\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y}\\), is \\[\\begin{align*}\n\\pi(\\Sigma & \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y})\\propto p(\\Sigma) \\cdot p( \\boldsymbol{Y}  \\mid \\boldsymbol{\\theta}, \\Sigma)\\\\\n& \\propto \\left|\\Sigma\\right|^{\\frac{-(\\eta_0 + p + 1)}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\text{tr}(\\boldsymbol{S}_0\\Sigma^{-1}) \\right\\} \\cdot \\prod_{i = 1}^{n}\\left|\\Sigma\\right|^{-\\frac{1}{2}} \\ \\textrm{exp} \\left\\{-\\frac{1}{2}\\left[(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T \\Sigma^{-1} (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})\\right] \\right\\} \\\\\n& \\\\\n& \\\\\n& \\\\\n&\n\\end{align*}\n\\]\n\n\n\\[\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y} \\sim \\textrm{IW}_p\\left(\\eta_0 + n, \\left(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\right)^{-1} \\right)\\]"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#gibbs-sampler-with-missing-data",
+    "href": "resources/slides/10-missing-data.html#gibbs-sampler-with-missing-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Gibbs sampler with missing data",
+    "text": "Gibbs sampler with missing data\nAt iteration \\(s+1\\), do the following\n\nSample \\(\\boldsymbol{\\theta}^{(s+1)}\\) from its multivariate normal full conditional \\(p(\\boldsymbol{\\theta}^{(s+1)} | \\boldsymbol{Y}_{obs}, \\boldsymbol{Y}_{mis}^{(s)}, \\Sigma^{(s)})\\)\nSample \\(\\Sigma^{(s+1)}\\) from its inverse-Wishart full conditional \\(p(\\Sigma^{(s+1)} | \\boldsymbol{Y}_{obs}, \\boldsymbol{Y}_{mis}^{(s)}, \\boldsymbol{\\theta}^{(s+1)})\\)\nFor each \\(i = 1, \\ldots, n\\), with at least one “1” value in the missingness indicator vector \\(\\boldsymbol{R}_i\\), sample \\(\\boldsymbol{Y}_{i,mis}^{(s+1)}\\) from the full conditional \\[\\begin{align}\n\\boldsymbol{Y}_{i,mis}^{(s+1)}| \\boldsymbol{Y}_{i,obs},  \\boldsymbol{\\theta}^{(s+1)},  \\Sigma^{(s+1)}  \\sim \\mathcal{N}(& \\boldsymbol{\\theta}_1^{(s+1)} + \\Sigma_{12}^{(s+1)}{\\Sigma_{22}^{(s+1)}}^{-1}  (\\boldsymbol{Y}_{i,obs}-\\boldsymbol{\\theta}_2^{(s+1)}),  \\\\\n&  \\Sigma_{11}^{(s+1)} - \\Sigma_{12}^{(s+1)}{\\Sigma_{22}^{(s+1)}}^{-1}\\Sigma_{21}^{(s+1)})\n\\end{align}\\]\n\n\n\nderived from the original sampling model but with the updated parameters, \\(\\boldsymbol{Y}_i^{(s+1)} = (\\boldsymbol{Y}_{i,obs},\\boldsymbol{Y}_{i,mis}^{(s+1)})^T \\sim \\mathcal{N}_p(\\boldsymbol{\\theta}^{(s+1)}, \\Sigma^{(s+1)})\\)."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#reading-example-from-hoff-with-missing-data",
+    "href": "resources/slides/10-missing-data.html#reading-example-from-hoff-with-missing-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Reading example from Hoff with missing data",
+    "text": "Reading example from Hoff with missing data\n\n\n      pretest posttest\n [1,]      59       77\n [2,]      43       39\n [3,]      34       46\n [4,]      32       NA\n [5,]      NA       38\n [6,]      38       NA\n [7,]      55       NA\n [8,]      67       86\n [9,]      64       77\n[10,]      45       60\n[11,]      49       50\n[12,]      72       59\n\n\n  pretest  posttest \n0.1363636 0.2272727"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#mcmc-summary-for-sigma",
+    "href": "resources/slides/10-missing-data.html#mcmc-summary-for-sigma",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "MCMC Summary for \\(\\Sigma\\)",
+    "text": "MCMC Summary for \\(\\Sigma\\)\n\n\n\nIterations = 1:20000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 20000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n          Mean    SD Naive SE Time-series SE\nsigma_11 194.0 63.08   0.4460         0.4947\nsigma_12 152.1 60.75   0.4295         0.4665\nsigma_21 152.1 60.75   0.4295         0.4665\nsigma_22 248.7 83.70   0.5918         0.6884\n\n2. Quantiles for each variable:\n\n           2.5%   25%   50%   75% 97.5%\nsigma_11 106.45 149.8 182.4 224.1 349.8\nsigma_12  64.04 109.8 142.3 182.8 299.2\nsigma_21  64.04 109.8 142.3 182.8 299.2\nsigma_22 132.50 190.3 233.4 289.5 456.1"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data",
+    "href": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Compare to inference from full data",
+    "text": "Compare to inference from full data\n\nWith missing data:\n\n\n\n\n         theta_1  theta_2\nMin.    30.45459 38.29322\n1st Qu. 43.65988 51.96991\nMedian  45.60829 54.19592\nMean    45.63192 54.20408\n3rd Qu. 47.61896 56.48918\nMax.    58.81206 70.49105\n\n\n\nBased on true data:\n\n\n\n\n\n         theta_1  theta_2\nMin.    34.88365 37.80999\n1st Qu. 45.29473 51.47834\nMedian  47.28229 53.65172\nMean    47.26301 53.64100\n3rd Qu. 49.21423 55.81819\nMax.    60.94924 69.92354\n\n\n\nVery similar for the most part."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data-1",
+    "href": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data-1",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Compare to inference from full data",
+    "text": "Compare to inference from full data\n\nWith missing data:\n\n\n\n\n        sigma_11  sigma_12  sigma_21  sigma_22\nMin.     64.0883 -20.39204 -20.39204  82.55346\n1st Qu. 149.8338 109.84218 109.84218 190.25962\nMedian  182.4496 142.34686 142.34686 233.43312\nMean    193.9803 152.12898 152.12898 248.67527\n3rd Qu. 224.0994 182.75082 182.75082 289.47663\nMax.    734.8704 668.77332 668.77332 981.99916\n\n\n\nBased on true data:\n\n\n\n\n\n        sigma_11  sigma_12  sigma_21  sigma_22\nMin.     76.4661 -38.75561 -38.75561  93.65776\n1st Qu. 157.5870 113.32529 113.32529 203.69192\nMedian  190.6578 145.08962 145.08962 246.08696\nMean    201.9547 155.20374 155.20374 260.11361\n3rd Qu. 233.5809 186.36991 186.36991 300.70840\nMax.    664.8241 577.99100 577.99100 947.39333\n\n\n\nAlso very similar. A bit more uncertainty in dimension of \\(Y_{i2}\\) because we have more missing data there."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#posterior-distribution-of-the-mean",
+    "href": "resources/slides/10-missing-data.html#posterior-distribution-of-the-mean",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Posterior distribution of the mean",
+    "text": "Posterior distribution of the mean"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations",
+    "href": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Missing data vs predictions for new observations",
+    "text": "Missing data vs predictions for new observations\n\nHow about predictions for completely new observations?\nThat is, suppose your original dataset plus sampling model is \\(\\boldsymbol{y_i} = (y_{i,1},y_{i,2})^T \\sim \\mathcal{N}_2(\\boldsymbol{\\theta}, \\Sigma)\\), \\(i = 1, \\ldots, n\\).\nSuppose now you have \\(n^\\star\\) new observations with \\(y_{2}^\\star\\) values but no \\(y_{1}^\\star\\).\nHow can we predict \\(y_{i,1}^\\star\\) given \\(y_{i,2}^\\star\\), for \\(i = 1, \\ldots, n^\\star\\)?\nWell, we can view this as a “train \\(\\rightarrow\\) test” prediction problem rather than a missing data problem on an original data."
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations-1",
+    "href": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations-1",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "Missing data vs predictions for new observations",
+    "text": "Missing data vs predictions for new observations\n\nThat is, given the posterior samples of the parameters, and the test values for \\(y_{i2}^\\star\\), draw from the posterior predictive distribution of \\((y_{i,1}^\\star | y_{i,2}^\\star, \\{(y_{1,1},y_{1,2}), \\ldots, (y_{n,1},y_{n,2})\\})\\).\nTo sample from this predictive distribution, think of compositional sampling.\nfor each posterior sample of \\((\\boldsymbol{\\theta}, \\Sigma)\\), sample from \\((y_{i,1} | y_{i,2}, \\boldsymbol{\\theta}, \\Sigma)\\), which is just from the form of the sampling distribution.\nIn this case, \\((y_{i,1} | y_{i,2}, \\boldsymbol{\\theta}, \\Sigma)\\) is just a normal distribution derived from \\((y_{i,1}, y_{i,2} | \\boldsymbol{\\theta}, \\Sigma)\\), based on the conditional normal formula.\nNo need to incorporate the prediction problem into your original Gibbs sampler!"
+  },
+  {
+    "objectID": "resources/slides/10-missing-data.html#mnar-likelihood-function",
+    "href": "resources/slides/10-missing-data.html#mnar-likelihood-function",
+    "title": "Multivariate Normal Models, Missing Data and Imputation",
+    "section": "MNAR Likelihood function:",
+    "text": "MNAR Likelihood function:\n\nFor MNAR, we have: \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n\\end{split}\n\\]\nThe likelihood under MNAR cannot simplify any further.\nIn this case, we cannot ignore the missing data when making inferences about \\((\\boldsymbol{\\theta}, \\Sigma)\\).\nWe must include the model for \\(\\boldsymbol{R}\\) and also infer the missing data \\(\\boldsymbol{Y}_{mis}\\).\nSo how can we tell the type of mechanism we are dealing with?\nIn general, we don’t know!!!\nRare that data are MCAR (unless planned beforehand); more likely that data are MNAR or MNAR.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#normal-linear-regression-example",
+    "href": "resources/slides/09-data-augmentation.html#normal-linear-regression-example",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Normal Linear Regression Example",
+    "text": "Normal Linear Regression Example\n\nModel \\[\\begin{align*}\nY_i \\mid \\beta, \\phi & \\overset{  ind}{\\sim} \\textsf{N}(x_i^T\\beta, 1/\\phi) \\\\\nY \\mid \\beta, \\phi & \\sim \\textsf{N}(X \\beta, \\phi^{-1} I_n) \\\\\n\\beta & \\sim \\textsf{N}(b_0, \\Phi_0^{-1}) \\\\\n\\phi & \\sim \\textsf{Gamma}(v_0/2, s_0/2)\n\\end{align*}\\]\n\\(x_i\\) is a \\(p \\times 1\\) vector of predictors and \\(X\\) is \\(n \\times p\\) matrix\n\\(\\beta\\) is a \\(p \\times 1\\) vector of coefficients\n\\(\\Phi_0\\) is a \\(p \\times p\\) prior precision matrix\nMultivariate Normal density for \\(\\beta\\) \\[\\pi(\\beta \\mid b_0, \\Phi_0) = \\frac{|\\Phi_0|^{1/2}}{(2 \\pi)^{p/2}}\\exp\\left\\{- \\frac{1}{2}(\\beta - b_0)^T \\Phi_0 (\\beta - b_0)  \\right\\}\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#full-conditional-for-beta",
+    "href": "resources/slides/09-data-augmentation.html#full-conditional-for-beta",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Full Conditional for \\(\\beta\\)",
+    "text": "Full Conditional for \\(\\beta\\)\n\\[\\begin{align*}\n\\beta & \\mid \\phi, y_1, \\ldots, y_n \\sim \\textsf{N}(b_n, \\Phi_n^{-1}) \\\\\nb_n & =  (\\Phi_0 + \\phi X^TX)^{-1}(\\Phi_0 b_0  +  \\phi X^TX \\hat{\\beta})\\\\\n\\Phi_n & = \\Phi_0 + \\phi X^TX\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#derivation-continued",
+    "href": "resources/slides/09-data-augmentation.html#derivation-continued",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Derivation continued",
+    "text": "Derivation continued"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#full-conditional-for-phi",
+    "href": "resources/slides/09-data-augmentation.html#full-conditional-for-phi",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Full Conditional for \\(\\phi\\)",
+    "text": "Full Conditional for \\(\\phi\\)\n\\[\\phi \\mid \\beta, y_1, \\ldots, y_n \\sim \\textsf{Gamma}\\left(\\frac{v_0 + n}{2}, \\frac{s_0 + \\sum_i(y_i - x^T_i \\beta)^2}{2}\\right)\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#choice-of-prior-precision",
+    "href": "resources/slides/09-data-augmentation.html#choice-of-prior-precision",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Choice of Prior Precision",
+    "text": "Choice of Prior Precision\n\nNon-Informative \\(\\Phi_0 \\to 0\\)\nFormal Posterior given \\(\\phi\\) \\[\\beta \\mid \\phi, y_1, \\ldots, y_n \\sim \\textsf{N}(\\hat{\\beta}, \\phi^{-1} (X^TX)^{-1})\\]\nneeds \\(X^TX\\) to be full rank for distribution to be unique!"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#binary-regression",
+    "href": "resources/slides/09-data-augmentation.html#binary-regression",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Binary Regression",
+    "text": "Binary Regression\n\\[Y_i \\mid \\beta \\sim \\textsf{Ber}(p(x_i^T \\beta))\\] where \\(\\Pr(Y_i = 1 \\mid \\beta) = p(x_i^T \\beta))\\) and linear predictor \\(x_i^T\\beta = \\lambda_i\\)\n\nlink function for binary regression is any 1-1 function \\(g\\) that will map \\((0,1) \\to \\mathbb{R}\\), i.e. \\(g(p(\\lambda)) = \\lambda\\)\nlogistic regression uses the logit link\n\\[\\log\\left(\\frac{p(\\lambda_i)}{1 - p(\\lambda_i) }\\right) = x_i^T \\beta = \\lambda_i\\]\nprobit link \\[p(x_i^T \\beta) = \\Phi(x_i^T \\beta)\\]\n\\(\\Phi()\\) is the Normal cdf"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
+    "href": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Likelihood and Posterior",
+    "text": "Likelihood and Posterior\nLikelihood: \\[\\cal{L}(\\beta) \\propto \\prod_{i = 1}^n \\Phi(x_i^T \\beta)^{y_i} (1 - \\Phi(x^T_i \\beta))^{1 - y_i}\\]\n\nprior \\(\\beta \\sim \\textsf{N}_p(b_0, \\Phi_0)\\)\nposterior \\(\\pi(\\beta) \\propto \\pi(\\beta) \\cal{L}(\\beta)\\)\nHow to approximate the posterior?\n\nasymptotic Normal approximation\nMH with Independence chain or adaptive Metropolis\nstan (Hamiltonian Monte Carlo)\nGibbs ?\n\nseemingly no, but there is a trick!"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation",
+    "href": "resources/slides/09-data-augmentation.html#data-augmentation",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Data Augmentation",
+    "text": "Data Augmentation\n\nConsider an augmented posterior \\[\\pi(\\beta, Z \\mid y) \\propto \\pi(\\beta) \\pi(Z \\mid \\beta) \\pi(y \\mid Z, \\beta)\\]\nIF we choose \\(\\pi(Z \\mid \\beta)\\) and \\(\\pi(y \\mid Z, \\beta)\\) carefully, we can carry out Gibbs and get samples of \\(\\pi(\\beta \\mid y)\\) !\ndesired marginal of joint augmented posterior \\[\\pi(\\beta \\mid y) = \\int_{\\cal{Z}} \\pi(\\beta, z \\mid y) \\, dz\\]\nWe have to choose latent prior and sampling model such that \\[p(y \\mid \\beta) = \\int_{\\cal{Z}}  \\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z) \\, dz\\]\ncomplete data likelihood \\(\\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z)\\)"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#augmentation-strategy",
+    "href": "resources/slides/09-data-augmentation.html#augmentation-strategy",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Augmentation Strategy",
+    "text": "Augmentation Strategy\nSet\n\n\\(y_i = 1_{(Z_i &gt; 0)}\\) i.e. ( \\(y_i = 1\\) if \\(Z_i &gt; 0\\) )\n\\(y_i = 1_{(Z_i &lt; 0)}\\) i.e. ( \\(y_i = 0\\) if \\(Z_i &lt; 0\\) )\n\\(Z_i = x_i^T \\beta + \\epsilon_i \\qquad \\epsilon_i \\overset{iid}{\\sim} \\textsf{N(0,1)}\\)\nRelationship to probit model: \\[\\begin{align*}\\Pr(y = 1 \\mid \\beta) & = P(Z_i &gt; 0 \\mid \\beta) \\\\\n& = P(Z_i - x_i^T \\beta &gt; -x^T\\beta) \\\\\n& = P(\\epsilon_i &gt; -x^T\\beta) \\\\\n& =  1 - \\Phi(-x^T_i \\beta) \\\\\n& =  \\Phi(x^T_i \\beta)\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
+    "href": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Augmented Posterior & Gibbs",
+    "text": "Augmented Posterior & Gibbs\n\ntwo block Gibbs sampler \\(\\theta_{[1]} = \\beta\\) and \\(\\theta_{[2]} = (Z_1, \\ldots, Z_n)^T\\) \\[\\begin{align*}\\pi(& Z_1,  \\ldots, Z_n,  \\, \\beta \\mid y) \\propto \\\\\n& \\textsf{N}(\\beta; b_0, \\phi_0)  \\left\\{\\prod_{i=1}^n \\textsf{N}(Z_i; x_i^T\\beta, 1)\\right\\} \\left\\{  \\prod_{i=1}^n y_i 1_{(Z_i &gt; 0)} + (1 - y_i)1_{(Z_i &lt; 0)}\\right\\}\n\\end{align*}\\]\nfull conditional for \\(\\beta\\) given \\(Z_i\\)’s based on Normal-Normal regression \\[\\beta \\mid Z_1, \\ldots, Z_n, y_1, \\ldots, y_n \\sim \\textsf{N}(b_n, \\Phi_n)\\]\nFull conditional for latent \\(Z_i\\) (product of independent dist’s) \\[\\begin{align*}\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &gt; 0)} \\text{   if  } y_1 = 1 \\\\\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &lt; 0) }\\text{   if  } y_1 = 0 \\\\\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#truncated-sampling",
+    "href": "resources/slides/09-data-augmentation.html#truncated-sampling",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Truncated Sampling",
+    "text": "Truncated Sampling\n\n\n\nUse inverse cdf method for cdf \\(F\\)\nIf \\(U\\sim U(0,1)\\) set \\(X = F^{-1}(U)\\)\nif \\(X \\in (a, b)\\), Draw \\(X \\sim U(F(a),F(b))\\) and set \\(X = F^{-1}(u)\\)"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
+    "href": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Truncated Normal Sampling",
+    "text": "Truncated Normal Sampling\n\n\n\nsample from independent truncated normal distributions for full conditional for \\(Z_i\\)\nif \\(Y_i = 1\\) then \\(Z_i \\sim \\textsf{Normal}(x_i^T\\beta, 1) I(0, \\infty)\\)\nstandard truncated normal \\(\\tilde{Z} = Z_i - x_i^T \\beta \\in (-x_i^T \\beta, \\infty)\\)\n\n\nGenerate \\(U \\sim \\textsf{Uniform}(\\Phi(-x_i^T\\beta), \\Phi(\\infty))\\)\nSet \\(\\tilde{z} = \\Phi^{-1}(U)\\) (Standard truncated normal)\nShift \\(Z_i = x_i^T \\beta + \\tilde{z}\\)\n\n\n\n\n\n\n\n\n\n\n\n\nU = 0.69, \\(Z_i = x_i^T \\beta + \\Phi^{-1}(U)\\) = 0.99"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#comments-on-gibbs",
+    "href": "resources/slides/09-data-augmentation.html#comments-on-gibbs",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Comments on Gibbs",
+    "text": "Comments on Gibbs\n\nWhy don’t we treat each individual \\(\\theta_j\\) as a separate block?\nGibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!\nUse block sizes in Gibbs that are as big as possible to improve mixing (proven faster convergence)\nCollapse the sampler by integrating out as many parameters as possible (as long as resulting sampler has good mixing)\ncan use Gibbs steps and (adaptive) Metropolis Hastings steps together\nlatent variables may allow Gibbs steps, but not always better compared to MH!"
+  },
+  {
+    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
+    "href": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "Data Augmentation in General",
+    "text": "Data Augmentation in General\nDA is a broader than a computational trick allowing Gibbs sampling\n\nrandom effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling\nModeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals\noutliers\nvariable selection\nmissing data\nNext class:\n\nMultivariate Normal data\n\nWishart and inverse-Wishart distributions\nmissing data\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression and Priors\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n \n\n\n hw-06\n\n    \nFri, Oct 13\n\nLab: Review\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 7:\n\n\n\n\n hw-07\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18:\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19:  Outliers\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": " Syllabus",
+    "section": "",
+    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": " Resources",
+    "section": "",
+    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
   },
   {
     "objectID": "resources/slides/06-metropolis.html#last-class-normal-means-model",
@@ -1330,305 +1470,256 @@
     "text": "Improving\n\nmore iterations and multiple chains\nthinning to reduce correlations and increase ESS e.g. if autocorrelation drops to near zero at say lag 5, keep every 5th draw\nchange the proposal distribution \\(q\\)\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": " Resources",
-    "section": "",
-    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+    "objectID": "resources/slides/07-adaptive-metropolis.html#example-from-last-class",
+    "href": "resources/slides/07-adaptive-metropolis.html#example-from-last-class",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Example from Last Class",
+    "text": "Example from Last Class\n\nMarginal Likelihood \\[\\cal{L}(\\mu, \\sigma^2, \\sigma^2_\\mu) \\propto (\\sigma^2 + \\sigma^2_\\mu)^{-n/2} \\exp \\left\\{ - \\frac{1}{2} \\frac{\\sum_{i=1}^n\\left(y_i - \\mu \\right)^2}{\\sigma^2 + \\sigma^2_\\mu }\\right\\}\\]\nPriors with \\(\\sigma^2 = 1\\): \\(p(\\mu) \\propto 1\\) and \\(\\sigma_\\mu \\sim \\textsf{Cauchy}^+(0,1)\\) independent of \\(\\mu\\)\nSymmetric proposal for \\(\\mu\\) and \\(\\sigma_\\tau\\)\nIndependent normals centered at current values of \\(\\mu\\) and \\(\\sigma_\\mu\\) with covariance \\(\\frac{2.38^2}{d} \\textsf{Cov}(\\theta)\\) where \\(d = 2\\) (the dimension of \\(\\theta\\) )\n\\(\\delta^2 = 2.38^2/d\\) optimal for multivariate normal target Roberts, Gelman, and Gilks (1997) with acceptance rate ranging from 40% to 23.4% (as \\(d \\to \\infty\\))"
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": " Syllabus",
-    "section": "",
-    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+    "objectID": "resources/slides/07-adaptive-metropolis.html#convergence-diagnostics",
+    "href": "resources/slides/07-adaptive-metropolis.html#convergence-diagnostics",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Convergence diagnostics",
+    "text": "Convergence diagnostics\n\nDiagnostics available to help decide on number of burn-in & collected samples.\nNote: no definitive tests of convergence but you should do as many diagnostics as you can, on all parameters in your model.\nWith “experience”, visual inspection of trace plots perhaps most useful approach.\nThere are a number of useful automated tests in R.\nCAUTION: diagnostics cannot guarantee that a chain has converged, but they can indicate it has not converged."
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression and Priors\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n hw-06\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n\n\n    \nFri, Oct 13\n\nLab: Review\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 7:\n\n\n\n\n hw-07\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:\n\n\n\n\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n\n\n    \nFri, Oct 27\n\nLab 7: Variable Selection\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n\n\n    \nFri, Nov 3\n\nLab: Q&A\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18:\n\n\n\n\n hw-08\n\n    \nThurs, Nov 9\n\nLec 19:  Outliers\n\n\n\n\n\n    \nFri, Nov 10\n\nLab 8: Review\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n hw-09\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n\n    \nFri, Nov 17\n\nLab 9\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n hw-10\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n hw-11\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 10\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r",
+    "href": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Diagnostics in R",
+    "text": "Diagnostics in R\n\nThe most popular package for MCMC diagnostics in R is coda.\ncoda uses a special MCMC format so you must always convert your posterior matrix into an MCMC object.\nFor the example, we have the following in R.\n\n\n\n#library(coda)\ntheta.mcmc &lt;- mcmc(theta,start=1) #no burn-in (simple problem!)"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#normal-linear-regression-example",
-    "href": "resources/slides/09-data-augmentation.html#normal-linear-regression-example",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Normal Linear Regression Example",
-    "text": "Normal Linear Regression Example\n\nModel \\[\\begin{align*}\nY_i \\mid \\beta, \\phi & \\overset{  ind}{\\sim} \\textsf{N}(x_i^T\\beta, 1/\\phi) \\\\\nY \\mid \\beta, \\phi & \\sim \\textsf{N}(X \\beta, \\phi^{-1} I_n) \\\\\n\\beta & \\sim \\textsf{N}(b_0, \\Phi_0^{-1}) \\\\\n\\phi & \\sim \\textsf{Gamma}(v_0/2, s_0/2)\n\\end{align*}\\]\n\\(x_i\\) is a \\(p \\times 1\\) vector of predictors and \\(X\\) is \\(n \\times p\\) matrix\n\\(\\beta\\) is a \\(p \\times 1\\) vector of coefficients\n\\(\\Phi_0\\) is a \\(p \\times p\\) prior precision matrix\nMultivariate Normal density for \\(\\beta\\) \\[\\pi(\\beta \\mid b_0, \\Phi_0) = \\frac{|\\Phi_0|^{1/2}}{(2 \\pi)^{p/2}}\\exp\\left\\{- \\frac{1}{2}(\\beta - b_0)^T \\Phi_0 (\\beta - b_0)  \\right\\}\\]"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r-1",
+    "href": "resources/slides/07-adaptive-metropolis.html#diagnostics-in-r-1",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Diagnostics in R",
+    "text": "Diagnostics in R\n\nsummary(theta.mcmc)\n\n\nIterations = 1:10000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 10000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n             Mean     SD Naive SE Time-series SE\nmu       -0.07977 0.1046 0.001046       0.002839\nsigma_mu  0.17550 0.1273 0.001273       0.004397\n\n2. Quantiles for each variable:\n\n              2.5%     25%      50%      75%  97.5%\nmu       -0.283420 -0.1508 -0.08193 -0.00848 0.1337\nsigma_mu  0.007995  0.0758  0.15024  0.25228 0.4693\n\n\n\nThe naive SE is the standard error of the mean, which captures simulation error of the mean rather than the posterior uncertainty.\nThe time-series SE adjusts the naive SE for autocorrelation."
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#full-conditional-for-beta",
-    "href": "resources/slides/09-data-augmentation.html#full-conditional-for-beta",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Full Conditional for \\(\\beta\\)",
-    "text": "Full Conditional for \\(\\beta\\)\n\\[\\begin{align*}\n\\beta & \\mid \\phi, y_1, \\ldots, y_n \\sim \\textsf{N}(b_n, \\Phi_n^{-1}) \\\\\nb_n & =  (\\Phi_0 + \\phi X^TX)^{-1}(\\Phi_0 b_0  +  \\phi X^TX \\hat{\\beta})\\\\\n\\Phi_n & = \\Phi_0 + \\phi X^TX\n\\end{align*}\\]"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#effective-sample-size",
+    "href": "resources/slides/07-adaptive-metropolis.html#effective-sample-size",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Effective Sample Size",
+    "text": "Effective Sample Size\n\nThe effective sample size translates the number of MCMC samples \\(S\\) into an equivalent number of independent samples.\nIt is defined as \\[\\textrm{ESS} = \\dfrac{S}{1 + 2 \\sum_k \\rho_k},\\]\n\\(S\\) is the sample size and \\(\\rho_k\\) is the lag \\(k\\) autocorrelation.\nFor our data, we have\n\n\n\neffectiveSize(theta.mcmc)\n\n       mu  sigma_mu \n1356.6495  838.2613 \n\n\n\nSo our 10,000 samples are equivalent to 1356.6 independent samples for \\(\\mu\\) and 838.3 independent samples for \\(\\sigma_\\mu\\)."
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#derivation-continued",
-    "href": "resources/slides/09-data-augmentation.html#derivation-continued",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Derivation continued",
-    "text": "Derivation continued"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-mean",
+    "href": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-mean",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Trace plot for mean",
+    "text": "Trace plot for mean"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#full-conditional-for-phi",
-    "href": "resources/slides/09-data-augmentation.html#full-conditional-for-phi",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Full Conditional for \\(\\phi\\)",
-    "text": "Full Conditional for \\(\\phi\\)\n\\[\\phi \\mid \\beta, y_1, \\ldots, y_n \\sim \\textsf{Gamma}\\left(\\frac{v_0 + n}{2}, \\frac{s_0 + \\sum_i(y_i - x^T_i \\beta)^2}{2}\\right)\\]"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-sigma_mu",
+    "href": "resources/slides/07-adaptive-metropolis.html#trace-plot-for-sigma_mu",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Trace plot for \\(\\sigma_\\mu\\)",
+    "text": "Trace plot for \\(\\sigma_\\mu\\)\n\nOK (be careful of scaling in plots!)"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#choice-of-prior-precision",
-    "href": "resources/slides/09-data-augmentation.html#choice-of-prior-precision",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Choice of Prior Precision",
-    "text": "Choice of Prior Precision\n\nNon-Informative \\(\\Phi_0 \\to 0\\)\nFormal Posterior given \\(\\phi\\) \\[\\beta \\mid \\phi, y_1, \\ldots, y_n \\sim \\textsf{N}(\\hat{\\beta}, \\phi^{-1} (X^TX)^{-1})\\]\nneeds \\(X^TX\\) to be full rank for distribution to be unique!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation",
+    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Autocorrelation",
+    "text": "Autocorrelation\n\nAnother way to evaluate convergence is to look at the autocorrelation between draws of our Markov chain.\nThe lag \\(k\\) autocorrelation, \\(\\rho_k\\), is the correlation between each draw and its \\(k\\)th lag, defined as \\[\\rho_k = \\dfrac{\\sum_{s=1}^{S-k}(\\theta_s - \\bar{\\theta})(\\theta_{s+k} - \\bar{\\theta})}{\\sum_{s=1}^{S-k}(\\theta_s - \\bar{\\theta})^2}\\]\nWe expect the autocorrelation to decrease as \\(k\\) increases.\nIf autocorrelation remains high as \\(k\\) increases, we have slow mixing due to the inability of the sampler to move around the space well."
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#binary-regression",
-    "href": "resources/slides/09-data-augmentation.html#binary-regression",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Binary Regression",
-    "text": "Binary Regression\n\\[Y_i \\mid \\beta \\sim \\textsf{Ber}(p(x_i^T \\beta))\\] where \\(\\Pr(Y_i = 1 \\mid \\beta) = p(x_i^T \\beta))\\) and linear predictor \\(x_i^T\\beta = \\lambda_i\\)\n\nlink function for binary regression is any 1-1 function \\(g\\) that will map \\((0,1) \\to \\mathbb{R}\\), i.e. \\(g(p(\\lambda)) = \\lambda\\)\nlogistic regression uses the logit link\n\\[\\log\\left(\\frac{p(\\lambda_i)}{1 - p(\\lambda_i) }\\right) = x_i^T \\beta = \\lambda_i\\]\nprobit link \\[p(x_i^T \\beta) = \\Phi(x_i^T \\beta)\\]\n\\(\\Phi()\\) is the Normal cdf"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-mean",
+    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-mean",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Autocorrelation for mean",
+    "text": "Autocorrelation for mean\n\nSo-So"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
-    "href": "resources/slides/09-data-augmentation.html#likelihood-and-posterior",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Likelihood and Posterior",
-    "text": "Likelihood and Posterior\nLikelihood: \\[\\cal{L}(\\beta) \\propto \\prod_{i = 1}^n \\Phi(x_i^T \\beta)^{y_i} (1 - \\Phi(x^T_i \\beta))^{1 - y_i}\\]\n\nprior \\(\\beta \\sim \\textsf{N}_p(b_0, \\Phi_0)\\)\nposterior \\(\\pi(\\beta) \\propto \\pi(\\beta) \\cal{L}(\\beta)\\)\nHow to approximate the posterior?\n\nasymptotic Normal approximation\nMH with Independence chain or adaptive Metropolis\nstan (Hamiltonian Monte Carlo)\nGibbs ?\n\nseemingly no, but there is a trick!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-variance",
+    "href": "resources/slides/07-adaptive-metropolis.html#autocorrelation-for-variance",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Autocorrelation for variance",
+    "text": "Autocorrelation for variance\n\nworse"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation",
-    "href": "resources/slides/09-data-augmentation.html#data-augmentation",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Data Augmentation",
-    "text": "Data Augmentation\n\nConsider an augmented posterior \\[\\pi(\\beta, Z \\mid y) \\propto \\pi(\\beta) \\pi(Z \\mid \\beta) \\pi(y \\mid Z, \\beta)\\]\nIF we choose \\(\\pi(Z \\mid \\beta)\\) and \\(\\pi(y \\mid Z, \\beta)\\) carefully, we can carry out Gibbs and get samples of \\(\\pi(\\beta \\mid y)\\) !\ndesired marginal of joint augmented posterior \\[\\pi(\\beta \\mid y) = \\int_{\\cal{Z}} \\pi(\\beta, z \\mid y) \\, dz\\]\nWe have to choose latent prior and sampling model such that \\[p(y \\mid \\beta) = \\int_{\\cal{Z}}  \\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z) \\, dz\\]\ncomplete data likelihood \\(\\pi(z \\mid \\beta) \\pi(y \\mid \\beta, z)\\)"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin",
+    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Gelman-Rubin",
+    "text": "Gelman-Rubin\nGelman & Rubin suggested a diagnostic \\(R\\) based on taking separate chains with dispersed initial values to test convergence"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#augmentation-strategy",
-    "href": "resources/slides/09-data-augmentation.html#augmentation-strategy",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Augmentation Strategy",
-    "text": "Augmentation Strategy\nSet\n\n\\(y_i = 1_{(Z_i &gt; 0)}\\) i.e. ( \\(y_i = 1\\) if \\(Z_i &gt; 0\\) )\n\\(y_i = 1_{(Z_i &lt; 0)}\\) i.e. ( \\(y_i = 0\\) if \\(Z_i &lt; 0\\) )\n\\(Z_i = x_i^T \\beta + \\epsilon_i \\qquad \\epsilon_i \\overset{iid}{\\sim} \\textsf{N(0,1)}\\)\nRelationship to probit model: \\[\\begin{align*}\\Pr(y = 1 \\mid \\beta) & = P(Z_i &gt; 0 \\mid \\beta) \\\\\n& = P(Z_i - x_i^T \\beta &gt; -x^T\\beta) \\\\\n& = P(\\epsilon_i &gt; -x^T\\beta) \\\\\n& =  1 - \\Phi(-x^T_i \\beta) \\\\\n& =  \\Phi(x^T_i \\beta)\n\\end{align*}\\]"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic",
+    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Gelman-Rubin Diagnostic",
+    "text": "Gelman-Rubin Diagnostic\n\nRun m &gt; 2 chains of length 2S from overdispersed starting values.\nDiscard the first S draws in each chain.\nCalculate the pooled within-chain variance \\(W\\) and between-chain variance \\(B\\). \\[R = \\frac{\\frac{S-1}{S} W + \\frac{1}{S} B }{W}\\]\nnumerator and denominator are both unbiased estimates of the variance if the two chains have converged\n\notherwise \\(W\\) is an underestimate (hasn’t explored enough)\nnumerator will overestimate as \\(B\\) is too large (overdispersed starting points)\n\nAs \\(S \\to \\infty\\) and \\(B \\to 0\\), \\(R \\to 1\\)\nversion in R is slightly different"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
-    "href": "resources/slides/09-data-augmentation.html#augmented-posterior-gibbs",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Augmented Posterior & Gibbs",
-    "text": "Augmented Posterior & Gibbs\n\ntwo block Gibbs sampler \\(\\theta_{[1]} = \\beta\\) and \\(\\theta_{[2]} = (Z_1, \\ldots, Z_n)^T\\) \\[\\begin{align*}\\pi(& Z_1,  \\ldots, Z_n,  \\, \\beta \\mid y) \\propto \\\\\n& \\textsf{N}(\\beta; b_0, \\phi_0)  \\left\\{\\prod_{i=1}^n \\textsf{N}(Z_i; x_i^T\\beta, 1)\\right\\} \\left\\{  \\prod_{i=1}^n y_i 1_{(Z_i &gt; 0)} + (1 - y_i)1_{(Z_i &lt; 0)}\\right\\}\n\\end{align*}\\]\nfull conditional for \\(\\beta\\) given \\(Z_i\\)’s based on Normal-Normal regression \\[\\beta \\mid Z_1, \\ldots, Z_n, y_1, \\ldots, y_n \\sim \\textsf{N}(b_n, \\Phi_n)\\]\nFull conditional for latent \\(Z_i\\) (product of independent dist’s) \\[\\begin{align*}\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &gt; 0)} \\text{   if  } y_1 = 1 \\\\\n\\pi(Z_i \\mid \\beta, Z_{[-i]}, y_1, \\ldots, y_n)  & \\propto\n\\textsf{N}(Z_i; x_i^T \\beta, 1)1_{(Z_i &lt; 0) }\\text{   if  } y_1 = 0 \\\\\n\\end{align*}\\]"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic-1",
+    "href": "resources/slides/07-adaptive-metropolis.html#gelman-rubin-diagnostic-1",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Gelman-Rubin Diagnostic",
+    "text": "Gelman-Rubin Diagnostic\n\ntheta.mcmc = mcmc.list(mcmc(theta1, start=5000), mcmc(theta2, start=5000))\ngelman.diag(theta.mcmc)\n\nPotential scale reduction factors:\n\n         Point est. Upper C.I.\nmu                1          1\nsigma_mu          1          1\n\nMultivariate psrf\n\n1\n\n\n\nValues of \\(R &gt; 1.1\\) suggest lack of convergence\nLooks OK\nSee also gelman.plot"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#truncated-sampling",
-    "href": "resources/slides/09-data-augmentation.html#truncated-sampling",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Truncated Sampling",
-    "text": "Truncated Sampling\n\n\n\nUse inverse cdf method for cdf \\(F\\)\nIf \\(U\\sim U(0,1)\\) set \\(X = F^{-1}(U)\\)\nif \\(X \\in (a, b)\\), Draw \\(X \\sim U(F(a),F(b))\\) and set \\(X = F^{-1}(u)\\)"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#geweke-statistic",
+    "href": "resources/slides/07-adaptive-metropolis.html#geweke-statistic",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Geweke statistic",
+    "text": "Geweke statistic\n\nGeweke proposed taking two non-overlapping parts of a single Markov chain (usually the first 10% and the last 50%) and comparing the mean of both parts, using a difference of means test\nThe null hypothesis would be that the two parts of the chain are from the same distribution.\nThe test statistic is a z-score with standard errors adjusted for autocorrelation, and if the p-value is significant for a variable, you need more draws.\nOutput in R is the Z score"
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
-    "href": "resources/slides/09-data-augmentation.html#truncated-normal-sampling",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Truncated Normal Sampling",
-    "text": "Truncated Normal Sampling\n\n\n\nsample from independent truncated normal distributions for full conditional for \\(Z_i\\)\nif \\(Y_i = 1\\) then \\(Z_i \\sim \\textsf{Normal}(x_i^T\\beta, 1) I(0, \\infty)\\)\nstandard truncated normal \\(\\tilde{Z} = Z_i - x_i^T \\beta \\in (-x_i^T \\beta, \\infty)\\)\n\n\nGenerate \\(U \\sim \\textsf{Uniform}(\\Phi(-x_i^T\\beta), \\Phi(\\infty))\\)\nSet \\(\\tilde{z} = \\Phi^{-1}(U)\\) (Standard truncated normal)\nShift \\(Z_i = x_i^T \\beta + \\tilde{z}\\)\n\n\n\n\n\n\n\n\n\n\n\n\nU = 0.69, \\(Z_i = x_i^T \\beta + \\Phi^{-1}(U)\\) = 0.99"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#geweke-diagnostic",
+    "href": "resources/slides/07-adaptive-metropolis.html#geweke-diagnostic",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Geweke Diagnostic",
+    "text": "Geweke Diagnostic\n\ngeweke.diag(theta.mcmc)\n\n[[1]]\n\nFraction in 1st window = 0.1\nFraction in 2nd window = 0.5 \n\n      mu sigma_mu \n -0.7779   0.7491 \n\n\n[[2]]\n\nFraction in 1st window = 0.1\nFraction in 2nd window = 0.5 \n\n      mu sigma_mu \n  0.4454   0.6377 \n\n\n\nThe output is the z-score itself (not the p-value)."
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#comments-on-gibbs",
-    "href": "resources/slides/09-data-augmentation.html#comments-on-gibbs",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Comments on Gibbs",
-    "text": "Comments on Gibbs\n\nWhy don’t we treat each individual \\(\\theta_j\\) as a separate block?\nGibbs always accepts, but can mix slowly if parameters in different blocks are highly correlated!\nUse block sizes in Gibbs that are as big as possible to improve mixing (proven faster convergence)\nCollapse the sampler by integrating out as many parameters as possible (as long as resulting sampler has good mixing)\ncan use Gibbs steps and (adaptive) Metropolis Hastings steps together\nlatent variables may allow Gibbs steps, but not always better compared to MH!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#practical-advice-on-diagnostics",
+    "href": "resources/slides/07-adaptive-metropolis.html#practical-advice-on-diagnostics",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Practical advice on diagnostics",
+    "text": "Practical advice on diagnostics\n\nThere are more tests we can use: Raftery and Lewis diagnostic, Heidelberger and Welch, etc.\nThe Gelman-Rubin approach is quite appealing in using multiple chains\nGeweke (and Heidelberger and Welch) sometimes reject even when the trace plots look good.\nOverly sensitive to minor departures from stationarity that do not impact inferences.\nMost common method of assessing convergence is visual examination of trace plots."
   },
   {
-    "objectID": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
-    "href": "resources/slides/09-data-augmentation.html#data-augmentation-in-general",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "Data Augmentation in General",
-    "text": "Data Augmentation in General\nDA is a broader than a computational trick allowing Gibbs sampling\n\nrandom effects or latent variable modeling i.e we introduce latent variables to simplify dependence structure modelling\nModeling heavy tailed distributions for priors or errors in robust regression as mixtures of normals\noutliers\nvariable selection\nmissing data\nNext class:\n\nMultivariate Normal data\n\nWishart and inverse-Wishart distributions\nmissing data\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#improving-results",
+    "href": "resources/slides/07-adaptive-metropolis.html#improving-results",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Improving Results",
+    "text": "Improving Results\n\nmore iterations and multiple chains\nthinning to reduce correlations and increase ESS\nchange the proposal distribution \\(q\\)\nadaptive Metropolis to tune \\(q\\)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#introduction-to-missing-data",
-    "href": "resources/slides/10-missing-data.html#introduction-to-missing-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Introduction to Missing Data",
-    "text": "Introduction to Missing Data\n\nMissing data/nonresponse is fairly common in real data.\n\nFailure to respond to survey question\nSubject misses some clinic visits out of all possible\nOnly subset of subjects asked certain questions\n\nposterior computation usually depends on the data through \\(\\mathcal{p}(Y \\mid X, \\theta)\\), which can be difficult to compute (at least directly) when some of the \\(y_i\\) (multivariate \\(Y\\)) or \\(x^T_i\\) values are missing.\nMost software packages often throw away all subjects with incomplete data (can lead to bias and precision loss).\nSome individuals impute missing values with a mean or some other fixed value (ignores uncertainty).\nImputing missing data is actually quite natural in the Bayesian context."
+    "objectID": "resources/slides/07-adaptive-metropolis.html#proposal-distribution",
+    "href": "resources/slides/07-adaptive-metropolis.html#proposal-distribution",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Proposal Distribution",
+    "text": "Proposal Distribution\n\nCommon choice \\[\\textsf{N}(\\theta^\\star; \\theta^{(s)}, \\delta^2 \\Sigma)\\]\nrough estimate of \\(\\Sigma\\) based on the asymptotic Gaussian approximation \\(\\textsf{Cov}(\\theta \\mid y)\\) and \\(\\delta = 2.38/\\sqrt{\\text{dim}(\\theta)}\\)\nfind the MAP estimate (posterior mode) \\(\\hat{\\theta}\\)\ntake \\[\\Sigma =  \\left[-\n  \\frac{\\partial^2 \\log(\\cal{L}(\\theta)) + \\log(\\pi(\\theta))}\n   {\\partial \\theta \\partial \\theta^T} \\right]^{-1}_{\\theta = \\hat{\\theta}}\\]\nignore prior and use inverse of Fisher Information (covariance of MLE)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms",
-    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Missing data mechanisms",
-    "text": "Missing data mechanisms\n\nData are said to be missing completely at random (MCAR) if the reason for missingness does not depend on the values of the observed data or missing data.\nFor example, suppose\n\nyou handed out a double-sided survey questionnaire of 20 questions to a sample of participants;\nquestions 1-15 were on the first page but questions 16-20 were at the back; and\nsome of the participants did not respond to questions 16-20.\n\nThen, the values for questions 16-20 for those people who did not respond would be MCAR if they simply did not realize the pages were double-sided; they had no reason to ignore those questions.\nThis is rarely plausible in practice!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#learn-covariance-in-proposal",
+    "href": "resources/slides/07-adaptive-metropolis.html#learn-covariance-in-proposal",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Learn Covariance in Proposal?",
+    "text": "Learn Covariance in Proposal?\n\nCan we learn the proposal distribution?\nad hoc?\n\nrun an initial MCMC for an initial tuning phase (e.g. 1000 samples) with a fixed \\(\\delta\\) and estimate \\(\\Sigma(\\theta)\\) from samples.\n\nrun more to tweak \\(\\delta\\) to get acceptance rate between \\(23\\%-40\\%\\).\nfix the kernel for final run\n\nMCMC doesn’t allow you to use the full history of the chain \\(\\theta^{(1)}, \\ldots, \\theta^{(s)}\\) in constructing the proposal distributions as it violates the Markov assumption\neven with no further “learning”, no guarantee we will converge to posterior!\nmore elegant approach - formal adaptive Metropolis\n\nkeep adapting the entire time!\n\n\n\n\n\n\n\n\n\nad hoc adaptation may mess up convergence !"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms-1",
-    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms-1",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Missing Data Mechanisms",
-    "text": "Missing Data Mechanisms\n\nData are said to be missing at random (MAR) if, conditional on the values of the observed data, the reason for missingness does not depend on the missing data.\nUsing our previous example, suppose\n\nquestions 1-15 include demographic information such as age and education;\nquestions 16-20 include income related questions; and\nonce again, some participants did not respond to questions 16-20.\n\nThen, the values for questions 16-20 for those people who did not respond would be MAR if younger people are more likely not to respond to those income related questions than old people, where age is observed for all participants. (missingness reason must be independent of income)\nThis is the most commonly assumed mechanism in practice!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#adaptive-mcmc",
+    "href": "resources/slides/07-adaptive-metropolis.html#adaptive-mcmc",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Adaptive MCMC",
+    "text": "Adaptive MCMC\n\nrun RWM with a Gaussian proposal for a fixed number of iterations for \\(s &lt; s_0\\)\nestimate of covariance at state \\(s\\) \\[\\Sigma^{(s)} = \\frac{1}{s}\\left(\\sum_{i=1}^s \\theta^{(i)} {\\theta^{(i)}}^T -\ns \\bar{\\theta}^{(s)} {\\bar{\\theta}^{(s)}}^T\\right)\\]\nproposal for \\(s &gt; s_0\\) with \\(\\delta = 2.38/\\sqrt{d}\\) \\[\\theta^* \\sim \\textsf{N}(\\theta^{(s)}, \\delta^2 (\\Sigma^{(s)} + \\epsilon I_d))\\]\n\\(\\epsilon &gt; 0\\) insures covariance is positive definite\nif \\(s_0\\) is too large will take longer for adaptation to be seen\nneed conditions for vanishing adaptation e.g. that the proposal depends less and less on recent states in the chain - see Roberts & Rosenthal (2009)for examples and other conditions"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#missing-data-mechanisms-2",
-    "href": "resources/slides/10-missing-data.html#missing-data-mechanisms-2",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Missing data mechanisms",
-    "text": "Missing data mechanisms\n\nData are said to be missing not at random (MNAR or NMAR) if the reason for missingness depends on the actual values of the missing (unobserved) data.\nsuppose again that\nquestions 1-15 include demographic information such as age and education;\nquestions 16-20 include income related questions; and\nonce again, some of the participants did not respond to questions 16-20.\nThen, the values for questions 16-20 for those people who did not respond would be MNAR if people who earn more money are less likely to respond to those income related questions than those with lower incomes.\nThis is usually the case in real data, but analysis can be complex!"
+    "objectID": "resources/slides/07-adaptive-metropolis.html#example-again",
+    "href": "resources/slides/07-adaptive-metropolis.html#example-again",
+    "title": "Lecture 7: MCMC Diagnostics & Adaptive Metropolis",
+    "section": "Example again",
+    "text": "Example again\n\n\n\n\n\n\n\n\n\nAcceptance rate now around 30-35 % of 10,000 iterations!\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#multivariate-formulation",
-    "href": "resources/slides/10-missing-data.html#multivariate-formulation",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Multivariate Formulation",
-    "text": "Multivariate Formulation\n\nConsider the multivariate data scenario with \\(\\boldsymbol{Y}_i = (\\boldsymbol{Y}_1,\\ldots,\\boldsymbol{Y}_n)^T\\), where \\(\\boldsymbol{Y}_i = (Y_{i1},\\ldots,Y_{ip})^T\\), for \\(i = 1,\\ldots, n\\).\nFor now, we will assume the multivariate normal model as the sampling model, so that each \\(p\\) dimensional \\(\\boldsymbol{Y}_i = (Y_{i1},\\ldots,Y_{ip})^T \\sim \\mathcal{N}_p(\\boldsymbol{\\theta}, \\Sigma)\\). \\[p(\\boldsymbol{Y}_i \\mid \\boldsymbol{\\theta}, \\Sigma) = \\frac{|\\Sigma|^{-1/2}}{(2\\pi)^{p/2}} \\exp\\left\\{ -\\frac{1}{2} (\\boldsymbol{Y} - \\boldsymbol{\\theta})^T \\Sigma^{-1} (\\boldsymbol{Y} - \\boldsymbol{\\theta}) \\right\\}\\]\nSuppose now that \\(\\boldsymbol{Y}\\) contains missing values.\nWe can separate \\(\\boldsymbol{Y}\\) into the observed and missing parts so that for for each individual, \\[\\boldsymbol{Y}_i = (\\boldsymbol{Y}_{i,obs},\\boldsymbol{Y}_{i,mis})\\]"
+    "objectID": "resources/slides/12-priors-regression.html#conjugate-priors-in-linear-regression",
+    "href": "resources/slides/12-priors-regression.html#conjugate-priors-in-linear-regression",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Conjugate Priors in Linear Regression",
+    "text": "Conjugate Priors in Linear Regression\n\nRegression Model (Sampling model) \\[\\mathbf{Y}\\mid \\boldsymbol{\\beta}, \\phi  \\sim \\textsf{N}(\\mathbf{X}\\boldsymbol{\\beta}, \\phi^{-1} \\mathbf{I}_n)\n\\]\nConjugate Normal-Gamma Model: factor joint prior \\(p(\\boldsymbol{\\beta}, \\phi ) = p(\\boldsymbol{\\beta}\\mid \\phi)p(\\phi)\\) \\[\\begin{align*}\n\\boldsymbol{\\beta}\\mid \\phi & \\sim \\textsf{N}(\\mathbf{b}_0, \\phi^{-1}\\boldsymbol{\\Phi}_0^{-1}) & p(\\boldsymbol{\\beta}\\mid \\phi) & = \\frac{|\\phi \\boldsymbol{\\Phi}_0|^{1/2}}{(2 \\pi)^{p/2}}e^{\\left\\{- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\mathbf{b}_0)^T \\boldsymbol{\\Phi}_0 (\\boldsymbol{\\beta}- \\mathbf{b}_0)  \\right\\}}\\\\\n\\phi & \\sim \\textsf{Gamma}(v_0/2, \\textsf{SS}_0/2)  & p(\\phi) & = \\frac{1}{\\Gamma{(\\nu_0/2)}}\n\\left(\\frac{\\textsf{SS}_0}{2} \\right)^{\\nu_0/2}\n\\phi^{\\nu_0/2 - 1}\ne^{- \\phi \\frac{\\textsf{SS}_0}{2}}\\\\\n\\Rightarrow (\\boldsymbol{\\beta}, \\phi) & \\sim \\textsf{NG}(\\mathbf{b}_0, \\boldsymbol{\\Phi}_0, \\nu_o, \\textsf{SS}_0)\n\\end{align*}\\]\nNeed to specify the 4 hyperparameters of the Normal-Gamma distribution!\nhard in higher dimensions!"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#mathematical-formulation",
-    "href": "resources/slides/10-missing-data.html#mathematical-formulation",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Mathematical Formulation",
-    "text": "Mathematical Formulation\n\nLet\n\n\\(j\\) index variables (where \\(i\\) already indexes individuals),\n\\(r_{ij} = 1\\) when \\(y_{ij}\\) is missing,\n\\(r_{ij} = 0\\) when \\(y_{ij}\\) is observed.\n\nHere, \\(r_{ij}\\) is known as the missingness indicator of variable \\(j\\) for person \\(i\\).\nAlso, let\n\n\\(\\boldsymbol{R}_i = (r_{i1},\\ldots,r_{ip})^T\\) be the vector of missing indicators for person \\(i\\).\n\\(\\boldsymbol{R} = (\\boldsymbol{R}_1,\\ldots,\\boldsymbol{R}_n)\\) be the matrix of missing indicators for everyone.\n\\(\\boldsymbol{\\psi}\\) be the set of parameters associated with \\(\\boldsymbol{R}\\).\n\nAssume \\(\\boldsymbol{\\psi}\\) and \\((\\boldsymbol{\\theta}, \\Sigma)\\) are distinct."
+    "objectID": "resources/slides/12-priors-regression.html#choice-of-conjugate-prior",
+    "href": "resources/slides/12-priors-regression.html#choice-of-conjugate-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Choice of Conjugate Prior",
+    "text": "Choice of Conjugate Prior\nSeek default choices\n\nJeffreys’ prior\nunit-information prior\nZellner’s g-prior\nridge regression priors\nmixtures of conjugate priors\n\nZellner-Siow Cauchy Prior\n(Bayesian) Lasso\nHorseshoe\n\n\n\nWhich? Why?"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#mathematical-formulation-1",
-    "href": "resources/slides/10-missing-data.html#mathematical-formulation-1",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Mathematical Formulation",
-    "text": "Mathematical Formulation\n\nMCAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{\\psi})\\]\nMAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi})\\]\nMNAR: \\[p(\\boldsymbol{R} | \\boldsymbol{Y},\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi})\\]"
+    "objectID": "resources/slides/12-priors-regression.html#jeffreys-prior",
+    "href": "resources/slides/12-priors-regression.html#jeffreys-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Jeffreys’ Prior",
+    "text": "Jeffreys’ Prior\n\nJeffreys prior is invariant to model parameterization of \\(\\boldsymbol{\\theta}= (\\boldsymbol{\\beta},\\phi)\\) \\[p(\\boldsymbol{\\theta}) \\propto |{\\cal{I}}(\\boldsymbol{\\theta})|^{1/2}\\]\n\\({\\cal{I}}(\\boldsymbol{\\theta})\\) is the Expected Fisher Information matrix \\[{\\cal{I}}(\\theta) = - \\textsf{E}[ \\left[ \\frac{\\partial^2 \\log({\\cal{L}}(\\boldsymbol{\\theta}))}{\\partial\n\\theta_i \\partial \\theta_j} \\right] ]\\]\nlog likelihood expressed as function of sufficient statistics\n\n\n\\[\\log({\\cal{L}}(\\boldsymbol{\\beta}, \\phi))  =  \\frac{n}{2} \\log(\\phi)  - \\frac{\\phi}{2} \\| (\\mathbf{I}_n - \\mathbf{P}_\\mathbf{x}) \\mathbf{Y}\\|^2\n- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T(\\mathbf{X}^T\\mathbf{X})(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})\\]\n\nprojection \\(\\mathbf{P}_{\\mathbf{X}} = \\mathbf{X}(\\mathbf{X}^T\\mathbf{X})^{-1} \\mathbf{X}^T\\) onto the column space of \\(\\mathbf{X}\\)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#implications-for-likelihood-function",
-    "href": "resources/slides/10-missing-data.html#implications-for-likelihood-function",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Implications for Likelihood Function",
-    "text": "Implications for Likelihood Function\n\nEach type of mechanism has a different implication on the likelihood of the observed data \\(\\boldsymbol{Y}_{obs}\\), and the missing data indicator \\(\\boldsymbol{R}\\).\nWithout missingness in \\(\\boldsymbol{Y}\\), the likelihood of the observed data is \\[p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma)\\]\nWith missingness in \\(\\boldsymbol{Y}\\), the likelihood of the observed data is instead \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis}\n\\end{split}\n\\]\nSince we do not actually observe \\(\\boldsymbol{Y}_{mis}\\), we would like to be able to integrate it out so we don’t have to deal with it and infer \\((\\boldsymbol{\\theta}, \\Sigma)\\) using only the observed data."
+    "objectID": "resources/slides/12-priors-regression.html#information-matrix",
+    "href": "resources/slides/12-priors-regression.html#information-matrix",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Information matrix",
+    "text": "Information matrix\n\\[\\begin{eqnarray*}\n\\frac{\\partial^2 \\log {\\cal{L}}} { \\partial \\boldsymbol{\\theta}\\partial \\boldsymbol{\\theta}^T} & = &\n\\left[\n  \\begin{array}{cc}\n    -\\phi (\\mathbf{X}^T\\mathbf{X}) & -(\\mathbf{X}^T\\mathbf{X}) (\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}}) \\\\\n  - (\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T (\\mathbf{X}^T\\mathbf{X}) & -\\frac{n}{2} \\frac{1}{\\phi^2} \\\\\n  \\end{array}\n\\right] \\\\\n\\textsf{E}[\\frac{\\partial^2 \\log {\\cal{L}}} { \\partial \\boldsymbol{\\theta}\\partial \\boldsymbol{\\theta}^T}] & = &\n\\left[\n  \\begin{array}{cc}\n    -\\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & -\\frac{n}{2} \\frac{1}{\\phi^2} \\\\\n  \\end{array}\n\\right] \\\\\n& & \\\\\n{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T) & = & \\left[\n  \\begin{array}{cc}\n    \\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & \\frac{n}{2} \\frac{1}{\\phi^2}\n  \\end{array}\n\\right]\n  \\end{eqnarray*}\\]\n\n\\[\\begin{eqnarray*}\n  p_J(\\boldsymbol{\\beta}, \\phi)  & \\propto & |{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T) |^{1/2}   \n                =  |\\phi \\mathbf{X}^T\\mathbf{X}|^{1/2} \\left(\\frac{n}{2}\n                 \\frac{1}{\\phi^2} \\right)^{1/2}\n  \\propto    \\phi^{p/2 - 1} |\\mathbf{X}^T\\mathbf{X}|^{1/2} \\\\\n  & \\propto & \\phi^{p/2 - 1}  \n  \\end{eqnarray*}\\]\n\n\nJeffreys’ did not recommend - marginal for \\(\\phi\\) dies not account for dimension \\(p\\)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#likelihood-function-mar",
-    "href": "resources/slides/10-missing-data.html#likelihood-function-mar",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Likelihood function: MAR",
-    "text": "Likelihood function: MAR\n\nFocus on MAR \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs}, \\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi}) \\cdot \\int p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n& = p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma). \\\\\n\\end{split}\n\\]\nFor inference on \\((\\boldsymbol{\\theta}, \\Sigma)\\), we only need \\(p(\\boldsymbol{Y}_{obs} | \\boldsymbol{\\theta}, \\Sigma)\\) in the likelihood function for inference \\((\\boldsymbol{\\theta}, \\Sigma)\\).\nStill is hard, as we need marginal model!"
+    "objectID": "resources/slides/12-priors-regression.html#recommended-independent-jeffreys-prior",
+    "href": "resources/slides/12-priors-regression.html#recommended-independent-jeffreys-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Recommended Independent Jeffreys Prior",
+    "text": "Recommended Independent Jeffreys Prior\n\nTreat \\(\\boldsymbol{\\beta}\\) and \\(\\phi\\) separately (orthogonal parameterization which implies asymptoptic independence of \\(\\boldsymbol{\\beta}\\) and \\(\\phi\\))\n\\(p_{IJ}(\\boldsymbol{\\beta}) \\propto |{\\cal{I}}(\\boldsymbol{\\beta})|^{1/2}\\) and \\(p_{IJ}(\\phi) \\propto |{\\cal{I}}(\\phi)|^{1/2}\\)\n\n\n\\[\n{\\cal{I}}((\\boldsymbol{\\beta}, \\phi)^T)  =  \\left[\n  \\begin{array}{cc}\n    \\phi (\\mathbf{X}^T\\mathbf{X}) & \\mathbf{0}_p \\\\\n  \\mathbf{0}_p^T & \\frac{n}{2} \\frac{1}{\\phi^2}\n  \\end{array}\n\\right]\n\\]\n\n\n\\[\\begin{align*} p_{IJ}(\\boldsymbol{\\beta}) & \\propto |\\phi \\mathbf{X}^T\\mathbf{X}|^{1/2} \\propto 1 \\\\\n               p_{IJ}(\\phi) & \\propto \\phi^{-1} \\\\\n               p_{IJ}(\\beta, \\phi) & \\propto p_{IJ}(\\boldsymbol{\\beta}) p_{IJ}(\\phi) = \\phi^{-1}\n\\end{align*}\\]\n\n\nTwo group reference prior"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#bayesian-inference-with-missing-data",
-    "href": "resources/slides/10-missing-data.html#bayesian-inference-with-missing-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Bayesian Inference with Missing Data",
-    "text": "Bayesian Inference with Missing Data\n\nFor posterior sampling for most models (especially multivariate models), sampling is easier with complete data \\(\\boldsymbol{Y}\\)’s to update the parameters.\nThink of the missing data as latent variables and sample from the posterior predictive distribution of the missing data conditional on the observed data and parameters: \\[\n\\begin{split}\np(\\boldsymbol{Y}_{mis} | \\boldsymbol{Y}_{obs},\\boldsymbol{\\theta}, \\Sigma) \\propto \\prod^n_{i=1} p(\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs},\\boldsymbol{\\theta}, \\Sigma).\n\\end{split}\n\\]\nIn the case of the multivariate normal model, each \\(p(\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs},\\boldsymbol{\\theta}, \\Sigma)\\) is just a normal distribution, and we can leverage results on conditional distributions for normal models."
+    "objectID": "resources/slides/12-priors-regression.html#formal-posterior-distribution",
+    "href": "resources/slides/12-priors-regression.html#formal-posterior-distribution",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Formal Posterior Distribution",
+    "text": "Formal Posterior Distribution\n\nUse Independent Jeffreys Prior \\(p_{IJ}(\\beta, \\phi) \\propto p_{IJ}(\\boldsymbol{\\beta}) p_{IJ}(\\phi) = \\phi^{-1}\\)\nFormal Posterior Distribution \\[\\begin{eqnarray*}\n\\boldsymbol{\\beta}\\mid \\phi, \\mathbf{Y}& \\sim & \\textsf{N}(\\hat{\\boldsymbol{\\beta}}, (\\mathbf{X}^T\\mathbf{X})^{-1} \\phi^{-1})  \\\\\n\\phi \\mid \\mathbf{Y}& \\sim& \\textsf{Gamma}((n-p)/2, \\| \\mathbf{Y}- \\mathbf{X}\\hat{\\boldsymbol{\\beta}}\\|^2/2) \\\\\n\\boldsymbol{\\beta}\\mid \\mathbf{Y}& \\sim & t_{n-p}(\\hat{\\boldsymbol{\\beta}}, {\\hat{\\sigma}}^2(\\mathbf{X}^T\\mathbf{X})^{-1})\n\\end{eqnarray*}\\]\nBayesian Credible Sets \\(p(\\boldsymbol{\\beta}\\in C_\\alpha\\mid \\mathbf{Y}) = 1- \\alpha\\) correspond to frequentist Confidence Regions \\[\\frac{\\mathbf{x}^T\\boldsymbol{\\beta}- \\mathbf{x}^T \\hat{\\boldsymbol{\\beta}}} {\\sqrt{{\\hat{\\sigma}}^2\\mathbf{x}^T(\\mathbf{X}^T\\mathbf{X})^{-1} \\mathbf{x}} }\\sim t_{n-p}\\]\nconditional on \\(\\mathbf{Y}\\) for Bayes and conditional on \\(\\boldsymbol{\\beta}\\) for frequentist"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#model-for-missing-data",
-    "href": "resources/slides/10-missing-data.html#model-for-missing-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Model for Missing Data",
-    "text": "Model for Missing Data\n\nRewrite as \\(\\boldsymbol{Y}_i\\) in block form \\[\\begin{eqnarray*}\n\\boldsymbol{Y}_i =\n\\begin{pmatrix}\\boldsymbol{Y}_{i,mis}\\\\\n\\boldsymbol{Y}_{i,obs}\n\\end{pmatrix} & \\sim & \\mathcal{N}_p\\left[\\left(\\begin{array}{c}\n\\boldsymbol{\\theta}_1\\\\\n\\boldsymbol{\\theta}_2\n\\end{array}\\right),\\left(\\begin{array}{cc}\n\\Sigma_{11} & \\Sigma_{12} \\\\\n\\Sigma_{21} & \\Sigma_{22}\n\\end{array}\\right)\\right],\\\\\n\\end{eqnarray*}\\]\nMissing data has a conditional \\[\\boldsymbol{Y}_{i,mis} | \\boldsymbol{Y}_{i,obs} = \\boldsymbol{y}_{i,obs} \\sim \\mathcal{N}\\left(\\boldsymbol{\\theta}_1 + \\Sigma_{12}\\Sigma_{22}^{-1}  (\\boldsymbol{y}_{i,obs}-\\boldsymbol{\\theta}_2), \\Sigma_{11} - \\Sigma_{12}\\Sigma_{22}^{-1}\\Sigma_{21}\\right).\\]\nmultivariate normal distribution (or univariate normal distribution if \\(\\boldsymbol{Y}_i\\) only has one missing entry)\nThis sampling technique actually encodes MAR since the imputations for \\(\\boldsymbol{Y}_{mis}\\) depend on the \\(\\boldsymbol{Y}_{obs}\\)."
+    "objectID": "resources/slides/12-priors-regression.html#unit-information-prior",
+    "href": "resources/slides/12-priors-regression.html#unit-information-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Unit Information Prior",
+    "text": "Unit Information Prior\nUnit information prior \\(\\boldsymbol{\\beta}\\mid \\phi \\sim \\textsf{N}(\\hat{\\boldsymbol{\\beta}}, n  (\\mathbf{X}^T\\mathbf{X})^{-1}/\\phi)\\)\n\nBased on a fraction of the likelihood \\(p(\\boldsymbol{\\beta},\\phi) \\propto {\\cal{L}}(\\boldsymbol{\\beta}, \\phi)^{1/n}\\)\n\n\n\\[\\log(p(\\boldsymbol{\\beta}, \\phi) \\propto  \\frac{1}{n}\\frac{n}{2} \\log(\\phi)  - \\frac{\\phi}{2} \\frac{\\| (\\mathbf{I}_n - \\mathbf{P}_\\mathbf{x}) \\mathbf{Y}\\|^2}{n}\n- \\frac{\\phi}{2}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})^T\\frac{(\\mathbf{X}^T\\mathbf{X})}{n}(\\boldsymbol{\\beta}- \\hat{\\boldsymbol{\\beta}})\\]\n\n``average information’’ in one observation is \\(\\phi \\mathbf{X}^T\\mathbf{X}/n\\) or “unit information”\nPosterior mean \\(\\frac{n}{1 + n} \\hat{\\boldsymbol{\\beta}}+ \\frac{1}{1 + n}\\hat{\\boldsymbol{\\beta}}= \\hat{\\boldsymbol{\\beta}}\\)\nPosterior Distribution \\[\\boldsymbol{\\beta}\\mid \\mathbf{Y}, \\phi \\sim \\textsf{N}\\left( \\hat{\\boldsymbol{\\beta}}, \\frac{n}{1 + n} (\\mathbf{X}^T\\mathbf{X})^{-1}\n\\phi^{-1} \\right)\\]"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#semi-conjugate-prior",
-    "href": "resources/slides/10-missing-data.html#semi-conjugate-prior",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Semi-Conjugate Prior",
-    "text": "Semi-Conjugate Prior\n\nWe need prior distributions for \\(\\boldsymbol{\\theta}\\) and \\(\\Sigma\\)\nMultivariate Normal Prior for \\(\\boldsymbol{\\theta} \\sim \\mathcal{N}_p(\\boldsymbol{\\mu}_0, \\Lambda_0^{-1})\\)\nAnalogous to the univariate case, the inverse-Wishart distribution is the corresponding conditionally conjugate prior for \\(\\Sigma\\) (multivariate generalization of the inverse-gamma).\nA random variable \\(\\Sigma \\sim \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\), where \\(\\Sigma\\) is positive definite and \\(p \\times p\\), has pdf \\[p(\\Sigma) \\propto  \\left|\\Sigma\\right|^{\\frac{-(\\eta_0 + p + 1)}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\textsf{tr}(\\boldsymbol{S}_0\\Sigma^{-1}) \\right\\}\\]\n\n\\(\\eta_0 &gt; p - 1\\) is the “degrees of freedom”, and\n\\(\\boldsymbol{S}_0\\) is a \\(p \\times p\\) positive definite matrix."
+    "objectID": "resources/slides/12-priors-regression.html#unit-information-prior-1",
+    "href": "resources/slides/12-priors-regression.html#unit-information-prior-1",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Unit Information Prior",
+    "text": "Unit Information Prior\n\nAdvantages:\n\nProper\nInvariant to model parameteriztion of \\(\\mathbf{X}\\) (next)\nEquivalent to MLE (no bias) and tighter intervals\n\nDisadvantages\n\ncannot represent prior beliefs;\ndouble use of data!\n\nno shrinkage of \\(\\boldsymbol{\\beta}\\) with noisy data (larger variance than biased estimators)\n\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\n\nWhat would be a “Unit information prior” for \\(\\phi\\)?\nWhat is the marginal posterior for \\(\\boldsymbol{\\beta}\\) using both unit-information priors?"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#mean",
-    "href": "resources/slides/10-missing-data.html#mean",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Mean",
-    "text": "Mean\n\nFor this distribution, \\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0\\), for \\(\\eta_0 &gt; p + 1\\).\nIf we are very confident in a prior guess \\(\\Sigma_0\\), for \\(\\Sigma\\), then we might set\n\n\\(\\eta_0\\), the degrees of freedom to be very large, and\n\\(\\boldsymbol{S}_0 = (\\eta_0 - p - 1)\\Sigma_0\\).\n\\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0 = \\frac{1}{\\eta_0 - p - 1}(\\eta_0 - p - 1)\\Sigma_0 = \\Sigma_0\\), and \\(\\Sigma\\) is tightly (depending on the value of \\(\\eta_0\\)) centered around \\(\\Sigma_0\\).\n\nIf we are not at all confident but we still have a prior guess \\(\\Sigma_0\\), we might set\n\n\\(\\eta_0 = p + 2\\), so that the \\(E[\\Sigma] = \\frac{1}{\\eta_0 - p - 1} \\boldsymbol{S}_0\\) is finite.\n\\(\\boldsymbol{S}_0 = \\Sigma_0\\)"
+    "objectID": "resources/slides/12-priors-regression.html#invariance-and-choice-of-meanprecision",
+    "href": "resources/slides/12-priors-regression.html#invariance-and-choice-of-meanprecision",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Invariance and Choice of Mean/Precision",
+    "text": "Invariance and Choice of Mean/Precision\n\nthe model in vector form \\(Y \\mid \\beta, \\phi \\sim \\textsf{N}_n (X\\beta, \\phi^{-1} I_n)\\)\nWhat if we transform the mean \\(X\\beta = X H H^{-1} \\beta\\) with new \\(X\\) matrix \\(\\tilde{X} = X H\\) where \\(H\\) is \\(p \\times p\\) and invertible and coefficients \\(\\tilde{\\beta} = H^{-1} \\beta\\).\nobtain the posterior for \\(\\tilde{\\beta}\\) using \\(Y\\) and \\(\\tilde{X}\\)\n\\[ Y \\mid  \\tilde{\\beta}, \\phi \\sim \\textsf{N}_n (\\tilde{X}\\tilde{\\beta}, \\phi^{-1} I_n)\\]\nsince \\(\\tilde{X} \\tilde{\\beta} = X H \\tilde{\\beta} = X \\beta\\) invariance suggests that the posterior for \\(\\beta\\) and \\(H \\tilde{\\beta}\\) should be the same\nplus the posterior of \\(H^{-1} \\beta\\) and \\(\\tilde{\\beta}\\) should be the same\n\n\n\n\n\n\n\n\nExercise for the Energetic Student\n\n\nWith some linear algebra, show that this is true for a normal prior if \\(b_0 = 0\\) and \\(\\Phi_0\\) is \\(k X^TX\\) for some \\(k\\)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#alternatives",
-    "href": "resources/slides/10-missing-data.html#alternatives",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Alternatives",
-    "text": "Alternatives\n\nJeffreys prior (improper limiting case)\nunit-information (data dependent)\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices."
+    "objectID": "resources/slides/12-priors-regression.html#zellners-g-prior",
+    "href": "resources/slides/12-priors-regression.html#zellners-g-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Zellner’s g-prior",
+    "text": "Zellner’s g-prior\n\nPopular choice is to take \\(k = \\phi/g\\) which is a special case of Zellner’s g-prior \\[\\beta \\mid \\phi, g \\sim \\textsf{N}\\left(\\mathbf{b}_0, \\frac{g}{\\phi} (X^TX)^{-1}\\right)\\]\nFull conditional \\[\\beta \\mid \\phi, g \\sim \\textsf{N}\\left(\\frac{g}{1 + g} \\hat{\\beta} + \\frac{1}{1 + g}\\mathbf{b}_0, \\frac{1}{\\phi} \\frac{g}{1 + g} (X^TX)^{-1}\\right)\\]\none parameter \\(g\\) controls shrinkage\ninvariance under linear transformations of \\(\\mathbf{X}\\) with \\(\\mathbf{b}_0 = 0\\) or transform mean \\(\\tilde{\\mathbf{b}}_0 = H^{-1}\\mathbf{b}_0\\)\noften paired with the Jeffereys’ reference prior for \\(\\phi\\)\nallows an informative mean, but keeps the same correlation structure as the MLE"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#wishart-distribution",
-    "href": "resources/slides/10-missing-data.html#wishart-distribution",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Wishart distribution",
-    "text": "Wishart distribution\n\nJust as we had with the gamma and inverse-gamma relationship in the univariate case, we can also work in terms of the Wishart distribution (multivariate generalization of the gamma) instead.\nThe Wishart distribution provides a conditionally-conjugate prior for the precision matrix \\(\\Sigma^{-1}\\) in a multivariate normal model.\nif \\(\\Sigma \\sim \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0)\\), then \\(\\Phi = \\Sigma^{-1} \\sim \\textrm{W}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\).\nA random variable \\(\\Phi \\sim \\textrm{W}_p(\\eta_0, \\boldsymbol{S}_0^{-1})\\), where \\(\\Phi\\) has dimension \\((p \\times p)\\), has pdf \\[\\begin{align*}\nf(\\Phi) \\ \\propto \\ \\left|\\Phi\\right|^{\\frac{\\eta_0 - p - 1}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\text{tr}(\\boldsymbol{S}_0\\Phi) \\right\\}.\n\\end{align*}\\]\nHere, \\(E[\\Phi] = \\eta_0 \\boldsymbol{S}_0\\)."
+    "objectID": "resources/slides/12-priors-regression.html#zellners-blocked-g-prior",
+    "href": "resources/slides/12-priors-regression.html#zellners-blocked-g-prior",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Zellner’s Blocked g-prior",
+    "text": "Zellner’s Blocked g-prior\n\nZellner also realized that different blocks might have different degrees of prior information\nTwo blocks \\(\\mathbf{X}_1\\) and \\(\\mathbf{X}_2\\) with \\(\\mathbf{X}_1^T \\mathbf{X}_2 = 0\\) so Fisher Information is block diagonal\nModel \\(\\mathbf{Y}= \\mathbf{X}_1 \\boldsymbol{\\alpha}+ \\mathbf{X}_2 \\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\)\nPriors \\[\\begin{align}\n\\boldsymbol{\\alpha}\\mid \\phi & \\sim \\textsf{N}(\\boldsymbol{\\alpha}_1, \\frac{g_{\\boldsymbol{\\alpha}}}{\\phi} (\\mathbf{X}_1^T\\mathbf{X}_1)^{-1})\\\\\n\\boldsymbol{\\beta}\\mid \\phi & \\sim \\textsf{N}(\\mathbf{b}_0, \\frac{g_{\\boldsymbol{\\beta}}}{\\phi} (\\mathbf{X}_2^T\\mathbf{X}_2)^{-1})\n\\end{align}\\]\nImportant case \\(\\mathbf{X}_1 = \\mathbf{1}_n\\) corresponding to intercept with limiting case \\(g_{\\boldsymbol{\\alpha}} \\to \\infty\\) \\[p(\\boldsymbol{\\alpha}) \\propto 1\\]"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#conditional-posterior-for-sigma",
-    "href": "resources/slides/10-missing-data.html#conditional-posterior-for-sigma",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Conditional posterior for \\(\\Sigma\\)",
-    "text": "Conditional posterior for \\(\\Sigma\\)\n\\[\\begin{align}Y_i  \\mid  \\boldsymbol{\\theta}, \\Sigma & \\overset{ind}{\\sim} N(\\boldsymbol{\\theta}, \\Sigma)\\\\\n\\Sigma  & \\sim  \\textrm{IW}_p(\\eta_0, \\boldsymbol{S}_0^{-1}) \\\\\n\\boldsymbol{\\theta} & \\sim N(\\mu_0, \\Psi_0^{-1})\n\\end{align}\\]\n\nThe conditional posterior (full conditional) \\(\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y}\\), is then \\[\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y} \\sim \\textrm{IW}_p\\left(\\eta_0 + n, \\left(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\right)^{-1} \\right)\\]\nposterior sample size \\(\\eta_0 + n\\)\nposterior sum of squares \\(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\)"
+    "objectID": "resources/slides/12-priors-regression.html#potential-problems",
+    "href": "resources/slides/12-priors-regression.html#potential-problems",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Potential Problems",
+    "text": "Potential Problems\n\nThe posterior in Jeffereys’ prior(s), the unit information prior, and Zellner’s g-priors depend on \\((\\mathbf{X}^T\\mathbf{X})^{-1}\\) and the MLE \\(\\hat{\\boldsymbol{\\beta}}\\)\nIf \\(\\mathbf{X}^T\\mathbf{X}= \\mathbf{U}\\boldsymbol{\\Lambda}\\mathbf{U}^T\\) is nearly singular (\\(\\lambda_j \\approx 0\\) for one or more eigenvalues), certain elements of \\(\\beta\\) or (linear combinations of \\(\\beta\\)) may have huge posterior variances and the MLEs (and posterior means) are highly unstable!\nthere is no unique posterior distribution if any \\(\\lambda_j = 0\\)! (\\(p &gt; n\\) or non-full rank)\nPosterior Precision and Mean in conjugate prior \\[\\begin{align}\n\\boldsymbol{\\Phi}_n & = \\mathbf{X}^T\\mathbf{X}+ \\boldsymbol{\\Phi}_0 \\\\\n\\mathbf{b}_n & = \\boldsymbol{\\Phi}^{-1} (\\mathbf{X}^T\\mathbf{Y}+ \\boldsymbol{\\Phi}_0 \\mathbf{b}_0)\n\\end{align}\\]\nNeed a proper prior with \\(\\boldsymbol{\\Phi}_0 &gt;0\\) (OK for \\(\\mathbf{b}_0 = 0\\) )\nSimplest case: take \\(\\boldsymbol{\\Phi}_0 = \\kappa \\mathbf{I}_p\\) so that \\(\\boldsymbol{\\Phi}_n = \\mathbf{X}^T\\mathbf{X}+ \\kappa \\mathbf{I}_p = \\mathbf{U}(\\boldsymbol{\\Lambda}+ \\kappa \\mathbf{I}_p) \\mathbf{U}^T &gt; 0\\)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#posterior-derivation",
-    "href": "resources/slides/10-missing-data.html#posterior-derivation",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Posterior Derivation",
-    "text": "Posterior Derivation\n\nThe conditional posterior (full conditional) \\(\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y}\\), is \\[\\begin{align*}\n\\pi(\\Sigma & \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y})\\propto p(\\Sigma) \\cdot p( \\boldsymbol{Y}  \\mid \\boldsymbol{\\theta}, \\Sigma)\\\\\n& \\propto \\left|\\Sigma\\right|^{\\frac{-(\\eta_0 + p + 1)}{2}} \\textrm{exp} \\left\\{-\\frac{1}{2} \\text{tr}(\\boldsymbol{S}_0\\Sigma^{-1}) \\right\\} \\cdot \\prod_{i = 1}^{n}\\left|\\Sigma\\right|^{-\\frac{1}{2}} \\ \\textrm{exp} \\left\\{-\\frac{1}{2}\\left[(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T \\Sigma^{-1} (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})\\right] \\right\\} \\\\\n& \\\\\n& \\\\\n& \\\\\n&\n\\end{align*}\n\\]\n\n\n\\[\\Sigma \\mid \\boldsymbol{\\theta}, \\boldsymbol{Y} \\sim \\textrm{IW}_p\\left(\\eta_0 + n, \\left(\\boldsymbol{S}_0+ \\sum_{i=1}^n (\\boldsymbol{Y}_i - \\boldsymbol{\\theta})(\\boldsymbol{Y}_i - \\boldsymbol{\\theta})^T\\right)^{-1} \\right)\\]"
+    "objectID": "resources/slides/12-priors-regression.html#ridge-regression",
+    "href": "resources/slides/12-priors-regression.html#ridge-regression",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Ridge Regression",
+    "text": "Ridge Regression\nModel: \\(\\mathbf{Y}= \\mathbf{1}_n \\alpha + \\mathbf{X}\\boldsymbol{\\beta}+ \\boldsymbol{\\epsilon}\\)\n\nWLOG assume that \\(\\mathbf{X}\\) has been centered and scaled so that \\(\\mathbf{X}^T\\mathbf{X}= \\textsf{corr}(\\mathbf{X})\\)\ntypically expect the intercept \\(\\alpha\\) to be a different order of magnitude from the other predictors.\n\nAdopt a two block prior with \\(p(\\alpha) \\propto 1\\)\nIf \\(\\mathbf{X}\\) is centered, \\(\\mathbf{1}_n^T \\mathbf{X}= \\mathbf{0}_p\\)\n\nPrior \\(\\boldsymbol{\\beta}\\mid \\phi \\sim \\textsf{N}(\\mathbf{0}_b, \\frac{1} {\\phi \\kappa} \\mathbf{I}_p\\)) implies the \\(\\mathbf{b}\\) are exchangable a priori (i.e. distribution is invariant under permuting the labels and with a common scale and mean)\n\nif different predictors have different variances, rescale \\(\\mathbf{X}\\) to have variance 1\n\nPosterior for \\(\\boldsymbol{\\beta}\\) \\[\\boldsymbol{\\beta}\\mid \\phi, \\kappa, \\mathbf{Y}\\sim\n\\textsf{N}\\left((\\kappa I_p + X^TX)^{-1} X^T Y,  \\frac{1}{\\phi}(\\kappa I_p + X^TX)^{-1}\n\\right)\\]"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#gibbs-sampler-with-missing-data",
-    "href": "resources/slides/10-missing-data.html#gibbs-sampler-with-missing-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Gibbs sampler with missing data",
-    "text": "Gibbs sampler with missing data\nAt iteration \\(s+1\\), do the following\n\nSample \\(\\boldsymbol{\\theta}^{(s+1)}\\) from its multivariate normal full conditional \\(p(\\boldsymbol{\\theta}^{(s+1)} | \\boldsymbol{Y}_{obs}, \\boldsymbol{Y}_{mis}^{(s)}, \\Sigma^{(s)})\\)\nSample \\(\\Sigma^{(s+1)}\\) from its inverse-Wishart full conditional \\(p(\\Sigma^{(s+1)} | \\boldsymbol{Y}_{obs}, \\boldsymbol{Y}_{mis}^{(s)}, \\boldsymbol{\\theta}^{(s+1)})\\)\nFor each \\(i = 1, \\ldots, n\\), with at least one “1” value in the missingness indicator vector \\(\\boldsymbol{R}_i\\), sample \\(\\boldsymbol{Y}_{i,mis}^{(s+1)}\\) from the full conditional \\[\\begin{align}\n\\boldsymbol{Y}_{i,mis}^{(s+1)}| \\boldsymbol{Y}_{i,obs},  \\boldsymbol{\\theta}^{(s+1)},  \\Sigma^{(s+1)}  \\sim \\mathcal{N}(& \\boldsymbol{\\theta}_1^{(s+1)} + \\Sigma_{12}^{(s+1)}{\\Sigma_{22}^{(s+1)}}^{-1}  (\\boldsymbol{Y}_{i,obs}-\\boldsymbol{\\theta}_2^{(s+1)}),  \\\\\n&  \\Sigma_{11}^{(s+1)} - \\Sigma_{12}^{(s+1)}{\\Sigma_{22}^{(s+1)}}^{-1}\\Sigma_{21}^{(s+1)})\n\\end{align}\\]\n\n\n\nderived from the original sampling model but with the updated parameters, \\(\\boldsymbol{Y}_i^{(s+1)} = (\\boldsymbol{Y}_{i,obs},\\boldsymbol{Y}_{i,mis}^{(s+1)})^T \\sim \\mathcal{N}_p(\\boldsymbol{\\theta}^{(s+1)}, \\Sigma^{(s+1)})\\)."
+    "objectID": "resources/slides/12-priors-regression.html#bayes-ridge-regression",
+    "href": "resources/slides/12-priors-regression.html#bayes-ridge-regression",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Bayes Ridge Regression",
+    "text": "Bayes Ridge Regression\n\nPosterior mean (or mode) given \\(\\kappa\\) is biased, but can show that there always is a value of \\(\\kappa\\) where the frequentist’s expected squared error loss is smaller for the Ridge estimator than MLE!\nUnfortunately the optimal choice depends on “true” \\(\\boldsymbol{\\beta}\\)!\nrelated to penalized maximum likelihood estimation \\[-\\frac{\\phi}{2}\\left(\\|\\mathbf{Y}- \\mathbf{X}\\boldsymbol{\\beta}\\|^2 + \\kappa \\| \\boldsymbol{\\beta}\\|^2 \\right)\n\\]\nChoice of \\(\\kappa\\) ?\n\nCross-validation (frequentist)\nEmpirical Bayes? (frequentist/Bayes)\nfixed a priori Bayes (and how to choose)\n\nShould there be a common \\(\\kappa\\)? Or a \\(\\kappa_j\\) per variable? (or shared in a group?)"
   },
   {
-    "objectID": "resources/slides/10-missing-data.html#reading-example-from-hoff-with-missing-data",
-    "href": "resources/slides/10-missing-data.html#reading-example-from-hoff-with-missing-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Reading example from Hoff with missing data",
-    "text": "Reading example from Hoff with missing data\n\n\n      pretest posttest\n [1,]      59       77\n [2,]      43       39\n [3,]      34       46\n [4,]      32       NA\n [5,]      NA       38\n [6,]      38       NA\n [7,]      55       NA\n [8,]      67       86\n [9,]      64       77\n[10,]      45       60\n[11,]      49       50\n[12,]      72       59\n\n\n  pretest  posttest \n0.1363636 0.2272727"
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#mcmc-summary-for-sigma",
-    "href": "resources/slides/10-missing-data.html#mcmc-summary-for-sigma",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "MCMC Summary for \\(\\Sigma\\)",
-    "text": "MCMC Summary for \\(\\Sigma\\)\n\n\n\nIterations = 1:20000\nThinning interval = 1 \nNumber of chains = 1 \nSample size per chain = 20000 \n\n1. Empirical mean and standard deviation for each variable,\n   plus standard error of the mean:\n\n          Mean    SD Naive SE Time-series SE\nsigma_11 194.0 63.08   0.4460         0.4947\nsigma_12 152.1 60.75   0.4295         0.4665\nsigma_21 152.1 60.75   0.4295         0.4665\nsigma_22 248.7 83.70   0.5918         0.6884\n\n2. Quantiles for each variable:\n\n           2.5%   25%   50%   75% 97.5%\nsigma_11 106.45 149.8 182.4 224.1 349.8\nsigma_12  64.04 109.8 142.3 182.8 299.2\nsigma_21  64.04 109.8 142.3 182.8 299.2\nsigma_22 132.50 190.3 233.4 289.5 456.1"
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data",
-    "href": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Compare to inference from full data",
-    "text": "Compare to inference from full data\n\nWith missing data:\n\n\n\n\n         theta_1  theta_2\nMin.    30.45459 38.29322\n1st Qu. 43.65988 51.96991\nMedian  45.60829 54.19592\nMean    45.63192 54.20408\n3rd Qu. 47.61896 56.48918\nMax.    58.81206 70.49105\n\n\n\nBased on true data:\n\n\n\n\n\n         theta_1  theta_2\nMin.    34.88365 37.80999\n1st Qu. 45.29473 51.47834\nMedian  47.28229 53.65172\nMean    47.26301 53.64100\n3rd Qu. 49.21423 55.81819\nMax.    60.94924 69.92354\n\n\n\nVery similar for the most part."
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data-1",
-    "href": "resources/slides/10-missing-data.html#compare-to-inference-from-full-data-1",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Compare to inference from full data",
-    "text": "Compare to inference from full data\n\nWith missing data:\n\n\n\n\n        sigma_11  sigma_12  sigma_21  sigma_22\nMin.     64.0883 -20.39204 -20.39204  82.55346\n1st Qu. 149.8338 109.84218 109.84218 190.25962\nMedian  182.4496 142.34686 142.34686 233.43312\nMean    193.9803 152.12898 152.12898 248.67527\n3rd Qu. 224.0994 182.75082 182.75082 289.47663\nMax.    734.8704 668.77332 668.77332 981.99916\n\n\n\nBased on true data:\n\n\n\n\n\n        sigma_11  sigma_12  sigma_21  sigma_22\nMin.     76.4661 -38.75561 -38.75561  93.65776\n1st Qu. 157.5870 113.32529 113.32529 203.69192\nMedian  190.6578 145.08962 145.08962 246.08696\nMean    201.9547 155.20374 155.20374 260.11361\n3rd Qu. 233.5809 186.36991 186.36991 300.70840\nMax.    664.8241 577.99100 577.99100 947.39333\n\n\n\nAlso very similar. A bit more uncertainty in dimension of \\(Y_{i2}\\) because we have more missing data there."
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#posterior-distribution-of-the-mean",
-    "href": "resources/slides/10-missing-data.html#posterior-distribution-of-the-mean",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Posterior distribution of the mean",
-    "text": "Posterior distribution of the mean"
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations",
-    "href": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Missing data vs predictions for new observations",
-    "text": "Missing data vs predictions for new observations\n\nHow about predictions for completely new observations?\nThat is, suppose your original dataset plus sampling model is \\(\\boldsymbol{y_i} = (y_{i,1},y_{i,2})^T \\sim \\mathcal{N}_2(\\boldsymbol{\\theta}, \\Sigma)\\), \\(i = 1, \\ldots, n\\).\nSuppose now you have \\(n^\\star\\) new observations with \\(y_{2}^\\star\\) values but no \\(y_{1}^\\star\\).\nHow can we predict \\(y_{i,1}^\\star\\) given \\(y_{i,2}^\\star\\), for \\(i = 1, \\ldots, n^\\star\\)?\nWell, we can view this as a “train \\(\\rightarrow\\) test” prediction problem rather than a missing data problem on an original data."
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations-1",
-    "href": "resources/slides/10-missing-data.html#missing-data-vs-predictions-for-new-observations-1",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "Missing data vs predictions for new observations",
-    "text": "Missing data vs predictions for new observations\n\nThat is, given the posterior samples of the parameters, and the test values for \\(y_{i2}^\\star\\), draw from the posterior predictive distribution of \\((y_{i,1}^\\star | y_{i,2}^\\star, \\{(y_{1,1},y_{1,2}), \\ldots, (y_{n,1},y_{n,2})\\})\\).\nTo sample from this predictive distribution, think of compositional sampling.\nfor each posterior sample of \\((\\boldsymbol{\\theta}, \\Sigma)\\), sample from \\((y_{i,1} | y_{i,2}, \\boldsymbol{\\theta}, \\Sigma)\\), which is just from the form of the sampling distribution.\nIn this case, \\((y_{i,1} | y_{i,2}, \\boldsymbol{\\theta}, \\Sigma)\\) is just a normal distribution derived from \\((y_{i,1}, y_{i,2} | \\boldsymbol{\\theta}, \\Sigma)\\), based on the conditional normal formula.\nNo need to incorporate the prediction problem into your original Gibbs sampler!"
-  },
-  {
-    "objectID": "resources/slides/10-missing-data.html#mnar-likelihood-function",
-    "href": "resources/slides/10-missing-data.html#mnar-likelihood-function",
-    "title": "Multivariate Normal Models, Missing Data and Imputation",
-    "section": "MNAR Likelihood function:",
-    "text": "MNAR Likelihood function:\n\nFor MNAR, we have: \\[\n\\begin{split}\np(\\boldsymbol{Y}_{obs}, \\boldsymbol{R} |\\boldsymbol{\\theta}, \\Sigma, \\boldsymbol{\\psi}) & = \\int p(\\boldsymbol{R} | \\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis},\\boldsymbol{\\psi}) \\cdot p(\\boldsymbol{Y}_{obs},\\boldsymbol{Y}_{mis} | \\boldsymbol{\\theta}, \\Sigma) \\textrm{d}\\boldsymbol{Y}_{mis} \\\\\n\\end{split}\n\\]\nThe likelihood under MNAR cannot simplify any further.\nIn this case, we cannot ignore the missing data when making inferences about \\((\\boldsymbol{\\theta}, \\Sigma)\\).\nWe must include the model for \\(\\boldsymbol{R}\\) and also infer the missing data \\(\\boldsymbol{Y}_{mis}\\).\nSo how can we tell the type of mechanism we are dealing with?\nIn general, we don’t know!!!\nRare that data are MCAR (unless planned beforehand); more likely that data are MNAR or MNAR.\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "objectID": "resources/slides/12-priors-regression.html#mixture-of-conjugate-priors",
+    "href": "resources/slides/12-priors-regression.html#mixture-of-conjugate-priors",
+    "title": "Lecture 12: Choice of Priors in Regression",
+    "section": "Mixture of Conjugate Priors",
+    "text": "Mixture of Conjugate Priors\n\ncan place a prior on \\(\\kappa\\) or \\(\\kappa_j\\) for fully Bayes\nsimilar issue for \\(g\\) in the \\(g\\) priors\noften improved robustness over fixed choices of hyperparameter\nmay not have cloosed form posterior but sampling is still often easy!\nExamples: Bayesian Lasso, Double Laplace, Horseshoe prior, mixtures of \\(g\\)-priors\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",
