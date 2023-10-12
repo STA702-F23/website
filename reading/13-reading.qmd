@@ -34,8 +34,7 @@ Papers:
   + Hans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, [Statistics and Computing 20:221–229](https://doi.org/10.1007/s11222-009-9160-9)
   + Hans, C. (2010) Bayesian Lasso Regression, [Biometrika, 96: 835-845](https://doi.org/10.1093/biomet/asp047)
   + Carvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, [Biometrika,  97:465-480](https://www.jstor.org/stable/25734098)
-  + Armagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, [Statistica Sinica 23:119-143](doi:http://dx.doi.org/10.5705/ss.2011.048) [arXiv: 1104.0861v4](https://doi.org/10.48550/arXiv.1104.0861
-)
+  + Armagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, [Statistica Sinica 23:119-143](doi:http://dx.doi.org/10.5705/ss.2011.048) [arXiv: 1104.0861v4](https://doi.org/10.48550/arXiv.1104.0861)
   + Fan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)
   + George, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, [Statistical Science, 27:82-94](https://www.jstor.org/stable/23208825) 
 

@@ -86,7 +86,7 @@ Model: $\Y = \one_n \alpha + \X \b + \eps$
     $p(\alpha) \propto 1$
 
 -   Prior $\b \mid \phi \sim \N(\zero_b, \frac{1} {\phi \kappa} \I_p$)
-    implies the $\bv$ are exchangable *a priori* (i.e. distribution is
+    implies the $\b$ are exchangable *a priori* (i.e. distribution is
     invariant under permuting the labels and with a common scale and
     mean)
 
@@ -177,7 +177,7 @@ Operator''
     Likelihood
     $$\min_{\b} \| \Y - \one_n \alpha - \X\b\|^2 + \lambda \|\b\|_1$$
 
--   Equivaletnt to finding posterior mode $$
+-   Equivalent to finding posterior mode $$
     \max_{\b} -\frac{\phi}{2} \{ \| \Y - \one_n \alpha - \X \b\|^2 + \lambda \|\b\|_1 \}
     $$
 
@@ -244,7 +244,7 @@ in [Park & Casella](http://www.stat.ufl.edu/~casella/Papers/Lasso.pdf)
     too)!
 
 -   Issue is that the tails of the prior under the double exponential
-    are not heavier than the the normal likelihood
+    are not heavier than the normal likelihood
 
 -   Only one parameter $\lambda$ that controls shrinkage and selection
     (with the mode)
@@ -278,31 +278,33 @@ p(\alpha, \phi) & \propto 1/\phi)
 
 ## Bounded Influence for Mean {.smaller}
 
--  canonical representation (normal means problem) $\Y^* =
-\I \b + \eps$ 
+-  canonical representation (normal means problem) $\Y =
+\I_p \b + \eps$  so $\hat{\beta}_i = y_i$
 $$
-E[\beta_i \mid \Y] = \int_0^1 (1 - \kappa_i) y^*_i p(\kappa_i \mid \Y)\ d\kappa_i = (1 - \E[\kappa \mid y^*_i]) y^*_i$$
+E[\beta_i \mid \Y] = \int_0^1 (1 - \psi_i) y^*_i p(\psi_i \mid \Y)\ d\psi_i = (1 - \E[\psi_i \mid y^*_i]) y^*_i$$
 
 
-- $\kappa_i = 1/(1 + \tau_i^2)$ shrinkage factor 
+- $\psi_i = 1/(1 + \tau_i^2)$ shrinkage factor 
 
 - Posterior mean
 $E[\beta \mid y] = y + \frac{d} {d y} \log m(y)$
 where $m(y)$ is the predictive density under the prior (known $\lambda$) 
  
-- HS has Bounded Influence: if $\lim_{|y| \to \infty} \frac{d}{dy} \log m(y) = 0$ 
+- Bounded Influence: if $\lim_{|y| \to \infty} \frac{d}{dy} \log m(y) = c$ (for some constant $c$)
+
+- HS has bounded influence where $c = 0$ so
 $$\lim_{|y| \to \infty} E[\beta \mid y) \to y $$
-- DE prior also has bounded influence, but bound does not decay to zero in tails
+- DE has bounded influence but $(c \ne 0$); bound does not decay to zero and bias for large  $|y_i|$
 
 
 ## Properties for Shrinkage and Selection {.smaller}
 
 Fan & Li (JASA 2001) discuss Variable
-selection via nonconcave penalties and oracle properties 
+Selection via Nonconcave Penalties and Oracle Properties 
 
-- Model $Y = \one_n \alpha \X \b + \eps$ with $\X^T\X = \I_p$  (orthonormal) and $\eps \sim N(0, \I_n)$
+- Model $Y = \one_n \alpha + \X \b + \eps$ with $\X^T\X = \I_p$  (orthonormal) and $\eps \sim N(0, \I_n)$
 - Penalized Log Likelihood 
-$$\frac 1 2 \|\Y + \hat{\Y}\|^2 +\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{ pen}_\lambda(|\beta_j|)$$ 
+$$\frac 1 2 \|\Y - \hat{\Y}\|^2 +\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{ pen}_\lambda(|\beta_j|)$$ 
 - duality $\text{pen}_\lambda(|\beta|) \equiv  - \log(p(|\beta_j|))$ (negative log prior)
 
 - Objectives:
@@ -334,7 +336,7 @@ $|\hat{\beta}_j| < \min \left\{ |\beta_j| + \text{pen}^\prime_\lambda(|\beta_j|)
 
 ::: {.callout-warning} 
 ## Homework
-Check the conditions for the Generalized Double Pareto 
+Check the conditions for the DE, Generalized Double Pareto and Cauchy priors
 :::
 
 
@@ -342,10 +344,12 @@ Check the conditions for the Generalized Double Pareto
 
 - Only get variable selection if we use the posterior mode
 
-- If selection is a goal of analysis build it into the model/analysis
+- If selection is a goal of analysis build it into the model/analysis/post-analysis
 
     + prior belief that coefficient is zero
     
     + selection solved as a post-analysis decision problem
+
+- Even if selection is not  an objective, account for the uncertainty that some predictors may be unrelated  
     
     
