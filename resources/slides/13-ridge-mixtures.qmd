@@ -1,0 +1,351 @@
+---
+title: "Lecture 13:  Ridge Regression, Lasso and Mixture Priors"
+subtitle: "STA702"
+author: "Merlise Clyde"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Ridge Regression {.smaller}
+
+{{< include macros.qmd >}}
+
+Model: $\Y = \one_n \alpha + \X \b + \eps$
+
+-   typically expect the intercept $\alpha$ to be a different order of
+    magnitude from the other predictors. Adopt a two block prior with
+    $p(\alpha) \propto 1$
+
+-   Prior $\b \mid \phi \sim \N(\zero_b, \frac{1} {\phi \kappa} \I_p$)
+    implies the $\bv$ are exchangable *a priori* (i.e. distribution is
+    invariant under permuting the labels and with a common scale and
+    mean)
+
+-   Posterior for $\b$ $$\b \mid \phi, \kappa, \Y \sim 
+    \textsf{N}\left((\kappa I_p + X^TX)^{-1} X^T Y,  \frac{1}{\phi}(\kappa I_p + X^TX)^{-1}
+    \right)$$
+
+-   assume that $\X$ has been centered and scaled so that
+    $\X^T\X = \corr(\X)$ and $\one_n^T \X = \zero_p$
+
+. . .
+
+```{r}
+#| label: scale
+#| eval: FALSE
+#| echo: TRUE
+X = scale(X)/sqrt{nrow(X) - 1}
+```
+
+## Bayes Ridge Regression {.smaller}
+
+-   related to penalized maximum likelihood estimation
+    $$-\frac{\phi}{2}\left(\|\Y - \X \b\|^2 + \kappa \| \b \|^2 \right)
+    $$
+
+-   frequentist's expected mean squared error loss for using $\bv_n$
+    $$\E_{\Y \mid \b_*}[\| \bv_n - \b_* \|^2] = \sigma^2 \sum_{j = 1}^2 \frac{\lambda_j}{(\lambda_j + \kappa)^2} +
+    \kappa^2 \b_*^T(\X^T\X + \kappa \I_p)^{-2} \b_*$$
+
+-   eigenvalues of $\X^T\X = \V \Lambdab \V^T$ with
+    $[\Lambdab]_{jj} = \lambda_j$
+
+-   can show that there **always** is a value of $\kappa$ where is
+    smaller for the (Bayes) Ridge estimator than MLE
+
+-   Unfortunately the optimal choice depends on "true" $\b_*$!
+
+-   orthogonal $\X$ leads to James-Stein solution related to Empirical
+    Bayes
+
+## Choice of $\kappa$? {.smaller}
+
+-   fixed *a priori* Bayes (and how to choose?)\
+
+-   Cross-validation (frequentist)
+
+-   Empirical Bayes? (frequentist/Bayes)
+
+-   Should there be a common $\kappa$? (same shrinkage across all
+    variables?)
+
+-   Or a $\kappa_j$ per variable? (or shared among a group of variables
+    (eg. factors) ?)
+
+-   Treat as unknown!
+
+## Mixture of Conjugate Priors {.smaller}
+
+-   can place a prior on $\kappa$ or $\kappa_j$ for fully Bayes
+
+-   similar option for $g$ in the $g$ priors
+
+-   often improved robustness over fixed choices of hyperparameter
+
+-   may not have cloosed form posterior but sampling is still often
+    easy!
+
+-   Examples:
+
+    -   Bayesian Lasso (Park & Casella, Hans)
+    -   Generalized Double Pareto (Armagan, Dunson & Lee)
+    -   Horseshoe (Carvalho, Polson & Scott)
+    -   Normal-Exponential-Gamma (Griffen & Brown)
+    -   mixtures of $g$-priors (Liang et al)
+
+## Lasso {.smaller}
+
+Tibshirani (JRSS B 1996) proposed estimating coefficients through $L_1$
+constrained least squares \`\`Least Absolute Shrinkage and Selection
+Operator''
+
+-   Control how large coefficients may grow
+    \begin{align}  \min_{\b} & \| \Y  - \one_n \alpha - \X \b \|^2 \\
+      & \textsf{  subject to }    \sum |\beta_j| \le t
+    \end{align}
+
+-   Equivalent Quadratic Programming Problem for \`\`penalized''
+    Likelihood
+    $$\min_{\b} \| \Y - \one_n \alpha - \X\b\|^2 + \lambda \|\b\|_1$$
+
+-   Equivaletnt to finding posterior mode $$
+    \max_{\b} -\frac{\phi}{2} \{ \| \Y - \one_n \alpha - \X \b\|^2 + \lambda \|\b\|_1 \}
+    $$
+
+## Bayesian Lasso {.smaller}
+
+Park & Casella (JASA 2008) and Hans (Biometrika 2010) propose Bayesian
+versions of the Lasso\
+\begin{eqnarray*}
+    \Y \mid \alpha, \b, \phi & \sim & \N(\one_n \alpha + \X \b, \I_n/\phi)  \\
+    \b \mid \alpha, \phi, \taub & \sim & \N(\zero, \diag(\taub^2)/\phi)  \\
+    \tau_1^2 \ldots, \tau_p^2 \mid \alpha, \phi & \iid & \Ex(\lambda^2/2)  \\
+    p(\alpha, \phi) & \propto& 1/\phi  \\
+  \end{eqnarray*}
+
+-   Can show that
+    $\beta_j \mid \phi, \lambda \iid DE(\lambda \sqrt{\phi})$
+    $$\int_0^\infty \frac{1}{\sqrt{2 \pi s}}
+    e^{-\frac{1}{2} \phi \frac{\beta^2}{s }}
+    \, \frac{\lambda^2}{2} e^{- \frac{\lambda^2 s}{2}}\, ds =
+    \frac{\lambda \phi^{1/2}}{2} e^{-\lambda \phi^{1/2} |\beta|}
+    $$
+
+-   equivalent to penalized regression with
+    $\lambda^* = \lambda/\phi^{1/2}$
+
+-   Scale Mixture of Normals (Andrews and Mallows 1974)
+
+## Gibbs Sampling {.smaller}
+
+-   Integrate out $\alpha$:
+    $\alpha \mid \Y, \phi \sim \N(\ybar,  1/(n \phi)$\
+
+-   $\b \mid \taub, \phi, \lambda, \Y \sim \N(, )$\
+
+-   $\phi \mid \taub, \b, \lambda, \Y \sim \G( , )$\
+
+-   $1/\tau_j^2 \mid \b, \phi, \lambda, \Y \sim \textsf{InvGaussian}( , )$
+
+-   For $X \sim \textsf{InvGaussian}(\mu, \lambda)$, the density is $$
+    f(x) =  \sqrt{\frac{\lambda^2}{2 \pi}}  x^{-3/2} e^{- \frac{1}{2} \frac{
+      \lambda^2( x - \mu)^2} {\mu^2 x}} \qquad x > 0
+    $$
+
+. . .
+
+::: callout-warning
+## Homework
+
+Derive the full conditionals for $\b$, $\phi$, $1/\tau^2$ for the model
+in [Park & Casella](http://www.stat.ufl.edu/~casella/Papers/Lasso.pdf)
+:::
+
+## Choice of Estimator {.smaller}
+
+-   Posterior mode (like in the LASSO) may set some coefficients exactly
+    to zero leading to variable selection - optimization problem
+    (quadratic programming)
+
+-   Posterior distribution for $\beta_j$ does not assign any probability
+    to $\beta_j = 0$ so posterior mean results in no selection, but
+    shrinkage of coeffiecients to prior mean of zero
+
+-   In both cases, large coefficients may be over-shrunk (true for LASSO
+    too)!
+
+-   Issue is that the tails of the prior under the double exponential
+    are not heavier than the the normal likelihood
+
+-   Only one parameter $\lambda$ that controls shrinkage and selection
+    (with the mode)
+
+-   Need priors with heavier tails than the normal!!!
+
+## Shrinkage Comparison with Posterior Mean {.smaller}
+
+::: columns
+
+
+::: {.column width="50%"}
+![](lasso-HS-shrinakge.png)
+:::
+
+::: {.column width="50%"}
+HS - Horseshoe of Carvalho, Polson & Scott (slight difference in CPS  notation) 
+
+\begin{align}
+\b \mid \phi, \taub & \sim \N(\zero_p, \frac{\diag(\taub^2)}{ \phi    }) \\
+\tau_j \mid \lambda & \iid \Ca^+(0, \lambda^2) \\
+\lambda & \sim \Ca^+(0, 1) \\
+p(\alpha, \phi) & \propto 1/\phi)
+\end{align}
+
+- resulting prior on $\b$ has heavy tails like a Cauchy! 
+
+
+:::
+:::
+
+## Bounded Influence for Mean {.smaller}
+
+-  canonical representation (normal means problem) $\Y^* =
+\I \b + \eps$ 
+$$
+E[\beta_i \mid \Y] = \int_0^1 (1 - \kappa_i) y^*_i p(\kappa_i \mid \Y)\ d\kappa_i = (1 - \E[\kappa \mid y^*_i]) y^*_i$$
+
+
+- $\kappa_i = 1/(1 + \tau_i^2)$ shrinkage factor 
+
+- Posterior mean
+$E[\beta \mid y] = y + \frac{d} {d y} \log m(y)$
+where $m(y)$ is the predictive density under the prior (known $\lambda$) 
+ 
+- HS has Bounded Influence: if $\lim_{|y| \to \infty} \frac{d}{dy} \log m(y) = 0$ 
+$$\lim_{|y| \to \infty} E[\beta \mid y) \to y $$
+- DE prior also has bounded influence, but bound does not decay to zero in tails
+
+
+## Properties for Shrinkage and Selection {.smaller}
+
+Fan & Li (JASA 2001) discuss Variable
+selection via nonconcave penalties and oracle properties 
+
+- Model $Y = \one_n \alpha \X \b + \eps$ with $\X^T\X = \I_p$  (orthonormal) and $\eps \sim N(0, \I_n)$
+- Penalized Log Likelihood 
+$$\frac 1 2 \|\Y + \hat{\Y}\|^2 +\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{ pen}_\lambda(|\beta_j|)$$ 
+- duality $\text{pen}_\lambda(|\beta|) \equiv  - \log(p(|\beta_j|))$ (negative log prior)
+
+- Objectives:
+  - Unbiasedness: for large $|\beta_j|$ 
+  - Sparsity: thresholding rule sets small coefficients to 0 
+  - Continuity:  continuous in $\hat{\beta}_j$
+  
+##  Conditions on Prior/Penalty {.smaller}
+
+
+Derivative of  $\frac 1 2 \sum_j(\beta_j - \hat{\beta}_j)^2 +  \sum_j \text{pen}_\lambda(|\beta_j|)$
+is $\sgn(\beta_j)\left\{|\beta_j| + \text{pen}^\prime_\lambda(|\beta_j|) \right\} - \hat{\beta}_j$
+
+. . .
+
+- Conditions:
+
+  + unbiased: if $\text{pen}^\prime_\lambda(|\beta|) = 0$ for large $|\beta|$; estimator is $\hat{\beta}_j$
+  + thresholding: $\min \left\{ |\beta_j| + \text{pen}^\prime_\lambda(|\beta_j|)\right\} > 0$ then estimator is 0 if 
+$|\hat{\beta}_j| < \min \left\{ |\beta_j| + \text{pen}^\prime_\lambda(|\beta_j|) \right\}$
+
+   + continuity:  minimum of $|\beta_j| + \text{pen}^\prime_\lambda(|\beta_j|)$ is at zero
+
+- Can show that LASSO/ Bayesian Lasso fails conditions for unbiasedness
+
+- What about other Bayes methods?
+
+. . .
+
+::: {.callout-warning} 
+## Homework
+Check the conditions for the Generalized Double Pareto 
+:::
+
+
+## Selection {.smaller}
+
+- Only get variable selection if we use the posterior mode
+
+- If selection is a goal of analysis build it into the model/analysis
+
+    + prior belief that coefficient is zero
+    
+    + selection solved as a post-analysis decision problem
+    
+    
