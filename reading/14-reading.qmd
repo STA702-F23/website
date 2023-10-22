@@ -1,0 +1,32 @@
+---
+title: "Lecture 14: Basics of Hypothesis Testing"
+output: 
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff 
+    + page 16 
+    
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:
+    + Section 7.4: Model comparison using Bayes factors
+
+    
+  
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+  + 5: Tests and Confidence Regions 
+  + 5.1: Introduction
+  + 5.2: A first approach to testing theory
+  + 5.3:  Comparison with the classical approach
+  + 5.4: A second decision-theoretic approach
+ 
+    
