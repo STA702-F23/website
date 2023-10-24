@@ -508,7 +508,21 @@
     "href": "resources/slides/14-hypothesis-testing.html#vague-priors-hypothesis-testing",
     "title": "Lecture 14: Basics of Bayesian Hypothesis Testing",
     "section": "Vague Priors & Hypothesis Testing",
-    "text": "Vague Priors & Hypothesis Testing\n\nAs \\(\\tau_0 \\to 0\\) the \\(\\cal{BF}_{01} \\to \\infty\\) and \\(\\Pr(\\cal{H}_0 \\mid \\mathbf{y}\\to 1\\)!\nAs we use a less & less informative prior for \\(\\theta\\) under \\(\\cal{H}_1\\) we obtain more & more evidence for \\(\\cal{H}_0\\) over \\(\\cal{H}_1\\)!\nKnown as Bartlett’s Paradox - the paradox is that a seemingly non-informative prior for \\(\\theta\\) is very informative about \\(\\cal{H}\\)!\nGeneral problem with nested sequence of models. If we choose vague priors on the additional parameter in the larger model we will be favoring the smaller models under consideration!\nSimilar phenomenon with increasing sample size (Lindley’s Paradox)\n\n\n\n\n\n\n\n\nBottom Line Don’t use vague priors!\n\n\n\n\n\nWhat should we use then?\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Vague Priors & Hypothesis Testing\n\nAs \\(\\tau_0 \\to 0\\) the \\(\\cal{BF}_{01} \\to \\infty\\) and \\(\\Pr(\\cal{H}_0 \\mid \\mathbf{y}\\to 1\\)!\nAs we use a less & less informative prior for \\(\\theta\\) under \\(\\cal{H}_1\\) we obtain more & more evidence for \\(\\cal{H}_0\\) over \\(\\cal{H}_1\\)!\nKnown as Bartlett’s Paradox - the paradox is that a seemingly non-informative prior for \\(\\theta\\) is very informative about \\(\\cal{H}\\)!\nGeneral problem with nested sequence of models. If we choose vague priors on the additional parameter in the larger model we will be favoring the smaller models under consideration!\nSimilar phenomenon with increasing sample size (Lindley’s Paradox)\n\n\n\n\n\n\n\n\nBottom Line Don’t use vague priors!\n\n\n\n\n\nWhat should we use then?"
+  },
+  {
+    "objectID": "resources/slides/14-hypothesis-testing.html#other-options",
+    "href": "resources/slides/14-hypothesis-testing.html#other-options",
+    "title": "Lecture 14: Basics of Bayesian Hypothesis Testing",
+    "section": "Other Options",
+    "text": "Other Options\n\nPlace a prior on \\(\\tau_0\\) \\[\\tau_0 \\sim \\textsf{Gamma}(1/2, 1/2)\\]\nIf \\(\\theta \\mid \\tau_0, \\cal{H}_1 \\sim \\textsf{N}(0, 1/\\tau_0)\\), then \\(\\theta_0 \\mid \\cal{H}_1\\) has a \\(\\textsf{Cauchy}(0,1)\\) distribution! Recommended by Jeffreys (1961)\nno closed form expressions for marginal likelihood!"
+  },
+  {
+    "objectID": "resources/slides/14-hypothesis-testing.html#intrinsic-bayes-factors-priors-berger-pericchi",
+    "href": "resources/slides/14-hypothesis-testing.html#intrinsic-bayes-factors-priors-berger-pericchi",
+    "title": "Lecture 14: Basics of Bayesian Hypothesis Testing",
+    "section": "Intrinsic Bayes Factors & Priors (Berger & Pericchi)",
+    "text": "Intrinsic Bayes Factors & Priors (Berger & Pericchi)\n\nCan’t use improper priors under \\(\\cal{H}_1\\)\nuse part of the data \\(y(l)\\) to update an improper prior on \\(\\theta\\) to get a proper posterior \\(\\pi(\\theta \\mid \\cal{H}_i, y(l))\\)\nuse \\(\\pi(\\theta \\mid y(l), \\cal{H}_i)\\) to obtain the posterior for \\(\\theta\\) based on the rest of the training data\nCalculate a Bayes Factor (avoids arbitrary normalizing constants!)\nChoice of training sample \\(y(l)\\)?\nBerger & Pericchi (1996) propose “averaging” over training samples intrinsic Bayes Factors\nintrinsic prior on \\(\\theta\\) that leads to the Intrisic Bayes Factor\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/12-priors-regression.html#conjugate-priors-in-linear-regression",

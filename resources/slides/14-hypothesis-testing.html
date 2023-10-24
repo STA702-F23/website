@@ -573,11 +573,31 @@ p(\mathbf{y}\mid \cal{H}_i)   = \frac{p(\mathbf{y}\mid \theta, \cal{H}_i) \pi(\t
 </div>
 <div class="fragment">
 <p>What should we use then?</p>
-
-<p><img src="../../img/icon.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
 </div>
+</section>
+<section id="other-options" class="slide level2">
+<h2>Other Options</h2>
+<ul>
+<li class="fragment"><p>Place a prior on <span class="math inline">\(\tau_0\)</span> <span class="math display">\[\tau_0 \sim \textsf{Gamma}(1/2, 1/2)\]</span></p></li>
+<li class="fragment"><p>If <span class="math inline">\(\theta \mid \tau_0, \cal{H}_1 \sim \textsf{N}(0, 1/\tau_0)\)</span>, then <span class="math inline">\(\theta_0 \mid \cal{H}_1\)</span> has a <span class="math inline">\(\textsf{Cauchy}(0,1)\)</span> distribution! Recommended by Jeffreys (1961)</p></li>
+<li class="fragment"><p>no closed form expressions for marginal likelihood!</p></li>
+</ul>
+</section>
+<section id="intrinsic-bayes-factors-priors-berger-pericchi" class="slide level2">
+<h2>Intrinsic Bayes Factors &amp; Priors (Berger &amp; Pericchi)</h2>
+<ul>
+<li class="fragment"><p>Can’t use improper priors under <span class="math inline">\(\cal{H}_1\)</span></p></li>
+<li class="fragment"><p>use part of the data <span class="math inline">\(y(l)\)</span> to update an improper prior on <span class="math inline">\(\theta\)</span> to get a proper posterior <span class="math inline">\(\pi(\theta \mid \cal{H}_i, y(l))\)</span></p></li>
+<li class="fragment"><p>use <span class="math inline">\(\pi(\theta \mid y(l), \cal{H}_i)\)</span> to obtain the posterior for <span class="math inline">\(\theta\)</span> based on the rest of the training data</p></li>
+<li class="fragment"><p>Calculate a Bayes Factor (avoids arbitrary normalizing constants!)</p></li>
+<li class="fragment"><p>Choice of training sample <span class="math inline">\(y(l)\)</span>?</p></li>
+<li class="fragment"><p>Berger &amp; Pericchi (1996) propose “averaging” over training samples <strong>intrinsic Bayes Factors</strong></p></li>
+<li class="fragment"><p><strong>intrinsic prior</strong> on <span class="math inline">\(\theta\)</span> that leads to the Intrisic Bayes Factor</p></li>
+</ul>
+
+
+<img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
 </div>
 </section>
     </div>
