@@ -500,3 +500,45 @@ legend("topright", legend=c("p(y | H0)", "p(y | H1)", "likelihood", "prior", "po
 . . .
 
 What should we use then?
+
+
+## Other Options
+
+- Place a prior on $\tau_0$
+$$\tau_0 \sim \textsf{Gamma}(1/2, 1/2)$$
+
+- If $\theta \mid \tau_0, \cal{H}_1 \sim \textsf{N}(0, 1/\tau_0)$,  then $\theta_0  \mid \cal{H}_1$ has a $\textsf{Cauchy}(0,1)$ distribution!  Recommended by Jeffreys (1961)
+
+
+
+- no closed form expressions for marginal likelihood!
+
+
+
+## Intrinsic Bayes Factors & Priors  (Berger & Pericchi)
+
+- Can't use improper priors under $\cal{H}_1$
+
+
+
+-  use part of the data $y(l)$ to update an improper prior on $\theta$ to get a proper posterior  $\pi(\theta \mid \cal{H}_i, y(l))$
+
+
+
+- use $\pi(\theta \mid y(l), \cal{H}_i)$ to obtain the posterior for $\theta$ based on the rest of the training data
+
+
+
+- Calculate a Bayes Factor (avoids arbitrary normalizing constants!)
+
+
+
+- Choice of training sample $y(l)$? 
+
+- Berger & Pericchi (1996) propose "averaging" over training samples  **intrinsic Bayes Factors**
+
+
+
+
+- **intrinsic prior** on $\theta$ that leads to the Intrisic Bayes Factor  
+
