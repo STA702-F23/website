@@ -29,6 +29,7 @@
 \newcommand{\Poi}{\text{Poi}}
 \newcommand{\Gam}{\textsf{Gamma}}
 \newcommand{\BB}{\textsf{BB}}
+\newcommand{\BF}{\textsf{BF}}
 \newcommand{\Gm}{\textsf{G}}
 \newcommand{\Un}{\textsf{Unif}}
 \newcommand{\Ex}{\textsf{Exp}}
