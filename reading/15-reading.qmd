@@ -1,0 +1,39 @@
+---
+title: "Lecture 12: Multiple Testing & Empirical Bayes "
+output: 
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+
+[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full
+
+[Empirical Bayes Correction for the Winner's Curse in Genetic Association Studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4048064/)
+  
+[Mixture of g-priors](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337)
+ 
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
+  
+
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+  + Section 11.1: Gibbs sampler
+  + Section 11.2: Metropolis and Metropolis-Hastings algorithms 
+  + Section 11.3: Using Gibbs and Metropolis as building blocks
+  + Section 11.7: Bibliographic note
+  + Section 14.1: Conditional modeling
+  + Section 14.2: Bayesian analysis of the classical regression model
+
+
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+
+    
