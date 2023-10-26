@@ -1,8 +1,5 @@
 ---
-title: "Lecture 12: Multiple Testing & Empirical Bayes "
-output: 
-  html_document:
-    theme: yeti
+title: "Lecture 15: Bayes Multiple Testing & Empirical Bayes "
 ---
 
 ```{r setup, include=FALSE}
