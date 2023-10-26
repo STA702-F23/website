@@ -348,131 +348,146 @@ Merlise Clyde
 </section>
 <section id="normal-means-model" class="slide level2">
 <h2>Normal Means Model</h2>
-<p>Suppose we have normal data with <span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf(\mu_i, \sigma^2)\]</span></p>
+<p>Suppose we have normal data with <span class="math inline">\(Y_i \mid \mu_i, \sigma^2 \overset{iid}{\sim} \textsf{N}(\mu_i, \sigma^2)\)</span></p>
 <ul>
-<li class="fragment"><p><span class="math inline">\(H_{0i}: \mu_i = 0\)</span> versus <span class="math inline">\(H_{1i}: \mu_i \neq 0\)</span></p></li>
-<li class="fragment"><p>Spike &amp; Slab Prior:</p></li>
-</ul>
-<p><span class="math display">\[\mu_i \overset{iid}{\sim} \pi_0 \delta_0 + (1 - \pi_0)g(\mu_i \mid 0,  \tau, H_{i1})\]</span></p>
-<ul>
+<li class="fragment"><p><strong>Multiple Testing</strong> <span class="math inline">\(H_{0i}: \mu_i = 0\)</span> versus <span class="math inline">\(H_{1i}: \mu_i \neq 0\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(n\)</span> hypotheses that may potentially be closely related, e.g.&nbsp;<span class="math inline">\(H_{01}\)</span> no difference in expression of gene <span class="math inline">\(i\)</span> between cases and controls, for <span class="math inline">\(n\)</span> genes</p></li>
+<li class="fragment"><p>Means Model based on a “Spike &amp; Slab” Prior: <span class="math display">\[\mu_i  \mid  \tau \overset{iid}{\sim} \pi_0 \delta_0 + (1 - \pi_0)g(\mu_i \mid 0,  \tau)\]</span></p></li>
 <li class="fragment"><p>need to specify</p></li>
-<li class="fragment"><p><span class="math inline">\(\pi_0\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(g\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\pi_0\)</span> Probability of <span class="math inline">\(H_{0i}\)</span> or that <span class="math inline">\(\mu_{i} = 0\)</span> (spike)</p></li>
+<li class="fragment"><p><span class="math inline">\(g\)</span> “slab distribution”</p></li>
 <li class="fragment"><p>concern: is that # errors blows up with <span class="math inline">\(n\)</span> (<span class="math inline">\(n\)</span> = # tests = dimension of <span class="math inline">\(\{\mu_i\}\)</span> )</p></li>
 </ul>
 </section>
 <section id="approach-1-prespecify-pi_0" class="slide level2">
 <h2>Approach 1: Prespecify <span class="math inline">\(\pi_0\)</span></h2>
-<p><span class="math inline">\(\pi_0 = \Pr(H_{0i})\)</span></p>
 <ul>
-<li class="fragment">seemingly non-informative choice?</li>
+<li class="fragment"><p>seemingly non-informative choice?<br>
+<span class="math inline">\(\pi_0 = 0.5\)</span></p></li>
+<li class="fragment"><p>Let <span class="math display">\[\gamma_i = \left\{ \begin{array}{c} 1 \text{ if }  H_{1i} \text{ is true } \\
+0 \text{ if }  H_{0i} \text{ is true } \end{array} \right.\]</span></p></li>
 </ul>
-<p><span class="math display">\[\pi_0 = 0.5\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\gamma^{(n)} = (\gamma_1, \gamma_2, \ldots, \gamma_n)^2  \qquad \text{ e.g.   } \gamma^{(n)} = (0,1,0,0, \ldots, 1)^T\]</span></p>
 <ul>
-<li class="fragment"><p>What does imply about the “model size” prior? The number of times <span class="math inline">\(H_{1i}\)</span> is true?</p></li>
-<li class="fragment"><p>Let</p></li>
+<li class="fragment">model size <span class="math inline">\(p_\gamma = \sum_{i = 1}^n \gamma_i\)</span> is the number of non-zero values. What does <span class="math inline">\(\pi_0 = 0.5\)</span> imply about the number of times <span class="math inline">\(H_{1i}\)</span> is true <em>a priori</em>?</li>
 </ul>
-<p><span class="math display">\[\gamma_i = \left\{ \begin{array}{c} 1 \text{ if }  H_{1i} \text{ is true } \\
-0 \text{ if }  H_{0i} \text{ is true } \end{array} \right.\]</span></p>
-<p><span class="math display">\[\gamma^{(n)} = (\gamma_1, \gamma_2, \ldots, \gamma_n)^2\]</span></p>
-<ul>
-<li class="fragment"><p>e.g.&nbsp;<span class="math inline">\(\gamma^{(n)} = (0,1,0,0, \ldots, 1)^T\)</span></p></li>
-<li class="fragment"><p>model size <span class="math inline">\(p_\gamma = \sum_{i = 1}^n \gamma\)</span> is the number of non-zero values</p></li>
-<li class="fragment"><p>Distribution of <span class="math inline">\(p_\gamma\)</span>?</p></li>
-</ul>
+</div>
 </section>
 <section id="induced-distribution" class="slide level2">
 <h2>Induced Distribution</h2>
+<p>if <span class="math inline">\(p_\gamma = \sum_{i = 1}^n \gamma_i\)</span> with <span class="math inline">\(p(\gamma_i = 1) = 0.5\)</span> then <span class="math inline">\(p_\gamma \sim \textsf{Binomial(n, 1/2)}\)</span></p>
+<ul>
+<li class="fragment">Expect 1/2 of the hypotheses to be true <em>a priori</em></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="15-Bayes-multiple-testing_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="probabilities-of-no-features-or-at-least-1-feature" class="slide level2">
+<h2>Probabilities of no features or at least 1 feature?</h2>
 <p><span class="math display">\[p_\gamma \sim \textsf{Binomial(n, 1/2)}\]</span></p>
 <ul>
-<li class="fragment">Expected 1/2 of the hypotheses to be true a priori</li>
-</ul>
-
-<img data-src="15-Bayes-multiple-testing_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
-<section id="probabities-of-no-or-at-least-1-signal" class="slide level2">
-<h2>Probabities of no or at least 1 signal</h2>
-<p><span class="math display">\[p_\gamma \sim \textsf{Binomial(n, 1/2)}\]</span></p>
-<ul>
-<li class="fragment">probability of observing no signals <span class="math inline">\(\gamma^{(n)} = (0,0,0,\ldots, 0)^T\)</span> or <span class="math inline">\(p_\gamma = 0\)</span></li>
-</ul>
-<p><span class="math display">\[\Pr(p_\gamma = 0) = \pi_0^n = 0.5^n\]</span></p>
-<ul>
+<li class="fragment"><p>probability of no features <span class="math inline">\(\gamma^{(n)} = (0,0,0,\ldots, 0)^T\)</span> or <span class="math inline">\(p_\gamma = 0\)</span> <span class="math display">\[\Pr(p_\gamma = 0) = \pi_0^n = 0.5^n\]</span></p></li>
 <li class="fragment"><p>approximately <span class="math inline">\(0\)</span> for large <span class="math inline">\(n\)</span></p></li>
-<li class="fragment"><p>probability of at least one signal is <span class="math inline">\(1 - 0.5^n \approx 1\)</span></p></li>
+<li class="fragment"><p>Similarily, the probability of at least one feature is <span class="math inline">\(1 - 0.5^n \approx 1\)</span></p></li>
 </ul>
 </section>
 <section id="control-type-i-errors" class="slide level2">
 <h2>Control Type I Errors</h2>
 <ul>
-<li class="fragment">Suppose we want to fix <span class="math inline">\(\pi_0\)</span> that protexts against Type I errors blowing up as <span class="math inline">\(n\)</span> increases</li>
-</ul>
-<p><span class="math display">\[\Pr( p_\gamma = \mathbf{0}_n) =  \frac{1}{2} = \pi_0^n\]</span></p>
-<ul>
+<li class="fragment"><p>Suppose we want to fix <span class="math inline">\(\pi_0\)</span> to protect against Type I errors blowing up as <span class="math inline">\(n\)</span> increases <span class="math display">\[\Pr( p_\gamma = \mathbf{0}_n) =  \frac{1}{2} = \pi_0^n\]</span></p></li>
 <li class="fragment"><p>“Bayesian Bonferroni Prior”</p></li>
-<li class="fragment"><p>so <span class="math inline">\(\pi_0 = 0.5^{1/n}\)</span> very close to 1 ! Need overwhelming evidence in the data for <span class="math inline">\(\Pr(H_{1i} \mid y^{(n)})\)</span> to not be <span class="math inline">\(\approx 0\)</span>!</p></li>
+<li class="fragment"><p>leads to <span class="math inline">\(\pi_0 = 0.5^{1/n}\)</span> very close to 1 for large <span class="math inline">\(n\)</span>! We would need overwhelming evidence in the data for <span class="math inline">\(\Pr(H_{1i} \mid y^{(n)})\)</span> to not be <span class="math inline">\(\approx 0\)</span>!</p></li>
 <li class="fragment"><p>not a great idea to prespecify <span class="math inline">\(\pi_0\)</span>!</p></li>
 </ul>
 </section>
 <section id="approach-2-empirical-bayes" class="slide level2">
 <h2>Approach 2: Empirical Bayes</h2>
 <ul>
-<li class="fragment">We could try to maximize the marginal likelihood</li>
-</ul>
-<p><span class="math display">\[Y_i \mid \mu_i, \sigma^2 \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2)\]</span></p>
-<p><span class="math display">\[\mu_i \overset{iid}{\sim} \pi_0 \delta_0 + (1 - \pi_0)\textsf{N}(\mu_i; 0,  \tau)\]</span></p>
-<p><span class="math display">\[\begin{align*} \cal{L}(\pi_0, \tau) &amp; =  \int_{\mathbb{R}^n} \prod_{i = 1}^n  \textsf{N}(y_i ; \mu_i, \sigma^2) \left\{\pi_0 \delta_0(\mu_i) + (1 - \pi_0)\textsf{N}(\mu_i; 0,  \tau) \right\} d\mu_1 \ldots d\mu_n
+<li class="fragment"><p>Estimate <span class="math inline">\(\pi_0\)</span> from the data by maximizing the marginal likelihood<br>
+<span class="math display">\[\begin{align}
+Y_i \mid \mu_i, \sigma^2 \mid \overset{ind}{\sim} \textsf{N}(\mu_i, \sigma^2) \\
+\mu_i \mid \tau, \pi_0 &amp; \overset{iid}{\sim} \pi_0 \delta_0 + (1 - \pi_0)\textsf{N}(\mu_i; 0,  \tau)
+\end{align}\]</span></p></li>
+<li class="fragment"><p>marginal likelihood <span class="math display">\[\begin{align*} \cal{L}(\pi_0, \tau) &amp; =  \int_{\mathbb{R}^n} \prod_{i = 1}^n  \textsf{N}(y_i ; \mu_i, \sigma^2) \left\{\pi_0 \delta_0(\mu_i) + (1 - \pi_0)\textsf{N}(\mu_i; 0,  \tau) \right\} d\mu_1 \ldots d\mu_n
 \\
 &amp; =  \prod_{i = 1}^n  \int_\mathbb{R}  \textsf{N}(y_i ; \mu_i, \sigma^2) \left\{\pi_0 \delta_0(\mu_i) + (1 - \pi_0)\textsf{N}(\mu_i; 0,  \tau) \right\} d\mu_i
-\end{align*}\]</span></p>
-<ul>
+\end{align*}\]</span></p></li>
 <li class="fragment"><p>Conjugate or nice setups we can integrate out <span class="math inline">\(\mu_i\)</span> and then maximize marginal likelihood for <span class="math inline">\(\pi_0\)</span> and <span class="math inline">\(\tau\)</span></p></li>
-<li class="fragment"><p>Numerical integration or EM algorithms to get <span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> and <span class="math inline">\(\hat{\tau}^{\textsf{EB}}\)</span></p></li>
-<li class="fragment"><p>Clyde &amp; George (2000) Silverman &amp; Johnstone (2004) for wavelet regression</p></li>
+<li class="fragment"><p>Numerical integration (lab) or EM algorithms to get <span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> and <span class="math inline">\(\hat{\tau}^{\textsf{EB}}\)</span></p></li>
 </ul>
 </section>
-<section id="expectation-maximization" class="slide level2">
-<h2>Expectation-Maximization</h2>
-<ul>
-<li class="fragment">introduce latent variables so that “complete” data likelihood is nice! e.g.&nbsp;<span class="math inline">\(\gamma\)</span>:</li>
-</ul>
-<p><span class="math display">\[ y_i \mid \gamma_i, \tau \overset{ind}{\sim} \textsf{N}(0, 1)^{1 - \gamma_i} \textsf{N}(0, 1 + \tau)^{\gamma_i}\]</span> <span class="math display">\[\gamma_i \overset{iid}{\sim} \textsf{Ber}(1 - \pi_0)\]</span></p>
+<section id="expectation-maximization-sigma-1" class="slide level2">
+<h2>Expectation-Maximization (<span class="math inline">\(\sigma = 1\)</span>)</h2>
+<p>Introduce latent variables so that “complete” data likelihood is nice! (no integrals!) <span class="math display">\[\begin{align} y_i \mid \gamma_i, \tau &amp; \overset{iid}{\sim} \textsf{N}(0, 1)^{1 - \gamma_i} \textsf{N}(0, 1 + \tau)^{\gamma_i} \\
+\gamma_i \mid \pi_0 &amp; \overset{iid}{\sim} \textsf{Ber}(1 - \pi_0)
+\end{align}\]</span></p>
 <ul>
 <li class="fragment"><p>Iterate: For <span class="math inline">\(t = 1, \ldots\)</span></p></li>
 <li class="fragment"><p>M-step: Solve for <span class="math inline">\((\hat{\pi}_0^{(t)}, \hat{\tau}^{(t)}) = \arg \max\cal{L}(\pi_0, \tau \mid \hat{\gamma}^{(t-1)})\)</span></p></li>
-<li class="fragment"><p>E-step: find the expected values of the latent sufficient statistics given the data, <span class="math inline">\(\hat{\pi}_0^{(t)}\)</span> , <span class="math inline">\(\hat{\tau}^{(t)}\)</span></p></li>
+<li class="fragment"><p>E-step: find the expected values of the latent sufficient statistics given the data, <span class="math inline">\(\hat{\pi}_0^{(t)}\)</span> , <span class="math inline">\(\hat{\tau}^{(t)}\)</span> (i.e.&nbsp;posterior expectation) <span class="math display">\[\hat{\gamma}^{(t)} = \textsf{E}[\gamma_i \mid y, \hat{\pi}^{(t)}_0, \hat{\tau}^{(t)}]\]</span></p></li>
+<li class="fragment"><p>Clyde &amp; George (2000) Silverman &amp; Johnstone (2004) for orthogonal regression</p></li>
 </ul>
-<p><span class="math display">\[\hat{\gamma}^{(t)} = \textsf{E} [\gamma_i \mid y, \hat{\pi}^{(t)}_0, \hat{\tau}^{(t)}]\]</span></p>
+</section>
+<section id="m-step" class="slide level2">
+<h2>M-Step</h2>
+<ul>
+<li class="fragment"><p>log-likelihood <span class="math display">\[\begin{align} \cal{L}(\pi_0, \tau) = &amp;  \sum_i (1 -\gamma_i) \log(\pi_0) + \gamma_i \log(1 - \pi_0) + \\
+&amp; \sum_i(1 - \gamma_i) N(y_i; 0, 1) + \gamma_i N(y_i; 0, 1 + \tau)
+\end{align}\]</span></p></li>
+<li class="fragment"><p>plug in <span class="math inline">\(\hat{\gamma}_i^{(t)}\)</span> above and maximize wrt <span class="math inline">\(\pi_0\)</span> and <span class="math inline">\(\tau\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\hat{\pi}_0^{(t)} = 1 - \frac{\sum_i\hat{\gamma}_i^{(t)}}{n}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\hat{\tau}^{(t)} = \max\{0, \frac{\sum_i \hat{\gamma}_i^{(t)} y_i^2}{\sum_i \hat{\gamma}_i^{(t)}} - 1\}\)</span></p></li>
+</ul>
+</section>
+<section id="e-step" class="slide level2">
+<h2>E-Step</h2>
+<p>Posterior distribution for <span class="math inline">\(\gamma_i \mid y_i, \hat{\tau}, \hat{\pi}\)</span> <span class="math display">\[\gamma_i \mid y_i, \hat{\tau}, \hat{\pi}_0 \mathrel{\mathop{\sim}\limits^{\rm iid}}\textsf{Ber}(\omega_{i})\]</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(\omega_i = \frac{\cal{O}_i}{1 + \cal{O}_i}\)</span> with posterior odds <span class="math inline">\(\cal{O}_i\)</span> <span class="math display">\[\begin{align}
+\cal{O}_i &amp; = \frac{1 - \hat{\pi}^{(t)}_0}{\hat{\pi}^{(t)}_0} \times \textsf{BF}_{10} \\
+\textsf{BF}_{10} &amp; = \frac{p(y \mid \gamma_i = 1, \hat{\tau}^{(t)})}{p(y \mid \gamma_i = 0)} =
+\frac{1}{(1 + \hat{\tau}^{(t)})^{1/2}} e^{ \frac{1}{2} y_i^2 \frac{\hat{\tau}^{(t)}} {1 + \hat{\tau}^{(t)}}}
+\end{align}\]</span></li>
+</ul>
 </section>
 <section id="adding-noise" class="slide level2">
 <h2>Adding Noise</h2>
-<p>What happens to <span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> as we add more and more noise to a fixed number of signals?</p>
+<p>What happens to <span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> if have all noise?</p>
 <ul>
-<li class="fragment"><p><span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> becomes closer to one as <span class="math inline">\(n \to \infty\)</span> for a fixed number of true signals</p></li>
-<li class="fragment"><p>This is good as it protects against Type I errors blowing up as <span class="math inline">\(n\)</span> increases!</p></li>
-<li class="fragment"><p>However it becomes more and more difficult to find the few needles in a haystack!</p></li>
+<li class="fragment"><p><span class="math inline">\(\hat{\tau} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span> (here <span class="math inline">\(n = 10000\)</span>) (<span class="math inline">\(\hat{\tau}^{(t)} = \max\{0, \frac{\sum_i \hat{\gamma}_i^{(t)} y_i^2}{\sum_i \hat{\gamma}_i^{(t)}} - 1\}\)</span> ) so distribution collapses to the same as the noise model</p></li>
+<li class="fragment"><p><span class="math inline">\(\textsf{BF}_{10} \to 1\)</span> so <span class="math inline">\(\hat{\pi}_0^{(t)} = \hat{\pi}_0^{(0)}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\hat{\pi}_0^{\textsf{EB}}\)</span> gets stuck at initial value of <span class="math inline">\(\pi_0\)</span>!</p></li>
+<li class="fragment"><p>posterior probability of <span class="math inline">\(H_{1i}\)</span> not consistent as well as <span class="math inline">\(\pi_0\)</span></p></li>
+<li class="fragment"><p>similar problems with convergence to a local mode with even with more features</p></li>
 </ul>
 </section>
 <section id="approach-3-fully-bayes" class="slide level2">
 <h2>Approach 3: Fully Bayes</h2>
-<p>Choose a prior for <span class="math inline">\(\pi_0\)</span>: <span class="math inline">\(\pi_0 \sim \textsf{Beta}(a,b)\)</span></p>
-<p>Consider the thought experiment …</p>
-<p><span class="math display">\[\gamma^{(n)} = (?, 0,,\ldots, 0)^T\]</span></p>
-<p>where we don’t know the first hypothesis but we know that the others are all null <span class="math inline">\(\gamma_j = 0\)</span> for <span class="math inline">\(j = 2, \ldots, n\)</span></p>
+<p>Choose a prior for <span class="math inline">\(\pi_0\)</span> (and <span class="math inline">\(\tau\)</span>), simplest case <span class="math inline">\(\pi_0 \sim \textsf{Beta}(a,b)\)</span></p>
 <ul>
+<li class="fragment"><p>Consider the thought experiment where we don’t know the first hypothesis but we know that the others are all null <span class="math inline">\(\gamma_j = 0\)</span> for <span class="math inline">\(j = 2, \ldots, n\)</span> <span class="math display">\[\gamma^{(n)} = (?, 0,,\ldots, 0)^T\]</span></p></li>
 <li class="fragment"><p><span class="math inline">\(\gamma_i \sim \textsf{Bernoulli}(1 - \pi_0)\)</span></p></li>
-<li class="fragment"><p>Update the prior for <span class="math inline">\(\pi_0\)</span> to include the info <span class="math inline">\(\gamma_j = 0\)</span> for <span class="math inline">\(j = 2, \ldots, n\)</span></p></li>
+<li class="fragment"><p>Update the prior for <span class="math inline">\(\pi_0\)</span> to include the info <span class="math inline">\(\gamma_j = 0\)</span> for <span class="math inline">\(j = 2, \ldots, n\)</span> <span class="math display">\[\begin{align}
+\pi(\pi_0 \mid \gamma_2, \ldots, \gamma_n) &amp; \propto \pi_0^{a - 1} (1 - \pi_0)^{b -1} \prod_{j = 2}^n \pi_0^{1 - \gamma_j} (1 - \pi_0)^{\gamma_j}\\
+\pi(\pi_0  \mid \gamma_2, \ldots, \gamma_n) &amp; \propto \pi_0^{a + n -1  -1} (1 - \pi_0)^{b - 1}
+\end{align}\]</span></p></li>
 </ul>
-<p><span class="math display">\[\pi(\pi_0 \mid \gamma_2, \ldots, \gamma_n) \propto \pi_0^{a - 1} (1 - \pi_0)^{b -1} \prod_{j = 2}^n \pi_0^{1 - \gamma_j} (1 - \pi_0)^{\gamma_j}\]</span></p>
-<p><span class="math display">\[\pi(\pi_0  \mid \gamma_2, \ldots, \gamma_n) \propto \pi_0^{a + n -1  -1} (1 - \pi_0)^{b - 1}\]</span></p>
 </section>
 <section id="beta-posterior" class="slide level2">
 <h2>Beta Posterior</h2>
-<p><span class="math display">\[\pi_0 \mid \gamma_2, \ldots, \gamma_n \sim \textsf{Beta(a + n - 1, b)}\]</span> with mean <span class="math display">\[\textsf{E}[\pi_0 \mid \gamma_2, \ldots, \gamma_n] = \frac{a + n - 1}{a + n - 1 + b}\]</span></p>
+<p>Posterior <span class="math inline">\(\pi_0 \mid \gamma_2, \ldots, \gamma_n \sim \textsf{Beta(a + n - 1, b)}\)</span> with mean <span class="math display">\[\textsf{E}[\pi_0 \mid \gamma_2, \ldots, \gamma_n] = \frac{a + n - 1}{a + n - 1 + b}\]</span></p>
 <ul>
-<li class="fragment">suppose <span class="math inline">\(a = b = 1\)</span> (Uniform prior)</li>
-</ul>
-<p><span class="math display">\[\textsf{E}[\pi_0 \mid \gamma_2, \ldots, \gamma_n] = \frac{n}{n + 1}\]</span></p>
-<ul>
+<li class="fragment"><p>suppose <span class="math inline">\(a = b = 1\)</span> (Uniform prior) <span class="math display">\[\textsf{E}[\pi_0 \mid \gamma_2, \ldots, \gamma_n] = \frac{n}{n + 1}\]</span></p></li>
 <li class="fragment"><p>implies probability of <span class="math inline">\(H_{01} \to 1\)</span> and <span class="math inline">\(H_{11} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span> borrowing strength from other nulls</p></li>
 <li class="fragment"><p>Multiplicity adjustment as in the EB case</p></li>
 <li class="fragment"><p>Scott &amp; Berger (2006 JSPI, 2010 AoS) show that above framework protects against increasing Type I errors with <span class="math inline">\(n\)</span>; We also get FDR control automatically</p></li>
@@ -480,38 +495,54 @@ Merlise Clyde
 </section>
 <section id="induced-prior-on-p_gamma" class="slide level2">
 <h2>Induced Prior on <span class="math inline">\(p_{\gamma}\)</span></h2>
-<p>Exercise: If <span class="math inline">\(p_{\gamma} \mid \pi_0 \sim \textsf{Binomial}(n, 1 - \pi_0)\)</span> and <span class="math inline">\(\pi_0 \sim \textsf{Beta}(1,1)\)</span></p>
+<div class="callout callout-tip callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise for the Energetic Student:</strong></p>
+</div>
+<div class="callout-content">
+<p>If <span class="math inline">\(p_{\gamma} \mid \pi_0 \sim \textsf{Binomial}(n, 1 - \pi_0)\)</span> and <span class="math inline">\(\pi_0 \sim \textsf{Beta}(1,1)\)</span></p>
 <ul>
 <li class="fragment"><p>What is the probability that <span class="math inline">\(p_\gamma = 0\)</span></p></li>
 <li class="fragment"><p>What is the probability that <span class="math inline">\(p_\gamma = n\)</span></p></li>
-<li class="fragment"><p>What is the distribution of <span class="math inline">\(p_\gamma\)</span> ?</p></li>
+<li class="fragment"><p>What is the distribution of <span class="math inline">\(p_\gamma\)</span> ?<br>
+</p></li>
 </ul>
-<p>This is a Beta-Binomial and in the special case <span class="math inline">\(a = b = 1\)</span> this is a discrete uniform on model size!</p>
-<p>Bottomline: We need to “learn” key parameters in our hierarchical prior or the magic doesn’t work! Borrowing comes through using all the data to inform about “global” parameters in the prior, in this case <span class="math inline">\(\pi_0\)</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">This is a Beta-Binomial distribution!</li>
+<li class="fragment">special case <span class="math inline">\(a = b = 1\)</span> this is a discrete uniform on model size!</li>
+</ul>
+<div class="fragment">
+<p><strong>Bottomline:</strong> We need to “learn” key parameters in our hierarchical prior or the magic doesn’t work! Borrowing comes through using all the data to inform about “global” parameters in the prior, in this case <span class="math inline">\(\pi_0\)</span> (and <span class="math inline">\(\tau\)</span>)!</p>
+</div>
 </section>
 <section id="posteriors-inference-and-decisions" class="slide level2">
 <h2>Posteriors, Inference and Decisions</h2>
 <ul>
-<li class="fragment"><p>Joint posterir distribution of <span class="math inline">\(\mu_1, \ldots, \mu_n\)</span> averaged over hypotheses “Model averaging”</p></li>
-<li class="fragment"><p>distribution is a spike at 0 and continous distribution</p></li>
+<li class="fragment"><p>Posterior distribution of <span class="math inline">\(\mu_i\)</span> is a spike at 0 and continous distribution</p></li>
+<li class="fragment"><p>Joint posterior distribution of <span class="math inline">\(\mu_1, \ldots, \mu_n\)</span> averaged over hypotheses “Model averaging”</p></li>
 <li class="fragment"><p>select a hypothesis</p></li>
-<li class="fragment"><p>report posterior (summaries) conditional on a hypothesis</p></li>
-<li class="fragment"><p>issue <strong>winner’s curse</strong> !</p></li>
-<li class="fragment"><p>need to have coherent conditional inference given that you selected a hypothesis.</p></li>
+<li class="fragment"><p>Report posterior (summaries) conditional on a hypothesis</p></li>
+<li class="fragment"><p>Issue is the <strong>winner’s curse</strong> !</p></li>
+<li class="fragment"><p>Need to have coherent conditional inference given that you selected a hypothesis.</p></li>
 <li class="fragment"><p>Don’t report selected hypotheses but report results under model averaging!</p></li>
 </ul>
 </section>
-<section id="choice-of-g" class="slide level2">
-<h2>Choice of <span class="math inline">\(g\)</span></h2>
+<section id="choice-of-slab" class="slide level2">
+<h2>Choice of Slab</h2>
 <p><span class="math display">\[\mu_i \overset{iid}{\sim} \pi_0 \delta_0 + (1 - \pi_0)g(\mu_i \mid 0,  \tau, H_{i1})\]</span></p>
 <ul>
 <li class="fragment"><p>growing literature on posterior contraction in high dimensional settings as <span class="math inline">\(n \to \infty\)</span> with “sparse signals”</p></li>
 <li class="fragment"><p>posterior <span class="math inline">\(\pi(\mu^{(n)}) \mid y^{(n)})\)</span></p></li>
-</ul>
-<p>Want <span class="math display">\[\Pr(\mu^{(n)} \in \cal{N}_{\epsilon_n}(\mu_0^{(n)}) \mid y^{(n)})\to 1\]</span></p>
-<ul>
-<li class="fragment"><p>assume that there are <span class="math inline">\(s\)</span> signals (fixed or growing slowly)</p></li>
-<li class="fragment"><p>signal values are bounded away from zero</p></li>
+<li class="fragment"><p>Want <span class="math display">\[\Pr(\mu^{(n)} \in \cal{N}_{\epsilon_n}(\mu_0^{(n)}) \mid y^{(n)})\to 1\]</span></p></li>
+<li class="fragment"><p>assume that there are <span class="math inline">\(s\)</span> features (fixed or growing slowly)</p></li>
+<li class="fragment"><p>feature values are bounded away from zero</p></li>
 <li class="fragment"><p>Want the posterior under the Spike and Slab prior to concentrate on this neighborhood (ie. probability 1 )</p></li>
 <li class="fragment"><p>active area of research!</p></li>
 </ul>
