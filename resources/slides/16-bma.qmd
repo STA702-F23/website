@@ -326,3 +326,53 @@ summary(poll.bma, n.models=4)
  par(mfrow=c(2,3));  plot(beta, subset=2:7,ask=F)
 ```
 
+## Posterior Distribution  with Uniform Prior on Model Space
+
+```{r}
+#| echo: true
+#| out.width: "7in"
+#| out.height: "5in" 
+#| fig.height: 6
+#| fig.width=: 9
+image(poll.bma, rotate=FALSE)
+```
+
+
+## Posterior Distribution  with BB(1,1) Prior on Model Space
+
+
+
+
+```{r}
+#| echo: true
+poll.bb.bma = bas.lm(log(SO2) ~ temp + log(mfgfirms) +
+                                log(popn) + wind +
+                                precip + raindays,
+                     data=usair,
+                     prior="JZS",
+                     alpha=nrow(usair),
+                     n.models=2^6,  #enumerate
+                     modelprior=beta.binomial(1,1))
+```
+
+
+## Posterior Distribution  with BB(1,1) Prior on Model Space
+
+
+```{r}
+#| echo: true
+#| out.width: "7in"
+#| out.height: "5in" 
+#| fig.height: 6
+#| fig.width=: 9
+image(poll.bb.bma, rotate=FALSE)
+```
+
+
+## Summary
+
+
+ -  Choice of prior on $\bg$ 
+ -  g-priors or mixtures of $g$ (sensitivity)
+ -  priors on the models (sensitivity)
+ -  posterior summaries - select a model or "average" over all models
