@@ -1,0 +1,328 @@
+---
+title: "Lecture 16: Bayesian Variable Selection and Model Averaging"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(42)
+require(BAS)
+require(HH)
+```
+
+
+## Normal Regression Model
+
+{{< include macros.qmd >}}
+
+Centered regression model where $\X^c$ is the $n \times p$ centered design matrix where all variables have
+had their means subtracted (may or may not need to be standardized)
+    
+$$\Y = \one_n \alpha + \X^c \b + \eps$$
+  
+-  "Redundant"  variables lead to unstable estimates  
+-  Some variables may not be relevant at all ($\beta_j = 0$)
+-  We want to reduce the dimension of the predictor space
+-  How can we infer a "good" model that uses a subset of predictors from the data?
+-  Expand model hierarchically to introduce another latent variable $\g$ that encodes models $\Mg$
+  $\g = (\gamma_1, \gamma_2, \ldots \gamma_p)^T$ where
+  \begin{align*}
+  \gamma_j = 0 & \Leftrightarrow \beta_j = 0 \\
+  \gamma_j = 1 &  \Leftrightarrow \beta_j \neq 0 
+  \end{align*}
+
+-  Find Bayes factors and posterior probabilities of models $\Mg$
+
+  
+  
+## Priors
+
+With $2^p$ models, subjective priors  for $\b$ are out of the question for moderate $p$ and improper priors lead to arbitrary Bayes factors leading to **conventional priors** on model specific parameters 
+
+- Zellner's g-prior and related have attractive properties as a starting point
+$$\b_\gamma \mid \alpha, \phi, \g \sim \N(0, g \phi^{-1}
+  ({\Xg^c}^\prime \Xg^c)^{-1})$$
+  
+- Independent Jeffrey's prior on common parameters $(\alpha, \phi)$  
+$p(\alpha, \phi) \propto 1/\phi$
+
+
+- marginal likelihood of $\g$ that is proportional
+to 
+$$ p(\Y \mid \g) = C (1 + g)^{\frac{n-p-1}{2}} ( 1 + g (1 -
+ R^2_\gamma))^{- \frac{(n-1)}{2}}$$
+
+- $R^2_\gamma$ is the usual coefficient of determination for model $\Mg$.
+
+- $C$ is a constant common to all models (proportional to the marginal likelihood of the null model where $\bg = \zero_p$
+
+## Sketch for Marginal
+
+
+- Integrate out $\bg$  using sums of normals  
+- Find inverse of $\I_n + g \P_{\Xg}$  (properties of projections or Sherman-Woodbury-Morrison Theorem)  
+- Find determinant of $\phi (\I_n + g \P_{\Xg})$   
+- Integrate out intercept (normal)   
+- Integrate out $\phi$  (gamma)   
+- algebra to simplify quadratic forms to  $R^2_{\g}$
+
+. . .
+
+Or integrate $\alpha$, $\bg$ and $\phi$  (complete the square!)
+
+
+
+## Posterior Distributions on Parameters
+
+\begin{align*}\alpha \mid \g, \phi, y & \sim \textsf{N}\left(\bar{y}, \frac{1}{n \phi}\right)\\
+\boldsymbol{\beta}_{\g} \mid \g, \phi, g, y &\sim \textsf{N}\left( \frac{g}{1 + g} \hat{\boldsymbol{\beta}}_{\gamma}, \frac{g}{1 + g} \frac{1}{\phi} \left[{\boldsymbol{X}_{\gamma}}^T \boldsymbol{X}_{\gamma} \right]^{-1}  \right) \\
+\phi \mid \gamma, y & \sim \textsf{Gamma}\left(\frac{n-1}{2}, \frac{\textsf{TotalSS} - \frac{g}{1+g} \textsf{RegSS}}{2}\right) \\
+\textsf{TotalSS} & \equiv \sum_i (y_i - \bar{y})^2 \\
+\textsf{RegSS} & \equiv \hat{\boldsymbol{\beta}}_\gamma^T \boldsymbol{X}_\gamma^T \boldsymbol{X}_\gamma \hat{\beta}\gamma \\
+R^2_\gamma & = \frac{\textsf{RegSS}}{\textsf{TotalSS}}  = 1 - \frac{\textsf{ErrorSS}}{\textsf{TotalSS}}
+\end{align*}
+
+## Priors on Model Space
+
+$p(\Mg) \Leftrightarrow p(\g)$
+
+- Fixed prior probability  $\gamma_j$  $p(\gamma_j = 1) = .5 \Rightarrow P(\Mg) = .5^p$  
+
+- Uniform on space of models  $\pg \sim \Bin(p, .5)$
+- Hierarchical prior 
+$$\begin{align}
+\gamma_j \mid \pi & \iid \Ber(\pi) \\
+\pi & \sim \Be(a,b) \\
+\text{then  }  \pg & \sim \BB_p(a, b)
+\end{align}$$
+
+. . .
+
+
+$$
+p(\pg \mid p, a, b) = \frac{ \Gamma(p + 1) \Gamma(\pg + a) \Gamma(p - \pg + b) \Gamma (a + b) }{\Gamma(\pg+1) \Gamma(p - \pg + 1) \Gamma(p + a + b) \Gamma(a) \Gamma(b)}
+$$
+- Uniform on Model Size $\Rightarrow \pg \sim \BB_p(1, 1) \sim \Un(0, p)$
+
+## Posterior Probabilities of Models
+
+- Calculate posterior distribution analytically under enumeration. 
+  $$p(\Mg \mid \Y )= \frac{p(\Y \mid \g) p(\g)} {\sum_{\g^\prime \in \Gamma} p(\Y \mid \g^\prime) p(\g^\prime)}$$
+
+- Express as a function of Bayes factors and prior odds!
+  
+- Use MCMC over $\Gamma$ - Gibbs, Metropolis Hastings if $p$ is large (depends on Bayes factors and prior odds)
+  
+- slow convergence/poor mixing with high correlations   
+- Metropolis Hastings algorithms more flexibility   
+        (swap pairs of variables)
+
+ 
+. . .
+
+::: {.callout-tip} 
+No need to run MCMC over $\g$, $\bg$, $\alpha$, and $\phi$!
+:::
+
+ 
+## Choice of $g$: Bartlett's Paradox
+
+
+The Bayes factor for comparing $\g$ to the null
+model:
+$$
+ BF(\g : \g0) =    (1 + g)^{(n - 1 - \pg)/2} (1 + g(1 - R_{\g}^2))^{-(n-1)/2}
+$$
+
+
+- For fixed sample size $n$ and $R_{\g}^2$, consider taking values of  $g$ that
+  go to infinity  
+- Increasing vagueness in prior 
+- What happens to BF as $g \to \infty$? 
+
+. . .
+
+::: {.callout-warning} 
+## Bartlett Paradox
+Why is this a paradox?
+:::
+
+## Information Paradox
+
+The Bayes factor for comparing $\g$ to the null
+model:
+$$
+ BF(\g : \g_0) =    (1 + g)^{(n - 1 - \pg)/2} (1 + g(1 - R_{\g}^2))^{-(n-1)/2}
+$$
+
+
+-   Let $g$ be a fixed constant and take $n$ fixed.   
+-   Usual F statistic for testing $\g$ versus $\g_0$ is $F = \frac{R_{\g}^2/\pg}{(1 - R_{\g}^2)/(n - 1 - \pg)}$   
+-   As $R^2_{\g} \to 1$, $F \to \infty$ Likelihood Rqtio test (F-test) would reject $\g_0$
+  where $F$ is the usual $F$ statistic for  comparing model $\g$ to
+  $\g_0$   
+-   BF converges to a fixed constant $(1+g)^{n - 1 -\pg/2}$  (does not go
+  to infinity !
+
+. . .
+
+**Information Inconsistency** of [Liang et al JASA 2008](https://www.jstor.org/stable/27640050) 
+
+##  Mixtures of $g$-priors & Information consistency
+
+- Want $\BF \to \infty$ if $\R_{\g}^2 \to 1$ if model is full rank
+- Put a prior on $g$
+$$BF(\g : \g_0) =  \frac{ C \int (1 + g)^{(n - 1 - \pg)/2} (1 + g(1 - R_{\g}^2))^{-(n-1)/2} \pi(g) dg}{C}$$
+- interchange limit and integration as $R^2 \to 1$
+want
+$$ \E_g[(1 +
+g)^{(n-1-\pg)/2}]$$  to diverge under the prior
+
+## One Solution
+
+-  hyper-g prior (Liang et al JASA 2008)
+$$p(g) = \frac{a-2}{2}(1 + g)^{-a/2}$$ or $g/(1+g) \sim Beta(1, (a-2)/2)$ for $a > 2$
+
+- prior expectation converges if $a > n + 1 - \pg$ (properties of $_2F_1$ function)
+
+- Consider minimal model $\pg = 1$ and $n = 3$ (can estimate intercept, one coefficient, and  $\sigma^2$, then for $a > 3$ integral exists
+
+- For $2 < a \le 3$ integral diverges and resolves the information paradox!  (see proof in [Liang et al JASA 2008](https://www.jstor.org/stable/27640050) )
+
+
+## Examples of Priors on $g$ 
+
+-   hyper-g prior (Liang et al JASA 2008)
+ 
+    -   Special case is Jeffreys prior for $g$ which corresponds to $a = 2$ (improper)  
+-   Zellner-Siow Cauchy prior $1/g \sim \Gam(1/2, n/2)$  
+-   Hyper-g/n  $(g/n)(1 + g/n) \sim \Be(1, (a-2)/2)$  (generalized Beta distribution)
+-   robust prior (Bayarri et al Annals of Statistics 2012 ) 
+-   Intrinsic prior (Womack et al  JASA 2015)
+
+. . .
+
+All have prior tails for $\b$  that behave like a Cauchy distribution
+ and all except the Gamma prior have marginal  likelihoods that can be computed using special hypergeometric
+ functions   ($_2F_1$, Appell $F_1$)
+ 
+. . . 
+
+No fixed value of $g$  (i.e a point mass prior) will resolve!
+
+
+## US Air Example
+
+```{r}
+#| label: USair
+#| echo: true
+library(BAS)
+data(usair, package="HH")
+poll.bma = bas.lm(log(SO2) ~ temp + log(mfgfirms) +
+                             log(popn) + wind +
+                             precip + raindays,
+                  data=usair,
+                  prior="JZS",  #Jeffrey-Zellner-Siow
+                  alpha=nrow(usair), # n
+                  n.models=2^6,
+                  modelprior = uniform(),
+                  method="deterministic")
+
+```
+
+## Summary
+
+```{r}
+#| label: summary
+#| echo: true
+
+summary(poll.bma, n.models=4)
+```
+
+## Plots of Coefficients
+
+```{r}
+#| label: coef_plot,
+#| out.width: 75% 
+#| out.height: 75%
+#| fig.height: 5
+#| fig.width: 8 
+#| echo: true
+ beta = coef(poll.bma)
+ par(mfrow=c(2,3));  plot(beta, subset=2:7,ask=F)
+```
+
