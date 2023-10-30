@@ -2300,7 +2300,35 @@
     "href": "resources/slides/16-bma.html#plots-of-coefficients",
     "title": "Lecture 16: Bayesian Variable Selection and Model Averaging",
     "section": "Plots of Coefficients",
-    "text": "Plots of Coefficients\n\n beta = coef(poll.bma)\n par(mfrow=c(2,3));  plot(beta, subset=2:7,ask=F)\n\n\n\n\n\n\n\n\n\n\n\nhttps://sta702-F23.github.io/website/"
+    "text": "Plots of Coefficients\n\n beta = coef(poll.bma)\n par(mfrow=c(2,3));  plot(beta, subset=2:7,ask=F)"
+  },
+  {
+    "objectID": "resources/slides/16-bma.html#posterior-distribution-with-uniform-prior-on-model-space",
+    "href": "resources/slides/16-bma.html#posterior-distribution-with-uniform-prior-on-model-space",
+    "title": "Lecture 16: Bayesian Variable Selection and Model Averaging",
+    "section": "Posterior Distribution with Uniform Prior on Model Space",
+    "text": "Posterior Distribution with Uniform Prior on Model Space\n\nimage(poll.bma, rotate=FALSE)"
+  },
+  {
+    "objectID": "resources/slides/16-bma.html#posterior-distribution-with-bb11-prior-on-model-space",
+    "href": "resources/slides/16-bma.html#posterior-distribution-with-bb11-prior-on-model-space",
+    "title": "Lecture 16: Bayesian Variable Selection and Model Averaging",
+    "section": "Posterior Distribution with BB(1,1) Prior on Model Space",
+    "text": "Posterior Distribution with BB(1,1) Prior on Model Space\n\npoll.bb.bma = bas.lm(log(SO2) ~ temp + log(mfgfirms) +\n                                log(popn) + wind +\n                                precip + raindays,\n                     data=usair,\n                     prior=\"JZS\",\n                     alpha=nrow(usair),\n                     n.models=2^6,  #enumerate\n                     modelprior=beta.binomial(1,1))"
+  },
+  {
+    "objectID": "resources/slides/16-bma.html#posterior-distribution-with-bb11-prior-on-model-space-1",
+    "href": "resources/slides/16-bma.html#posterior-distribution-with-bb11-prior-on-model-space-1",
+    "title": "Lecture 16: Bayesian Variable Selection and Model Averaging",
+    "section": "Posterior Distribution with BB(1,1) Prior on Model Space",
+    "text": "Posterior Distribution with BB(1,1) Prior on Model Space\n\nimage(poll.bb.bma, rotate=FALSE)"
+  },
+  {
+    "objectID": "resources/slides/16-bma.html#summary-1",
+    "href": "resources/slides/16-bma.html#summary-1",
+    "title": "Lecture 16: Bayesian Variable Selection and Model Averaging",
+    "section": "Summary",
+    "text": "Summary\n\nChoice of prior on \\(\\boldsymbol{\\beta_\\gamma}\\)\ng-priors or mixtures of \\(g\\) (sensitivity)\npriors on the models (sensitivity)\nposterior summaries - select a model or “average” over all models\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
   {
     "objectID": "resources/slides/00-course-overview.html#what-is-this-course-about",

@@ -647,9 +647,57 @@ logmarg                  NA 3.14406 2.0313422 1.8339656 1.8182487</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="posterior-distribution-with-uniform-prior-on-model-space" class="slide level2">
+<h2>Posterior Distribution with Uniform Prior on Model Space</h2>
+<div class="cell" data-layout-align="center" data-fig.width="='9'">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">image</span>(poll.bma, <span class="at">rotate=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="16-bma_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:7in;height:5in"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-distribution-with-bb11-prior-on-model-space" class="slide level2">
+<h2>Posterior Distribution with BB(1,1) Prior on Model Space</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>poll.bb.bma <span class="ot">=</span> <span class="fu">bas.lm</span>(<span class="fu">log</span>(SO2) <span class="sc">~</span> temp <span class="sc">+</span> <span class="fu">log</span>(mfgfirms) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>                                <span class="fu">log</span>(popn) <span class="sc">+</span> wind <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>                                precip <span class="sc">+</span> raindays,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>                     <span class="at">data=</span>usair,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>                     <span class="at">prior=</span><span class="st">"JZS"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>                     <span class="at">alpha=</span><span class="fu">nrow</span>(usair),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>                     <span class="at">n.models=</span><span class="dv">2</span><span class="sc">^</span><span class="dv">6</span>,  <span class="co">#enumerate</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>                     <span class="at">modelprior=</span><span class="fu">beta.binomial</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="posterior-distribution-with-bb11-prior-on-model-space-1" class="slide level2">
+<h2>Posterior Distribution with BB(1,1) Prior on Model Space</h2>
+<div class="cell" data-layout-align="center" data-fig.width="='9'">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">image</span>(poll.bb.bma, <span class="at">rotate=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="16-bma_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:7in;height:5in"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li class="fragment">Choice of prior on <span class="math inline">\(\boldsymbol{\beta_\gamma}\)</span></li>
+<li class="fragment">g-priors or mixtures of <span class="math inline">\(g\)</span> (sensitivity)</li>
+<li class="fragment">priors on the models (sensitivity)</li>
+<li class="fragment">posterior summaries - select a model or “average” over all models</li>
+</ul>
 
-<p><img src="../../img/icon.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
 </div>
 </section>
