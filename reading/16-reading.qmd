@@ -1,0 +1,40 @@
+---
+title: "Lecture 16: Bayesian Model Averaging"
+output: 
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+  
+- [Mixture of g-priors](https://www.tandfonline.com/doi/abs/10.1198/016214507000001337) Liang et al (2008)
+ 
+
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
+ 
+  + Section 9.1: The linear regression model (review)
+  + Section 9.2: Bayesian estimation for a regression model
+  + Section 9.3: Model Selection (linear regression)
+ 
+
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+
+  + Section 14.2: Bayesian analysis of the classical regression model
+
+
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+
+- [Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J](https://www.jstor.org/stable/27640050) (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association,  103: 410-423 
+
+
+- [Hoeting, J.A, Madigan, D.  Raftery,A.  Volinsky, C.T.](https://www.jstor.org/stable/2676803) (1999) Bayesian Model Averaging: A Tutorial
+Statistical Science, 14: 382-401
+    

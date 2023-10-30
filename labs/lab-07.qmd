@@ -3,7 +3,7 @@ title: "Lab 6: Shrinkage Priors in Regression Comparison"
 toc: true
 ---
 
-## Due: 11:45AM, Wednesday Nov 1
+## Due: 11:45AM, Friday Nov 3
 
 
 
