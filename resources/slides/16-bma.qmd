@@ -123,7 +123,7 @@ $p(\alpha, \phi) \propto 1/\phi$
 
 - marginal likelihood of $\g$ that is proportional
 to 
-$$ p(\Y \mid \g) = C (1 + g)^{\frac{n-p-1}{2}} ( 1 + g (1 -
+$$ p(\Y \mid \g) = C (1 + g)^{\frac{n-\pg-1}{2}} ( 1 + g (1 -
  R^2_\gamma))^{- \frac{(n-1)}{2}}$$
 
 - $R^2_\gamma$ is the usual coefficient of determination for model $\Mg$.
@@ -205,7 +205,7 @@ No need to run MCMC over $\g$, $\bg$, $\alpha$, and $\phi$!
 The Bayes factor for comparing $\g$ to the null
 model:
 $$
- BF(\g : \g0) =    (1 + g)^{(n - 1 - \pg)/2} (1 + g(1 - R_{\g}^2))^{-(n-1)/2}
+ BF(\g : \g_0) =    (1 + g)^{(n - 1 - \pg)/2} (1 + g(1 - R_{\g}^2))^{-(n-1)/2}
 $$
 
 
