@@ -436,7 +436,7 @@ Merlise Clyde
 ({\mathbf{X}_{\boldsymbol{\gamma}}^c}^\prime \mathbf{X}_{\boldsymbol{\gamma}}^c)^{-1})\]</span></p></li>
 <li class="fragment"><p>Independent Jeffrey’s prior on common parameters <span class="math inline">\((\alpha, \phi)\)</span><br>
 <span class="math inline">\(p(\alpha, \phi) \propto 1/\phi\)</span></p></li>
-<li class="fragment"><p>marginal likelihood of <span class="math inline">\(\boldsymbol{\gamma}\)</span> that is proportional to <span class="math display">\[ p(\mathbf{Y}\mid \boldsymbol{\gamma}) = C (1 + g)^{\frac{n-p-1}{2}} ( 1 + g (1 -
+<li class="fragment"><p>marginal likelihood of <span class="math inline">\(\boldsymbol{\gamma}\)</span> that is proportional to <span class="math display">\[ p(\mathbf{Y}\mid \boldsymbol{\gamma}) = C (1 + g)^{\frac{n-p_{\boldsymbol{\gamma}}-1}{2}} ( 1 + g (1 -
 R^2_\gamma))^{- \frac{(n-1)}{2}}\]</span></p></li>
 <li class="fragment"><p><span class="math inline">\(R^2_\gamma\)</span> is the usual coefficient of determination for model <span class="math inline">\({\cal M}_\gamma\)</span>.</p></li>
 <li class="fragment"><p><span class="math inline">\(C\)</span> is a constant common to all models (proportional to the marginal likelihood of the null model where <span class="math inline">\(\boldsymbol{\beta_\gamma}= \mathbf{0}_p\)</span></p></li>
@@ -516,7 +516,7 @@ p(p_{\boldsymbol{\gamma}}\mid p, a, b) = \frac{ \Gamma(p + 1) \Gamma(p_{\boldsym
 <section id="choice-of-g-bartletts-paradox" class="slide level2">
 <h2>Choice of <span class="math inline">\(g\)</span>: Bartlett’s Paradox</h2>
 <p>The Bayes factor for comparing <span class="math inline">\(\boldsymbol{\gamma}\)</span> to the null model: <span class="math display">\[
-BF(\boldsymbol{\gamma}: \boldsymbol{\gamma}0) =    (1 + g)^{(n - 1 - p_{\boldsymbol{\gamma}})/2} (1 + g(1 - R_{\boldsymbol{\gamma}}^2))^{-(n-1)/2}
+BF(\boldsymbol{\gamma}: \boldsymbol{\gamma}_0) =    (1 + g)^{(n - 1 - p_{\boldsymbol{\gamma}})/2} (1 + g(1 - R_{\boldsymbol{\gamma}}^2))^{-(n-1)/2}
 \]</span></p>
 <ul>
 <li class="fragment">For fixed sample size <span class="math inline">\(n\)</span> and <span class="math inline">\(R_{\boldsymbol{\gamma}}^2\)</span>, consider taking values of <span class="math inline">\(g\)</span> that go to infinity<br>
