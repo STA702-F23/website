@@ -268,12 +268,13 @@ mean(diabetes.test$y > ci.bas[,1] &
 
      - does not alwyas hold if the null model is true  (may be highest posterior probability model)
      - need prior on $g$ to depend on $n$ 
+     - asymptotically BMA collapses to the true model
 
-- other quantities may converge i.e. 
+- other quantities may converge i.e.  posterior mean 
 
 - what if the true model is not in $\Gamma$?   What can we say?
 
-    - $\M$-closed
+    - $\M$-closed; BMA converges to the model that is "closest" to the truth in Kullback-Leibler divergence
     - $\M$-complete
     - $\M$-open
     - latter is related to "stacking" which is a frequentist method of ensemble learning
