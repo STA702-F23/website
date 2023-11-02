@@ -524,7 +524,7 @@ Merlise Clyde
 <ul>
 <li class="fragment"><p>relative frequencies <span class="math inline">\(\hat{P}_{RF}(\boldsymbol{\gamma}\mid \mathbf{Y}) = \frac{\text{# times } \boldsymbol{\gamma}\in S }{S}\)</span></p>
 <ul>
-<li class="fragment"><p>Ergodic average converges to <span class="math inline">\(p(\boldsymbol{\gamma}\mid \mathbf{Y})\)</span> as <span class="math inline">\(S \to \infty\)</span></p></li>
+<li class="fragment"><p>ergodic average converges to <span class="math inline">\(p(\boldsymbol{\gamma}\mid \mathbf{Y})\)</span> as <span class="math inline">\(S \to \infty\)</span></p></li>
 <li class="fragment"><p>asymptoptically unbaised</p></li>
 </ul></li>
 <li class="fragment"><p>renormalized posterior probabilities <span class="math inline">\(\hat{P}_{RN}(\boldsymbol{\gamma}\mid \mathbf{Y}) = \frac{p(\mathbf{Y}\mid \boldsymbol{\gamma}) p(\boldsymbol{\gamma})} {\sum_{\boldsymbol{\gamma}\in S} p(\mathbf{Y}\mid \boldsymbol{\gamma}) p(\boldsymbol{\gamma})}\)</span></p>
@@ -607,7 +607,7 @@ p(\mathbf{y}^{\text{test}} \mid \mathbf{y}) = \sum_\boldsymbol{\gamma}p(\mathbf{
 <h2>Selection and Prediction</h2>
 <ul>
 <li class="fragment"><p>BMA - optimal for squared error loss Bayes <span class="math display">\[\textsf{E}[\| \mathbf{Y}^{\text{test}} - a\|^2 \mid \mathbf{y}] = \textsf{E}[\| \mathbf{Y}^{\text{test}} - \textsf{E}[\mathbf{Y}^{\text{test}}\mid \mathbf{y}] \|^2 \mid \mathbf{y}]  + \| \textsf{E}[\mathbf{Y}^{\text{test}}\mid \mathbf{y}] - a\|^2  \]</span></p></li>
-<li class="fragment"><p>What if we want to use only a single model for prediction under quared error loss?</p></li>
+<li class="fragment"><p>What if we want to use only a single model for prediction under squared error loss?</p></li>
 <li class="fragment"><p>HPM: Highest Posterior Probability model is optimal for selection, but not prediction</p></li>
 <li class="fragment"><p>MPM: Median Probabilty model (select model where PIP &gt; 0.5) (optimal under certain conditions; nested models)</p></li>
 <li class="fragment"><p>BPM: Best Probability Model - Model closest to BMA under loss (usually includes more predictors than HPM or MPM)</p></li>
@@ -634,22 +634,21 @@ p(\mathbf{y}^{\text{test}} \mid \mathbf{y}) = \sum_\boldsymbol{\gamma}p(\mathbf{
 </div>
 </div>
 </section>
-<section id="theory" class="slide level2">
-<h2>Theory</h2>
+<section id="theory---consistency-of-g-priors" class="slide level2">
+<h2>Theory - Consistency of g-priors</h2>
 <ul>
-<li class="fragment"><p>consistency of mixtures of g-priors</p></li>
 <li class="fragment"><p>desire that posterior probability of model goes to 1 as <span class="math inline">\(n \to \infty\)</span></p>
 <ul>
 <li class="fragment">does not alwyas hold if the null model is true (may be highest posterior probability model)</li>
-<li class="fragment">need prior on <span class="math inline">\(g\)</span> to depend on <span class="math inline">\(n\)</span></li>
+<li class="fragment">need prior on <span class="math inline">\(g\)</span> to depend on <span class="math inline">\(n\)</span> (rules out EB and fixed g-priors with <span class="math inline">\(g \ne n\)</span>)</li>
 <li class="fragment">asymptotically BMA collapses to the true model</li>
 </ul></li>
 <li class="fragment"><p>other quantities may converge i.e.&nbsp;posterior mean</p></li>
-<li class="fragment"><p>what if the true model is not in <span class="math inline">\(\Gamma\)</span>? What can we say?</p>
+<li class="fragment"><p>what if the true model <span class="math inline">\(\boldsymbol{\gamma}_T\)</span> is not in <span class="math inline">\(\Gamma\)</span>? What can we say?</p>
 <ul>
-<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-closed; BMA converges to the model that is “closest” to the truth in Kullback-Leibler divergence</li>
-<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-complete</li>
-<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-open</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-complete; BMA converges to the model that is “closest” to the truth in Kullback-Leibler divergence</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-closed; realize that <span class="math inline">\((p\boldsymbol{\gamma}) = 0 \forall \boldsymbol{\gamma}\in \mathbf{G}\)</span> and is nonsense but know <span class="math inline">\(\boldsymbol{\gamma}_T\)</span>, however want to use models in <span class="math inline">\(\mathbf{G}\)</span> only</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{{\cal M}}\)</span>-open; realize that <span class="math inline">\((p\boldsymbol{\gamma}) = 0 \forall \boldsymbol{\gamma}\in \mathbf{G}\)</span> and is nonsense but know <span class="math inline">\(\boldsymbol{\gamma}_T\)</span></li>
 <li class="fragment">latter is related to “stacking” which is a frequentist method of ensemble learning using cross-validation; see Clyde &amp; Iversen (2013) for the curious</li>
 </ul></li>
 </ul>
