@@ -1082,7 +1082,7 @@
     "href": "resources/slides/17-bvs.html#theory",
     "title": "Lecture 17: Bayesian Variable Selection and Model Averaging",
     "section": "Theory",
-    "text": "Theory\n\nconsistency of mixtures of g-priors\ndesire that posterior probability of model goes to 1 as \\(n \\to \\infty\\)\n\ndoes not alwyas hold if the null model is true (may be highest posterior probability model)\nneed prior on \\(g\\) to depend on \\(n\\)\n\nother quantities may converge i.e. \nwhat if the true model is not in \\(\\Gamma\\)? What can we say?\n\n\\(\\boldsymbol{{\\cal M}}\\)-closed\n\\(\\boldsymbol{{\\cal M}}\\)-complete\n\\(\\boldsymbol{{\\cal M}}\\)-open\nlatter is related to “stacking” which is a frequentist method of ensemble learning using cross-validation; see Clyde & Iversen (2013) for the curious"
+    "text": "Theory\n\nconsistency of mixtures of g-priors\ndesire that posterior probability of model goes to 1 as \\(n \\to \\infty\\)\n\ndoes not alwyas hold if the null model is true (may be highest posterior probability model)\nneed prior on \\(g\\) to depend on \\(n\\)\nasymptotically BMA collapses to the true model\n\nother quantities may converge i.e. posterior mean\nwhat if the true model is not in \\(\\Gamma\\)? What can we say?\n\n\\(\\boldsymbol{{\\cal M}}\\)-closed; BMA converges to the model that is “closest” to the truth in Kullback-Leibler divergence\n\\(\\boldsymbol{{\\cal M}}\\)-complete\n\\(\\boldsymbol{{\\cal M}}\\)-open\nlatter is related to “stacking” which is a frequentist method of ensemble learning using cross-validation; see Clyde & Iversen (2013) for the curious"
   },
   {
     "objectID": "resources/slides/17-bvs.html#summary",
