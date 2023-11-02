@@ -1,0 +1,283 @@
+---
+title: "Lecture 17: Bayesian Variable Selection and Model Averaging"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(42)
+require(BAS)
+require(HH)
+```
+
+
+## Diabetes Example
+
+{{< include macros.qmd >}}
+```{r}
+#| echo: true
+set.seed(8675309)
+source("yX.diabetes.train.txt")
+diabetes.train = as.data.frame(diabetes.train)
+source("yX.diabetes.test.txt")
+diabetes.test = as.data.frame(diabetes.test)
+colnames(diabetes.test)[1] = "y"
+
+str(diabetes.train)
+```
+
+## MCMC with BAS
+
+```{r}
+#| label: MCMC
+#| cache: true
+#| echo: true 
+library(BAS)
+diabetes.bas = bas.lm(y ~ ., data=diabetes.train,
+                      prior = "JZS",
+                      method="MCMC",
+                      n.models = 10000,
+                      MCMC.iterations=500000,
+                      thin = 10,
+                      initprobs="eplogp",
+                      force.heredity=FALSE)
+```
+
+```{r}
+#| label: MCMCtime
+#| cache: true
+#| echo: FALSE 
+system.time(bas.lm(y ~ ., data=diabetes.train, 
+                   prior = "JZS",
+                   method="MCMC", n.models = 10000,
+                   MCMC.iterations=500000,
+                   thin = 10,  initprobs="eplogp",
+                   force.heredity=FALSE))
+
+
+paste("number of unique models", length(diabetes.bas$logmarg))
+```
+
+- increase `MCMC.iterations`?
+
+- check diagnostics
+
+## Estimates of Posterior Probabilities
+
+- relative frequencies  $\hat{P}_{RF}(\g \mid \Y) = \frac{\text{# times } \g \in S }{S}$
+
+    - Ergodic average converges to $p(\g \mid \Y)$ as $S \to \infty$
+
+    - asymptoptically unbaised
+
+- renormalized posterior probabilities 
+$\hat{P}_{RN}(\g \mid \Y) = \frac{p(\Y \mid \g) p(\g)} {\sum_{\g \in S} p(\Y \mid \g) p(\g)}$
+
+    - also asymptoptically unbaised
+
+    - Fisher consistent (e.g if we happen to enumerate all models in $S$ iterations we recover the truth)
+
+- if we run long enough the two should agree
+
+- also look at other summaries i.e posterior inclusion probabilities 
+$$\hat{p}(\gamma_j = 1 \mid \Y) = \sum_S \gamma_j \hat{P}(\g \mid \Y)$$
+
+## Diagnostic Plot
+
+```{r}
+#| label: pip
+#| echo: true
+#| fig-height: 6
+#| fig-width: 6
+diagnostics(diabetes.bas, type="pip")
+```
+
+- model probabilities converge much slower!
+
+## Out of Sample Prediction
+
+- What is the optimal value to predict $\Y^{\text{test}}$ given $\Y$ under squared error?
+
+- Iterated expectations leads to BMA for $\E[\Y^{\text{test}} \mid \Y]$
+
+- Prediction under model averaging
+$$\hat{Y} = \sum_S (\hat{\alpha}_\g + \Xg^{\text{test}} \hat{\b}_{\g}) \hat{p}(\g \mid \Y)$$
+
+
+. . .
+
+```{r}
+#| echo: true
+#| label: pred
+pred.bas = predict(diabetes.bas,
+                   newdata=diabetes.test,
+                   estimator="BMA",
+                   se=TRUE)
+mean((pred.bas$fit- diabetes.test$y)^2)
+
+
+```
+
+## Credible Intervals & Coverage
+
+- posterior predictive distribution 
+$$
+p(\y^{\text{test}} \mid \y) = \sum_\g p(\y^{\text{test}} \mid \y, \g)p(\g \mid \y)
+$$
+- integrate out $\alpha$ and $\bg$ to get a normal predictive given $\phi$ and $\g$ (and $\y$)
+
+- integrate out $\phi$ to get a t distribution given $\g$ and $\y$
+
+- credible intervals via sampling 
+
+    - sample a model from $p(\g \mid \y)$
+    - conditional on a model sample $y \sim p(\y^{\text{test}} \mid \y, \g)$
+    - compute quantiles from sammple $y$
+    
+. . .
+
+```{r}
+#| echo: true
+ci.bas = confint(pred.bas);
+coverage = mean(diabetes.test$y > ci.bas[,1] & diabetes.test$y < ci.bas[,2])
+coverage
+```
+
+## 95% Prediction intervals
+
+```{r}
+#| echo: true
+#| label: pred-in
+plot(ci.bas)
+points(diabetes.test$y, col=2, pch=15)
+```
+
+## Selection and Prediction
+
+- BMA  - optimal for squared error loss Bayes
+$$\E[\| \Y^{\text{test}} - a\|^2 \mid \y] = \E[\| \Y^{\text{test}} - \E[\Y^{\text{test}}\mid \y] \|^2 \mid \y]  + \| \E[\Y^{\text{test}}\mid \y] - a\|^2  $$
+
+ 
+
+- What if we want to use only a single model for prediction under quared error loss?
+
+- HPM: Highest Posterior Probability model is optimal for selection, but not prediction
+
+- MPM: Median Probabilty model (select model where PIP > 0.5)
+ (optimal under certain conditions; nested models)
+ 
+-  BPM: Best Probability Model - Model closest to BMA under loss
+      (usually includes more predictors than HPM or MPM)
+
+## Example
+
+```{r}
+#| echo: true
+pred.bas = predict(diabetes.bas,
+                   newdata=diabetes.test,
+                   estimator="BPM",
+                   se=TRUE)
+#MSE
+mean((pred.bas$fit- diabetes.test$y)^2)
+#Coverage
+ci.bas = confint(pred.bas)
+mean(diabetes.test$y > ci.bas[,1] &
+     diabetes.test$y < ci.bas[,2])
+```
+
+ 
+## Summary
+
+
+-  Choice of prior on $\bg$ 
+    - orthogonally invariant priors - multivariate Spike & Slab
+    - products of independent Spike & Slab priors
+    - non-semi-conjugate 
+    
+-  priors on the models (sensitivity)
+-  computation (MCMC, "stochastic search", variational, orthogonal 
+   data augmentation, reversible jump-MCMC)
+-  posterior summaries - select a model or "average" over all models
+
+.  .  .
+
+Other aspects of model selection?
+
+ - transformations of $Y$
+ - functions of $X$: interactions or nonlinear functions such as splines kernels
+ - choice of error distribution
+ 

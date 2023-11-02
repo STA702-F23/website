@@ -1,0 +1,11 @@
+knitr
+BAS
+lattice
+latticeExtra
+mvtnorm
+survival
+MASS
+TH.data
+multcomp
+gridExtra
+HH
