@@ -140,7 +140,7 @@ paste("number of unique models", length(diabetes.bas$logmarg))
 
 - relative frequencies  $\hat{P}_{RF}(\g \mid \Y) = \frac{\text{# times } \g \in S }{S}$
 
-    - Ergodic average converges to $p(\g \mid \Y)$ as $S \to \infty$
+    - ergodic average converges to $p(\g \mid \Y)$ as $S \to \infty$
 
     - asymptoptically unbaised
 
@@ -233,7 +233,7 @@ $$\E[\| \Y^{\text{test}} - a\|^2 \mid \y] = \E[\| \Y^{\text{test}} - \E[\Y^{\tex
 
  
 
-- What if we want to use only a single model for prediction under quared error loss?
+- What if we want to use only a single model for prediction under squared error loss?
 
 - HPM: Highest Posterior Probability model is optimal for selection, but not prediction
 
@@ -260,23 +260,22 @@ mean(diabetes.test$y > ci.bas[,1] &
 ```
 
  
-## Theory
+## Theory - Consistency  of g-priors 
 
-- consistency of mixtures of g-priors 
 
 - desire that posterior probability of model goes to 1 as $n \to \infty$
 
      - does not alwyas hold if the null model is true  (may be highest posterior probability model)
-     - need prior on $g$ to depend on $n$ 
+     - need prior on $g$ to depend on $n$  (rules out EB and fixed g-priors with $g \ne n$)
      - asymptotically BMA collapses to the true model
 
 - other quantities may converge i.e.  posterior mean 
 
-- what if the true model is not in $\Gamma$?   What can we say?
+- what if the true model $\g_T$ is not in $\Gamma$?   What can we say?
 
-    - $\M$-closed; BMA converges to the model that is "closest" to the truth in Kullback-Leibler divergence
-    - $\M$-complete
-    - $\M$-open
+    - $\M$-complete; BMA converges to the model that is "closest" to the truth in Kullback-Leibler divergence
+    - $\M$-closed;  realize that $(p\g) = 0 \forall \g \in \G$ and  is nonsense but know $\g_T$, however want to use models in $\G$ only
+    - $\M$-open; realize that $(p\g) = 0 \forall \g \in \G$ and  is nonsense but know $\g_T$
     - latter is related to "stacking" which is a frequentist method of ensemble learning
       using cross-validation;
       see Clyde & Iversen (2013) for the curious
