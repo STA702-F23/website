@@ -260,6 +260,27 @@ mean(diabetes.test$y > ci.bas[,1] &
 ```
 
  
+## Theory
+
+- consistency of mixtures of g-priors 
+
+- desire that posterior probability of model goes to 1 as $n \to \infty$
+
+     - does not alwyas hold if the null model is true  (may be highest posterior probability model)
+     - need prior on $g$ to depend on $n$ 
+
+- other quantities may converge i.e. 
+
+- what if the true model is not in $\Gamma$?   What can we say?
+
+    - $\M$-closed
+    - $\M$-complete
+    - $\M$-open
+    - latter is related to "stacking" which is a frequentist method of ensemble learning
+      using cross-validation;
+      see Clyde & Iversen (2013) for the curious
+
+
 ## Summary
 
 
