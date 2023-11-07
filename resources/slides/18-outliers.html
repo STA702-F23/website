@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
+
+  <meta name="author" content="Merlise Clyde">
+  <title>STA 702 Fall 2023 - Lecture 18: Outliers and Robust Regression</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link href="../../site_libs/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="../../site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet">
+  
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Lecture 18: Outliers and Robust Regression</h1>
+  <p class="subtitle">STA702</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Merlise Clyde 
+</div>
+        <p class="quarto-title-affiliation">
+            Duke University
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="body-fat-data" class="slide level2">
+<h2>Body Fat Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="18-outliers_files/figure-revealjs/lm-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="18-outliers_files/figure-revealjs/lmsub-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Which analysis do we use? with Case 39 or not – or something different?</p>
+</section>
+<section id="cooks-distance" class="slide level2">
+<h2>Cook’s Distance</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">plot</span>(bodyfat.lm, <span class="at">which=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="18-outliers_files/figure-revealjs/cooksd-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="options-for-handling-outliers" class="slide level2">
+<h2>Options for Handling Outliers</h2>
+<p>What are outliers?</p>
+<ul>
+<li class="fragment"><p>Are there scientific grounds for eliminating the case?</p></li>
+<li class="fragment"><p>Test if the case has a different mean than population</p></li>
+<li class="fragment"><p>Report results with and without the case</p></li>
+<li class="fragment"><p>Model Averaging to Account for Model Uncertainty?</p></li>
+<li class="fragment"><p>Full model <span class="math inline">\(\mathbf{Y}= \mathbf{X}\boldsymbol{\beta}+ \mathbf{I}_n\delta+ \epsilon\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\delta\)</span> is a <span class="math inline">\(n \times 1\)</span> vector; <span class="math inline">\(\boldsymbol{\beta}\)</span> is <span class="math inline">\(p \times 1\)</span></p></li>
+<li class="fragment"><p>All observations have a potentially different mean!</p></li>
+</ul>
+</section>
+<section id="outliers-in-bayesian-regression" class="slide level2">
+<h2>Outliers in Bayesian Regression</h2>
+<ul>
+<li class="fragment"><p>Hoeting, Madigan and Raftery (in various permutations) consider the problem of simultaneous variable selection and outlier identification</p></li>
+<li class="fragment"><p>This is implemented in the package <code>BMA</code> in the function <code>MC3.REG</code></p></li>
+<li class="fragment"><p>This has the advantage that more than 2 points may be considered as outliers at the same time</p></li>
+<li class="fragment"><p>The function uses a Markov chain to identify both important variables and potential outliers, but is coded in Fortran so should run reasonably quickly.</p></li>
+<li class="fragment"><p>Can also use <code>BAS</code> or other variable selection programs</p></li>
+</ul>
+</section>
+<section id="model-averaging-and-outliers" class="slide level2">
+<h2>Model Averaging and Outliers</h2>
+<ul>
+<li class="fragment"><p>Full model <span class="math inline">\(\mathbf{Y}= \mathbf{X}\boldsymbol{\beta}+ \mathbf{I}_n\delta+ \epsilon\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\delta\)</span> is a <span class="math inline">\(n \times 1\)</span> vector; <span class="math inline">\(\boldsymbol{\beta}\)</span> is <span class="math inline">\(p \times 1\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(2^n\)</span> submodels <span class="math inline">\(\gamma_i = 0 \Leftrightarrow \delta_i = 0\)</span></p></li>
+<li class="fragment"><p>If <span class="math inline">\(\gamma_i = 1\)</span> then case <span class="math inline">\(i\)</span> has a different mean ``mean shift’’ outliers</p></li>
+</ul>
+</section>
+<section id="mean-shift-variance-inflation" class="slide level2">
+<h2>Mean Shift <span class="math inline">\(=\)</span> Variance Inflation</h2>
+<ul>
+<li class="fragment"><p>Model <span class="math inline">\(\mathbf{Y}= \mathbf{X}\boldsymbol{\beta}+ \mathbf{I}_n\delta+ \epsilon\)</span></p></li>
+<li class="fragment"><p>Prior <span class="math display">\[\begin{align}
+\qquad \delta_i \mid \gamma_i &amp; \sim N(0, V \sigma^2 \gamma_i) \\
+\qquad \gamma_i &amp; \sim  \textsf{Ber}(\pi)
+\end{align}
+\]</span></p></li>
+<li class="fragment"><p>Then <span class="math inline">\(\epsilon_i\)</span> given <span class="math inline">\(\sigma^2\)</span> is independent of <span class="math inline">\(\delta_i\)</span> and <span class="math display">\[\epsilon^*_i \equiv \epsilon_i + \delta_i \mid \sigma^2 \left\{
+\begin{array}{llc}
+N(0, \sigma^2) &amp; wp &amp;(1 - \pi) \\
+N(0, \sigma^2(1 + V)) &amp; wp &amp; \pi
+\end{array}
+\right.
+\]</span></p></li>
+<li class="fragment"><p>Model <span class="math inline">\(\mathbf{Y}= \mathbf{X}\boldsymbol{\beta}+ \epsilon^*\)</span> <strong>variance inflation</strong></p></li>
+<li class="fragment"><p><span class="math inline">\(V+1 = K = 7\)</span> in the paper by Hoeting et al.&nbsp;package <code>BMA</code></p></li>
+</ul>
+</section>
+<section id="simultaneous-outlier-and-variable-selection" class="slide level2">
+<h2>Simultaneous Outlier and Variable Selection</h2>
+<div class="cell" data-layout-align="center" data-hash="18-outliers_cache/revealjs/unnamed-chunk-5_7e01a19c3f6b755fcb5e6f8ec321d4ad">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(BMA)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>bodyfat.bma <span class="ot">=</span> <span class="fu">MC3.REG</span>(<span class="at">all.y =</span> bodyfat<span class="sc">$</span>Bodyfat, <span class="at">all.x =</span> <span class="fu">as.matrix</span>(bodyfat<span class="sc">$</span>Abdomen),</span>
+<span id="cb2-3"><a href="#cb2-3"></a>                      <span class="at">num.its =</span> <span class="dv">10000</span>, <span class="at">outliers =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">summary</span>(bodyfat.bma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+MC3.REG(all.y = bodyfat$Bodyfat, all.x = as.matrix(bodyfat$Abdomen),     num.its = 10000, outliers = TRUE)
+
+Model parameters: PI = 0.02 K = 7 nu = 2.58 lambda = 0.28 phi = 2.85
+
+  15  models were selected
+ Best  5  models (cumulative posterior probability =  0.9939 ): 
+
+           prob     model 1   model 2   model 3   model 4   model 5 
+variables                                                           
+  all.x    1         x         x         x         x         x      
+outliers                                                            
+  39       0.94932   x         x         .         x         .      
+  204      0.04117   .         .         .         x         .      
+  207      0.10427   .         x         .         .         x      
+                                                                    
+post prob           0.814572  0.095383  0.044490  0.035024  0.004385</code></pre>
+</div>
+</div>
+</section>
+<section id="bas-with-truncated-prior" class="slide level2">
+<h2>BAS with Truncated Prior</h2>
+<div class="cell" data-layout-align="center" data-hash="18-outliers_cache/revealjs/bas_e6170320cf421e2fc6cddb065f9189f6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>bodyfat.w.out <span class="ot">=</span> <span class="fu">cbind</span>(bodyfat[, <span class="fu">c</span>(<span class="st">"Bodyfat"</span>, <span class="st">"Abdomen"</span>)],</span>
+<span id="cb4-2"><a href="#cb4-2"></a>                      <span class="fu">diag</span>(<span class="fu">nrow</span>(bodyfat)))</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>bodyfat.bas <span class="ot">=</span> <span class="fu">bas.lm</span>(Bodyfat <span class="sc">~</span> ., <span class="at">data=</span>bodyfat.w.out, </span>
+<span id="cb4-5"><a href="#cb4-5"></a>                     <span class="at">prior=</span><span class="st">"hyper-g-n"</span>, <span class="at">a=</span><span class="dv">3</span>, <span class="at">method=</span><span class="st">"MCMC"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>                     <span class="at">MCMC.it=</span><span class="dv">2</span><span class="sc">^</span><span class="dv">18</span>, </span>
+<span id="cb4-7"><a href="#cb4-7"></a>                     <span class="at">modelprior=</span><span class="fu">tr.beta.binomial</span>(<span class="dv">1</span>,<span class="dv">254</span>, <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="18-outliers_files/figure-revealjs/basimage-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<section id="change-error-assumptions" class="slide level2">
+<h2>Change Error Assumptions</h2>
+<p>Use a Student-t error model <span class="math display">\[\begin{eqnarray*}
+Y_i &amp; \mathrel{\mathop{\sim}\limits^{\rm ind}}&amp; t(\nu, \alpha + \beta x_i, 1/\phi) \\
+L(\alpha, \beta,\phi) &amp; \propto &amp; \prod_{i = 1}^n \phi^{1/2} \left(1 +
+\frac{\phi (y_i - \alpha - \beta x_i)^2}{\nu}\right)^{-\frac{(\nu +
+  1)}{2}}
+\end{eqnarray*}\]</span></p>
+<ul>
+<li class="fragment"><p>Use Prior <span class="math inline">\(p(\alpha, \beta, \phi) \propto 1/\phi\)</span> </p></li>
+<li class="fragment"><p>Posterior distribution <span class="math display">\[ p(\alpha, \beta, \phi \mid Y) \propto \phi^{n/2 - 1} \prod_{i = 1}^n  \left(1 +
+\frac{\phi (y_i - \alpha - \beta x_i)^2}{\nu}\right)^{-\frac{(\nu +
+1)}{2}}\]</span></p></li>
+</ul>
+</section>
+<section id="bounded-influence" class="slide level2">
+<h2>Bounded Influence</h2>
+<ul>
+<li class="fragment"><p>Treat <span class="math inline">\(\sigma^2\)</span> as given, then <strong>influence</strong> of individual observations on the posterior distribution of <span class="math inline">\(\boldsymbol{\beta}\)</span> in the model where <span class="math inline">\(\textsf{E}[\mathbf{Y}_i] = \mathbf{x}_i^T\boldsymbol{\beta}\)</span> is investigated through the score function: <span class="math display">\[
+\frac{d} {d \boldsymbol{\beta}} \log p (\boldsymbol{\beta}\mid \mathbf{Y}) = \frac{d} {d \boldsymbol{\beta}} \log p(\boldsymbol{\beta}) +  \sum_{i = 1}^n \mathbf{x}_i g(y_i - \mathbf{x}^T_i \boldsymbol{\beta})
+\]</span></p></li>
+<li class="fragment"><p>influence function of the error distribution (unimodal, continuous, differentiable, symmetric) <span class="math display">\[ g(\boldsymbol{\epsilon}) = - \frac{d} {d \boldsymbol{\epsilon}} \log p(\boldsymbol{\epsilon})
+\]</span></p></li>
+<li class="fragment"><p>An outlying observation <span class="math inline">\(y_j\)</span> is accommodated if the posterior distribution for <span class="math inline">\(p(\boldsymbol{\beta}\mid \mathbf{Y}_{(i)})\)</span> converges to <span class="math inline">\(p(\boldsymbol{\beta}\mid \mathbf{Y})\)</span> for all <span class="math inline">\(\boldsymbol{\beta}\)</span> as <span class="math inline">\(|\mathbf{Y}_i| \to \infty\)</span>.</p></li>
+<li class="fragment"><p>Requires error models with influence functions that go to zero such as the Student <span class="math inline">\(t\)</span> (O’Hagan, 1979, West 1984)</p></li>
+</ul>
+</section>
+<section id="choice-of-df-for-student-t" class="slide level2">
+<h2>Choice of df for Student-<span class="math inline">\(t\)</span></h2>
+<p>Investigate the Score function <span class="math display">\[
+\frac{d} {d \boldsymbol{\beta}} \log p (\boldsymbol{\beta}\mid \mathbf{Y}) = \frac{d} {d \boldsymbol{\beta}} \log p(\boldsymbol{\beta}) +  \sum_{i = 1}^n \mathbf{x}_i g(y_i - \mathbf{x}^T_i \boldsymbol{\beta})
+\]</span></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="18-outliers_files/figure-revealjs/unnamed-chunk-9-1.png" width="2700"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>Score function for <span class="math inline">\(t\)</span> with <span class="math inline">\(\alpha\)</span> degrees of freedom has turning points at <span class="math inline">\(\pm \sqrt{\alpha}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(g'(\boldsymbol{\epsilon})\)</span> is negative when <span class="math inline">\(\boldsymbol{\epsilon}^2 &gt; \alpha\)</span> (standardized errors)</p></li>
+<li class="fragment"><p>Contribution of observation to information matrix is negative and the observation is doubtful</p></li>
+<li class="fragment"><p>Suggest taking <span class="math inline">\(\alpha = 8\)</span> or <span class="math inline">\(\alpha = 9\)</span> to reject errors larger than <span class="math inline">\(\sqrt{8}\)</span> or <span class="math inline">\(3\)</span> sd.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-mixtures-of-normal-representation" class="slide level2">
+<h2>Scale-Mixtures of Normal Representation</h2>
+<ul>
+<li class="fragment"><p>Latent Variable Model <span class="math display">\[\begin{eqnarray*}
+Y_i \mid \alpha, \beta, \phi, \lambda &amp; \mathrel{\mathop{\sim}\limits^{\rm ind}}&amp; N(\alpha + \beta x_i,
+\frac{1}{\phi \lambda_i}) \\
+\lambda_i &amp; \mathrel{\mathop{\sim}\limits^{\rm iid}}&amp; G(\nu/2, \nu/2) \\
+p(\alpha, \beta, \phi) &amp; \propto &amp; 1/\phi  
+\end{eqnarray*}\]</span></p></li>
+<li class="fragment"><p>Joint Posterior Distribution: <span class="math display">\[\begin{eqnarray*}
+p((\alpha, \beta, \phi, \lambda_1, \ldots, \lambda_n \mid Y)
+\propto \,  &amp; &amp;
+\phi^{n/2} \exp\left\{ - \frac{\phi}{2} \sum \lambda_i(y_i - \alpha  - \beta x_i)^2 \right\} \times \\
+&amp;  &amp; \phi^{-1} \\
+&amp;  &amp;\prod_{i=1}^n \lambda_i^{\nu/2 - 1} \exp(- \lambda_i \nu/2)
+\end{eqnarray*}\]</span></p></li>
+<li class="fragment"><p>Integrate out ``latent’’ <span class="math inline">\(\lambda\)</span>’s to obtain marginal <span class="math inline">\(t\)</span> distribution</p></li>
+</ul>
+</section>
+<section id="jags---just-another-gibbs-sampler" class="slide level2">
+<h2>JAGS - Just Another Gibbs Sampler</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>rr.model <span class="ot">=</span> <span class="cf">function</span>() {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  df <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    mu[i] <span class="ot">&lt;-</span> alpha0 <span class="sc">+</span> alpha1<span class="sc">*</span>(X[i] <span class="sc">-</span> Xbar)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    lambda[i] <span class="sc">~</span> <span class="fu">dgamma</span>(df<span class="sc">/</span><span class="dv">2</span>, df<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    prec[i] <span class="ot">&lt;-</span> phi<span class="sc">*</span>lambda[i]</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    Y[i] <span class="sc">~</span> <span class="fu">dnorm</span>(mu[i], prec[i])</span>
+<span id="cb5-8"><a href="#cb5-8"></a>  }</span>
+<span id="cb5-9"><a href="#cb5-9"></a>  phi <span class="sc">~</span> <span class="fu">dgamma</span>(<span class="fl">1.0E-6</span>, <span class="fl">1.0E-6</span>)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>  alpha0 <span class="sc">~</span> <span class="fu">dnorm</span>(<span class="dv">0</span>, <span class="fl">1.0E-6</span>)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>  alpha1 <span class="sc">~</span> <span class="fu">dnorm</span>(<span class="dv">0</span>,<span class="fl">1.0E-6</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>  beta0 <span class="ot">&lt;-</span> alpha0 <span class="sc">-</span> alpha1<span class="sc">*</span>Xbar  <span class="co"># transform back</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  beta1 <span class="ot">&lt;-</span> alpha1</span>
+<span id="cb5-14"><a href="#cb5-14"></a>  sigma <span class="ot">&lt;-</span> <span class="fu">pow</span>(phi, <span class="sc">-</span>.<span class="dv">5</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a>  mu34 <span class="ot">&lt;-</span> beta0 <span class="sc">+</span> beta1<span class="sc">*</span><span class="fl">2.54</span><span class="sc">*</span><span class="dv">34</span>  <span class="co">#mean for a man w/ a 34 in waist</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a>  y34 <span class="sc">~</span> <span class="fu">dt</span>(mu34,phi, df)   <span class="co"># integrate out lambda_34 </span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-warning callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning! Normals and Student-t are parameterized in terms of precisions!</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-output-to-save" class="slide level2">
+<h2>What output to Save?</h2>
+<p>The parameters to be monitored and returned to <code>R</code> are specified with the variable <code>parameters</code></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>parameters <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"beta0"</span>, <span class="st">"beta1"</span>, <span class="st">"sigma"</span>, <span class="st">"mu34"</span>, <span class="st">"y34"</span>, <span class="st">"lambda[39]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment"><p>Use of <code>&lt;-</code> for assignment for parameters that calculated from the other parameters. (See R-code for definitions of these parameters.)</p></li>
+<li class="fragment"><p><code>mu34</code> and <code>y34</code> are the mean functions and predictions for a man with a 34in waist.</p></li>
+<li class="fragment"><p><code>lambda[39]</code> saves only the 39th case of <span class="math inline">\(\lambda\)</span></p></li>
+<li class="fragment"><p>To save a whole vector (for example all lambdas, just give the vector name)</p></li>
+</ul>
+</section>
+<section id="running-jags-from-r" class="slide level2">
+<h2>Running JAGS from <code>R</code></h2>
+<p>Install jags from <a href="https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/">sourceforge</a></p>
+<div class="fragment">
+<div class="cell" data-layout-align="center" data-hash="18-outliers_cache/revealjs/jagsrun_75068296150fca8ce1a31d12c7af8e05">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(R2jags)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># Create a data list with inputs for Winpost/Jags</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>bf.data <span class="ot">=</span> <span class="fu">list</span>(<span class="at">Y =</span> bodyfat<span class="sc">$</span>Bodyfat, <span class="at">X=</span>bodyfat<span class="sc">$</span>Abdomen)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>bf.data<span class="sc">$</span>n <span class="ot">=</span> <span class="fu">length</span>(bf.data<span class="sc">$</span>Y)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>bf.data<span class="sc">$</span>Xbar <span class="ot">=</span> <span class="fu">mean</span>(bf.data<span class="sc">$</span>X)</span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co"># run jags</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>bf.sim <span class="ot">=</span> <span class="fu">jags</span>(bf.data, <span class="at">inits=</span><span class="cn">NULL</span>, <span class="at">par=</span>parameters,</span>
+<span id="cb7-11"><a href="#cb7-11"></a>              <span class="at">model=</span>rr.model, <span class="at">n.chains=</span><span class="dv">2</span>, <span class="at">n.iter=</span><span class="dv">20000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># create an MCMC object </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(coda)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>bf.post <span class="ot">=</span> <span class="fu">as.mcmc</span>(bf.sim<span class="sc">$</span>BUGSoutput<span class="sc">$</span>sims.matrix)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="posterior-distributions" class="slide level2">
+<h2>Posterior Distributions</h2>
+
+<img data-src="18-outliers_files/figure-revealjs/unnamed-chunk-14-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<section id="posterior-of-lambda_39" class="slide level2">
+<h2>Posterior of <span class="math inline">\(\lambda_{39}\)</span></h2>
+
+<img data-src="18-outliers_files/figure-revealjs/unnamed-chunk-15-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="comparison" class="slide level2">
+<h2>Comparison</h2>
+<p>95% Confidence/Credible Intervals for <span class="math inline">\(\beta\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">2.5 %</th>
+<th style="text-align: right;">97.5 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">lm all</td>
+<td style="text-align: right;">0.5750739</td>
+<td style="text-align: right;">0.6875349</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">robust bayes</td>
+<td style="text-align: right;">0.6016984</td>
+<td style="text-align: right;">0.7184886</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lm w/out 39</td>
+<td style="text-align: right;">0.6144288</td>
+<td style="text-align: right;">0.7294781</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Results intermediate without having to remove any observations!</p></li>
+<li class="fragment"><p>Case 39 down weighted by <span class="math inline">\(\lambda_{39}\)</span> in posterior for <span class="math inline">\(\beta\)</span></p></li>
+<li class="fragment"><p>Under prior <span class="math inline">\(E[\lambda_{i}] = 1\)</span></p></li>
+<li class="fragment"><p>large residuals lead to smaller <span class="math inline">\(\lambda\)</span> <span class="math display">\[\lambda_j \mid \text{rest}, Y \sim G \left(\frac{\nu + 1}{2}, \frac{\phi(y_j - \alpha -
+\beta x_j)^2 + \nu}{2} \right)\]</span></p></li>
+<li class="fragment"></li>
+</ul>
+</section>
+<section id="prior-distributions-on-parameters" class="slide level2">
+<h2>Prior Distributions on Parameters</h2>
+<ul>
+<li class="fragment"><p>As a general recommendation, the prior distribution should have ``heavier’’ tails than the likelihood</p></li>
+<li class="fragment"><p>with <span class="math inline">\(t_9\)</span> errors use a <span class="math inline">\(t_\alpha\)</span> with <span class="math inline">\(\alpha &lt; 9\)</span></p></li>
+<li class="fragment"><p>also represent via scale mixture of normals</p></li>
+<li class="fragment"><p>Horseshoe, Double Pareto, Cauchy all have heavier tails</p></li>
+</ul>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li class="fragment"><p>Classical diagnostics useful for EDA (checking data, potential outliers/influential points) or posterior predictive checks</p></li>
+<li class="fragment"><p>BMA/BVS and Bayesian robust regression avoid interactive decision making about outliers</p></li>
+<li class="fragment"><p>Robust Regression (Bayes) can still identify outliers through distribution on weights</p></li>
+<li class="fragment"><p>continuous versus mixture distribution on scale parameters</p></li>
+<li class="fragment"><p>Other mixtures (sub populations?) on scales and <span class="math inline">\(\boldsymbol{\beta}\)</span>?</p></li>
+<li class="fragment"><p>Be careful about what predictors or transformations are used in the model as some outliers may be a result of model misspecification!</p></li>
+</ul>
+
+
+<img src="../../img/icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://sta702-F23.github.io/website/" class="uri">https://sta702-F23.github.io/website/</a></p>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'smaller': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"boardmarkerWidth":1,"chalkWidth":2,"chalkEffect":0},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
