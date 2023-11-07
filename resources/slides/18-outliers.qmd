@@ -1,0 +1,516 @@
+---
+title: "Lecture 18: Outliers and Robust Regression"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Body Fat Data
+{{< include macros.qmd >}}
+
+```{r}
+#| label: bodyfat
+data(bodyfat, package="BAS")
+```
+
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+#| label: lm
+#| fig-height: 5
+#| fig-width: 7
+bodyfat.lm = lm(Bodyfat ~ Abdomen, data=bodyfat)
+HH::ci.plot(bodyfat.lm, legend=NULL)
+
+```
+:::
+::: {.column width=50%}
+```{r}
+#| label: lmsub
+#| fig-height: 5
+#| fig-width: 7
+bfwout.lm = lm(Bodyfat ~ Abdomen,  subset=c(-39), data=bodyfat)
+HH::ci.plot(bfwout.lm)
+```
+
+:::
+::::
+
+Which analysis do we use?  with Case 39 or not -- or something different?
+
+## Cook's Distance
+
+```{r}
+#| echo: true
+#| label: cooksd
+#| fig.height: 6
+#| fig.width: 8
+plot(bodyfat.lm, which=5)
+```
+
+## Options for Handling Outliers
+
+What are outliers?  
+
+- Are there scientific grounds for eliminating the case?  
+
+- Test if the case  has a different mean than population  
+
+- Report results with and without the case  
+
+- Model Averaging to Account for Model Uncertainty?   
+
+- Full model $\Y = \X \b + \I_n\d + \epsilon$  
+
+- $\d$ is a $n \times 1$ vector;  $\b$ is $p \times 1$
+
+- All observations have a potentially different mean!
+
+## Outliers in Bayesian Regression
+
+- Hoeting, Madigan and Raftery (in various permutations)
+      consider the problem of simultaneous variable selection and
+      outlier identification
+      
+-   This is implemented in the package `BMA` in the function
+    `MC3.REG`
+
+- This has the advantage that more than 2 points may be considered as
+outliers at the same time
+
+- The function uses a Markov chain to identify both important
+  variables and potential outliers, but is coded in Fortran so should
+  run reasonably quickly. 
+
+- Can also use `BAS` or other variable selection programs 
+
+## Model Averaging and Outliers  
+
+- Full model $\Y = \X \b + \I_n\d + \epsilon$  
+
+- $\d$ is a $n \times 1$ vector;  $\b$ is $p \times 1$
+
+- $2^n$ submodels $\gamma_i = 0 \Leftrightarrow \delta_i = 0$
+
+- If $\gamma_i = 1$ then case $i$ has a different mean ``mean
+  shift'' outliers
+  
+##    Mean Shift $=$ Variance Inflation
+  
+- Model  $\Y = \X \b + \I_n\d + \epsilon$
+
+- Prior 
+$$\begin{align}
+\qquad \delta_i \mid \gamma_i & \sim N(0, V \sigma^2 \gamma_i) \\
+\qquad \gamma_i & \sim  \Ber(\pi)
+\end{align}
+$$
+
+
+
+
+- Then $\epsilon_i$ given $\sigma^2$ is independent of $\delta_i$
+and
+$$\epsilon^*_i \equiv \epsilon_i + \delta_i \mid \sigma^2 \left\{
+\begin{array}{llc}
+  N(0, \sigma^2) & wp &(1 - \pi) \\
+  N(0, \sigma^2(1 + V)) & wp & \pi
+\end{array}
+\right.
+$$
+
+- Model  $\Y = \X \b + \epsilon^*$   **variance inflation**
+
+- $V+1 = K = 7$ in the paper by Hoeting et al. package `BMA`
+
+## Simultaneous Outlier and Variable Selection
+
+```{r}
+#| echo: true
+#| cache: true
+library(BMA)
+bodyfat.bma = MC3.REG(all.y = bodyfat$Bodyfat, all.x = as.matrix(bodyfat$Abdomen),
+                      num.its = 10000, outliers = TRUE)
+summary(bodyfat.bma)
+
+
+```
+
+## BAS with Truncated Prior
+
+```{r}
+library(BAS)
+```
+
+
+```{r}
+#| label: bas
+#| cache: true
+#| echo: true
+
+bodyfat.w.out = cbind(bodyfat[, c("Bodyfat", "Abdomen")],
+                      diag(nrow(bodyfat)))
+
+bodyfat.bas = bas.lm(Bodyfat ~ ., data=bodyfat.w.out, 
+                     prior="hyper-g-n", a=3, method="MCMC",
+                     MCMC.it=2^18, 
+                     modelprior=tr.beta.binomial(1,254, 50))
+```
+
+```{r}
+#| label: basimage
+#| fig-height: 6
+#| fig-width:  10
+image(bodyfat.bas)
+```
+
+
+## Change Error Assumptions
+
+Use a Student-t error model
+$$\begin{eqnarray*}
+Y_i & \ind & t(\nu, \alpha + \beta x_i, 1/\phi) \\ 
+L(\alpha, \beta,\phi) & \propto & \prod_{i = 1}^n \phi^{1/2} \left(1 +
+\frac{\phi (y_i - \alpha - \beta x_i)^2}{\nu}\right)^{-\frac{(\nu +
+  1)}{2}}
+\end{eqnarray*}$$
+
+- Use Prior $p(\alpha, \beta, \phi) \propto 1/\phi$ \pause
+
+
+- Posterior distribution
+$$ p(\alpha, \beta, \phi \mid Y) \propto \phi^{n/2 - 1} \prod_{i = 1}^n  \left(1 +
+\frac{\phi (y_i - \alpha - \beta x_i)^2}{\nu}\right)^{-\frac{(\nu +
+  1)}{2}}$$ 
+  
+## Bounded Influence
+
+-  Treat $\sigma^2$ as given,  then **influence** of individual observations on the posterior distribution of $\b$  in the model where $\E[\Y_i] = \x_i^T\b$ is investigated through the score function: 
+$$
+\frac{d} {d \b} \log p (\b \mid \Y) = \frac{d} {d \b} \log p(\b) +  \sum_{i = 1}^n \x_i g(y_i - \x^T_i \b)
+$$ 
+
+- influence function of the error distribution (unimodal, continuous, differentiable, symmetric)
+$$ g(\eps) = - \frac{d} {d \eps} \log p(\eps)
+$$
+
+
+- An outlying observation $y_j$ is accommodated if the posterior distribution for $p(\b \mid \Y_{(i)})$ converges to $p(\b \mid \Y)$  for all $\b$ as $|\Y_i| \to \infty$.   
+
+
+- Requires error models with influence functions that go to zero such as the Student $t$ (O'Hagan, 1979, West 1984)  
+
+## Choice of df for Student-$t$
+
+Investigate the Score function
+$$
+\frac{d} {d \b} \log p (\b \mid \Y) = \frac{d} {d \b} \log p(\b) +  \sum_{i = 1}^n \x_i g(y_i - \x^T_i \b)
+$$ 
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| fig.height: 7
+#| fig.width: 9
+g = function (x, df) {
+  (1 + df) * x / (df + x^2)
+}
+eps=seq(-100,100, length=100000)
+plot(eps, g(eps, 9), type="l")
+title("Score Function of t with 9 df")
+abline(v=c(-3,3))
+abline(h=0)
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+- Score function for $t$ with $\alpha$ degrees of freedom has turning points at $\pm \sqrt{\alpha}$ 
+ 
+
+
+-  $g'(\eps)$ is negative when $\eps^2 > \alpha$  (standardized errors) 
+
+-  Contribution of observation to information matrix is negative and the observation is doubtful 
+
+
+
+-  Suggest taking $\alpha = 8$ or $\alpha = 9$ to reject errors larger than $\sqrt{8}$ or $3$ sd.
+
+:::
+::::
+
+## Scale-Mixtures of Normal Representation
+
+- Latent Variable Model
+\begin{eqnarray*}
+  Y_i \mid \alpha, \beta, \phi, \lambda & \ind & N(\alpha + \beta x_i,
+  \frac{1}{\phi \lambda_i}) \\
+ \lambda_i & \iid & G(\nu/2, \nu/2) \\
+ p(\alpha, \beta, \phi) & \propto & 1/\phi  
+\end{eqnarray*}
+
+- Joint Posterior Distribution: 
+\begin{eqnarray*}
+p((\alpha, \beta, \phi, \lambda_1, \ldots, \lambda_n \mid Y)
+  \propto \,  & &
+\phi^{n/2} \exp\left\{ - \frac{\phi}{2} \sum \lambda_i(y_i - \alpha  - \beta x_i)^2 \right\} \times \\
+&  & \phi^{-1} \\
+&  &\prod_{i=1}^n \lambda_i^{\nu/2 - 1} \exp(- \lambda_i \nu/2)
+\end{eqnarray*}
+
+- Integrate out ``latent'' $\lambda$'s to obtain marginal  $t$ distribution
+
+## JAGS - Just Another Gibbs Sampler 
+
+
+```{r}
+#| echo: true
+rr.model = function() {
+  df <- 9
+  for (i in 1:n) {
+    mu[i] <- alpha0 + alpha1*(X[i] - Xbar)
+    lambda[i] ~ dgamma(df/2, df/2)
+    prec[i] <- phi*lambda[i]
+    Y[i] ~ dnorm(mu[i], prec[i])
+  }
+  phi ~ dgamma(1.0E-6, 1.0E-6)
+  alpha0 ~ dnorm(0, 1.0E-6)
+  alpha1 ~ dnorm(0,1.0E-6)
+  beta0 <- alpha0 - alpha1*Xbar  # transform back
+  beta1 <- alpha1
+  sigma <- pow(phi, -.5)
+  mu34 <- beta0 + beta1*2.54*34  #mean for a man w/ a 34 in waist
+  y34 ~ dt(mu34,phi, df)   # integrate out lambda_34 
+}
+```
+::: {.callout-warning}
+## Warning!   Normals  and Student-t are parameterized in terms of precisions!
+:::
+
+## What output to Save?
+
+The parameters to be monitored and returned to `R` are specified with
+the variable `parameters`
+
+
+
+```{r}
+#| echo: true
+parameters = c("beta0", "beta1", "sigma", "mu34", "y34", "lambda[39]")
+```
+
+
+-  Use of `<-` for assignment for parameters that calculated from the other
+  parameters. (See R-code for definitions of these parameters.)  
+  
+-  `mu34` and `y34` are the mean functions and predictions for a man with a 34in waist.
+
+-  `lambda[39]` saves only the 39th case of $\lambda$ 
+
+-   To save a whole vector (for example all lambdas, just give the
+  vector name)
+  
+  
+## Running JAGS from `R`
+
+Install jags from [sourceforge](https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/)
+
+. . .
+
+```{r}
+#| echo: true
+#| label: jagsrun
+#| cache: true
+#| output: false
+library(R2jags)
+
+# Create a data list with inputs for Winpost/Jags
+
+bf.data = list(Y = bodyfat$Bodyfat, X=bodyfat$Abdomen)
+bf.data$n = length(bf.data$Y)
+bf.data$Xbar = mean(bf.data$X)
+
+# run jags
+bf.sim = jags(bf.data, inits=NULL, par=parameters,
+              model=rr.model, n.chains=2, n.iter=20000)
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| 
+# create an MCMC object 
+library(coda)
+bf.post = as.mcmc(bf.sim$BUGSoutput$sims.matrix)  
+```
+## Posterior Distributions  
+
+
+
+```{r}
+#| fig.height: 5
+par(mfrow=c(1,2))
+ymax = max(density(bf.post[,"mu34"])$y)
+hist(bf.post[,"mu34"], prob=T, xlab=expression(mu),
+     ylim=c(0, ymax),
+     main="Posterior of Expected Bodyfat\n for Men with 34 inch Waist")
+lines(density(bf.post[,"mu34"]))
+
+ymax = max(density(bf.post[,"y34"])$y)
+hist(bf.post[,"y34"], prob=T, xlab="% Bodyfat",
+     ylim=c(0, ymax),
+     main="Predictive Distribution of Bodyfat\n for Men with 34 inch Waist ")
+lines(density(bf.post[,"y34"]))
+
+```
+
+
+## Posterior of $\lambda_{39}$
+
+
+```{r}
+#| fig.height: 6
+#| fig.width: 8
+hist(bf.post[,"lambda[39]"], prob=T, xlab=expression(lambda[39]),
+     main="Posterior Distribution")
+lines(density(bf.post[,"lambda[39]"]))
+# add prior density
+lines(seq(0.01, 1.2, length=100), dgamma(seq(0.01, 1.2, length=100), 9/2,rate=9/2),
+      col=2, lty=2)
+legend("topright", legend=c("posterior", "prior"), col=c(1,2), lty=c(1,2))
+
+```
+
+## Comparison
+
+```{r}
+bodyfat.lmall = lm(Bodyfat ~ I(Abdomen - 2.54*34), data=bodyfat)
+bodyfat.lm = lm(Bodyfat ~ I(Abdomen - 2.54*34),  subset=-39,data=bodyfat)
+```
+
+95% Confidence/Credible Intervals for $\beta$
+
+```{r}
+ci.beta = rbind(confint(bodyfat.lmall)[2,],
+                HPDinterval(bf.post[,"beta1"]),
+                 confint(bodyfat.lm)[2,])
+row.names(ci.beta) = c("lm all", "robust bayes", "lm w/out 39")
+kable(ci.beta)
+
+```
+
+- Results intermediate without having to remove any observations!
+
+- Case 39 down weighted by $\lambda_{39}$ in posterior for $\beta$
+
+- Under prior $E[\lambda_{i}] = 1$  
+
+- large residuals lead to smaller $\lambda$
+$$\lambda_j \mid \text{rest}, Y \sim G \left(\frac{\nu + 1}{2}, \frac{\phi(y_j - \alpha -
+\beta x_j)^2 + \nu}{2} \right)$$
+
+- 
+
+## Prior Distributions on Parameters
+
+- As a general recommendation, the prior distribution should have
+``heavier'' tails than the likelihood 
+
+-  with $t_9$ errors use a $t_\alpha$ with $\alpha < 9$ 
+-  also represent via scale mixture of normals 
+-  Horseshoe, Double Pareto, Cauchy all have heavier tails 
+
+## Summary
+
+-  Classical diagnostics useful for EDA (checking data, potential outliers/influential points) or posterior predictive checks
+-  BMA/BVS and Bayesian robust regression avoid interactive decision making about outliers
+-  Robust Regression (Bayes) can still identify outliers through distribution on weights
+
+-  continuous versus mixture distribution on scale parameters
+
+-  Other mixtures (sub populations?) on scales and $\b$?
+
+
+- Be careful about what predictors or transformations are used in the model as some outliers may be a result of model misspecification!
+
