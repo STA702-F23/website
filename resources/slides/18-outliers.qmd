@@ -268,10 +268,10 @@ $$ g(\eps) = - \frac{d} {d \eps} \log p(\eps)
 $$
 
 
-- An outlying observation $y_j$ is accommodated if the posterior distribution for $p(\b \mid \Y_{(i)})$ converges to $p(\b \mid \Y)$  for all $\b$ as $|\Y_i| \to \infty$.   
+- An outlying observation $y_j$ is accommodated if the posterior distribution for $p(\b \mid \Y$ converges to $p(\b \mid \Y_{(i)})$  for all $\b$ as $|\Y_i| \to \infty$.   
 
 
-- Requires error models with influence functions that go to zero such as the Student $t$ (O'Hagan, 1979, West 1984)  
+- Requires error models with influence functions that go to zero such as the Student $t$ (O'Hagan, 1979, West 1984, Hamura 2023)  
 
 ## Choice of df for Student-$t$
 

@@ -1,0 +1,36 @@
+---
+title: "Lecture 18: Outliers and Robust Bayesian Regression"
+output: 
+  html_document:
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+  
+- [ West, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46,  431-439](west84.pdf)
+ 
+- [Hoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270](https://www.sciencedirect.com/science/article/abs/pii/0167947395000534)
+ 
+- [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
+ 
+  + Section 9.1: The linear regression model (review)
+  + Section 9.2: Bayesian estimation for a regression model
+  + Section 9.3: Model Selection (linear regression)
+ 
+
+
+
+- [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+
+  + Section 14.2: Bayesian analysis of the classical regression model
+
+
+- [The Bayesian Choice (Second Edition)](https://link-springer-com.proxy.lib.duke.edu/content/pdf/10.1007%2F0-387-71599-1.pdf)    by Christian Robert
+
+    
