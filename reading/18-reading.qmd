@@ -12,10 +12,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Readings
 
+- [Hamura, Y.. (2023) A Simple Proof of Posterior Robustness](https://arxiv.org/pdf/2301.06099.pdf)
+
+- [Desgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation](https://arxiv.org/pdf/1612.05307.pdf)
   
-- [ West, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46,  431-439](west84.pdf)
+- [West, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46,  431-439](https://www.jstor.org/stable/2345685)
  
 - [Hoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270](https://www.sciencedirect.com/science/article/abs/pii/0167947395000534)
+ 
+ -[O'hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367](https://www.jstor.org/stable/2985064)
  
 - [A First Course in Bayesian Statistical Methods](https://find.library.duke.edu/catalog/DUKE004968562) by Peter D. Hoff
  
