@@ -5,6 +5,10 @@ title: "Lecture 19: Random Effects"
 
 ## Readings
 
+- [Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA  60: 806-825](https://www.jstor.org/stable/2283247) 
+
+- [Hobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473 ](https://www.jstor.org/stable/2291572)
+
 - [Browne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514](10.1214/06-BA117)
 
 - [Gelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534](10.1214/06-BA117A)
