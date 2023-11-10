@@ -1246,786 +1246,107 @@
     "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
   },
   {
-    "objectID": "hw/hw-04.html",
-    "href": "hw/hw-04.html",
-    "title": "Homework 4",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-04.html#due-1159am-oct-4",
-    "href": "hw/hw-04.html#due-1159am-oct-4",
-    "title": "Homework 4",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-04.html#rstudio",
-    "href": "hw/hw-04.html#rstudio",
-    "title": "Homework 4",
-    "section": "RStudio",
-    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "hw/hw-04.html#r-knitr",
-    "href": "hw/hw-04.html#r-knitr",
-    "title": "Homework 4",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
-  },
-  {
-    "objectID": "hw/hw-04.html#getting-started-with-github-classroom",
-    "href": "hw/hw-04.html#getting-started-with-github-classroom",
-    "title": "Homework 4",
-    "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW4 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
-  },
-  {
-    "objectID": "hw/hw-04.html#gradescope-submission",
-    "href": "hw/hw-04.html#gradescope-submission",
-    "title": "Homework 4",
-    "section": "Gradescope Submission",
-    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "hw/hw-04.html#grading",
-    "href": "hw/hw-04.html#grading",
-    "title": "Homework 4",
-    "section": "Grading",
-    "text": "Grading\nTotal: 20 points."
-  },
-  {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "Homework 1",
-    "section": "",
-    "text": "(see Gradescope for any updates on due dates)"
-  },
-  {
-    "objectID": "hw/hw-01.html#due-1159pm-tues-sept-12",
-    "href": "hw/hw-01.html#due-1159pm-tues-sept-12",
-    "title": "Homework 1",
-    "section": "",
-    "text": "(see Gradescope for any updates on due dates)"
-  },
-  {
-    "objectID": "hw/hw-01.html#rstudio",
-    "href": "hw/hw-01.html#rstudio",
-    "title": "Homework 1",
-    "section": "RStudio",
-    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "hw/hw-01.html#r-knitr",
-    "href": "hw/hw-01.html#r-knitr",
-    "title": "Homework 1",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
-  },
-  {
-    "objectID": "hw/hw-01.html#getting-started-with-github-classroom",
-    "href": "hw/hw-01.html#getting-started-with-github-classroom",
-    "title": "Homework 1",
-    "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW1\nThis will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw1.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
-  },
-  {
-    "objectID": "hw/hw-01.html#gradescope-submission",
-    "href": "hw/hw-01.html#gradescope-submission",
-    "title": "Homework 1",
-    "section": "Gradescope Submission",
-    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "hw/hw-01.html#grading",
-    "href": "hw/hw-01.html#grading",
-    "title": "Homework 1",
-    "section": "Grading",
-    "text": "Grading\nTotal: 20 points."
-  },
-  {
-    "objectID": "hw/hw-02.html",
-    "href": "hw/hw-02.html",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-02.html#due-1159pm-tues-sept-19",
-    "href": "hw/hw-02.html#due-1159pm-tues-sept-19",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-02.html#rstudio",
-    "href": "hw/hw-02.html#rstudio",
-    "title": "Homework 2",
-    "section": "RStudio",
-    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "hw/hw-02.html#r-knitr",
-    "href": "hw/hw-02.html#r-knitr",
-    "title": "Homework 2",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
-  },
-  {
-    "objectID": "hw/hw-02.html#getting-started-with-github-classroom",
-    "href": "hw/hw-02.html#getting-started-with-github-classroom",
-    "title": "Homework 2",
-    "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW2\nThis will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
-  },
-  {
-    "objectID": "hw/hw-02.html#gradescope-submission",
-    "href": "hw/hw-02.html#gradescope-submission",
-    "title": "Homework 2",
-    "section": "Gradescope Submission",
-    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "hw/hw-02.html#grading",
-    "href": "hw/hw-02.html#grading",
-    "title": "Homework 2",
-    "section": "Grading",
-    "text": "Grading\nTotal: 20 points."
-  },
-  {
-    "objectID": "hw/hw-08.html",
-    "href": "hw/hw-08.html",
-    "title": "Homework 8",
+    "objectID": "hw/hw-09.html",
+    "href": "hw/hw-09.html",
+    "title": "Homework 9",
     "section": "",
     "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-08.html#due-1145am-nov-8",
-    "href": "hw/hw-08.html#due-1145am-nov-8",
-    "title": "Homework 8",
+    "objectID": "hw/hw-09.html#due-130pm-nov-17",
+    "href": "hw/hw-09.html#due-130pm-nov-17",
+    "title": "Homework 9",
     "section": "",
     "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-08.html#getting-started-with-github-classroom",
-    "href": "hw/hw-08.html#getting-started-with-github-classroom",
-    "title": "Homework 8",
+    "objectID": "hw/hw-09.html#getting-started-with-github-classroom",
+    "href": "hw/hw-09.html#getting-started-with-github-classroom",
+    "title": "Homework 9",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW8 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW9 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-08.html#gradescope-submission",
-    "href": "hw/hw-08.html#gradescope-submission",
-    "title": "Homework 8",
+    "objectID": "hw/hw-09.html#gradescope-submission",
+    "href": "hw/hw-09.html#gradescope-submission",
+    "title": "Homework 9",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-08.html#grading",
-    "href": "hw/hw-08.html#grading",
-    "title": "Homework 8",
+    "objectID": "hw/hw-09.html#grading",
+    "href": "hw/hw-09.html#grading",
+    "title": "Homework 9",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
   {
-    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "title": "STA 702 Fall 2023",
-    "section": "Bayesian Statistical Modeling and Data Analysis",
-    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
-  },
-  {
-    "objectID": "index.html#course-info",
-    "href": "index.html#course-info",
-    "title": "STA 702 Fall 2023",
-    "section": "Course Info",
-    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
-  },
-  {
-    "objectID": "labs/lab-08.html#github-classroom",
-    "href": "labs/lab-08.html#github-classroom",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-08.html#gradescope",
-    "href": "labs/lab-08.html#gradescope",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-04.html#rrstudio",
-    "href": "labs/lab-04.html#rrstudio",
-    "title": "Lab 4: Metropolis Random Walk Algorithms",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "labs/lab-04.html#r-knitr",
-    "href": "labs/lab-04.html#r-knitr",
-    "title": "Lab 4: Metropolis Random Walk Algorithms",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
-  },
-  {
-    "objectID": "labs/lab-04.html#github-classroom",
-    "href": "labs/lab-04.html#github-classroom",
-    "title": "Lab 4: Metropolis Random Walk Algorithms",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-04.html#gradescope",
-    "href": "labs/lab-04.html#gradescope",
-    "title": "Lab 4: Metropolis Random Walk Algorithms",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-06.html#github-classroom",
-    "href": "labs/lab-06.html#github-classroom",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-06.html#gradescope",
-    "href": "labs/lab-06.html#gradescope",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-02-beta-binomial.html#rrstudio",
-    "href": "labs/lab-02-beta-binomial.html#rrstudio",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "labs/lab-02-beta-binomial.html#r-knitr",
-    "href": "labs/lab-02-beta-binomial.html#r-knitr",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
-  },
-  {
-    "objectID": "labs/lab-02-beta-binomial.html#github-classroom",
-    "href": "labs/lab-02-beta-binomial.html#github-classroom",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-02-beta-binomial.html#gradescope",
-    "href": "labs/lab-02-beta-binomial.html#gradescope",
-    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-03.html#rrstudio",
-    "href": "labs/lab-03.html#rrstudio",
-    "title": "Lab 3: Posterior Predictive Checks",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "labs/lab-03.html#r-knitr",
-    "href": "labs/lab-03.html#r-knitr",
-    "title": "Lab 3: Posterior Predictive Checks",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
-  },
-  {
-    "objectID": "labs/lab-03.html#github-classroom",
-    "href": "labs/lab-03.html#github-classroom",
-    "title": "Lab 3: Posterior Predictive Checks",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-03.html#gradescope",
-    "href": "labs/lab-03.html#gradescope",
-    "title": "Lab 3: Posterior Predictive Checks",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-01-r-review.html#rrstudio",
-    "href": "labs/lab-01-r-review.html#rrstudio",
-    "title": "Lab 1: R Review and Monte Carlo",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "labs/lab-01-r-review.html#r-knitr",
-    "href": "labs/lab-01-r-review.html#r-knitr",
-    "title": "Lab 1: R Review and Monte Carlo",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
-  },
-  {
-    "objectID": "labs/lab-01-r-review.html#github-classroom",
-    "href": "labs/lab-01-r-review.html#github-classroom",
-    "title": "Lab 1: R Review and Monte Carlo",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-01-r-review.html#gradescope",
-    "href": "labs/lab-01-r-review.html#gradescope",
-    "title": "Lab 1: R Review and Monte Carlo",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "reading/13-reading.html",
-    "href": "reading/13-reading.html",
-    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "objectID": "hw/hw-07.html",
+    "href": "hw/hw-07.html",
+    "title": "Homework 7",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "reading/13-reading.html#readings",
-    "href": "reading/13-reading.html#readings",
-    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "objectID": "hw/hw-07.html#due-1145am-nov-1",
+    "href": "hw/hw-07.html#due-1145am-nov-1",
+    "title": "Homework 7",
     "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "reading/15-reading.html",
-    "href": "reading/15-reading.html",
-    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
-    "section": "",
-    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/15-reading.html#readings",
-    "href": "reading/15-reading.html#readings",
-    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
-    "section": "",
-    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/19-reading.html",
-    "href": "reading/19-reading.html",
-    "title": "Lecture 19: Random Effects",
-    "section": "",
-    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/19-reading.html#readings",
-    "href": "reading/19-reading.html#readings",
-    "title": "Lecture 19: Random Effects",
-    "section": "",
-    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/05-reading.html",
-    "href": "reading/05-reading.html",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/05-reading.html#readings",
-    "href": "reading/05-reading.html#readings",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/16-reading.html",
-    "href": "reading/16-reading.html",
-    "title": "Lecture 16: Bayesian Model Averaging",
-    "section": "",
-    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
-  },
-  {
-    "objectID": "reading/16-reading.html#readings",
-    "href": "reading/16-reading.html#readings",
-    "title": "Lecture 16: Bayesian Model Averaging",
-    "section": "",
-    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
-  },
-  {
-    "objectID": "reading/08-reading.html",
-    "href": "reading/08-reading.html",
-    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/08-reading.html#readings",
-    "href": "reading/08-reading.html#readings",
-    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/01-reading.html",
-    "href": "reading/01-reading.html",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
-  },
-  {
-    "objectID": "reading/01-reading.html#readings",
-    "href": "reading/01-reading.html#readings",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
-  },
-  {
-    "objectID": "reading/01-reading.html#optional",
-    "href": "reading/01-reading.html#optional",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "Optional",
-    "text": "Optional\n\nBayesian Computation with R (Second Edition) by Jim Albert:\n\nSection 2: Introduction to Bayesian thinking"
-  },
-  {
-    "objectID": "reading/07-reading.html",
-    "href": "reading/07-reading.html",
-    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/07-reading.html#readings",
-    "href": "reading/07-reading.html#readings",
-    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/06-reading.html",
-    "href": "reading/06-reading.html",
-    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
-  },
-  {
-    "objectID": "reading/06-reading.html#readings",
-    "href": "reading/06-reading.html#readings",
-    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
-  },
-  {
-    "objectID": "reading/09-reading.html",
-    "href": "reading/09-reading.html",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/09-reading.html#readings",
-    "href": "reading/09-reading.html#readings",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": " Resources",
-    "section": "",
-    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/03-reading.html",
-    "href": "reading/03-reading.html",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
-  },
-  {
-    "objectID": "reading/03-reading.html#readings",
-    "href": "reading/03-reading.html#readings",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
-  },
-  {
-    "objectID": "reading/14-reading.html",
-    "href": "reading/14-reading.html",
-    "title": "Lecture 14: Basics of Hypothesis Testing",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
-  },
-  {
-    "objectID": "reading/14-reading.html#readings",
-    "href": "reading/14-reading.html#readings",
-    "title": "Lecture 14: Basics of Hypothesis Testing",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
-  },
-  {
-    "objectID": "reading/00-reading.html",
-    "href": "reading/00-reading.html",
-    "title": "Lecture 0: Readings to Pique Your Interest",
-    "section": "",
-    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/00-reading.html#readings",
-    "href": "reading/00-reading.html#readings",
-    "title": "Lecture 0: Readings to Pique Your Interest",
-    "section": "",
-    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/17-reading.html",
-    "href": "reading/17-reading.html",
-    "title": "Lecture 17: Bayesian Model Averaging",
-    "section": "",
-    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/17-reading.html#readings",
-    "href": "reading/17-reading.html#readings",
-    "title": "Lecture 17: Bayesian Model Averaging",
-    "section": "",
-    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/10-reading.html",
-    "href": "reading/10-reading.html",
-    "title": "Lecture 10: Missing Data",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
-  },
-  {
-    "objectID": "reading/10-reading.html#readings",
-    "href": "reading/10-reading.html#readings",
-    "title": "Lecture 10: Missing Data",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
-  },
-  {
-    "objectID": "reading/04-reading.html",
-    "href": "reading/04-reading.html",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
-  },
-  {
-    "objectID": "reading/04-reading.html#readings",
-    "href": "reading/04-reading.html#readings",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
-  },
-  {
-    "objectID": "reading/04-reading.html#optional",
-    "href": "reading/04-reading.html#optional",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "Optional",
-    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
-  },
-  {
-    "objectID": "reading/04-reading.html#recommended",
-    "href": "reading/04-reading.html#recommended",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "Recommended",
-    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142\nBerger, J (2003) Could Fisher, Jeffreys and Neyman Have Agreed on Testing? Statistical Science, 18:1-12."
-  },
-  {
-    "objectID": "reading/11-reading.html",
-    "href": "reading/11-reading.html",
-    "title": "Lecture 11: Bayesian Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/11-reading.html#readings",
-    "href": "reading/11-reading.html#readings",
-    "title": "Lecture 11: Bayesian Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/02-reading.html",
-    "href": "reading/02-reading.html",
-    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
-  },
-  {
-    "objectID": "reading/02-reading.html#readings",
-    "href": "reading/02-reading.html#readings",
-    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
-  },
-  {
-    "objectID": "reading/18-reading.html",
-    "href": "reading/18-reading.html",
-    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
-    "section": "",
-    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/18-reading.html#readings",
-    "href": "reading/18-reading.html#readings",
-    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
-    "section": "",
-    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/12-reading.html",
-    "href": "reading/12-reading.html",
-    "title": "Lecture 12: Prior Choice in Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/12-reading.html#readings",
-    "href": "reading/12-reading.html#readings",
-    "title": "Lecture 12: Prior Choice in Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "labs/lab-00-getting-started.html#rrstudio",
-    "href": "labs/lab-00-getting-started.html#rrstudio",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers or feel free to use the Department servers. If you want a local version of RStudion, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system. You may also need to install git as well."
-  },
-  {
-    "objectID": "labs/lab-00-getting-started.html#github",
-    "href": "labs/lab-00-getting-started.html#github",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "Github",
-    "text": "Github\nCreate a github account if you do not have one here https://github.com"
-  },
-  {
-    "objectID": "labs/lab-00-getting-started.html#r-sweave",
-    "href": "labs/lab-00-getting-started.html#r-sweave",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "R Sweave",
-    "text": "R Sweave\nYou are required to use R Sweave/knitr to type up HW and lab reports. Don’t worry we will guide you along the way!"
-  },
-  {
-    "objectID": "labs/lab-00-getting-started.html#gradescope",
-    "href": "labs/lab-00-getting-started.html#gradescope",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
-  },
-  {
-    "objectID": "labs/lab-midterm-I-review.html",
-    "href": "labs/lab-midterm-I-review.html",
-    "title": "Lab: Midterm I Review",
-    "section": "",
-    "text": "Go to Github classroom to create a repository for this assignment at Midterm I Review with the old exams"
-  },
-  {
-    "objectID": "labs/lab-midterm-I-review.html#nothing-to-submit",
-    "href": "labs/lab-midterm-I-review.html#nothing-to-submit",
-    "title": "Lab: Midterm I Review",
-    "section": "",
-    "text": "Go to Github classroom to create a repository for this assignment at Midterm I Review with the old exams"
-  },
-  {
-    "objectID": "labs/lab-05.html#rrstudio",
-    "href": "labs/lab-05.html#rrstudio",
-    "title": "Lab 5: Gibbs Sampling",
-    "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
-  },
-  {
-    "objectID": "labs/lab-05.html#r-knitr",
-    "href": "labs/lab-05.html#r-knitr",
-    "title": "Lab 5: Gibbs Sampling",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
-  },
-  {
-    "objectID": "labs/lab-05.html#github-classroom",
-    "href": "labs/lab-05.html#github-classroom",
-    "title": "Lab 5: Gibbs Sampling",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-05.html#gradescope",
-    "href": "labs/lab-05.html#gradescope",
-    "title": "Lab 5: Gibbs Sampling",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-07.html#github-classroom",
-    "href": "labs/lab-07.html#github-classroom",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Github Classroom",
-    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
-  },
-  {
-    "objectID": "labs/lab-07.html#gradescope",
-    "href": "labs/lab-07.html#gradescope",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
-    "section": "Gradescope",
-    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
-  },
-  {
-    "objectID": "labs/lab-midterm-II-review.html",
-    "href": "labs/lab-midterm-II-review.html",
-    "title": "Lab: Midterm II Review",
-    "section": "",
-    "text": "Go to Github classroom to create a repository for this assignment at Midterm II Review with the old exams"
-  },
-  {
-    "objectID": "labs/lab-midterm-II-review.html#nothing-to-submit",
-    "href": "labs/lab-midterm-II-review.html#nothing-to-submit",
-    "title": "Lab: Midterm II Review",
-    "section": "",
-    "text": "Go to Github classroom to create a repository for this assignment at Midterm II Review with the old exams"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": " Schedule",
-    "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n \n\n\n hw-06\n\n    \nFri, Oct 13\n\nLab : Review for Midterm I\n\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 6: Shrinkage Priors in Regression Comparison\n\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:  Basics of Bayesian Hypothesis Tests\n\n\n\n \n\n\n hw-07\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n \n\n\n\n    \nFri, Oct 27\n\nLab 7:  Multiple Hypothesis Testing\n\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n hw-08\n\n    \nFri, Nov 3\n\nLab 8: Variable Selection\n\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n \n\n\n\n    \nThurs, Nov 9\n\nLec 19:  Random Effects\n\n\n\n \n\n\n hw-09\n\n    \nFri, Nov 10\n\nLab 9: Review\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n hw-10\n\n    \nFri, Nov 17\n\nLab 10\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n hw-11\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 11\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
-  },
-  {
-    "objectID": "hw/hw-05.html",
-    "href": "hw/hw-05.html",
-    "title": "Homework 5",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-05.html#due-1159am-oct-11",
-    "href": "hw/hw-05.html#due-1159am-oct-11",
-    "title": "Homework 5",
-    "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
-  },
-  {
-    "objectID": "hw/hw-05.html#getting-started-with-github-classroom",
-    "href": "hw/hw-05.html#getting-started-with-github-classroom",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#getting-started-with-github-classroom",
+    "href": "hw/hw-07.html#getting-started-with-github-classroom",
+    "title": "Homework 7",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW5 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW7 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-05.html#gradescope-submission",
-    "href": "hw/hw-05.html#gradescope-submission",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#gradescope-submission",
+    "href": "hw/hw-07.html#gradescope-submission",
+    "title": "Homework 7",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-05.html#grading",
-    "href": "hw/hw-05.html#grading",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#grading",
+    "href": "hw/hw-07.html#grading",
+    "title": "Homework 7",
+    "section": "Grading",
+    "text": "Grading\nTotal: 20 points."
+  },
+  {
+    "objectID": "hw/hw-06.html",
+    "href": "hw/hw-06.html",
+    "title": "Homework 6",
+    "section": "",
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-06.html#due-1159pm-oct-24-note-this-is-after-the-midterm",
+    "href": "hw/hw-06.html#due-1159pm-oct-24-note-this-is-after-the-midterm",
+    "title": "Homework 6",
+    "section": "",
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-06.html#getting-started-with-github-classroom",
+    "href": "hw/hw-06.html#getting-started-with-github-classroom",
+    "title": "Homework 6",
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW6 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-06.html#gradescope-submission",
+    "href": "hw/hw-06.html#gradescope-submission",
+    "title": "Homework 6",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "hw/hw-06.html#grading",
+    "href": "hw/hw-06.html#grading",
+    "title": "Homework 6",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
@@ -2079,72 +1400,786 @@
     "text": "Grading\nTotal: 20 points."
   },
   {
-    "objectID": "hw/hw-06.html",
-    "href": "hw/hw-06.html",
-    "title": "Homework 6",
+    "objectID": "hw/hw-05.html",
+    "href": "hw/hw-05.html",
+    "title": "Homework 5",
     "section": "",
-    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+    "text": "Please see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-06.html#due-1159pm-oct-24-note-this-is-after-the-midterm",
-    "href": "hw/hw-06.html#due-1159pm-oct-24-note-this-is-after-the-midterm",
-    "title": "Homework 6",
+    "objectID": "hw/hw-05.html#due-1159am-oct-11",
+    "href": "hw/hw-05.html#due-1159am-oct-11",
+    "title": "Homework 5",
     "section": "",
-    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+    "text": "Please see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-06.html#getting-started-with-github-classroom",
-    "href": "hw/hw-06.html#getting-started-with-github-classroom",
-    "title": "Homework 6",
+    "objectID": "hw/hw-05.html#getting-started-with-github-classroom",
+    "href": "hw/hw-05.html#getting-started-with-github-classroom",
+    "title": "Homework 5",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW6 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW5 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-06.html#gradescope-submission",
-    "href": "hw/hw-06.html#gradescope-submission",
-    "title": "Homework 6",
+    "objectID": "hw/hw-05.html#gradescope-submission",
+    "href": "hw/hw-05.html#gradescope-submission",
+    "title": "Homework 5",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-06.html#grading",
-    "href": "hw/hw-06.html#grading",
-    "title": "Homework 6",
+    "objectID": "hw/hw-05.html#grading",
+    "href": "hw/hw-05.html#grading",
+    "title": "Homework 5",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
   {
-    "objectID": "hw/hw-07.html",
-    "href": "hw/hw-07.html",
-    "title": "Homework 7",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": " Schedule",
+    "section": "",
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n \n\n\n hw-06\n\n    \nFri, Oct 13\n\nLab : Review for Midterm I\n\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 6: Shrinkage Priors in Regression Comparison\n\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:  Basics of Bayesian Hypothesis Tests\n\n\n\n \n\n\n hw-07\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n \n\n\n\n    \nFri, Oct 27\n\nLab 7:  Multiple Hypothesis Testing\n\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n hw-08\n\n    \nFri, Nov 3\n\nLab 8: Variable Selection\n\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n \n\n\n\n    \nThurs, Nov 9\n\nLec 19:  Random Effects\n\n\n\n \n\n\n hw-09\n\n    \nFri, Nov 10\n\nLab 9: Review\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n\n    \nThurs, Nov 16\n\nLec 20: Random Effects\n\n\n\n\n hw-10\n\n    \nFri, Nov 17\n\nLab 10\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Mixed Effects Models\n\n\n\n\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n hw-11\n\n    Week 13\n\nTues, Nov 28\n\nHMC\n\n\n\n\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n\n    \nFri, Dec 1\n\nLab 11\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+  },
+  {
+    "objectID": "labs/lab-midterm-II-review.html",
+    "href": "labs/lab-midterm-II-review.html",
+    "title": "Lab: Midterm II Review",
+    "section": "",
+    "text": "Go to Github classroom to create a repository for this assignment at Midterm II Review with the old exams"
+  },
+  {
+    "objectID": "labs/lab-midterm-II-review.html#nothing-to-submit",
+    "href": "labs/lab-midterm-II-review.html#nothing-to-submit",
+    "title": "Lab: Midterm II Review",
+    "section": "",
+    "text": "Go to Github classroom to create a repository for this assignment at Midterm II Review with the old exams"
+  },
+  {
+    "objectID": "labs/lab-07.html#github-classroom",
+    "href": "labs/lab-07.html#github-classroom",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-07.html#gradescope",
+    "href": "labs/lab-07.html#gradescope",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-05.html#rrstudio",
+    "href": "labs/lab-05.html#rrstudio",
+    "title": "Lab 5: Gibbs Sampling",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "labs/lab-05.html#r-knitr",
+    "href": "labs/lab-05.html#r-knitr",
+    "title": "Lab 5: Gibbs Sampling",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+  },
+  {
+    "objectID": "labs/lab-05.html#github-classroom",
+    "href": "labs/lab-05.html#github-classroom",
+    "title": "Lab 5: Gibbs Sampling",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-05.html#gradescope",
+    "href": "labs/lab-05.html#gradescope",
+    "title": "Lab 5: Gibbs Sampling",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-midterm-I-review.html",
+    "href": "labs/lab-midterm-I-review.html",
+    "title": "Lab: Midterm I Review",
+    "section": "",
+    "text": "Go to Github classroom to create a repository for this assignment at Midterm I Review with the old exams"
+  },
+  {
+    "objectID": "labs/lab-midterm-I-review.html#nothing-to-submit",
+    "href": "labs/lab-midterm-I-review.html#nothing-to-submit",
+    "title": "Lab: Midterm I Review",
+    "section": "",
+    "text": "Go to Github classroom to create a repository for this assignment at Midterm I Review with the old exams"
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#rrstudio",
+    "href": "labs/lab-00-getting-started.html#rrstudio",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers or feel free to use the Department servers. If you want a local version of RStudion, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system. You may also need to install git as well."
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#github",
+    "href": "labs/lab-00-getting-started.html#github",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "Github",
+    "text": "Github\nCreate a github account if you do not have one here https://github.com"
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#r-sweave",
+    "href": "labs/lab-00-getting-started.html#r-sweave",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "R Sweave",
+    "text": "R Sweave\nYou are required to use R Sweave/knitr to type up HW and lab reports. Don’t worry we will guide you along the way!"
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#gradescope",
+    "href": "labs/lab-00-getting-started.html#gradescope",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
+  },
+  {
+    "objectID": "reading/12-reading.html",
+    "href": "reading/12-reading.html",
+    "title": "Lecture 12: Prior Choice in Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/12-reading.html#readings",
+    "href": "reading/12-reading.html#readings",
+    "title": "Lecture 12: Prior Choice in Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/18-reading.html",
+    "href": "reading/18-reading.html",
+    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
+    "section": "",
+    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/18-reading.html#readings",
+    "href": "reading/18-reading.html#readings",
+    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
+    "section": "",
+    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/02-reading.html",
+    "href": "reading/02-reading.html",
+    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
+  },
+  {
+    "objectID": "reading/02-reading.html#readings",
+    "href": "reading/02-reading.html#readings",
+    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
+  },
+  {
+    "objectID": "reading/11-reading.html",
+    "href": "reading/11-reading.html",
+    "title": "Lecture 11: Bayesian Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/11-reading.html#readings",
+    "href": "reading/11-reading.html#readings",
+    "title": "Lecture 11: Bayesian Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/04-reading.html",
+    "href": "reading/04-reading.html",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
+  },
+  {
+    "objectID": "reading/04-reading.html#readings",
+    "href": "reading/04-reading.html#readings",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
+  },
+  {
+    "objectID": "reading/04-reading.html#optional",
+    "href": "reading/04-reading.html#optional",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "Optional",
+    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
+  },
+  {
+    "objectID": "reading/04-reading.html#recommended",
+    "href": "reading/04-reading.html#recommended",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "Recommended",
+    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142\nBerger, J (2003) Could Fisher, Jeffreys and Neyman Have Agreed on Testing? Statistical Science, 18:1-12."
+  },
+  {
+    "objectID": "reading/10-reading.html",
+    "href": "reading/10-reading.html",
+    "title": "Lecture 10: Missing Data",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
+  },
+  {
+    "objectID": "reading/10-reading.html#readings",
+    "href": "reading/10-reading.html#readings",
+    "title": "Lecture 10: Missing Data",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
+  },
+  {
+    "objectID": "reading/17-reading.html",
+    "href": "reading/17-reading.html",
+    "title": "Lecture 17: Bayesian Model Averaging",
+    "section": "",
+    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/17-reading.html#readings",
+    "href": "reading/17-reading.html#readings",
+    "title": "Lecture 17: Bayesian Model Averaging",
+    "section": "",
+    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/00-reading.html",
+    "href": "reading/00-reading.html",
+    "title": "Lecture 0: Readings to Pique Your Interest",
+    "section": "",
+    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/00-reading.html#readings",
+    "href": "reading/00-reading.html#readings",
+    "title": "Lecture 0: Readings to Pique Your Interest",
+    "section": "",
+    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/14-reading.html",
+    "href": "reading/14-reading.html",
+    "title": "Lecture 14: Basics of Hypothesis Testing",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
+  },
+  {
+    "objectID": "reading/14-reading.html#readings",
+    "href": "reading/14-reading.html#readings",
+    "title": "Lecture 14: Basics of Hypothesis Testing",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
+  },
+  {
+    "objectID": "reading/03-reading.html",
+    "href": "reading/03-reading.html",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+  },
+  {
+    "objectID": "reading/03-reading.html#readings",
+    "href": "reading/03-reading.html#readings",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": " Resources",
+    "section": "",
+    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/09-reading.html",
+    "href": "reading/09-reading.html",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/09-reading.html#readings",
+    "href": "reading/09-reading.html#readings",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/06-reading.html",
+    "href": "reading/06-reading.html",
+    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
+  },
+  {
+    "objectID": "reading/06-reading.html#readings",
+    "href": "reading/06-reading.html#readings",
+    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
+  },
+  {
+    "objectID": "reading/07-reading.html",
+    "href": "reading/07-reading.html",
+    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/07-reading.html#readings",
+    "href": "reading/07-reading.html#readings",
+    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/01-reading.html",
+    "href": "reading/01-reading.html",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
+  },
+  {
+    "objectID": "reading/01-reading.html#readings",
+    "href": "reading/01-reading.html#readings",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
+  },
+  {
+    "objectID": "reading/01-reading.html#optional",
+    "href": "reading/01-reading.html#optional",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "Optional",
+    "text": "Optional\n\nBayesian Computation with R (Second Edition) by Jim Albert:\n\nSection 2: Introduction to Bayesian thinking"
+  },
+  {
+    "objectID": "reading/08-reading.html",
+    "href": "reading/08-reading.html",
+    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/08-reading.html#readings",
+    "href": "reading/08-reading.html#readings",
+    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/16-reading.html",
+    "href": "reading/16-reading.html",
+    "title": "Lecture 16: Bayesian Model Averaging",
+    "section": "",
+    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
+  },
+  {
+    "objectID": "reading/16-reading.html#readings",
+    "href": "reading/16-reading.html#readings",
+    "title": "Lecture 16: Bayesian Model Averaging",
+    "section": "",
+    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
+  },
+  {
+    "objectID": "reading/05-reading.html",
+    "href": "reading/05-reading.html",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/05-reading.html#readings",
+    "href": "reading/05-reading.html#readings",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/19-reading.html",
+    "href": "reading/19-reading.html",
+    "title": "Lecture 19: Random Effects",
+    "section": "",
+    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/19-reading.html#readings",
+    "href": "reading/19-reading.html#readings",
+    "title": "Lecture 19: Random Effects",
+    "section": "",
+    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/15-reading.html",
+    "href": "reading/15-reading.html",
+    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
+    "section": "",
+    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/15-reading.html#readings",
+    "href": "reading/15-reading.html#readings",
+    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
+    "section": "",
+    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/13-reading.html",
+    "href": "reading/13-reading.html",
+    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+  },
+  {
+    "objectID": "reading/13-reading.html#readings",
+    "href": "reading/13-reading.html#readings",
+    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+  },
+  {
+    "objectID": "labs/lab-01-r-review.html#rrstudio",
+    "href": "labs/lab-01-r-review.html#rrstudio",
+    "title": "Lab 1: R Review and Monte Carlo",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "labs/lab-01-r-review.html#r-knitr",
+    "href": "labs/lab-01-r-review.html#r-knitr",
+    "title": "Lab 1: R Review and Monte Carlo",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+  },
+  {
+    "objectID": "labs/lab-01-r-review.html#github-classroom",
+    "href": "labs/lab-01-r-review.html#github-classroom",
+    "title": "Lab 1: R Review and Monte Carlo",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-01-r-review.html#gradescope",
+    "href": "labs/lab-01-r-review.html#gradescope",
+    "title": "Lab 1: R Review and Monte Carlo",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-03.html#rrstudio",
+    "href": "labs/lab-03.html#rrstudio",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "labs/lab-03.html#r-knitr",
+    "href": "labs/lab-03.html#r-knitr",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+  },
+  {
+    "objectID": "labs/lab-03.html#github-classroom",
+    "href": "labs/lab-03.html#github-classroom",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-03.html#gradescope",
+    "href": "labs/lab-03.html#gradescope",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-02-beta-binomial.html#rrstudio",
+    "href": "labs/lab-02-beta-binomial.html#rrstudio",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "labs/lab-02-beta-binomial.html#r-knitr",
+    "href": "labs/lab-02-beta-binomial.html#r-knitr",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+  },
+  {
+    "objectID": "labs/lab-02-beta-binomial.html#github-classroom",
+    "href": "labs/lab-02-beta-binomial.html#github-classroom",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-02-beta-binomial.html#gradescope",
+    "href": "labs/lab-02-beta-binomial.html#gradescope",
+    "title": "Lab 2: Beta-Binomial Model and Introduction to stan",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-06.html#github-classroom",
+    "href": "labs/lab-06.html#github-classroom",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-06.html#gradescope",
+    "href": "labs/lab-06.html#gradescope",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-04.html#rrstudio",
+    "href": "labs/lab-04.html#rrstudio",
+    "title": "Lab 4: Metropolis Random Walk Algorithms",
+    "section": "R/RStudio",
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "labs/lab-04.html#r-knitr",
+    "href": "labs/lab-04.html#r-knitr",
+    "title": "Lab 4: Metropolis Random Walk Algorithms",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+  },
+  {
+    "objectID": "labs/lab-04.html#github-classroom",
+    "href": "labs/lab-04.html#github-classroom",
+    "title": "Lab 4: Metropolis Random Walk Algorithms",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-04.html#gradescope",
+    "href": "labs/lab-04.html#gradescope",
+    "title": "Lab 4: Metropolis Random Walk Algorithms",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "labs/lab-08.html#github-classroom",
+    "href": "labs/lab-08.html#github-classroom",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-08.html#gradescope",
+    "href": "labs/lab-08.html#gradescope",
+    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "title": "STA 702 Fall 2023",
+    "section": "Bayesian Statistical Modeling and Data Analysis",
+    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
+  },
+  {
+    "objectID": "index.html#course-info",
+    "href": "index.html#course-info",
+    "title": "STA 702 Fall 2023",
+    "section": "Course Info",
+    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
+  },
+  {
+    "objectID": "hw/hw-08.html",
+    "href": "hw/hw-08.html",
+    "title": "Homework 8",
     "section": "",
     "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-07.html#due-1145am-nov-1",
-    "href": "hw/hw-07.html#due-1145am-nov-1",
-    "title": "Homework 7",
+    "objectID": "hw/hw-08.html#due-1145am-nov-8",
+    "href": "hw/hw-08.html#due-1145am-nov-8",
+    "title": "Homework 8",
     "section": "",
     "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-07.html#getting-started-with-github-classroom",
-    "href": "hw/hw-07.html#getting-started-with-github-classroom",
-    "title": "Homework 7",
+    "objectID": "hw/hw-08.html#getting-started-with-github-classroom",
+    "href": "hw/hw-08.html#getting-started-with-github-classroom",
+    "title": "Homework 8",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW7 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW8 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-07.html#gradescope-submission",
-    "href": "hw/hw-07.html#gradescope-submission",
-    "title": "Homework 7",
+    "objectID": "hw/hw-08.html#gradescope-submission",
+    "href": "hw/hw-08.html#gradescope-submission",
+    "title": "Homework 8",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-07.html#grading",
-    "href": "hw/hw-07.html#grading",
-    "title": "Homework 7",
+    "objectID": "hw/hw-08.html#grading",
+    "href": "hw/hw-08.html#grading",
+    "title": "Homework 8",
+    "section": "Grading",
+    "text": "Grading\nTotal: 20 points."
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Please see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-02.html#due-1159pm-tues-sept-19",
+    "href": "hw/hw-02.html#due-1159pm-tues-sept-19",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Please see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-02.html#rstudio",
+    "href": "hw/hw-02.html#rstudio",
+    "title": "Homework 2",
+    "section": "RStudio",
+    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "hw/hw-02.html#r-knitr",
+    "href": "hw/hw-02.html#r-knitr",
+    "title": "Homework 2",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
+  },
+  {
+    "objectID": "hw/hw-02.html#getting-started-with-github-classroom",
+    "href": "hw/hw-02.html#getting-started-with-github-classroom",
+    "title": "Homework 2",
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW2\nThis will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-02.html#gradescope-submission",
+    "href": "hw/hw-02.html#gradescope-submission",
+    "title": "Homework 2",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "hw/hw-02.html#grading",
+    "href": "hw/hw-02.html#grading",
+    "title": "Homework 2",
+    "section": "Grading",
+    "text": "Grading\nTotal: 20 points."
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "(see Gradescope for any updates on due dates)"
+  },
+  {
+    "objectID": "hw/hw-01.html#due-1159pm-tues-sept-12",
+    "href": "hw/hw-01.html#due-1159pm-tues-sept-12",
+    "title": "Homework 1",
+    "section": "",
+    "text": "(see Gradescope for any updates on due dates)"
+  },
+  {
+    "objectID": "hw/hw-01.html#rstudio",
+    "href": "hw/hw-01.html#rstudio",
+    "title": "Homework 1",
+    "section": "RStudio",
+    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "hw/hw-01.html#r-knitr",
+    "href": "hw/hw-01.html#r-knitr",
+    "title": "Homework 1",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
+  },
+  {
+    "objectID": "hw/hw-01.html#getting-started-with-github-classroom",
+    "href": "hw/hw-01.html#getting-started-with-github-classroom",
+    "title": "Homework 1",
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW1\nThis will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw1.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-01.html#gradescope-submission",
+    "href": "hw/hw-01.html#gradescope-submission",
+    "title": "Homework 1",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "hw/hw-01.html#grading",
+    "href": "hw/hw-01.html#grading",
+    "title": "Homework 1",
+    "section": "Grading",
+    "text": "Grading\nTotal: 20 points."
+  },
+  {
+    "objectID": "hw/hw-04.html",
+    "href": "hw/hw-04.html",
+    "title": "Homework 4",
+    "section": "",
+    "text": "Please see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-04.html#due-1159am-oct-4",
+    "href": "hw/hw-04.html#due-1159am-oct-4",
+    "title": "Homework 4",
+    "section": "",
+    "text": "Please see Gradescope for any updates on due dates."
+  },
+  {
+    "objectID": "hw/hw-04.html#rstudio",
+    "href": "hw/hw-04.html#rstudio",
+    "title": "Homework 4",
+    "section": "RStudio",
+    "text": "RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+  },
+  {
+    "objectID": "hw/hw-04.html#r-knitr",
+    "href": "hw/hw-04.html#r-knitr",
+    "title": "Homework 4",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the .Rnw format to type up this lab report. To get started see basics about knitr."
+  },
+  {
+    "objectID": "hw/hw-04.html#getting-started-with-github-classroom",
+    "href": "hw/hw-04.html#getting-started-with-github-classroom",
+    "title": "Homework 4",
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW4 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-04.html#gradescope-submission",
+    "href": "hw/hw-04.html#gradescope-submission",
+    "title": "Homework 4",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "hw/hw-04.html#grading",
+    "href": "hw/hw-04.html#grading",
+    "title": "Homework 4",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
