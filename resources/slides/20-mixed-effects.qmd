@@ -1,0 +1,374 @@
+---
+title: "Linear Mixed Effects Models"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Random Effects Regression
+{{< include macros.qmd >}}
+
+- Easy to extend from random means by groups to random group level coefficients:
+$$\begin{align*}Y_{ij} & = \tb^T_j \x_{ij}+ \epsilon_{ij} \\
+\epsilon_{ij}   & \iid  \N(0, \sigma^2) 
+\end{align*}
+$$
+- $\tb_j$ is a $d \times 1$ vector regression coefficients for group $j$
+- $\x_{ij}$ is a $d \times 1$ vector of predictors for group $j$
+
+- If we view the groups as exchangeable, describe across group heterogeneity by
+$$\tb_j \iid \N(\b, \Sigmab)$$
+- $\b$, $\Sigmab$ and $\sigma^2$ are population parameters to be estimated.
+
+- Designed to accommodate correlated data due to nested/hierarchical structure/repeated measurements: 
+students w/in schools; patients w/in hospitals; additional covariates
+
+ 
+## Linear Mixed Effects Models
+
+- We can write $\tb = \b + \g_j$ with $\g_j \iid \N(\zero, \Sigmab)$
+
+- Substituting, we can rewrite model
+$$\begin{align*}Y_{ij} & = \b^T \x_{ij}+ \g_j^T \x_{ij} + \epsilon_{ij}, \qquad
+\epsilon_{ij}  \overset{iid}{\sim}  \N(0, \sigma^2) \\
+\g_j & \overset{iid}{\sim} \N_d(\zero_d, \Sigmab)
+\end{align*}$$
+
+
+- Fixed effects contribution $\b$ is constant across groups 
+
+ 
+
+- Random effects are $\g_j$ as they vary across groups  
+
+- called **mixed effects** as we have both fixed and random effects in the regression model
+
+## More General Model
+- No reason for the fixed effects and random effect covariates to be the same
+$$\begin{align*}Y_{ij} & = \b^T \x_{ij}+ \g_j^T \z_{ij} + \epsilon_{ij}, \qquad
+\epsilon_{ij}  \iid  \N(0, \sigma^2) \\
+\g_j & {\sim} \N_p(\zero_p, \Sigmab)
+\end{align*}$$
+
+- dimension of $\x_{ij}$ $d \times 1$
+
+- dimension of $\z_{ij}$ $p \times 1$
+
+- may or may not be overlapping
+
+- $\x_{ij}$ could include predictors that are constant across all $i$ in group $j$. (can't estimate if they are in $\z_{ij}$)
+
+
+- features of school $j$ that 
+ 
+## Likelihoods 
+
+- Complete Data Likelihood $(\b, \{\g_j\}, \sigma^2, \Sigmab)$
+$$\cL(\b, \{\g_j\}, \sigma^2, \Sigmab) \propto \prod_j \N(\g_j; \zero_p, \Sigmab) \prod_i \N(y_{ij}; \b^T \x_{ij} + \g_j^T\z_{ij}, \sigma^2 )$$
+ 
+
+- Marginal likelihood $(\b, \{\g_j\}, \sigma^2, \Sigmab)$
+$$\cL(\b, \sigma^2, \Sigmab)\propto \prod_j \int_{\bbR^p} \N(\g_j; \zero_p, \Sigmab) \prod_i \N(y_{ij}; \b^T \x_{ij} + \g_j^T \z_{ij}, \sigma^2 ) \, d \g_j$$
+ 
+
+- Option A: we can calculate this integral by brute force algebraically
+
+ 
+
+- Option B: (lazy option) We can calculate marginal exploiting properties of Gaussians as sums will be normal -  just read off the first two moments!
+
+
+
+## Marginal Distribution
+
+- Express observed data as vectors for each group $j$:  $(\Y_j, \X_j, \Z_j)$ where  $\Y_j$ is $n_j \times 1$, $\X_j$ is $n_j \times d$ and $\Z_j$ is $n_j \times p$;
+
+ 
+
+- Group Specific Model (1):
+$$\begin{align}\Y_j  & = \X_j \b + \Z_j \g_j + \eps_j, \qquad
+\eps_j  \sim \N(\zero_{n_j}, \sigma^2 \I_{n_j})\\
+\g_j & \iid \N(\zero_p, \Sigmab)
+\end{align}$$
+
+
+
+ 
+
+- Population Mean $\E[\Y_j] = \E[\X_j \b + \Z_j \g_j + \eps_j] = \X_j \b$
+
+
+ 
+
+- Covariance $\Var[\Y_j] = \Var[\X_j \b + \Z_j \g_j + \eps_j] = \Z_j \Sigmab \Z_j^T + \sigma^2 \I_{n_j}$
+
+
+ 
+
+- Group Specific Model (2)
+$$\Y_j \mid  \b, \Sigmab, \sigma^2 \ind \N(\X_j \b, \Z_j \Sigmab \Z_j^T + \sigma^2 \I_{n_j})$$
+
+
+
+## Priors
+
+- Model (1) leads to a simple Gibbs sampler if we use conditional (semi-) conjugate priors on $(\b, \Sigmab, \phi = 1/\sigma^2)$
+$$\begin{align*}
+\b & \sim \N(\mu_0, \Psi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, v_o \sigma^2_0/2) \\
+\Sigmab &\sim \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1})
+\end{align*}$$
+
+
+
+
+## MCMC Sampling
+
+- Model (1) leads to a simple Gibbs sampler if we use conditional (semi-) conjugate priors on $(\b, \Sigmab, \phi = 1/\sigma^2)$
+$$\begin{align*}
+\b & \sim \N(\mu_0, \Psi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, v_o \sigma^2_0/2) \\
+\Sigmab &\sim \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1})
+\end{align*}$$
+ 
+
+- Model (2) can be challenging to update the variance components!  no conjugacy and need to ensure that MH updates maintain the positive-definiteness of $\Sigmab$  (can reparameterize)
+
+
+ 
+
+- Is Gibbs always more efficient?
+
+ 
+
+- No -  because the Gibbs sampler can have high autocorrelation in updating the $\{\g_j \}$ from their full conditional and then updating $\b$, $\sigma^2$ and $\Sigmab$ from their full full conditionals given the $\{ \g_j\}$
+
+ 
+
+- slow mixing
+
+ 
+
+## Blocked Gibbs Sampler
+
+- sample $\b$ and $\g$'s as a block! (marginal and conditionals) given the others
+
+- update $\b$ using (2) instead of (1)  (marginalization so is independent of $\g_j$'s
+
+::: {.callout-note}
+## 3 Block Sampler at each iteration
+
+1)  Draw $\b, \g_1, \ldots \g_J$ as a block given $\phi$, $\Sigmab$ by
+
+ 
+
+    a) Draw $\b \mid \phi, \Sigmab, \Y_1, \ldots \Y_j$  then
+
+    b) Draw $\g_j \mid \b, \phi, \Sigmab, \Y_j$ for $j = 1, \ldots J$
+
+ 
+
+2)  Draw $\Sigmab \mid \g_1, \ldots \g_J, \b, \phi, \Y_1, \ldots \Y_j$
+
+ 
+
+3)  Draw $\phi \mid \b, \g_1, \ldots \g_J, \Sigmab, \Y_1, \ldots \Y_j$
+
+:::
+
+- Reduces correlation and improves mixing!
+
+##  Marginal update for $\b$
+
+$$\begin{align*}\Y_j \mid  \b, \Sigmab, \sigma^2 & \overset{ind}{\sim}\N(\X_j \b, \Z_j \Sigmab \Z_j^T + \sigma^2 \I_{n_j}) \\
+\b & \sim \N(\mu_0, \Psi_0^{-1})
+\end{align*}$$
+
+ 
+- Let $\Phi_j = (\Z_j \Sigmab \Z_j^T + \sigma^2 \I_{n_j})^{-1}$  (precision in model 2)
+$$\begin{align*}
+\pi(\b  & \mid \Sigmab, \sigma^2, \boldsymbol{Y})  \propto |\Psi_0|^{1/2} 
+\exp\left\{- \frac{1}{2} (\b - \mu_0)^T \Psi_0 (\b - \mu_0)\right\} \cdot \\
+& \qquad \qquad \qquad\prod_{j=1}^{J} |\Phi_j|^{1/2} \exp \left\{ - \frac{1}{2} (\Y_j - \X_j \b)^T \Phi_j (\Y_j - \X_j \b ) \right\} \\
+\\
+& \propto \exp\left\{- \frac{1}{2} \left( (\b - \mu_0)^T \Psi_0 (\b - \mu_0) +
+\sum_j (\Y_j - \X_j \b)^T \Phi_j (\Y_j - \X_j \b ) \right) \right\}
+\end{align*}$$
+
+
+## Marginal Posterior for $\b$
+
+$$\begin{align*}
+\pi(\b  & \mid \Sigmab, \sigma^2, \boldsymbol{Y})  \\
+& \propto \exp\left\{- \frac{1}{2} \left( (\b - \mu_0)^T \Psi_0 (\b - \mu_0) +
+\sum_j (\Y_j - \X_j \b)^T \Phi_j (\Y_j - \X_j \b ) \right) \right\}
+\end{align*}$$
+
+ 
+
+
+
+- precision
+$\Psi_n = \Psi_0 + \sum_{j=1}^J \X_j^T \Phi_j \X_j$
+
+
+- mean 
+$$\mu_n = \left(\Psi_0 + \sum_{j=1}^J \X_j^T \Phi_j \X_j\right)^{-1} \left(\Psi_0 \mu_0 + 
+\sum_{j=1}^J \X_j^T \Phi_j \X_j \hat{\b}_j\right)$$
+
+- where 
+$\hat{\b}_j = (\X_j^T \Phi \X_j)^{-1} \X_j^T \Phi_j \Y_j$ is the generalized least squares estimate of $\b$ for group $j$
+
+
+
+## Full conditional for $\sigma^2$ or $\phi$
+
+$$\begin{align}\Y_j  \mid \b, \g_j, \sigma^2 & \ind \N(\X_j \b + \Z_j \g_j , \sigma^2 \I_{n_j})\\
+\g_j  \mid \Sigmab & \iid \N(\zero_d, \Sigmab) \\
+\Sigmab  & \sim  \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1}) \\
+\b & \sim \N(\mu_0, \Psi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, v_o \sigma^2_0/2)
+\end{align}$$
+
+. . .
+
+$$\pi(\phi \mid \b, \{\g_j\} \{Y_j\}) \propto \textsf{Gamma}(\phi; v_0/2, v_o \sigma^2_0/2) \prod_j \N(\Y_j; \X_j \b + \Z_j \g_j , \phi^{-1} \I_{n_j}))$$
+
+. . .
+
+$$\phi \mid \{Y_j \}, \b, \{\g_j\} \sim \textsf{Gamma}\left(\frac{v_0 + \sum_j n_j}{2}, \frac{v_o \sigma^2_0  + \sum_j \|\Y_j - \X_j\b - \Z_j\g_j \|^2}{2}\right)$$
+
+## Conditional posterior for $\Sigmab$
+
+$$\begin{align}\Y_j  \mid \b, \g_j, \sigma^2 & \ind \N(\X_j \b + \Z_j \g_j , \sigma^2 \I_{n_j})\\
+\g_j  \mid \Sigmab & \iid \N(\zero_d, \Sigmab) \\
+\Sigmab  & \sim  \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1}) \\
+\b & \sim \N(\mu_0, \Psi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, v_o \sigma^2_0/2)
+\end{align}$$
+
+- The conditional posterior (full conditional) $\Sigmab \mid \boldsymbol{\g}, \Y$, is then
+$$\begin{align*}
+\pi(\Sigmab & \mid \boldsymbol{\gamma}, \boldsymbol{Y})\propto \pi(\Sigmab) \cdot \pi( \boldsymbol{\gamma} \mid \Sigmab)\\
+& \propto \underbrace{\left|\Sigmab\right|^{\frac{-(\eta_0 + p + 1)}{2}} \textrm{exp} \left\{-\frac{1}{2} \text{tr}(\boldsymbol{S}_0\Sigmab^{-1}) \right\}}_{\pi(\Sigmab)} \cdot \underbrace{\prod_{j = 1}^{J}\left|\Sigmab\right|^{-\frac{1}{2}} \ \textrm{exp} \left\{-\frac{1}{2}\left[\boldsymbol{\gamma}_j^T \Sigmab^{-1} \gamma_j\right] \right\}}_{\pi(\boldsymbol{\gamma} \mid \Sigmab)}  
+\end{align*}$$
+
+ 
+
+
+## Posterior Continued
+
+- Full conditional $\Sigmab \mid \{\gamma_j\}, \boldsymbol{Y} \sim \textrm{IW}_p\left(\eta_0 + J, (\boldsymbol{S}_0+ \sum_{j=1}^J \gamma_j \gamma_j^T)^{-1} \right)$ 
+
+- Work
+$$\begin{align*}
+\pi(\Sigmab & \mid \boldsymbol{\gamma}, \boldsymbol{Y})\propto \pi(\Sigmab) \cdot \pi( \boldsymbol{\gamma} \mid \Sigmab)\\
+& \propto \left|\Sigmab\right|^{\frac{-(\eta_0 + p + 1)}{2}} \textrm{exp} \left\{-\frac{1}{2} \text{tr}(\boldsymbol{S}_0\Sigmab^{-1}) \right\} \cdot \prod_{j = 1}^{J}\left|\Sigmab\right|^{-\frac{1}{2}} \ \textrm{exp} \left\{-\frac{1}{2}\left[\boldsymbol{\gamma}_j^T \Sigmab^{-1} \gamma_j\right] \right\}  
+\end{align*}$$
+
+
+
+
+## Full conditional for $\{ \gamma_j \}$
+
+$$\begin{align}\Y_j  \mid \b, \g_j, \sigma^2 & \ind \N(\X_j \b + \Z_j \g_j , \sigma^2 \I_{n_j})\\
+\g_j  \mid \Sigmab & \overset{iid}{\sim} \N(\zero_d, \Sigmab) \\
+\Sigmab  & \sim  \textrm{IW}_p(\eta_0, \boldsymbol{S}_0^{-1}) \\
+\b & \sim \N(\mu_0, \Psi_0^{-1}) \\
+\phi & \sim \textsf{Gamma}(v_0/2, v_o \sigma^2_0/2)
+\end{align}$$
+
+$$\pi(\g_j \mid \b, \phi, \Sigmab) \propto \N(\g_j; 0, \Sigmab) \prod_j \N(\Y_j; \X_j \b + \Z_j \g_j , \phi^{-1} \I_{n_j}))$$
+ 
+
+- work out as HW
+
+
+## Other Questions   
+
+- How do you decide what is a random effect or fixed effect?
+
+- Design structure is often important
+
+- Other priors ?
+
+- How would you implement MH in Model 2?  (other sampling methods?)
+
+- What if the means are not normal?  Extensions to Generalized linear models
+
+- more examples in 
+
+
