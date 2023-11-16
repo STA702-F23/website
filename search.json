@@ -1369,7 +1369,7 @@
     "href": "hw/hw-10.html#getting-started-with-github-classroom",
     "title": "Homework 10",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at [HW10](https://classroom.github.com/a/9VUzjdCV this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW10 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
     "objectID": "hw/hw-10.html#gradescope-submission",
