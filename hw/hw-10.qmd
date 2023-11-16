@@ -11,7 +11,7 @@ toc: true
 
 ## Getting started with Github Classroom
 
-Go to Github classroom to  accept the invitation to create a repository for this assignment  at [HW10](https://classroom.github.com/a/9VUzjdCV
+Go to Github classroom to  accept the invitation to create a repository for this assignment  at [HW10](https://classroom.github.com/a/9VUzjdCV)
 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf. 
 
 Hit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.
