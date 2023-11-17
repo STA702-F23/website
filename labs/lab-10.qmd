@@ -1,15 +1,15 @@
 ---
-title: "Lab 8: Variable Selection in Regression"
+title: "Lab 10: Mixed Effects Regression"
 toc: true
 ---
 
-## Due: 11:45AM, Mon Nov 6
+## Due: 5:00PM, Friday Nov 17
 
 
 
 # Getting started
 
-Go to Github classroom to create a repository for this assignment  at [lab8](https://classroom.github.com/a/LbpyDl8A)
+Go to Github classroom to create a repository for this assignment  at [lab10](https://classroom.github.com/a/HLEMXC4T)
 
 This will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf; please link your github account.
 
