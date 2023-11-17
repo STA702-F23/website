@@ -1547,354 +1547,32 @@
     "text": "Go to Github classroom to create a repository for this assignment at Midterm I Review with the old exams"
   },
   {
-    "objectID": "labs/lab-00-getting-started.html#rrstudio",
-    "href": "labs/lab-00-getting-started.html#rrstudio",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "objectID": "labs/lab-03.html#rrstudio",
+    "href": "labs/lab-03.html#rrstudio",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers or feel free to use the Department servers. If you want a local version of RStudion, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system. You may also need to install git as well."
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
   },
   {
-    "objectID": "labs/lab-00-getting-started.html#github",
-    "href": "labs/lab-00-getting-started.html#github",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "Github",
-    "text": "Github\nCreate a github account if you do not have one here https://github.com"
+    "objectID": "labs/lab-03.html#r-knitr",
+    "href": "labs/lab-03.html#r-knitr",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "R Knitr",
+    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
   },
   {
-    "objectID": "labs/lab-00-getting-started.html#r-sweave",
-    "href": "labs/lab-00-getting-started.html#r-sweave",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
-    "section": "R Sweave",
-    "text": "R Sweave\nYou are required to use R Sweave/knitr to type up HW and lab reports. Don’t worry we will guide you along the way!"
+    "objectID": "labs/lab-03.html#github-classroom",
+    "href": "labs/lab-03.html#github-classroom",
+    "title": "Lab 3: Posterior Predictive Checks",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
   },
   {
-    "objectID": "labs/lab-00-getting-started.html#gradescope",
-    "href": "labs/lab-00-getting-started.html#gradescope",
-    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "objectID": "labs/lab-03.html#gradescope",
+    "href": "labs/lab-03.html#gradescope",
+    "title": "Lab 3: Posterior Predictive Checks",
     "section": "Gradescope",
-    "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
-  },
-  {
-    "objectID": "reading/12-reading.html",
-    "href": "reading/12-reading.html",
-    "title": "Lecture 12: Prior Choice in Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/12-reading.html#readings",
-    "href": "reading/12-reading.html#readings",
-    "title": "Lecture 12: Prior Choice in Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/13-reading.html",
-    "href": "reading/13-reading.html",
-    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
-  },
-  {
-    "objectID": "reading/13-reading.html#readings",
-    "href": "reading/13-reading.html#readings",
-    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
-  },
-  {
-    "objectID": "reading/15-reading.html",
-    "href": "reading/15-reading.html",
-    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
-    "section": "",
-    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/15-reading.html#readings",
-    "href": "reading/15-reading.html#readings",
-    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
-    "section": "",
-    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/19-reading.html",
-    "href": "reading/19-reading.html",
-    "title": "Lecture 19: Random Effects",
-    "section": "",
-    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/19-reading.html#readings",
-    "href": "reading/19-reading.html#readings",
-    "title": "Lecture 19: Random Effects",
-    "section": "",
-    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/05-reading.html",
-    "href": "reading/05-reading.html",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/05-reading.html#readings",
-    "href": "reading/05-reading.html#readings",
-    "title": "Lecture 5: Introduction to Hierarchical Models",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/16-reading.html",
-    "href": "reading/16-reading.html",
-    "title": "Lecture 16: Bayesian Model Averaging",
-    "section": "",
-    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
-  },
-  {
-    "objectID": "reading/16-reading.html#readings",
-    "href": "reading/16-reading.html#readings",
-    "title": "Lecture 16: Bayesian Model Averaging",
-    "section": "",
-    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
-  },
-  {
-    "objectID": "reading/08-reading.html",
-    "href": "reading/08-reading.html",
-    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/08-reading.html#readings",
-    "href": "reading/08-reading.html#readings",
-    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/01-reading.html",
-    "href": "reading/01-reading.html",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
-  },
-  {
-    "objectID": "reading/01-reading.html#readings",
-    "href": "reading/01-reading.html#readings",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
-  },
-  {
-    "objectID": "reading/01-reading.html#optional",
-    "href": "reading/01-reading.html#optional",
-    "title": "Lecture 1: Basics of Bayesian inference",
-    "section": "Optional",
-    "text": "Optional\n\nBayesian Computation with R (Second Edition) by Jim Albert:\n\nSection 2: Introduction to Bayesian thinking"
-  },
-  {
-    "objectID": "reading/07-reading.html",
-    "href": "reading/07-reading.html",
-    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/07-reading.html#readings",
-    "href": "reading/07-reading.html#readings",
-    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/06-reading.html",
-    "href": "reading/06-reading.html",
-    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
-  },
-  {
-    "objectID": "reading/06-reading.html#readings",
-    "href": "reading/06-reading.html#readings",
-    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
-  },
-  {
-    "objectID": "reading/09-reading.html",
-    "href": "reading/09-reading.html",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/09-reading.html#readings",
-    "href": "reading/09-reading.html#readings",
-    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": " Resources",
-    "section": "",
-    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/03-reading.html",
-    "href": "reading/03-reading.html",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
-  },
-  {
-    "objectID": "reading/03-reading.html#readings",
-    "href": "reading/03-reading.html#readings",
-    "title": "Lecture 3: Normal Models and Predictive Distributions",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
-  },
-  {
-    "objectID": "reading/14-reading.html",
-    "href": "reading/14-reading.html",
-    "title": "Lecture 14: Basics of Hypothesis Testing",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
-  },
-  {
-    "objectID": "reading/14-reading.html#readings",
-    "href": "reading/14-reading.html#readings",
-    "title": "Lecture 14: Basics of Hypothesis Testing",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
-  },
-  {
-    "objectID": "reading/00-reading.html",
-    "href": "reading/00-reading.html",
-    "title": "Lecture 0: Readings to Pique Your Interest",
-    "section": "",
-    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/00-reading.html#readings",
-    "href": "reading/00-reading.html#readings",
-    "title": "Lecture 0: Readings to Pique Your Interest",
-    "section": "",
-    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
-  },
-  {
-    "objectID": "reading/17-reading.html",
-    "href": "reading/17-reading.html",
-    "title": "Lecture 17: Bayesian Model Averaging",
-    "section": "",
-    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/17-reading.html#readings",
-    "href": "reading/17-reading.html#readings",
-    "title": "Lecture 17: Bayesian Model Averaging",
-    "section": "",
-    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/10-reading.html",
-    "href": "reading/10-reading.html",
-    "title": "Lecture 10: Missing Data",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
-  },
-  {
-    "objectID": "reading/10-reading.html#readings",
-    "href": "reading/10-reading.html#readings",
-    "title": "Lecture 10: Missing Data",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
-  },
-  {
-    "objectID": "reading/04-reading.html",
-    "href": "reading/04-reading.html",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
-  },
-  {
-    "objectID": "reading/04-reading.html#readings",
-    "href": "reading/04-reading.html#readings",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
-  },
-  {
-    "objectID": "reading/04-reading.html#optional",
-    "href": "reading/04-reading.html#optional",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "Optional",
-    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
-  },
-  {
-    "objectID": "reading/04-reading.html#recommended",
-    "href": "reading/04-reading.html#recommended",
-    "title": "Lecture 4: Predictive Checks",
-    "section": "Recommended",
-    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142\nBerger, J (2003) Could Fisher, Jeffreys and Neyman Have Agreed on Testing? Statistical Science, 18:1-12."
-  },
-  {
-    "objectID": "reading/11-reading.html",
-    "href": "reading/11-reading.html",
-    "title": "Lecture 11: Bayesian Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/11-reading.html#readings",
-    "href": "reading/11-reading.html#readings",
-    "title": "Lecture 11: Bayesian Conjugate Regression",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/02-reading.html",
-    "href": "reading/02-reading.html",
-    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
-  },
-  {
-    "objectID": "reading/02-reading.html#readings",
-    "href": "reading/02-reading.html#readings",
-    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
-  },
-  {
-    "objectID": "reading/18-reading.html",
-    "href": "reading/18-reading.html",
-    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
-    "section": "",
-    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/18-reading.html#readings",
-    "href": "reading/18-reading.html#readings",
-    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
-    "section": "",
-    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/20-reading.html",
-    "href": "reading/20-reading.html",
-    "title": "Lecture 20: Mixed Effects",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
-  },
-  {
-    "objectID": "reading/20-reading.html#readings",
-    "href": "reading/20-reading.html#readings",
-    "title": "Lecture 20: Mixed Effects",
-    "section": "",
-    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
   {
     "objectID": "labs/lab-01-r-review.html#rrstudio",
@@ -1925,30 +1603,366 @@
     "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "labs/lab-03.html#rrstudio",
-    "href": "labs/lab-03.html#rrstudio",
-    "title": "Lab 3: Posterior Predictive Checks",
+    "objectID": "reading/20-reading.html",
+    "href": "reading/20-reading.html",
+    "title": "Lecture 20: Mixed Effects",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/20-reading.html#readings",
+    "href": "reading/20-reading.html#readings",
+    "title": "Lecture 20: Mixed Effects",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 15\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/18-reading.html",
+    "href": "reading/18-reading.html",
+    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
+    "section": "",
+    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/18-reading.html#readings",
+    "href": "reading/18-reading.html#readings",
+    "title": "Lecture 18: Outliers and Robust Bayesian Regression",
+    "section": "",
+    "text": "Hamura, Y.. (2023) A Simple Proof of Posterior Robustness\nDesgagné, A. and Gagnon P (2018) Bayesian Robustness to Outliers in Linear Regression and Ratio Estimation\nWest, M. (1984). Outlier Models and Prior Distributions in Bayesian Linear Regression. JRSS B 46, 431-439\nHoeting, J., Raftery, A., Madigan, D. (1996) A method for simultaneous variable selection and outlier identification in linear regression Computational Statistics & Data Analysis, 22, 251-270\n\n-O’hagan, T. (1979) On Outlier Rejection Phenomena in Bayes Inference. JRSSB, 41:358-367\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/02-reading.html",
+    "href": "reading/02-reading.html",
+    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
+  },
+  {
+    "objectID": "reading/02-reading.html#readings",
+    "href": "reading/02-reading.html#readings",
+    "title": "Lecture 2: Optimal Bayesian Point and Interval Estimation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 3.1.2: Confidence regions\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.3: Summarizing posterior inference\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nChapter 2 (skip Section 2.4 for now) Decision-Theoretic Foundations\nSection 4.1: Bayesian inference\nSection 4.2: Bayesian Decision Theory\nSection 5.5: Confidence regions"
+  },
+  {
+    "objectID": "reading/11-reading.html",
+    "href": "reading/11-reading.html",
+    "title": "Lecture 11: Bayesian Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/11-reading.html#readings",
+    "href": "reading/11-reading.html#readings",
+    "title": "Lecture 11: Bayesian Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/04-reading.html",
+    "href": "reading/04-reading.html",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
+  },
+  {
+    "objectID": "reading/04-reading.html#readings",
+    "href": "reading/04-reading.html#readings",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nChapter 4: Monte Carlo Approximations\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nChapter 6: Model Checking"
+  },
+  {
+    "objectID": "reading/04-reading.html#optional",
+    "href": "reading/04-reading.html#optional",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "Optional",
+    "text": "Optional\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n2.6 Criticisms and alternatives\n6.2.2 Monte Carlo methods"
+  },
+  {
+    "objectID": "reading/04-reading.html#recommended",
+    "href": "reading/04-reading.html#recommended",
+    "title": "Lecture 4: Predictive Checks",
+    "section": "Recommended",
+    "text": "Recommended\nBayarri, M. and Berger, J. (2000). P-values for composite null models. Journal of the American Statistical Association, 95(452):1127–1142\nBerger, J (2003) Could Fisher, Jeffreys and Neyman Have Agreed on Testing? Statistical Science, 18:1-12."
+  },
+  {
+    "objectID": "reading/10-reading.html",
+    "href": "reading/10-reading.html",
+    "title": "Lecture 10: Missing Data",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
+  },
+  {
+    "objectID": "reading/10-reading.html#readings",
+    "href": "reading/10-reading.html#readings",
+    "title": "Lecture 10: Missing Data",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 7.1 Multivariate normal\nSection 7.2 Semi-conjugate prior for the mean\nSection 7.3 Inverse-Wishart\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 3.6 Multivariate Normal\nChapter 21: Missing Data\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSun, D. and Berger, J.O (2006) Objective Bayesian Analysis for the Multivariate Normal Model with Discussion. Proc. Valencia / ISBA 8th World Meeting on Bayesian Statistics Benidorm (Alicante, Spain)\nMulder, J. Pericchi, L.R. (2018) The Matrix-F Prior for Estimating and Testing Covariance Matrices. _Bayesian Analysis, 13: 1193-1214"
+  },
+  {
+    "objectID": "reading/17-reading.html",
+    "href": "reading/17-reading.html",
+    "title": "Lecture 17: Bayesian Model Averaging",
+    "section": "",
+    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/17-reading.html#readings",
+    "href": "reading/17-reading.html#readings",
+    "title": "Lecture 17: Bayesian Model Averaging",
+    "section": "",
+    "text": "Liang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/00-reading.html",
+    "href": "reading/00-reading.html",
+    "title": "Lecture 0: Readings to Pique Your Interest",
+    "section": "",
+    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/00-reading.html#readings",
+    "href": "reading/00-reading.html#readings",
+    "title": "Lecture 0: Readings to Pique Your Interest",
+    "section": "",
+    "text": "These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/14-reading.html",
+    "href": "reading/14-reading.html",
+    "title": "Lecture 14: Basics of Hypothesis Testing",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
+  },
+  {
+    "objectID": "reading/14-reading.html#readings",
+    "href": "reading/14-reading.html#readings",
+    "title": "Lecture 14: Basics of Hypothesis Testing",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\npage 16\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 7.4: Model comparison using Bayes factors\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\n5: Tests and Confidence Regions\n5.1: Introduction\n5.2: A first approach to testing theory\n5.3: Comparison with the classical approach\n5.4: A second decision-theoretic approach"
+  },
+  {
+    "objectID": "reading/03-reading.html",
+    "href": "reading/03-reading.html",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+  },
+  {
+    "objectID": "reading/03-reading.html#readings",
+    "href": "reading/03-reading.html#readings",
+    "title": "Lecture 3: Normal Models and Predictive Distributions",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 5.1: The normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 2.5: Normal Distribution with Known Variance (page 39)"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": " Resources",
+    "section": "",
+    "text": "Supplementary Textbooks\nThese textbooks are great resources for some of the topics we will cover. You do not need to buy them, but you may be able to borrow them from Duke library should you need extra reading materials, besides the class slides and main textbooks.\n\nDoing Bayesian Data Analysis in brms and the tidyverse\nStatistical rethinking with brms, ggplot2, and the tidyverse: Second edition\nAlbert, J. (2009), “Bayesian Computation with R (Second Edition).”\nBolstad, W. M. and Curran, J. M. (2016), “Introduction to Bayesian Statistics (Third Edition).”\n\n\n\nR and R Markdown Resources\nR Markdown can be used to create high quality reports and presentations with embedded chunks of R code. You are required to use R Markdown to type up your lab reports. R Markdown would also be my personal favorite for typing up your homework assignments for this course, but you are welcome to use any word processor of your choice for those. To learn more about R Markdown and for other resources for programming in R, see the links below.\n\nR for Data Science (by Hadley Wickham & Garrett Grolemund)\nIntroduction to R Markdown (Article by Garrett Grolemund)\nIntroduction to R Markdown (Slides by Andrew Cho)\nR Markdown Cheat Sheet\nData Visualization with ggplot2 Cheat Sheet\nOther Useful Cheat Sheets\nA very (very!) basic R Markdown template\n\n\n\nLaTeX\nYou may also use LaTeX to type up your assignments. You may find it easier to create your TeX and LaTeX documents using online editors such as Overleaf (simply create a free account and you are good to go!). However, that need not be the case. If you prefer to create them locally/offline on your personal computers, you will need to download a TeX distribution (the most popular choices are MiKTeX for Windows and MacTeX for macOS) plus an editor (I personally prefer TeXstudio but feel free to download any editor of your choice). Follow the links below for some options, and to also learn how to use LaTeX.\n\nLearn LaTeX in 30 minutes\nChoosing a LaTeX Compiler.\n\n\n\nInteresting Articles\nI will add articles I find interesting below. These are articles I find useful as supplementary readings for topics covered in class, or as good sources that cover concepts I think you should know, but which we may not have time to cover. I strongly suggest you find time to (at the very least) take a “quick peek” at each article.\n\nEfron, B., 1986. Why isn’t everyone a Bayesian?. The American Statistician, 40(1), pp. 1-5.\nGelman, A., 2008. Objections to Bayesian statistics. Bayesian Analysis, 3(3), pp. 445-449.\nDiaconis, P., 1977. Finite forms of de Finetti’s theorem on exchangeability. Synthese, 36(2), pp. 271-281.\nGelman, A., Meng, X. L. and Stern, H., 1996. Posterior predictive assessment of model fitness via realized discrepancies. Statistica sinica, pp. 733-760.\nDunson, D. B., 2018. Statistics in the big data era: Failures of the machine. Statistics & Probability Letters, 136, pp. 4-9."
+  },
+  {
+    "objectID": "reading/09-reading.html",
+    "href": "reading/09-reading.html",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/09-reading.html#readings",
+    "href": "reading/09-reading.html#readings",
+    "title": "Lecture 9: Gibbs Sampling and Data Augmentation",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nSection 12.1 Latent Variables for Ordinal Data\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nAlbert & Chib Bayesian Analysis of Binary and Polychotomous Response Data, Journal of the American Statistical Association, Vol. 88, No. 422 pp. 669- 679 )\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/06-reading.html",
+    "href": "reading/06-reading.html",
+    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
+  },
+  {
+    "objectID": "reading/06-reading.html#readings",
+    "href": "reading/06-reading.html#readings",
+    "title": "Lecture 6: Introduction to Metropolis Algorithms and Diagnostics",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 10.1: Generalized linear models\n\nSection 10.2: The Metropolis algorithm\nSection 10.3: The Metropolis algorithm for Poisson regression\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\nSection 11.4 Inference and Assessing Convergence\nSection 11.5 Effective number of simulations\nSection 11.6 Example\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nSee also Dunson, D. & Johndrow, J. (2020) The Hastings algorithm at fifty. Biometrika,107: pp. 1–23"
+  },
+  {
+    "objectID": "reading/07-reading.html",
+    "href": "reading/07-reading.html",
+    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/07-reading.html#readings",
+    "href": "reading/07-reading.html#readings",
+    "title": "Lecture 7: Adaptive Metropolis & Metropolis-Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\nChapter 6: Posterior approximation with the Gibbs sampler\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.4: Inference and assessing convergence\nSection 11.6: Example\nSection 11.7: Bibliographic note\n\nAn Adaptive Metropolis Algoritm by Heikki Haario, Eero Saksman, Johanna Tamminen (2001)\nExamples of Adaptive Metropolis by Gareth O. Roberts & Jeffrey S. Rosenthal (2009) Journal of Computational and Graphical Statistics, 18:2, 349-367, DOI: 10.1198/ jcgs.2009.06134\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/01-reading.html",
+    "href": "reading/01-reading.html",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
+  },
+  {
+    "objectID": "reading/01-reading.html#readings",
+    "href": "reading/01-reading.html#readings",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 1: Introduction and examples\nSection 3.1: The binomial model\nSection 3.4: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin:\n\nSection 1.1: The three steps of Bayesian data analysis\nSection 1.2: General notation for statistical inference\nSection 1.3: Bayesian inference\nSection 1.9: Computation and software\nSection 1.10: Bayesian inference in applied statistics\nSection 2.1: Estimating a probability from binomial data\nSection 2.2: Posterior as compromise between data and prior information\nSection 2.4: Informative prior distributions"
+  },
+  {
+    "objectID": "reading/01-reading.html#optional",
+    "href": "reading/01-reading.html#optional",
+    "title": "Lecture 1: Basics of Bayesian inference",
+    "section": "Optional",
+    "text": "Optional\n\nBayesian Computation with R (Second Edition) by Jim Albert:\n\nSection 2: Introduction to Bayesian thinking"
+  },
+  {
+    "objectID": "reading/08-reading.html",
+    "href": "reading/08-reading.html",
+    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/08-reading.html#readings",
+    "href": "reading/08-reading.html#readings",
+    "title": "Lecture 8: Gibbs Sampling, Blocked Samplers and Metropolis Hastings",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 6: Posterior approximation with the Gibbs sampler\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 10.4: Metropolis, Metropolis-Hastings and Gibbs\nSection 10.5: Combining the Metropolis and Gibbs algorithm\nSection 10.6: Discussion and further references\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/16-reading.html",
+    "href": "reading/16-reading.html",
+    "title": "Lecture 16: Bayesian Model Averaging",
+    "section": "",
+    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
+  },
+  {
+    "objectID": "reading/16-reading.html#readings",
+    "href": "reading/16-reading.html#readings",
+    "title": "Lecture 16: Bayesian Model Averaging",
+    "section": "",
+    "text": "Mixture of g-priors Liang et al (2008)\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\nSection 9.3: Model Selection (linear regression)\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert\nLiang, F., Paulo, R, Molina, G. Clyde, M, Berger, J (2008) Mixtures of g-priors for Bayesian Variable Selection. Journal of the American Statistical Association, 103: 410-423\nHoeting, J.A, Madigan, D. Raftery,A. Volinsky, C.T. (1999) Bayesian Model Averaging: A Tutorial Statistical Science, 14: 382-401"
+  },
+  {
+    "objectID": "reading/05-reading.html",
+    "href": "reading/05-reading.html",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/05-reading.html#readings",
+    "href": "reading/05-reading.html#readings",
+    "title": "Lecture 5: Introduction to Hierarchical Models",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff.:\n\nSection 8.2: Comparing multiple groups\nSection 8.3: The hierarchical normal model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin.:\n\nSection 5.2: Exchangeability and setting up hierarchical models\nSection 5.3: Fully Bayesian analysis of conjugate hierarchical models\nSection 5.4: Estimating exchangeable parameters for a normal model\nSection 5.7: Weakly informative priors for hierarchical variance parameters\nSection 11.2 Metropolis and Metropolis-Hastings algorithms\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/19-reading.html",
+    "href": "reading/19-reading.html",
+    "title": "Lecture 19: Random Effects",
+    "section": "",
+    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/19-reading.html#readings",
+    "href": "reading/19-reading.html#readings",
+    "title": "Lecture 19: Random Effects",
+    "section": "",
+    "text": "Hill, B. (1965) Inference about Variance Components in the One-Way Model. JASA 60: 806-825\nHobart, J. and Casella, G. (1996) The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. JASA 91:1461-1473\nBrowne, W. J. and Draper, D. (2006). A comparison of Bayesian and likelihood-based methods for fitting multilevel models. Bayesian Analysis, 1: 473-514\nGelman, A.J. (2006) Prior distributions for variance parameters in hierarchical models (comment on article by Browne and Draper). Bayesian Analysis, 1: 515-534\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nChapter 8\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nChapter 5\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/15-reading.html",
+    "href": "reading/15-reading.html",
+    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
+    "section": "",
+    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/15-reading.html#readings",
+    "href": "reading/15-reading.html#readings",
+    "title": "Lecture 15: Bayes Multiple Testing & Empirical Bayes",
+    "section": "",
+    "text": "[Bayes and Empirical Bayes Multiplicity Adjustment in Variable Selection](https://projecteuclid.org/journals/annals-of-statistics/volume-38/issue-5/Bayes-and-empirical-Bayes-multiplicity-adjustment-in-the-variable-selection/10.1214/10-AOS792.full\nEmpirical Bayes Correction for the Winner’s Curse in Genetic Association Studies\nMixture of g-priors\n\nA First Course in Bayesian Statistical Methods by Peter D. Hoff\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 11.1: Gibbs sampler\nSection 11.2: Metropolis and Metropolis-Hastings algorithms\nSection 11.3: Using Gibbs and Metropolis as building blocks\nSection 11.7: Bibliographic note\nSection 14.1: Conditional modeling\nSection 14.2: Bayesian analysis of the classical regression model\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/13-reading.html",
+    "href": "reading/13-reading.html",
+    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+  },
+  {
+    "objectID": "reading/13-reading.html#readings",
+    "href": "reading/13-reading.html#readings",
+    "title": "Lecture 13: Ridge, Lasso and Mixtures in Bayesian Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSection 14.5: Ssembling the Matrix of Explanatory Variables\nSection 14.6: Regularization and Dimension Reduction\n\nThe Bayesian Choice (Second Edition) by Christian Robert\n\nPapers:\n\nPark, T. & Casella, G. (2008) The Bayesian Lasso, Journal of the American Statistical Association, 103:681-686\nHans, C. (2009) Model uncertainty and variable selection in Bayesian lasso regression, Statistics and Computing 20:221–229\nHans, C. (2010) Bayesian Lasso Regression, Biometrika, 96: 835-845\nCarvalho, C. Polson, N. and Scott, J (2010) The Horseshoe Estimator for Sparse Signals, Biometrika, 97:465-480\nArmagan, A. Dunson, D, and Lee, J. (2013) Generalized double Pareto shrinkage, Statistica Sinica 23:119-143 arXiv: 1104.0861v4\nFan, J. and Li (2001) Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties,[Journal of the American Statistical Association, 96:1348-1360] (https://www.jstor.org/stable/3085904)\nGeorge, E.I. Liang, F., Xu, X., (2012) From Minimax Shrinkage Estimation to Minimax Shrinkage Prediction, Statistical Science, 27:82-94"
+  },
+  {
+    "objectID": "reading/12-reading.html",
+    "href": "reading/12-reading.html",
+    "title": "Lecture 12: Prior Choice in Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "reading/12-reading.html#readings",
+    "href": "reading/12-reading.html#readings",
+    "title": "Lecture 12: Prior Choice in Conjugate Regression",
+    "section": "",
+    "text": "A First Course in Bayesian Statistical Methods by Peter D. Hoff\n\nSection 9.1: The linear regression model (review)\nSection 9.2: Bayesian estimation for a regression model\n\nBayesian Data Analysis (Third Edition) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\n\nSectoin 14.1: Conditional Modeling\nSection 14.2: Bayesian analysis of the classical regression model\nSection 14.3: Regression for Causal Inference\nSection 14.4: Goals of Regression Analysis\n\nThe Bayesian Choice (Second Edition) by Christian Robert"
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#rrstudio",
+    "href": "labs/lab-00-getting-started.html#rrstudio",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
     "section": "R/RStudio",
-    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers by now or access to the Department Server. If you do not and want to use your own computer, first install the latest version of R here: https://cran.rstudio.com remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system."
+    "text": "R/RStudio\nYou all should have R and RStudio installed on your computers or feel free to use the Department servers. If you want a local version of RStudion, first install the latest version of R here: https://cran.rstudio.com (remember to select the right installer for your operating system). Next, install the latest version of RStudio here: https://www.rstudio.com/products/rstudio/download/. Scroll down to the “Installers for Supported Platforms” section and find the right installer for your operating system. You may also need to install git as well."
   },
   {
-    "objectID": "labs/lab-03.html#r-knitr",
-    "href": "labs/lab-03.html#r-knitr",
-    "title": "Lab 3: Posterior Predictive Checks",
-    "section": "R Knitr",
-    "text": "R Knitr\nYou are required to use R knitr with the Rnw format to type up this lab report. To get started see basics about knitr. Make sure to knit to pdf ; ask the TA about knitting to pdf if you cannot figure it out."
+    "objectID": "labs/lab-00-getting-started.html#github",
+    "href": "labs/lab-00-getting-started.html#github",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "Github",
+    "text": "Github\nCreate a github account if you do not have one here https://github.com"
   },
   {
-    "objectID": "labs/lab-03.html#github-classroom",
-    "href": "labs/lab-03.html#github-classroom",
-    "title": "Lab 3: Posterior Predictive Checks",
+    "objectID": "labs/lab-00-getting-started.html#r-sweave",
+    "href": "labs/lab-00-getting-started.html#r-sweave",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "R Sweave",
+    "text": "R Sweave\nYou are required to use R Sweave/knitr to type up HW and lab reports. Don’t worry we will guide you along the way!"
+  },
+  {
+    "objectID": "labs/lab-00-getting-started.html#gradescope",
+    "href": "labs/lab-00-getting-started.html#gradescope",
+    "title": "Lab 0: Getting Started with R and Sweave/Knitr",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou MUST submit the final pdf file to the course site on Gradescope. Make sure to knit to pdf and to submit under the right assignment entry."
+  },
+  {
+    "objectID": "labs/lab-10.html#github-classroom",
+    "href": "labs/lab-10.html#github-classroom",
+    "title": "Lab 10: Mixed Effects Regression",
     "section": "Github Classroom",
     "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
   },
   {
-    "objectID": "labs/lab-03.html#gradescope",
-    "href": "labs/lab-03.html#gradescope",
-    "title": "Lab 3: Posterior Predictive Checks",
+    "objectID": "labs/lab-10.html#gradescope",
+    "href": "labs/lab-10.html#gradescope",
+    "title": "Lab 10: Mixed Effects Regression",
     "section": "Gradescope",
     "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
@@ -2025,14 +2039,14 @@
   {
     "objectID": "labs/lab-08.html#github-classroom",
     "href": "labs/lab-08.html#github-classroom",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "title": "Lab 8: Variable Selection in Regression",
     "section": "Github Classroom",
     "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
   },
   {
     "objectID": "labs/lab-08.html#gradescope",
     "href": "labs/lab-08.html#gradescope",
-    "title": "Lab 6: Shrinkage Priors in Regression Comparison",
+    "title": "Lab 8: Variable Selection in Regression",
     "section": "Gradescope",
     "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
