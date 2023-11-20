@@ -82,10 +82,12 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ```{r include=FALSE}
 require(tidyverse)
-require(StanHeaders)
+require(RcppParallel)
 require(rstan)
+require(StanHeaders)
 require(rstanarm)
 require(magrittr)
+require(cowplot)
 require(bayesplot)
 require(loo)
 require(readxl)
@@ -111,22 +113,21 @@ ggplot2::theme_set(ggplot2::theme_bw())
 - Consider model
 $$
 \begin{aligned}
-\boldsymbol{Y}_1, \dots, \boldsymbol{Y}_n &\sim N_2 \left(\boldsymbol{\theta}, \Sigma \right); \\
-\theta_j &\sim N(0, 1)~~~~~~j=1,2.
+\boldsymbol{Y}_1, \dots, \boldsymbol{Y}_n &\sim \N_2 \left(\boldsymbol{\theta}, \Sigmab \right); \\
+\theta_j &\sim \N(0, 1)~~~~~~j=1,2.
 \end{aligned}
 $$
 
 
-- Suppose that the covariance matrix $\Sigma$ is known and has the form
-
-$$\Sigma = 
+- Suppose that the covariance matrix $\Sigmab$ is known and has the form
+$$\Sigmab = 
 \left[\begin{array}{cc}
 1 & \rho \\
 \rho & 1
 \end{array}\right]$$
 
    
--  What happens when $\rho = 0.995$?
+-  What happens when $\rho = 0.995$ for sampling from full conditionsals for $\theta_1$ and  $\theta_2$?
 
    
 
@@ -191,9 +192,10 @@ data.frame(norm_gibbs_samps) %>%
   xlim(c(mu_post[1] - 0.5, mu_post[1] + 0.5)) +
   ylim(c(mu_post[2] - 0.5, mu_post[2] + 0.5))
 #
-stan_res <- rstan::stan("hmc_norm_example.stan", data = list(X = X, 
-                                                             N = nrow(X), 
-                                                             Sigma = matrix(c(1, rho, rho, 1), nrow = 2)),
+stan_res <- rstan::stan("hmc_norm_example.stan", 
+                        data = list(X = X, 
+                                    N = nrow(X), 
+                                    Sigma = matrix(c(1, rho, rho, 1), nrow = 2)),
                         chains = 1, iter = 600, warmup = 100, verbose = F, refresh = 0) %>%
             rstan::extract()
 data.frame(stan_res$theta) %>%
@@ -239,7 +241,6 @@ acf(stan_res$theta[,2])
    
 
 - If the parameters of interest in a typical MCMC method are denoted as $q_1, \dots, q_K$, then HMC introduces auxiliary **momentum** parameters $p_1, \dots, p_K$ such that the algorithm produces draws from the joint density:
-
 $$
 \pi( \mathbf{q}, \mathbf{p}) = \pi (\mathbf{p} | \mathbf{q}) \pi(\mathbf{q})
 $$
@@ -255,14 +256,13 @@ $$\mathcal{H}(\mathbf{p},\mathbf{q}) = K(\mathbf{q}, \mathbf{p}) + U(\mathbf{q})
    
 
 - $K(\mathbf{q}, \mathbf{p})$ represents the **kinetic energy** of the system and is equal to the negative logarithm of the momentum distribution, e.g.
-
-$$K(\mathbf{p}) = \frac{\mathbf{p}^T M^{-1} \mathbf{p}}{2} = \sum_ i \frac{p_i^2}{2 m_i}$$
-- $M$ is the Mass matrix
+$$K(\mathbf{p}) = \frac{\mathbf{p}^T \Mb^{-1} \mathbf{p}}{2} = \sum_ i \frac{p_i^2}{2 m_i}$$
+- $\Mb$ is the Mass matrix
    
 
 - $U(\mathbf{q})$  the **potential energy** of the system; equal to the negative logarithm of the distribution of $\mathbf{q}$.
  
-$$\pi(\mathbf{q}, \mathbf{p}) \propto e^{- \cal{H}(\mathbf{q}, \mathbf{p})} = e^{- K(\mathbf{p})} e^{- U(\mathbf{q})}$$
+- Joint $\pi(\mathbf{q}, \mathbf{p}) \propto e^{- \cal{H}(\mathbf{q}, \mathbf{p})} = e^{- K(\mathbf{p})} e^{- U(\mathbf{q})}$
  
 
  
@@ -272,8 +272,6 @@ $$\pi(\mathbf{q}, \mathbf{p}) \propto e^{- \cal{H}(\mathbf{q}, \mathbf{p})} = e^
  
    
 - To "evolve the system" is to move $(\mathbf{q}, \mathbf{p})$ forward in "time," i.e. to change the values of $(\mathbf{q}, \mathbf{p})$ according to Hamilton's differential equations: 
-
-
 $$\begin{align}
 \frac{d \mathbf{p}}{dt} &= - \frac{\partial \mathcal{H}}{\partial \mathbf{q}} = -\frac{\partial K}{\partial \mathbf{q}} - \frac{\partial U}{\partial \mathbf{q}} \\
 \frac{d \mathbf{q}}{dt} &= +\frac{\partial \mathcal{H}}{\partial \mathbf{p}} = +\frac{\partial K}{\partial \mathbf{p}}
@@ -282,6 +280,7 @@ $$\begin{align}
 
 - Defines a mapping $T_s$ from the state at any time $t$ to the state at $t+s$
    
+. . .
 
 > "The differential change in momentum parameters $\mathbf{p}$ over time is governed in part by the differential information of the density over the target parameters."
 
@@ -289,7 +288,7 @@ $$\begin{align}
   
 ## Key Properties
 
-1)  **Reversibility** The mapping  of the state at time $t$ $(\mathbf{p}(t), \mathbf{q}(t))$ to the state at $t+s$ $(\mathbf{p}(t+s), \mathbf{q}(t+s))$ is one-to-one and we have an inverse $T_{-s}$ - obtained by negating the derivatives; $K(\mathbf{p}) = K(-\mathbf{p})$  MCMC updates using the dymamics don't modify invariant distribution!
+1)  **Reversibility** The mapping  of the state at time $t$ $(\mathbf{p}(t), \mathbf{q}(t))$ to the state at $t+s$ $(\mathbf{p}(t+s), \mathbf{q}(t+s))$ is one-to-one and we have an inverse $T_{-s}$ - obtained by negating the derivatives; $K(\mathbf{p}) = K(-\mathbf{p})$  _MCMC updates using the dymamics don't modify invariant distribution!_
 
  
    
@@ -300,19 +299,19 @@ $$\begin{align}
 
 3)  **Volume Preservation/Symplectiness**  the mapping $T_s$ of a region $R$  to $T_s(R)$ preserves volume      means that we do not need to compute Jacobians 
 
+. . .
    
 
-in practice we need to use approximations to solve the PDE's so won't have exact invariance etc so acceptance probability is not 1!
+> in practice we need to use approximations to solve the PDE's so won't have exact invariance etc so acceptance probability is not 1!
 
 
   
-##  Approximate Solutions to Differential Equations
+##  Approximate Solutions to Differential Eqs
 
 - Discretize time into steps $\epsilon$ 
    
 
 - Euler's Method for $i$th coordinate
-
 $$\begin{align}
 p_i(t + \epsilon) & = p_i(t) + \epsilon \frac{d p_i}{t}(t) =  p_i(t) - \epsilon \frac{\partial U(q_i(t))} {\partial q_i} \\
 q_i(t + \epsilon) & = q_i(t) + \epsilon \frac{d q_i}{t}(t) =  q_i(t) + \epsilon \frac{\partial K(p_i(t))} {\partial p_i} =  q_i(t) + \epsilon \frac{p_i(t)}{m_i}\\
@@ -336,8 +335,6 @@ q_i(t + \epsilon) & =   q_i(t) + \epsilon \frac{p_i(t + \epsilon)}{m_i}\\
    
 
 - apply Modified Euler
-
-
 $$\begin{align}
 p_i(t + \epsilon/2) & =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t))} {\partial q_i} \\
 q_i(t + \epsilon) & = q_i(t) + \epsilon \frac{p_i(t + \epsilon/2)}{m_i}\\
@@ -364,7 +361,7 @@ Steps:  replace $\mathbf{q}$ with $\boldsymbol{\theta}$
 
    
 
-1) sample a new value for the momentum $\mathbf{p}^{(t)} \sim N(0, M)$
+1) sample a new value for the momentum $\mathbf{p}^{(t)} \sim \N(\zero_K, \Mb)$
 
    
 
@@ -373,19 +370,18 @@ Steps:  replace $\mathbf{q}$ with $\boldsymbol{\theta}$
    
 
 3) Accept or reject acceptance probability is 
-
 $$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)}) \}$$
 
   
 ## Tuning
 
-- in addition to tuning $\epsilon$ and $L$, we can tune $M$
+- in addition to tuning $\epsilon$ and $L$, we can tune $\Mb$
    
 
-- $\text{Cov}(\mathbf{q}) = V$ can be highly variable
+- $\text{Cov}(\mathbf{q}) = \V$ can be highly variable
 
    
-- Consider reparameterization $A \mathbf{q} = \mathbf{q}^\prime$ so that  $\text{Cov}(A \mathbf{q}) =  A V A^T = I_d$; $A = V^{-1/2}$
+- Consider reparameterization $\A \mathbf{q} = \mathbf{q}^\prime$ so that  $\text{Cov}(\A \mathbf{q}) =  \A \V \A^T = \I_d$; $\A = \V^{-1/2}$
    
 
 - eliminates posterior correlation!
@@ -394,7 +390,7 @@ $$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t
 - general trick of reparameterizing to reduce posterior correlation is  often called **pre-conditioning** - improves efficiency! 
    
 
-- use $M = I_d$
+- use $\Mb = \I_d$
    
 
 -  Automatic tuning is achieved by the No-U-Turn-Sampler (NUTS)
@@ -408,24 +404,21 @@ $$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t
 ## Hybrid Approaches
 
 - Recall mixed effects model
-
-$$Y_{ij} = x_{ij}^T B + z_{ij}^T \beta_j + \epsilon_{ij} \qquad \epsilon_{ij}  \sim N(0, \sigma^2)$$
+$$Y_{ij} = \x_{ij}^T \b + \z_{ij}^T \g_j + \epsilon_{ij} \qquad \epsilon_{ij}  \sim \N(0, \sigma^2)$$
    
 
-- random effects $\beta_j \sim N_d(0, \Psi)$  (diagonal $\Psi$)
+- random effects $\g_j \sim \N_d(\zero_d, \Psib)$  (diagonal $\Psib$)
    
 
 - marginalize over the random effects
-
-   
-$$Y_{j} = N(X_j B, Z_j \Psi Z_j^T + \sigma^2 I)$$
+$$\Y_{j} = \N(\X_j \b, \Z_j \Psib \Z_j^T + \sigma^2 \I_{n_j})$$
 
    
 - we could use Gibbs on the conditional model, but we may get slow mixing (i.e. due to updating variance components)
 
    
 
-- run HMC within Gibbs to update the variance components $\Psi$  and $\sigma^2$ using the marginal model given $B$
+- run HMC within Gibbs to update the variance components $\Psib$  and $\sigma^2$ using the marginal model given $\b$
    
 
 - HMC in its basic form doesn't like constraints so reparameterize to use log transformations
@@ -462,6 +455,8 @@ $$Y_{j} = N(X_j B, Z_j \Psi Z_j^T + \sigma^2 I)$$
    
 
 - Nishimura et al (2020 Biometrika) for  HMC with discrete targets
+
+- rates of convergence and other theory
 
 
 
