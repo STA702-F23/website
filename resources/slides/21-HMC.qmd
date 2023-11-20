@@ -1,0 +1,467 @@
+---
+title: "Lecture 21: Hamiltonian Monte Carlo"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
+
+```{r include=FALSE}
+require(tidyverse)
+require(StanHeaders)
+require(rstan)
+require(rstanarm)
+require(magrittr)
+require(bayesplot)
+require(loo)
+require(readxl)
+require(plyr)
+require(ggrepel)
+library(cowplot)
+
+
+
+ggplot2::theme_set(ggplot2::theme_bw())
+
+```
+
+
+
+## Gibbs sampling
+
+{{< include macros.qmd >}}
+
+
+
+
+- Consider model
+$$
+\begin{aligned}
+\boldsymbol{Y}_1, \dots, \boldsymbol{Y}_n &\sim N_2 \left(\boldsymbol{\theta}, \Sigma \right); \\
+\theta_j &\sim N(0, 1)~~~~~~j=1,2.
+\end{aligned}
+$$
+
+
+- Suppose that the covariance matrix $\Sigma$ is known and has the form
+
+$$\Sigma = 
+\left[\begin{array}{cc}
+1 & \rho \\
+\rho & 1
+\end{array}\right]$$
+
+   
+-  What happens when $\rho = 0.995$?
+
+   
+
+
+```{r gibbs, echo=F}
+normal_gibbs_sampler <- function(S, X, rho){
+  theta_1 <- rep(0, S)
+  theta_2 <- rep(0, S)
+  n <- nrow(X)
+  for(s in 2:S){
+    theta_1[s] <- rnorm(1, 
+                        mean = (sum(X[,1]) + rho*(n*theta_2[s-1] - sum(X[,2]))) /
+                                (n + 1 - rho^2), 
+                        sd = sqrt((1 - rho^2)/(n + 1 - rho^2)))
+    theta_2[s] <- rnorm(1,
+                        mean = (sum(X[,2]) + rho*(n*theta_1[s] - sum(X[,1]))) /
+                                (n + 1 - rho^2), 
+                        sd = sqrt((1 - rho^2)/(n + 1 - rho^2)))
+  }
+  return(cbind(theta_1, theta_2))
+}
+```
+
+
+
+
+  
+## Gibbs vs Stan samples
+
+```{r rho, message=F, warning=F, cache=T, echo=FALSE}
+n <- 100
+rho <- 0.995
+X <- MASS::mvrnorm(n = n, mu = c(2, 4), Sigma = matrix(c(1, rho, rho, 1), nrow = 2))
+Sigma_post <- matrix(((1-rho^2)/((n+1-rho^2)^2 - (n^2)*(rho^2)))*c(n+1-rho^2, n*rho, n*rho, n+1-rho^2), nrow = 2)
+mu_post <- n*Sigma_post%*%matrix(c(1/(1-rho^2), -rho/(1-rho^2), 
+                                                       -rho/(1-rho^2), 1/(1-rho^2)), 
+                                                       nrow = 2)%*%colMeans(X)
+norm_gibbs_samps <- normal_gibbs_sampler(600, X, rho)
+#
+true_post <- MASS::mvrnorm(n = 100000, 
+                           mu = n*Sigma_post%*%(matrix(c(1/(1-rho^2), -rho/(1-rho^2), 
+                                                       -rho/(1-rho^2), 1/(1-rho^2)), 
+                                                       nrow = 2)%*%colMeans(X)), 
+                           Sigma = Sigma_post)
+```
+
+
+```{r output_Gibbs, message=F, warning=F, cache=T, echo=FALSE, fig=TRUE}
+data.frame(norm_gibbs_samps) %>%
+  magrittr::set_colnames(c("theta_1", "theta_2")) %>%
+  dplyr::mutate(iter = 1:n()) %>%
+  dplyr::filter(iter > 100) %>%
+  dplyr::mutate(iter = 1:n()) %>%
+  ggplot2::ggplot() +
+  geom_density2d(data = data.frame(true_post) %>%
+                        magrittr::set_colnames(c("true_1", "true_2")),
+                 aes(x = true_1, y = true_2)) +
+  geom_path(aes(x = theta_1, y = theta_2, colour = iter), alpha = 0.2, size = 0.5) +
+  geom_point(aes(x = theta_1, y = theta_2, colour = iter), size = 0.5) +
+  scale_color_distiller(palette = "Spectral", name = "Iter") +
+  labs(x = expression(theta[1]), y = expression(theta[2])) +
+  xlim(c(mu_post[1] - 0.5, mu_post[1] + 0.5)) +
+  ylim(c(mu_post[2] - 0.5, mu_post[2] + 0.5))
+#
+stan_res <- rstan::stan("hmc_norm_example.stan", data = list(X = X, 
+                                                             N = nrow(X), 
+                                                             Sigma = matrix(c(1, rho, rho, 1), nrow = 2)),
+                        chains = 1, iter = 600, warmup = 100, verbose = F, refresh = 0) %>%
+            rstan::extract()
+data.frame(stan_res$theta) %>%
+  magrittr::set_colnames(c("theta_1", "theta_2")) %>%
+  dplyr::mutate(iter = 1:n()) %>%
+  ggplot2::ggplot() +
+  geom_density2d(data = data.frame(true_post) %>%
+                        magrittr::set_colnames(c("true_1", "true_2")),
+                 aes(x = true_1, y = true_2)) +
+  geom_path(aes(x = theta_1, y = theta_2, colour = iter), alpha = 0.2, size = 0.5) +
+  geom_point(aes(x = theta_1, y = theta_2, colour = iter), size = 0.5) +
+  scale_color_distiller(palette = "Spectral", name = "Iter") +
+  labs(x = expression(theta[1]), y = expression(theta[2])) +
+  xlim(c(mu_post[1] - 0.5, mu_post[1] + 0.5)) +
+  ylim(c(mu_post[2] - 0.5, mu_post[2] + 0.5))
+#
+
+```
+
+  
+## ACF
+
+```{r acf, echo=FALSE, fig=TRUE}
+par(mfrow = c(1,2))
+acf(norm_gibbs_samps[,1])
+acf(norm_gibbs_samps[,2])
+#
+par(mfrow = c(1,2))
+acf(stan_res$theta[,1])
+acf(stan_res$theta[,2])
+```
+
+  
+## Hamiltonian Monte Carlo (HMC)
+
+-  HMC creates transitions that *efficiently explore the parameter space* by using concepts from Hamiltonian mechanics.
+   
+
+- In Hamiltonian mechanics, a physical system is  specified by positions $\mathbf{q}$ and momenta $\mathbf{p}$. 
+   
+
+- A space defined by these coordinates is called a **phase space**
+   
+
+- If the parameters of interest in a typical MCMC method are denoted as $q_1, \dots, q_K$, then HMC introduces auxiliary **momentum** parameters $p_1, \dots, p_K$ such that the algorithm produces draws from the joint density:
+
+$$
+\pi( \mathbf{q}, \mathbf{p}) = \pi (\mathbf{p} | \mathbf{q}) \pi(\mathbf{q})
+$$
+   
+
+- marginalizing over the $p_k$'s, we recover the marginal distribution of the $q_k$'s Therefore, if we create a Markov Chain that converges to $\pi(\mathbf{q}, \mathbf{p})$, we have immediate access to samples from $\pi(\mathbf{q})$, which is our target distribution.
+
+  
+## Hamiltonian
+
+- Hamilton's equations describe the time evolution of the system in terms of the **Hamiltonian**, $\mathcal{H}$, which  corresponds to the total energy of the system:
+$$\mathcal{H}(\mathbf{p},\mathbf{q}) = K(\mathbf{q}, \mathbf{p}) + U(\mathbf{q})$$
+   
+
+- $K(\mathbf{q}, \mathbf{p})$ represents the **kinetic energy** of the system and is equal to the negative logarithm of the momentum distribution, e.g.
+
+$$K(\mathbf{p}) = \frac{\mathbf{p}^T M^{-1} \mathbf{p}}{2} = \sum_ i \frac{p_i^2}{2 m_i}$$
+- $M$ is the Mass matrix
+   
+
+- $U(\mathbf{q})$  the **potential energy** of the system; equal to the negative logarithm of the distribution of $\mathbf{q}$.
+ 
+$$\pi(\mathbf{q}, \mathbf{p}) \propto e^{- \cal{H}(\mathbf{q}, \mathbf{p})} = e^{- K(\mathbf{p})} e^{- U(\mathbf{q})}$$
+ 
+
+ 
+  
+## Evolution 
+- At each iteration of the sampling algorithm, HMC implementations make draws from some distribution $\pi(\mathbf{p} | \mathbf{q})$  and then *evolves the system* $(\mathbf{q}, \mathbf{p})$ to obtain the next sample of $\mathbf{q}$. 
+ 
+   
+- To "evolve the system" is to move $(\mathbf{q}, \mathbf{p})$ forward in "time," i.e. to change the values of $(\mathbf{q}, \mathbf{p})$ according to Hamilton's differential equations: 
+
+
+$$\begin{align}
+\frac{d \mathbf{p}}{dt} &= - \frac{\partial \mathcal{H}}{\partial \mathbf{q}} = -\frac{\partial K}{\partial \mathbf{q}} - \frac{\partial U}{\partial \mathbf{q}} \\
+\frac{d \mathbf{q}}{dt} &= +\frac{\partial \mathcal{H}}{\partial \mathbf{p}} = +\frac{\partial K}{\partial \mathbf{p}}
+\end{align}$$
+   
+
+- Defines a mapping $T_s$ from the state at any time $t$ to the state at $t+s$
+   
+
+> "The differential change in momentum parameters $\mathbf{p}$ over time is governed in part by the differential information of the density over the target parameters."
+
+
+  
+## Key Properties
+
+1)  **Reversibility** The mapping  of the state at time $t$ $(\mathbf{p}(t), \mathbf{q}(t))$ to the state at $t+s$ $(\mathbf{p}(t+s), \mathbf{q}(t+s))$ is one-to-one and we have an inverse $T_{-s}$ - obtained by negating the derivatives; $K(\mathbf{p}) = K(-\mathbf{p})$  MCMC updates using the dymamics don't modify invariant distribution!
+
+ 
+   
+
+2) **Invariance/Conservation** the dymamics keep the Hamiltonian invariant - if we use the dynamics to generate proposals, the acceptance probability of MH is equal to one if $\cal{H}$ is kept invariant!
+
+   
+
+3)  **Volume Preservation/Symplectiness**  the mapping $T_s$ of a region $R$  to $T_s(R)$ preserves volume      means that we do not need to compute Jacobians 
+
+   
+
+in practice we need to use approximations to solve the PDE's so won't have exact invariance etc so acceptance probability is not 1!
+
+
+  
+##  Approximate Solutions to Differential Equations
+
+- Discretize time into steps $\epsilon$ 
+   
+
+- Euler's Method for $i$th coordinate
+
+$$\begin{align}
+p_i(t + \epsilon) & = p_i(t) + \epsilon \frac{d p_i}{t}(t) =  p_i(t) - \epsilon \frac{\partial U(q_i(t))} {\partial q_i} \\
+q_i(t + \epsilon) & = q_i(t) + \epsilon \frac{d q_i}{t}(t) =  q_i(t) + \epsilon \frac{\partial K(p_i(t))} {\partial p_i} =  q_i(t) + \epsilon \frac{p_i(t)}{m_i}\\
+\end{align}$$
+
+   
+
+-  Modified Euler method 
+$$\begin{align}
+p_i(t + \epsilon) & =  p_i(t) - \epsilon \frac{\partial U(q_i(t))} {\partial q_i} \\
+q_i(t + \epsilon) & =   q_i(t) + \epsilon \frac{p_i(t + \epsilon)}{m_i}\\
+\end{align}$$
+
+
+
+  
+## Leapfrog
+
+- Divide into half steps
+
+   
+
+- apply Modified Euler
+
+
+$$\begin{align}
+p_i(t + \epsilon/2) & =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t))} {\partial q_i} \\
+q_i(t + \epsilon) & = q_i(t) + \epsilon \frac{p_i(t + \epsilon/2)}{m_i}\\
+p_i(t + \epsilon) & =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t + \epsilon))} {\partial q_i} 
+\end{align}$$
+   
+
+- Preserves volume exactly
+   
+
+- Reversible
+   
+
+- We don't get exact invariance (so probability of acceptance is not 1)
+   
+
+- Step size and number of steps is still important!
+
+
+  
+## MCMC with HMC 
+
+Steps:  replace $\mathbf{q}$ with $\boldsymbol{\theta}$
+
+   
+
+1) sample a new value for the momentum $\mathbf{p}^{(t)} \sim N(0, M)$
+
+   
+
+2) Metropolis: from current state $(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)})$ simulate proposal $(\mathbf{q}^*, \mathbf{p}^*)$ using Hamiltonian dynamics by applying Leapfrog with step size $\epsilon$ for $L$ steps (tuning parameters)
+
+   
+
+3) Accept or reject acceptance probability is 
+
+$$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)}) \}$$
+
+  
+## Tuning
+
+- in addition to tuning $\epsilon$ and $L$, we can tune $M$
+   
+
+- $\text{Cov}(\mathbf{q}) = V$ can be highly variable
+
+   
+- Consider reparameterization $A \mathbf{q} = \mathbf{q}^\prime$ so that  $\text{Cov}(A \mathbf{q}) =  A V A^T = I_d$; $A = V^{-1/2}$
+   
+
+- eliminates posterior correlation!
+
+   
+- general trick of reparameterizing to reduce posterior correlation is  often called **pre-conditioning** - improves efficiency! 
+   
+
+- use $M = I_d$
+   
+
+-  Automatic tuning is achieved by the No-U-Turn-Sampler (NUTS)
+
+- bit complicated, but used by STAN
+   
+
+- other variations Metropolis-Adjusted Langevin Algorithm (MALA) 
+
+  
+## Hybrid Approaches
+
+- Recall mixed effects model
+
+$$Y_{ij} = x_{ij}^T B + z_{ij}^T \beta_j + \epsilon_{ij} \qquad \epsilon_{ij}  \sim N(0, \sigma^2)$$
+   
+
+- random effects $\beta_j \sim N_d(0, \Psi)$  (diagonal $\Psi$)
+   
+
+- marginalize over the random effects
+
+   
+$$Y_{j} = N(X_j B, Z_j \Psi Z_j^T + \sigma^2 I)$$
+
+   
+- we could use Gibbs on the conditional model, but we may get slow mixing (i.e. due to updating variance components)
+
+   
+
+- run HMC within Gibbs to update the variance components $\Psi$  and $\sigma^2$ using the marginal model given $B$
+   
+
+- HMC in its basic form doesn't like constraints so reparameterize to use log transformations
+
+
+
+
+  
+## Advantages & Disadvantages
+
+- HMC can produce samples with low correlation and high acceptance ratio!
+
+   
+
+- driven by step size  (larger time steps mean values are farther away but may lead to lower acceptance- 
+  error is $O(\epsilon^2)$ for the leapfrog method)
+
+   
+
+- number of steps (more steps reduces correlation; to avoid U turns stan uses NUTS)
+
+   
+
+- most implementations limited to continuous  variables (need gradients of log densities) 
+
+   
+
+- need to calculate gradients (automatic differentiation methods)
+
+   
+
+- can mix Gibbs (for discrete) and HMC (for continuous)
+
+   
+
+- Nishimura et al (2020 Biometrika) for  HMC with discrete targets
+
+
+
