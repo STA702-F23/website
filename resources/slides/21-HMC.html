@@ -486,9 +486,10 @@ p_i(t + \epsilon) &amp; =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t + 
 <p>Steps: replace <span class="math inline">\(\mathbf{q}\)</span> with <span class="math inline">\(\boldsymbol{\theta}\)</span></p>
 <ol type="1">
 <li class="fragment"><p>sample a new value for the momentum <span class="math inline">\(\mathbf{p}^{(t)} \sim \textsf{N}(\mathbf{0}_K, \mathbf{M})\)</span></p></li>
-<li class="fragment"><p>Metropolis: from current state <span class="math inline">\((\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)})\)</span> simulate proposal <span class="math inline">\((\mathbf{q}^*, \mathbf{p}^*)\)</span> using Hamiltonian dynamics by applying Leapfrog with step size <span class="math inline">\(\epsilon\)</span> for <span class="math inline">\(L\)</span> steps (tuning parameters)</p></li>
-<li class="fragment"><p>Accept or reject acceptance probability is <span class="math display">\[\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)}) \}\]</span></p></li>
+<li class="fragment"><p>Metropolis: from current state <span class="math inline">\((\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)})\)</span> simulate proposal <span class="math inline">\((\mathbf{q}^*, \mathbf{p}^*)\)</span> using Hamiltonian dynamics by applying Leapfrog with step size <span class="math inline">\(\epsilon\)</span> for <span class="math inline">\(L\)</span> steps (tuning parameters) (start with <span class="math inline">\(\epsilon*L = 1\)</span>)</p></li>
+<li class="fragment"><p>Accept or reject acceptance probability is <span class="math display">\[\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)}) \}\]</span> . . .</p></li>
 </ol>
+<p>theory suggests optimal acceptance rate is around 65%</p>
 </section>
 <section id="tuning" class="slide level2">
 <h2>Tuning</h2>
@@ -499,8 +500,7 @@ p_i(t + \epsilon) &amp; =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t + 
 <li class="fragment"><p>eliminates posterior correlation!</p></li>
 <li class="fragment"><p>general trick of reparameterizing to reduce posterior correlation is often called <strong>pre-conditioning</strong> - improves efficiency!</p></li>
 <li class="fragment"><p>use <span class="math inline">\(\mathbf{M}= \mathbf{I}_d\)</span></p></li>
-<li class="fragment"><p>Automatic tuning is achieved by the No-U-Turn-Sampler (NUTS)</p></li>
-<li class="fragment"><p>bit complicated, but used by STAN</p></li>
+<li class="fragment"><p>Automatic tuning is achieved by the No-U-Turn-Sampler (NUTS) (bit complicated, but used by STAN)</p></li>
 <li class="fragment"><p>other variations Metropolis-Adjusted Langevin Algorithm (MALA)</p></li>
 </ul>
 </section>
@@ -519,10 +519,11 @@ p_i(t + \epsilon) &amp; =  p_i(t) - \frac{\epsilon}{2} \frac{\partial U(q_i(t + 
 <h2>Advantages &amp; Disadvantages</h2>
 <ul>
 <li class="fragment"><p>HMC can produce samples with low correlation and high acceptance ratio!</p></li>
+<li class="fragment"><p>can be slow with long or short tailed distributions (use local curvature in <span class="math inline">\(\mathbf{M}\)</span>)</p></li>
 <li class="fragment"><p>driven by step size (larger time steps mean values are farther away but may lead to lower acceptance- error is <span class="math inline">\(O(\epsilon^2)\)</span> for the leapfrog method)</p></li>
 <li class="fragment"><p>number of steps (more steps reduces correlation; to avoid U turns stan uses NUTS)</p></li>
 <li class="fragment"><p>most implementations limited to continuous variables (need gradients of log densities)</p></li>
-<li class="fragment"><p>need to calculate gradients (automatic differentiation methods)</p></li>
+<li class="fragment"><p>need to calculate gradients (analytic or automatic differentiation methods)</p></li>
 <li class="fragment"><p>can mix Gibbs (for discrete) and HMC (for continuous)</p></li>
 <li class="fragment"><p>Nishimura et al (2020 Biometrika) for HMC with discrete targets</p></li>
 <li class="fragment"><p>rates of convergence and other theory</p></li>
