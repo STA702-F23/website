@@ -365,15 +365,18 @@ Steps:  replace $\mathbf{q}$ with $\boldsymbol{\theta}$
 
    
 
-2) Metropolis: from current state $(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)})$ simulate proposal $(\mathbf{q}^*, \mathbf{p}^*)$ using Hamiltonian dynamics by applying Leapfrog with step size $\epsilon$ for $L$ steps (tuning parameters)
+2) Metropolis: from current state $(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)})$ simulate proposal $(\mathbf{q}^*, \mathbf{p}^*)$ using Hamiltonian dynamics by applying Leapfrog with step size $\epsilon$ for $L$ steps (tuning parameters) (start with $\epsilon*L = 1$)
 
    
 
 3) Accept or reject acceptance probability is 
 $$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t-1)}, \mathbf{p}^{(t)}) \}$$
+. . .
 
+theory suggests optimal acceptance rate is around 65%
   
 ## Tuning
+
 
 - in addition to tuning $\epsilon$ and $L$, we can tune $\Mb$
    
@@ -394,8 +397,7 @@ $$\min \{1, \exp( - \cal{H}(\mathbf{q}^*, \mathbf{p}^*) + \cal{H}(\mathbf{q}^{(t
    
 
 -  Automatic tuning is achieved by the No-U-Turn-Sampler (NUTS)
-
-- bit complicated, but used by STAN
+   (bit complicated, but used by STAN)
    
 
 - other variations Metropolis-Adjusted Langevin Algorithm (MALA) 
@@ -431,6 +433,8 @@ $$\Y_{j} = \N(\X_j \b, \Z_j \Psib \Z_j^T + \sigma^2 \I_{n_j})$$
 
 - HMC can produce samples with low correlation and high acceptance ratio!
 
+- can be slow with long or short tailed distributions (use local curvature in $\Mb$)
+
    
 
 - driven by step size  (larger time steps mean values are farther away but may lead to lower acceptance- 
@@ -446,7 +450,7 @@ $$\Y_{j} = \N(\X_j \b, \Z_j \Psib \Z_j^T + \sigma^2 \I_{n_j})$$
 
    
 
-- need to calculate gradients (automatic differentiation methods)
+- need to calculate gradients (analytic or automatic differentiation methods)
 
    
 
