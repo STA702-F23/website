@@ -1374,119 +1374,119 @@
   {
     "objectID": "resources/slides/22-NPReg.html#semi-parametric-regression",
     "href": "resources/slides/22-NPReg.html#semi-parametric-regression",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Semi-parametric Regression",
     "text": "Semi-parametric Regression\n\nConsider model \\[Y_1, \\dots, Y_n \\sim \\textsf{N}\\left(\\mu(\\mathbf{x}_i, \\boldsymbol{\\theta}), \\sigma \\right)\\]\nMean function \\(\\textsf{E}[Y_i \\mid \\boldsymbol{\\theta}] = \\mu(\\mathbf{x}_i, \\boldsymbol{\\theta})\\) falls in some class of nonlinear functions\nBasis Function Expansion \\[\\mu(\\mathbf{x}, \\boldsymbol{\\theta}) = \\sum_{j = 1}^{J} \\beta_j b_j(\\mathbf{x})\\]\n\\(b_j(\\mathbf{x})\\) is a pre-specified set of basis functions and \\(\\boldsymbol{\\beta}= (\\beta_1, \\ldots, \\beta_J)^T\\) is a vector of coefficients or coordinates wrt to the basis"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#examples",
     "href": "resources/slides/22-NPReg.html#examples",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Examples",
     "text": "Examples\n\nTaylor Series expansion of \\(\\mu(\\mathbf{x})\\) about point \\(\\chi\\) \\[\\begin{aligned}\n\\mu(x) & = \\sum_k \\frac{\\mu^{(k)}(\\chi)}{k!} (x - \\chi)^k \\\\\n& = \\sum_k \\beta_k (x - \\chi)^k\n\\end{aligned}\n\\]\npolynomial basis\ncan require a large number of terms to model globally\ncan have really poor behavior in regions without data\neach basis function has a “global” impact"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#other-basis-functions",
     "href": "resources/slides/22-NPReg.html#other-basis-functions",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Other Basis Functions",
     "text": "Other Basis Functions\n\ncubic splines \\[   b_j(x, \\chi_j) =  (x - \\chi_j)^3_+\\]\nGaussian Radial Basis \\[ b_j(x, \\chi_j) =  \\exp{\\left(\\frac{(x - \\chi_j)^2}{l^2}\\right)}\\]\ncenters of basis functions \\(\\chi_j\\)\nwidth parameter \\(l\\) controls the scale at which the mean function dies out as a function of \\(\\mathbf{x}\\) from the center\nlocalized basis elements"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#local-models",
     "href": "resources/slides/22-NPReg.html#local-models",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Local Models",
     "text": "Local Models\n\nMultivariate Gaussian Kernel \\(g\\) with parameters \\(\\boldsymbol{\\omega}= (\\boldsymbol{\\chi}, \\boldsymbol{\\Lambda})\\) \\[\nb_j(\\mathbf{x}, \\boldsymbol{\\omega}_j) =  g(\n\\boldsymbol{\\Lambda}_j^{1/2} (\\mathbf{x}- \\boldsymbol{\\chi}_j)) = \\exp\\left\\{-\\frac{1}{2}(\\mathbf{x}- \\boldsymbol{\\chi}_j)^T \\boldsymbol{\\Lambda}_j (\\mathbf{x}-\n\\boldsymbol{\\chi}_j)\\right\\}\n\\]\nGaussian, Cauchy, Exponential, Double Exponential kernels (can be asymmetric)\ntranslation and scaling of wavelet families\nbasis functions formed from a generator function \\(g\\) with location and scaling parameters"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#bayesian-nonparametric-model",
     "href": "resources/slides/22-NPReg.html#bayesian-nonparametric-model",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Bayesian Nonparametric Model",
     "text": "Bayesian Nonparametric Model\nMean function \\[\\mu(\\mathbf{x}_i) = \\sum_{j}^J b_j(\\mathbf{x}_i, \\boldsymbol{\\omega}_j) \\beta_j\\]\n\nconditional on the basis elements back to our Bayesian regression model\nusually uncertainty about number of basis elements needed\ncould use BMA or other shrinkage priors\nhow should coefficients scale as \\(J\\) increases?\nchoice of \\(J\\)?\nwhat about uncertainty in \\(\\boldsymbol{\\omega}\\) (locations and scales)?\npriors on unknowns (\\(J\\), \\(\\{\\beta_j\\}\\), \\(\\{\\boldsymbol{\\omega}_j\\}\\)) induces a prior on functions!"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#stochastic-expansions",
     "href": "resources/slides/22-NPReg.html#stochastic-expansions",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Stochastic Expansions",
     "text": "Stochastic Expansions\n\\[\\mu(\\mathbf{x}) = \\sum_{j=0}^{J}  b_j(\\mathbf{x}, \\boldsymbol{\\omega}_j) \\beta_j = \\sum_{j=0}^{J}  g(\\boldsymbol{\\Lambda}^{1/2}(\\mathbf{x}- \\boldsymbol{\\omega}_j)) \\beta_j \\]\n\nintroduce a Lévy measure \\(\\nu( d\\beta, d \\boldsymbol{\\omega})\\)\nPoisson distribution \\(J \\sim \\textsf{Poi}(\\nu_+)\\) where \\(\\nu_+\\equiv \\nu(\\mathbb{R}\\times\\boldsymbol{\\Omega}) = \\iint \\nu(\\beta, \\boldsymbol{\\omega}) d \\beta \\, d\\boldsymbol{\\omega}\\)\nconditional prior on \\(\\beta_j,\\boldsymbol{\\omega}_j \\mid J \\mathrel{\\mathop{\\sim}\\limits^{\\rm iid}}\\pi(\\beta, \\boldsymbol{\\omega})  \\propto \\nu(\\beta,\\boldsymbol{\\omega})\\)\nConditions on \\(\\nu\\) (and \\(g\\))\n\nneed to have that \\(|\\beta_j|\\) are absolutely summable\nfinite number of large coefficients (in absolute value)\nallows an infinite number of small \\(\\beta_j \\in [-\\epsilon, \\epsilon]\\)\n\n\n\nSee Wolpert, Clyde and Tu (2011) AoS"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#gamma-process-example",
     "href": "resources/slides/22-NPReg.html#gamma-process-example",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Gamma Process Example",
     "text": "Gamma Process Example\n\\(\\nu(\\beta, \\chi) = \\beta^{-1} e^{- \\beta \\eta} \\gamma(\\chi) d \\beta \\, d \\chi\\)"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#stochastic-integral-representation",
     "href": "resources/slides/22-NPReg.html#stochastic-integral-representation",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Stochastic Integral Representation",
     "text": "Stochastic Integral Representation\n\\[\\mu(\\mathbf{x}) = \\sum_{j=0}^{J}  b_j(\\mathbf{x}, \\boldsymbol{\\omega}_j) \\beta_j = \\sum_{j=0}^{J}  g(\\boldsymbol{\\Lambda}^{1/2}(\\mathbf{x}- \\boldsymbol{\\omega}_j)) \\beta_j  = \\int_{\\boldsymbol{\\Omega}} b(\\mathbf{x}, \\boldsymbol{\\omega}) {\\cal L}(d\\boldsymbol{\\omega})\\]\n\n\\({\\cal L}\\) is a random signed measure (generalization of Completely Random Measures) \\[ {\\cal L}\\sim  \\textsf{Lévy}(\\nu) \\qquad \\qquad {\\cal L}(d \\boldsymbol{\\omega}) = \\sum_{j \\le J}\\beta_j \\delta_{\\boldsymbol{\\omega}_j} (d \\boldsymbol{\\omega})\\]\nLévy-Khinchine Poisson Representation of \\({\\cal L}\\)\nPoisson number of support points (possibly infinite!)\nrandom support points of discrete measure \\(\\{ \\boldsymbol{\\omega}_j\\}\\)\nrandom “jumps” \\(\\beta_j\\)\nConvenient to think of a random measure as stochastic process where \\({\\cal L}\\) assigns random variables to sets \\(A \\in \\boldsymbol{\\Omega}\\)"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#examples-1",
     "href": "resources/slides/22-NPReg.html#examples-1",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Examples",
     "text": "Examples\n\ngamma process \\[\\begin{aligned}\n\\nu(\\beta, \\boldsymbol{\\omega}) & = \\beta^{-1} e^{- \\beta \\eta} \\pi(\\boldsymbol{\\omega}) d \\beta  \\, d \\boldsymbol{\\omega}\\\\\n{\\cal L}(A) & \\sim \\textsf{Gamma}(\\pi(A), \\eta)\n\\end{aligned}\\]\nnon-negative coefficients plus non-negative basis functions allows priors on non-negative functions without transformations\n\\(\\alpha\\)-Stable process (Cauchy process is \\(\\alpha = 1\\)) \\[\\nu(\\beta, \\boldsymbol{\\omega}) =  c_\\alpha |\\beta|^{-(\\alpha  +1)}\\ \\pi(\\boldsymbol{\\omega}) \\qquad 0 &lt; \\alpha &lt; 2\n\\]\n\\(\\nu^+(\\mathbb{R}, \\boldsymbol{\\Omega}) = \\infty\\) for both the Gamma and \\(\\alpha\\)-Stable processes\nFine in theory, but problematic for MCMC!"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#prior-approximation-i",
     "href": "resources/slides/22-NPReg.html#prior-approximation-i",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Prior Approximation I",
     "text": "Prior Approximation I\nTruncate measure \\(\\nu\\) to obtain a finite expansion:\n\nFinite number of support points \\(\\boldsymbol{\\omega}\\) with \\(\\beta\\) in \\([-\\epsilon, \\epsilon]^c\\)\n\nFix \\(\\epsilon\\) (for given prior approximation error)\nUse approximate Lévy measure \\(\\nu_{\\epsilon}(\\beta, \\boldsymbol{\\omega}) \\equiv \\nu(\\beta, \\boldsymbol{\\omega})\\mathbf{1}(|\\beta| &gt; \\epsilon)\\)\n\\(\\Rightarrow\\) \\(J \\sim \\textsf{Poi}(\\nu_{\\epsilon}^+)\\) where \\(\\nu^+_{\\epsilon} = \\nu([-\\epsilon, \\epsilon]^c, \\boldsymbol{\\Omega})\\)\n\\(\\Rightarrow\\) \\(\\beta_j, \\boldsymbol{\\omega}_j \\mathrel{\\mathop{\\sim}\\limits^{\\rm iid}}\\pi(d\\beta, d\\boldsymbol{\\omega}) \\equiv \\nu_\\epsilon(d\\beta , d \\boldsymbol{\\omega})/\\nu^+_{\\epsilon}\\)\nfor \\(\\alpha\\)-Stable, the approximation leads to double Pareto distributions for \\(\\beta\\) \\[\\pi(\\beta_j) = \\frac{\\epsilon}{2 \\eta} |\\beta|^{- \\alpha - 1} \\mathbf{1}_{|\\beta| &gt; \\frac{\\boldsymbol{\\epsilon}}{\\eta}}\\]"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#truncated-cauchy-process-prior",
     "href": "resources/slides/22-NPReg.html#truncated-cauchy-process-prior",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Truncated Cauchy Process Prior",
     "text": "Truncated Cauchy Process Prior\n\nTruncated Cauchy"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#simulation",
     "href": "resources/slides/22-NPReg.html#simulation",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Simulation",
     "text": "Simulation"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#kernels",
     "href": "resources/slides/22-NPReg.html#kernels",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Kernels",
     "text": "Kernels"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#comparison-of-lévy-adaptive-regression-kernels",
     "href": "resources/slides/22-NPReg.html#comparison-of-lévy-adaptive-regression-kernels",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Comparison of Lévy Adaptive Regression Kernels",
     "text": "Comparison of Lévy Adaptive Regression Kernels"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#inference-via-reversible-jump-mcmc",
     "href": "resources/slides/22-NPReg.html#inference-via-reversible-jump-mcmc",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Inference via Reversible Jump MCMC",
     "text": "Inference via Reversible Jump MCMC\ntrans-dimensional MCMC\n\nnumber of support points \\(J\\) varies from iteration to iteration\n\nadd a new point (birth)\ndelete an existing point (death)\ncombine two points (merge)\nsplit a point into two\n\nupdate existing point(s)"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#motorcycle-acceleration",
     "href": "resources/slides/22-NPReg.html#motorcycle-acceleration",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "MotorCycle Acceleration",
     "text": "MotorCycle Acceleration"
   },
   {
     "objectID": "resources/slides/22-NPReg.html#summary",
     "href": "resources/slides/22-NPReg.html#summary",
-    "title": "Nonparametric Regression",
+    "title": "Lecture 22: Nonparametric Regression",
     "section": "Summary",
     "text": "Summary\n\nmore parsimonious than “shrinkage” priors or SVM\nallows for increasing number of support points as \\(n\\) increases\ncontrol MSE a priori through choice of \\(\\epsilon\\)\nno problem with non-normal data, non-negative functions or even discontinuous functions\ncredible and prediction intervals\nrobust alternative to Gaussian Process Priors\nhard to scale up random scales, locations as dimension of \\(\\mathbf{x}\\) increases\nnext - Prior Approximation II\n\n\n\n\nhttps://sta702-F23.github.io/website/"
   },
@@ -1614,7 +1614,7 @@
     "href": "schedule.html",
     "title": " Schedule",
     "section": "",
-    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n \n\n\n hw-06\n\n    \nFri, Oct 13\n\nLab : Review for Midterm I\n\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 6: Shrinkage Priors in Regression Comparison\n\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:  Basics of Bayesian Hypothesis Tests\n\n\n\n \n\n\n hw-07\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n \n\n\n\n    \nFri, Oct 27\n\nLab 7:  Multiple Hypothesis Testing\n\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n hw-08\n\n    \nFri, Nov 3\n\nLab 8: Variable Selection\n\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n \n\n\n\n    \nThurs, Nov 9\n\nLec 19:  Random Effects\n\n\n\n \n\n\n hw-09\n\n    \nFri, Nov 10\n\nLab 9: Review\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n\n    \nThurs, Nov 16\n\nLec 20: Mixed Effects Models\n\n\n\n \n\n\n hw-10\n\n    \nFri, Nov 17\n\nLab 10:  Random Effect Models in stan\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Hamiltonian Monte Carlo\n\n\n\n \n\n\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nNonParametric Regression\n\n\n\n \n\n\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n hw-11\n\n    \nFri, Dec 1\n\nLab 11: Hamiltonian Monte Carlo\n\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
+    "text": "Please refresh often in case links/content has been updated\n\n\n\n\n\n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n  \n    \n    \n      Week\n      Date\n      Lesson\n      Reading\n      Slides\n      Labs\n      HW\n    \n  \n  \n    WEEK 1\n\nTues, Aug 29\n\nLecture 0: Course Overview and Introduction\n\n\n\n \n\n\n\n\n    \nThur, Aug 31\n\nLecture 1: Basics of Bayesian Inference\n\n\n\n \n\n\n\n    \nFri, Sept 1\n\nLab 1: R and Monte Carlo Review\n\n\n\n\n\n\n    WEEK 2\n\nTues, Sept 5\n\nLecture 2: Loss Functions & Summaries\n\n\n\n \n\n\n hw-01\n\n    \nThur, Sept 7\n\nLecture 3: Normal Model & Predictive Distributions\n\n\n\n \n\n\n\n    \nFri, Sept 8\n\nLab 2: Beta-Binomial Model and Introduction to stan\n\n\n\n\n\n\n    WEEK 3\n\nTues, Sept 12\n\nLecture 4: Predictive Checks\n\n\n\n \n\n\n hw-02\n\n    \nThur, Sept 14\n\nLecture 5: Introduction to Hierarchical Models, EB & Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 15\n\nLab 3: Posterior Predictive Checks\n\n\n\n\n\n\n    WEEK 4\n\nTues, Sept 19\n\nLecture 6: Metropolis Algorithm & Stochastic Sampling\n\n\n\n \n\n\n hw-03\n\n    \nThur, Sept 21\n\nLecture 7: Diagnostics and Adaptive Metropolis\n\n\n\n \n\n\n\n    \nFri, Sept 22\n\nLab 4: Metropolis Hastings\n\n\n\n\n\n\n    WEEK 5\n\nTues, Sept 26\n\nLecture 8: Metropolis-Hastings and Gibbs\n\n\n\n \n\n\n hw-04\n\n    \nThur, Sept 28\n\nLecture 9: Data Augmentation\n\n\n\n \n\n\n\n    \nFri, Sept 29\n\nLab 5:  Gibbs, DA and Adaptive Metropolis\n\n\n\n\n\n\n    WEEK 6\n\nTues, Oct 3\n\nLecture 10: Missing Data\n\n\n\n \n\n\n hw-05\n\n    \nThu, Oct 5\n\nLecture 11: Bayes Linear Regression\n\n\n\n \n\n\n\n    \nFri, Oct 6\n\nLab 6:  Q & A on HW 5 & Missing Data\n\n\n\n\n\n    WEEK 7\n\nTue, Oct 10\n\nLec 12: Choice of Priors in  Regression\n\n\n\n \n\n\n\n    \nThu, Oct 12\n\nLec 13:  Mixtures of Conjugate Priors\n\n\n\n \n\n\n hw-06\n\n    \nFri, Oct 13\n\nLab : Review for Midterm I\n\n\n\n\n\n\n    WEEK 8\n\nTue, Oct 17\n\nNO CLASS FALL BREAK\n\n\n\n\n\n    \nThur, Oct 19\n\nMidterm 1\n\n\n\n\n\n    \nFri, Oct 20\n\nLab 6: Shrinkage Priors in Regression Comparison\n\n\n\n\n\n\n    WEEK 9\n\nTue, Oct 24\n\nLec 14:  Basics of Bayesian Hypothesis Tests\n\n\n\n \n\n\n hw-07\n\n    \nThur, Oct 26\n\nLec 15:  Bayesian Multiple Testing and Hierachical Models\n\n\n\n \n\n\n\n    \nFri, Oct 27\n\nLab 7:  Multiple Hypothesis Testing\n\n\n\n\n\n\n    WEEK 10\n\nTues, Oct 31\n\nLec 16: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n\n    \nThur, Nov 2\n\nLec 17: Bayesian Variable Selection and Model Averaging\n\n\n\n \n\n\n hw-08\n\n    \nFri, Nov 3\n\nLab 8: Variable Selection\n\n\n\n\n\n\n    Week 11\n\nTues, Nov 7\n\nLec 18: Outliers\n\n\n\n \n\n\n\n    \nThurs, Nov 9\n\nLec 19:  Random Effects\n\n\n\n \n\n\n hw-09\n\n    \nFri, Nov 10\n\nLab 9: Review\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 14\n\nMidterm II\n\n\n\n\n\n    \nThurs, Nov 16\n\nLec 20: Mixed Effects Models\n\n\n\n \n\n\n hw-10\n\n    \nFri, Nov 17\n\nLab 10:  Random Effect Models in stan\n\n\n\n\n\n\n    Week 12\n\nTues, Nov 21\n\nLec 21: Hamiltonian Monte Carlo\n\n\n\n \n\n\n\n    \nThurs, Nov 23\n\nThanksgiving Break - No Class \n\n\n\n\n\n    Week 13\n\nTues, Nov 28\n\nLec 22: Nonparametric Regression\n\n\n\n \n\n\n\n    \nThur, Nov 30\n\nBARK: NonParametric Regression\n\n\n\n\n hw-11\n\n    \nFri, Dec 1\n\nLab 11: Hamiltonian Monte Carlo\n\n\n\n\n\n\n    Week 14\n\n\nReading Period\n\n\n\n\n\n    Finals Period\n\nSat, Dec 16 2pm-5pm (in classroom)"
   },
   {
     "objectID": "labs/lab-06.html#github-classroom",
