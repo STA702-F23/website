@@ -19,6 +19,7 @@
 \newcommand{\Be}{\textsf{Beta}}
 \newcommand{\St}{\textsf{St}}
 \newcommand{\Ca}{\textsf{C}}
+\newcommand{\Lv}{\textsf{Lévy}}
 \newcommand{\Exp}{\textsf{Exp}}
 \newcommand{\GDP}{\textsf{GDP}}
 \newcommand{\NcSt}{\textsf{NcSt}}
@@ -27,7 +28,7 @@
 \renewcommand{\NG}{\textsf{NG}}
 \newcommand{\N}{\textsf{N}}
 \newcommand{\Ber}{\textsf{Ber}}
-\newcommand{\Poi}{\text{Poi}}
+\newcommand{\Poi}{\textsf{Poi}}
 \newcommand{\Gam}{\textsf{Gamma}}
 \newcommand{\BB}{\textsf{BB}}
 \newcommand{\BF}{\textsf{BF}}
@@ -97,6 +98,23 @@ iid}}}}
 \newcommand{\taub}{\boldsymbol{\tau}}
 \newcommand{\betav}{\boldsymbol{\beta}}
 \newcommand{\alphav}{\boldsymbol{\alpha}}
+\newcommand{\bfomega}{\boldsymbol{\omega}}
+\newcommand{\bfchi}{\boldsymbol{\chi}}
+\newcommand{\bfLambda}{\boldsymbol{\Lambda}}
+\newcommand{\Lmea}{{\cal L}} 
+\newcommand{\scale}{\bflambda} 
+\newcommand{\Scale}{\bfLambda} 
+\newcommand{\bfscale}{\bflambda} 
+\newcommand{\mean}{\bfchi}
+\newcommand{\loc}{\bfchi}
+\newcommand{\bfmean}{\bfchi}
+\newcommand{\bfx}{\x}
+\renewcommand{\k}{g}
+\newcommand{\Gen}{{\cal G}}
+\newcommand{\Levy}{L{\'e}vy}
+\def\bfChi    {\boldsymbol{\Chi}}
+\def\bfOmega  {\boldsymbol{\Omega}}
+\newcommand{\Po}{\mbox{\sf P}}
 \newcommand{\A}{\mathbf{A}}
 \def\a{\mathbf{a}}
 \def\K{\mathbf{K}}

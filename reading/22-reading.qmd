@@ -1,0 +1,26 @@
+---
+title: "Lecture 22: NonParametric Regression"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Readings
+
+
+-  [Bayesian Data Analysis (Third Edition)](https://find.library.duke.edu/catalog/DUKE006588051?utm_campaign=bento&utm_content=bento_result_link&utm_source=library.duke.edu&utm_medium=referral) by Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin
+
+   + Chapter 20 Basis Function Models
+   
+- [Wolpert, R.L. Clyde, M. and Tu, C.](https://www.jstor.org/stable/23033588)  (2011) STOCHASTIC EXPANSIONS USING CONTINUOUS DICTIONARIES: LÉVY ADAPTIVE REGRESSION KERNELS. The Annals of Statistics, 39(4), 1916–1962. 
+
+
+- [Clyde, M. and Wolpert, R.L.](https://doi.org/10.1093/oso/9780199214655.003.0004) (2007) Nonparametric Function Estimation Using Overcomplete Dictionaries.  Bayesian Statistics 8: Proceedings of the Eighth Valencia International Meeting June 2–6, 2006
+Bayesian Statistics 8: Proceedings of the Eighth Valencia International Meeting June 2–6, 2006
+
+   
+
+
+    

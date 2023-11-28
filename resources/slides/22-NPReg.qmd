@@ -1,0 +1,291 @@
+---
+title: "Nonparametric Regression"
+author: "Merlise Clyde"
+subtitle: "STA702"
+institute: "Duke University"
+format: 
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    incremental: true
+    scrollable: false
+    controls: true
+    fragments: true
+    preview-links: auto
+    smaller: true
+    logo: ../../img/icon.png
+    footer: <https://sta702-F23.github.io/website/>
+    chalkboard: 
+      boardmarker-width: 1
+      chalk-width: 2
+      chalk-effect: 0
+    embed-resources: false
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"    
+editor: 
+  markdown: 
+    wrap: 72
+execute: 
+  echo: false
+number-sections: false
+filters:
+  - custom-numbered-blocks  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos  
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1,
+  width=72
+  )
+# Set dpi and height for images
+library(knitr)
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300,fig.align='center',fig.show='hold',size='footnotesize', small.mar=TRUE) 
+# For nonsese...
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Semi-parametric Regression
+{{< include macros.qmd >}}
+
+- Consider model
+$$Y_1, \dots, Y_n \sim \N\left(\mu(\x_i, \tb), \sigma \right)$$
+
+- Mean function $\E[Y_i \mid \tb] = \mu(\x_i, \tb)$ falls in some class of nonlinear functions
+
+
+
+- Basis Function Expansion
+$$\mu(\x, \tb) = \sum_{j = 1}^{J} \beta_j b_j(\x)$$
+
+- $b_j(\x)$ is a pre-specified set of _basis functions_ and $\b = (\beta_1, \ldots, \beta_J)^T$ is a vector of coefficients or coordinates wrt to the basis
+    
+## Examples
+
+- Taylor Series expansion of $\mu(\x)$ about point $\chi$
+$$\begin{aligned}
+\mu(x) & = \sum_k \frac{\mu^{(k)}(\chi)}{k!} (x - \chi)^k \\
+  & = \sum_k \beta_k (x - \chi)^k 
+\end{aligned}
+$$
+- polynomial basis
+
+- can require a large number of terms to model globally
+
+- can have really poor behavior in regions without data
+
+- each basis function has a "global" impact 
+
+##  Other Basis Functions
+
+- cubic splines
+$$   b_j(x, \chi_j) =  (x - \chi_j)^3_+$$
+- Gaussian Radial Basis
+$$ b_j(x, \chi_j) =  \exp{\left(\frac{(x - \chi_j)^2}{l^2}\right)}$$
+- centers of basis functions $\chi_j$ 
+
+- width parameter $l$ controls the scale at which the mean function dies out as a function of $\x$ from the center
+
+- localized basis elements
+
+## Local Models 
+
+- Multivariate  Gaussian Kernel $g$ with parameters $\bfomega = (\mean, \bfLambda)$
+$$
+b_j(\x, \bfomega_j) =  g(
+\bfLambda_j^{1/2} (\bfx - \bfchi_j)) = \exp\left\{-\frac{1}{2}(\bfx - \mean_j)^T \bfLambda_j (\bfx -
+  \mean_j)\right\}
+$$
+- Gaussian, Cauchy, Exponential, Double Exponential  kernels (can be asymmetric)
+
+- translation and scaling of wavelet families
+
+- basis functions formed from a generator function $g$ with location and scaling parameters
+
+
+
+## Bayesian Nonparametric Model
+
+Mean function
+$$\mu(\x_i) = \sum_{j}^J b_j(\x_i, \bfomega_j) \beta_j$$
+
+- conditional on the basis elements back to our Bayesian regression model
+
+- usually uncertainty about number of basis elements needed
+
+- could use BMA or other shrinkage priors
+
+- how should coefficients scale as $J$ increases? 
+
+- choice of $J$?
+
+- what about uncertainty in $\bfomega$ (locations and scales)?
+
+- priors on unknowns ($J$, $\{\beta_j\}$, $\{\bfomega_j\}$)  induces a prior on functions!
+
+
+
+## Stochastic Expansions 
+
+$$\mu(\x) = \sum_{j=0}^{J}  b_j(\bfx, \bfomega_j) \beta_j = \sum_{j=0}^{J}  g(\bfLambda^{1/2}(\bfx - \bfomega_j)) \beta_j $$
+
+
+
+
+- introduce a Lévy measure  $\nu( d\beta, d \bfomega)$ 
+
+-  Poisson distribution $J \sim \Poi(\nu_+)$ where 
+$\nu_+\equiv \nu(\bbR\times\bfOmega) = \iint \nu(\beta, \bfomega) d \beta \,  d\bfomega$ 
+  
+-  conditional prior on $\beta_j,\bfomega_j \mid J \iid \pi(\beta, \bfomega)
+  \propto \nu(\beta,\bfomega)$
+  
+- Conditions on $\nu$ (and $g$)
+
+     - need to have that $|\beta_j|$ are absolutely summable
+     - finite number of large coefficients (in absolute value)
+     - allows an infinite number of small $\beta_j \in [-\epsilon, \epsilon]$
+  
+. . .
+
+ See [Wolpert, Clyde and Tu (2011)](https://www.jstor.org/stable/23033588) AoS
+ 
+ 
+## Gamma Process Example
+ 
+ $\nu(\beta, \chi) = \beta^{-1} e^{- \beta \eta} \gamma(\chi) d \beta  \, d \chi$
+![convolution of a gamma process](22-figs/gammaproc.jpg)
+
+
+## Stochastic Integral Representation 
+$$\mu(\x) = \sum_{j=0}^{J}  b_j(\bfx, \bfomega_j) \beta_j = \sum_{j=0}^{J}  g(\bfLambda^{1/2}(\bfx - \bfomega_j)) \beta_j  = \int_{\bfOmega} b(\bfx, \bfomega) \Lmea(d\bfomega)$$
+
+-  $\Lmea$ is a **random signed measure**  (generalization of Completely Random Measures)
+$$ \Lmea \sim  \Lv(\nu) \qquad \qquad \Lmea(d \bfomega) = \sum_{j \le J}\beta_j \delta_{\bfomega_j} (d \bfomega)$$
+- Lévy-Khinchine Poisson Representation of $\Lmea$
+
+- Poisson number of support points (possibly infinite!)
+
+- random support points of discrete measure $\{ \bfomega_j\}$
+
+- random "jumps" $\beta_j$
+
+- Convenient to think of a random measure as stochastic
+process where $\Lmea$ assigns random variables to sets $A \in \bfOmega$ 
+
+
+
+## Examples
+
+- gamma process 
+$$\begin{aligned}
+\nu(\beta, \bfomega) & = \beta^{-1} e^{- \beta \eta} \pi(\bfomega) d \beta  \, d \bfomega\\
+\Lmea(A) & \sim \Gam(\pi(A), \eta)
+\end{aligned}$$
+
+- non-negative coefficients plus non-negative basis functions allows priors on non-negative functions without transformations
+
+-  $\alpha$-Stable process (Cauchy  process is $\alpha = 1$)
+$$\nu(\beta, \bfomega) =  c_\alpha |\beta|^{-(\alpha  +1)}\ \pi(\bfomega) \qquad 0 < \alpha < 2
+$$
+ - $\nu^+(\bbR, \bfOmega) = \infty$ for both the Gamma and $\alpha$-Stable processes
+ 
+ - Fine in theory, but problematic for MCMC!
+ 
+## Prior Approximation I
+
+Truncate measure $\nu$ to obtain a finite expansion:
+
+- Finite number of support points $\bfomega$ with $\beta$ in
+   $[-\epsilon, \epsilon]^c$  
+- Fix $\epsilon$  (for given prior approximation error) 
+- Use approximate Lévy  measure
+$\nu_{\epsilon}(\beta, \bfomega) \equiv \nu(\beta, \bfomega)\one(|\beta| > \epsilon)$ 
+- $\Rightarrow$ $J \sim \Poi(\nu_{\epsilon}^+)$ where
+  $\nu^+_{\epsilon} = \nu([-\epsilon, \epsilon]^c, \bfOmega)$ 
+- $\Rightarrow$  $\beta_j, \bfomega_j \iid \pi(d\beta, d\bfomega) \equiv
+  \nu_\epsilon(d\beta , d \bfomega)/\nu^+_{\epsilon}$ 
+- for  $\alpha$-Stable,  the approximation leads to double Pareto distributions for $\beta$
+$$\pi(\beta_j) = \frac{\epsilon}{2 \eta} |\beta|^{- \alpha - 1} \one_{|\beta| > \frac{\eps}{\eta}}$$
+  
+## Truncated Cauchy Process Prior
+
+![Truncated Cauchy](22-figs/cauchy1.jpg)
+
+## Simulation
+
+![](22-figs/wavedata.jpg)
+
+## Kernels
+
+![](22-figs/kerplot.jpg)
+
+## Comparison of Lévy Adaptive Regression Kernels 
+
+![](22-figs/mse.jpg)
+
+## Inference via Reversible Jump MCMC
+
+ **trans-dimensional MCMC**
+
+- number of support points $J$ varies from iteration to iteration
+   + add a new point (birth)
+   + delete an existing point (death)
+   + combine two points (merge)
+   + split a point into two
+- update existing point(s)  
+
+
+
+
+## MotorCycle Acceleration
+
+![](22-figs/motorcycle.jpg)
+
+## Summary
+
+- more parsimonious than "shrinkage" priors or SVM
+- allows for increasing number of support points as $n$ increases
+- control MSE _a priori_ through choice of $\epsilon$
+- no problem with non-normal data, non-negative functions or even discontinuous functions
+- credible and prediction intervals
+- robust alternative to Gaussian Process Priors
+
+- hard to scale up random scales, locations as dimension of $\x$ increases
+- next - Prior Approximation II
+
+
+
