@@ -1,5 +1,5 @@
 ---
-title: "Nonparametric Regression"
+title: "Lecture 22: Nonparametric Regression"
 author: "Merlise Clyde"
 subtitle: "STA702"
 institute: "Duke University"
