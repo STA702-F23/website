@@ -275,6 +275,12 @@ $$\pi(\beta_j) = \frac{\epsilon}{2 \eta} |\beta|^{- \alpha - 1} \one_{|\beta| > 
 
 ![](22-figs/motorcycle.jpg)
 
+
+## Mass Spectroscopy
+
+![](22-figs/PostMode-MassSpect.jpg)
+
+
 ## Summary
 
 - more parsimonious than "shrinkage" priors or SVM
