@@ -25,6 +25,7 @@
 \newcommand{\NcSt}{\textsf{NcSt}}
 \newcommand{\Bin}{\textsf{Bin}}
 \newcommand{\NB}{\textsf{NegBin}}
+\newcommand{\Mult}{\textsf{MultNom}}
 \renewcommand{\NG}{\textsf{NG}}
 \newcommand{\N}{\textsf{N}}
 \newcommand{\Ber}{\textsf{Ber}}
