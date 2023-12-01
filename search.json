@@ -1841,58 +1841,79 @@
     "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": " Syllabus",
+    "objectID": "labs/lab-11.html#github-classroom",
+    "href": "labs/lab-11.html#github-classroom",
+    "title": "Lab 11: HMC",
+    "section": "Github Classroom",
+    "text": "Github Classroom\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github by the due date."
+  },
+  {
+    "objectID": "labs/lab-11.html#gradescope",
+    "href": "labs/lab-11.html#gradescope",
+    "title": "Lab 11: HMC",
+    "section": "Gradescope",
+    "text": "Gradescope\nYou must upload the final pdf from your Github repo to Gradescope.\nBe sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
+    "text": "About this site"
   },
   {
-    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
-    "title": "STA 702 Fall 2023",
-    "section": "Bayesian Statistical Modeling and Data Analysis",
-    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
-  },
-  {
-    "objectID": "index.html#course-info",
-    "href": "index.html#course-info",
-    "title": "STA 702 Fall 2023",
-    "section": "Course Info",
-    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
-  },
-  {
-    "objectID": "hw/hw-07.html",
-    "href": "hw/hw-07.html",
-    "title": "Homework 7",
+    "objectID": "hw/hw-05.html",
+    "href": "hw/hw-05.html",
+    "title": "Homework 5",
     "section": "",
-    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+    "text": "Please see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-07.html#due-1145am-nov-1",
-    "href": "hw/hw-07.html#due-1145am-nov-1",
-    "title": "Homework 7",
+    "objectID": "hw/hw-05.html#due-1159am-oct-11",
+    "href": "hw/hw-05.html#due-1159am-oct-11",
+    "title": "Homework 5",
     "section": "",
-    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
+    "text": "Please see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-07.html#getting-started-with-github-classroom",
-    "href": "hw/hw-07.html#getting-started-with-github-classroom",
-    "title": "Homework 7",
+    "objectID": "hw/hw-05.html#getting-started-with-github-classroom",
+    "href": "hw/hw-05.html#getting-started-with-github-classroom",
+    "title": "Homework 5",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW7 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW5 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-07.html#gradescope-submission",
-    "href": "hw/hw-07.html#gradescope-submission",
-    "title": "Homework 7",
+    "objectID": "hw/hw-05.html#gradescope-submission",
+    "href": "hw/hw-05.html#gradescope-submission",
+    "title": "Homework 5",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-07.html#grading",
-    "href": "hw/hw-07.html#grading",
-    "title": "Homework 7",
+    "objectID": "hw/hw-05.html#grading",
+    "href": "hw/hw-05.html#grading",
+    "title": "Homework 5",
+    "section": "Grading",
+    "text": "Grading\nTotal: 20 points."
+  },
+  {
+    "objectID": "hw/hw-11.html#getting-started-with-github-classroom",
+    "href": "hw/hw-11.html#getting-started-with-github-classroom",
+    "title": "Homework 11",
+    "section": "Getting started with Github Classroom",
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW11 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+  },
+  {
+    "objectID": "hw/hw-11.html#gradescope-submission",
+    "href": "hw/hw-11.html#gradescope-submission",
+    "title": "Homework 11",
+    "section": "Gradescope Submission",
+    "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
+  },
+  {
+    "objectID": "hw/hw-11.html#grading",
+    "href": "hw/hw-11.html#grading",
+    "title": "Homework 11",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
@@ -2562,46 +2583,60 @@
     "text": "Grading\nTotal: 20 points."
   },
   {
-    "objectID": "hw/hw-05.html",
-    "href": "hw/hw-05.html",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html",
+    "href": "hw/hw-07.html",
+    "title": "Homework 7",
     "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-05.html#due-1159am-oct-11",
-    "href": "hw/hw-05.html#due-1159am-oct-11",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#due-1145am-nov-1",
+    "href": "hw/hw-07.html#due-1145am-nov-1",
+    "title": "Homework 7",
     "section": "",
-    "text": "Please see Gradescope for any updates on due dates."
+    "text": "This assignment has three main types of problems - exercises that are starred and suggested to work as practice for the midterm, a theory problem you can delay until after the midterm, and a copmutational problem to also work on for lab after the midterm.\nPlease see Gradescope for any updates on due dates."
   },
   {
-    "objectID": "hw/hw-05.html#getting-started-with-github-classroom",
-    "href": "hw/hw-05.html#getting-started-with-github-classroom",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#getting-started-with-github-classroom",
+    "href": "hw/hw-07.html#getting-started-with-github-classroom",
+    "title": "Homework 7",
     "section": "Getting started with Github Classroom",
-    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW5 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
+    "text": "Getting started with Github Classroom\nGo to Github classroom to accept the invitation to create a repository for this assignment at HW7 this will create a private repo in the STA702-F23 organization on Github with your github user name. Note: You may receive an email invitation to join STA702-F23 on your behalf.\nHit refresh, to see the link for the repo, and then click on it to go to the STA702-F23 organization in Github.\nFollow the instructions in the README in your repo and in the hw*.Rnw file to complete the assignment and push to GitHub. If you encounter issues with Gradescope submission, it is critical that you have pushed your final assignment to GitHub by the due date to validate timestamps."
   },
   {
-    "objectID": "hw/hw-05.html#gradescope-submission",
-    "href": "hw/hw-05.html#gradescope-submission",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#gradescope-submission",
+    "href": "hw/hw-07.html#gradescope-submission",
+    "title": "Homework 7",
     "section": "Gradescope Submission",
     "text": "Gradescope Submission\nYou MUST submit both your final .Rnw and .pdf files to the repo on Github and upload the pdf to Gradescope here: https://www.gradescope.com/courses/585736/assignments\nMake sure to knit to pdf; ask the TA about knitting to pdf if you cannot figure it out. Be sure to submit under the right assignment entry by the due date!"
   },
   {
-    "objectID": "hw/hw-05.html#grading",
-    "href": "hw/hw-05.html#grading",
-    "title": "Homework 5",
+    "objectID": "hw/hw-07.html#grading",
+    "href": "hw/hw-07.html#grading",
+    "title": "Homework 7",
     "section": "Grading",
     "text": "Grading\nTotal: 20 points."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "href": "index.html#bayesian-statistical-modeling-and-data-analysis",
+    "title": "STA 702 Fall 2023",
+    "section": "Bayesian Statistical Modeling and Data Analysis",
+    "text": "Bayesian Statistical Modeling and Data Analysis\n\nCourse Overview\nThis course provides an introduction to Bayesian statistics targeted towards building a foundation for later research in developing models appropriate to complex data applications and to methodology research developing new modeling/inferential frameworks and algorithms. Topics include the basic foundations of Bayesian inferences – prior distributions, likelihood functions, posterior distributions, loss functions, and Bayes estimators/decisions with illustration in simple cases. Posterior computation in non-conjugate models with Markov chain Monte Carlo (MCMC) algorithms in addition to approximations to posteriors based on Laplace and variational approaches will be covered. We will build (and critique) models for a variety of data types and structures including regression, classification, and dependent data, hierarchical models for the borrowing of information, and methods for dealing with model uncertainty. Throughout we will discuss the difference between classical and Bayesian paradigms as well as advantages/disadvantages of Bayes. Time permitting we will discuss generalized Bayes.\n\n\nLearning Objectives\nBy the end of this course, students should be able to\n\nUnderstand the basics of Bayesian inference, that is, be able to define likelihood functions, prior distributions, posterior distributions, prior predictive distributions and posterior predictive distributions.\nDerive posterior distributions, prior predictive distributions and posterior predictive distributions, for common likelihood-prior combinations of distributions.\nInterpret the results of fitted models and conduct checks to ascertain that the models have converged.\nUse the Bayesian methods and models covered in class to analyze real data sets.\nAssess the adequacy of Bayesian models to any given data and make a decision on what to do in cases when certain models are not appropriate for a given data set."
+  },
+  {
+    "objectID": "index.html#course-info",
+    "href": "index.html#course-info",
+    "title": "STA 702 Fall 2023",
+    "section": "Course Info",
+    "text": "Course Info\n\nInstructional Team and Office Hours\n\n\n\nRole\nName\nEmail\nOffice Hours\nLocation\n\n\n\n\nInstructor\nDr Merlise Clyde\n\nMon 9:00- 10:00, Thur 130-2:30  or by appointment (I have lots of 30 minute gaps!) \n223E Old Chem\n\n\nTA\nRick Presman\n\nMon 3:00 - 4:00, Fri 9:00-10:00\n203B Old Chem\n\n\n\n\n\nMeeting Times\n\nLecture\n   Tuesdays and Thursdays (10:05am - 11:20am)\n   Perkins LINK 060 (Classroom 1)\n\n\nLabs\n   Fridays (11:45pm - 1:00pm)\n   Perkins LINK 060 (Classroom 1)\n\n\nZoom meetings\nOccasionally we may need to meet over Zoom for class/lab or Office hours. The easiest way for you to join the different Zoom meetings is to log in to Sakai, go to the “Zoom meetings” tab, and click “Upcoming Meetings”. For the recordings (for lecture/lab and discussion sessions were recorded), also log in to Sakai, go to the “Zoom meetings” tab, and click “Cloud Recordings”. Those will be available few minutes after the sessions.\n\n\n\nTexts\n\n\n\n \nTitle\nAuthor(s)\nPublisher\n\n\n\n\n\nA First Course in Bayesian Statistical Methods\nPeter D. Hoff, 2009\nSpringer\n\n\n\nBayesian Data Analysis (Third Edition)\nAndrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin\nChapman and Hall/CRC\n\n\n\nAll books are available available online from Duke library. See the Resources tab for additional links\n\n\nMaterials\nLecture notes and slides, and assigned readings will be posted on the course website. Homework and Lab Assignments will be posted on Github \n\n\nImportant Dates\n\n\n\n \n \n\n\n\n\nTues, Aug 29\nClasses begin\n\n\nFri, Sept 8\nDrop/Add ends\n\n\nFriday, Oct 13\nMidterm I (tentative)\n\n\nSat - Tues, Oct 14 - 17\nFall Break\n\n\nTues, Nov 20\nMidterm II (tentative)\n\n\nFriday, Dec 1\nGraduate Classes End\n\n\nDec 2 - Dec 12\nGraduate Reading Period\n\n\nSat, Dec 16\nFinal Exam (Perkins 060 2:00-5:00pm)\n\n\n\n\n\nGreen Classroom\n This course has achieved Duke’s Green Classroom Certification. The certification indicates that the faculty member teaching this course has taken significant steps to green the delivery of this course. Your faculty member has completed a checklist indicating their common practices in areas of this course that have an environmental impact, such as paper and energy consumption. Some common practices implemented by faculty to reduce the environmental impact of their course include allowing electronic submission of assignments, providing online readings and turning off lights and electronics in the classroom when they are not in use. The eco-friendly aspects of course delivery may vary by faculty, by course and throughout the semester. Learn more at https://sustainability.duke.edu/action/certification.\n\n\nAcknowledgement\nThis web page contains materials developed or adapted by Dr. Alexander Volfovsky, Dr. David B. Dunson, Dr. Rebecca Carter Steorts and Dr Michael Akande."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": " Syllabus",
     "section": "",
-    "text": "About this site"
+    "text": "When in doubt about anything at all, ask questions!!!\n\nPrerequisites\nALL students are expected to be familiar with all the topics covered within the required prerequisites to be in this course. That is - mathematical statistics and probability, linear algebra, and multivariate calculus. Students are also expected to be familiar with R and are encouraged to learn LaTeX during the course.\n\n\nWorkload\nWork hours will include time spent going through the preassigned readings, attending lectures and lab sessions, and doing all graded work.\n\n\nGraded Work\nGraded work for the course will consist of homework assignments, lab exercises, two midterms and a final exam. Regrade requests for problem sets and lab exercises must be done via Gradescope AT MOST 24 hours after grades are released! Regrade requests for quizzes, midterm, and final exams must be done via Gradescope AT MOST 12 hours after grades are released! Always write in complete sentences and show your steps.\nStudents’ final grades will be determined as shown below:\n\nComponent Percentage\n\n\nComponent\nPercentage\n\n\n\n\nHomework\n20%\n\n\nMidterm\n20%\n\n\nMidterm II\n20%\n\n\nLab exercises\n10%\n\n\nParticipation\n5%\n\n\nFinal Exam\n25%\n\n\n\nThere are no make-ups for any of the graded work except for medical or familial emergencies or for reasons approved by the instructor BEFORE the due date. See the instructor in advance of relevant due dates to discuss possible alternatives.\nGrades may be curved at the end of the semester. Cumulative averages of 90% – 100% are guaranteed at least an A-, 80% – 89% at least a B-, and 70% – 79% at least a C-, however the exact ranges for letter grades will be determined at the end of the course.\n\n\nDescriptions of graded work\n\nProblem sets\nHomework will be handed out on a weekly basis. They will be based on both the lectures and labs and will be announced every Thursday or Friday – be sure to check the website regularly! Also, please note that any work that is not legible by the instructor or TAs will not be graded (given a score of 0). Every write-up must be clearly written in full sentences and clear English. Any assignment that is completely unclear to the instructors and/or TAs, may result in a grade of a 0. For programming exercises, we will be using R/knitr with \\(\\LaTeX\\) for preparing assignments using github classroom for data analysis.\nEach student MUST write up and turn in her or his own answers. You are encouraged to talk to each other regarding homework problems or to the instructor/TA. However, the write-up, solution, and code must be entirely your own work. No sharing of solutions or code! The assignments must be submitted on Gradescope under Assignments. Note that you will not be able to make online submissions after the due date, so be sure to submit before or by the Gradescope-specified deadline. You may resubmit, so when in doubt submit work early. In certain situations if there are issues with submissions, the TA may review your GitHub repository prior to the due date.\nSolutions will be curated from student solutions with proper attribution. Every week the TAs will select a representative correct solution for the assigned problems and put them together into one solutions set with each answer being attributed to the student who wrote it. If you would like to OPT OUT of having your homework solutions used for the class solutions, please let the Instructor and TAs know in advance.\nFinally, your lowest homework score will be dropped!\n\n\nLab exercises\nThe objective of the lab assignments is to give you more hands-on experience with Bayesian data analysis. Attend the lab session and learn a concept or two and some R from the TA, and then work on the computational part of the problem sets. Each lab assignment should be submitted in timely fashion. You are REQUIRED to use R/knitr (or R/Rmarkdown in some cases).\n\n\nMidterm Exams\nThere will be two inclass midterm exams. Detailed instructions on the midterm will be made available later but please check dates on the calendar well in advance!\n\n\nFinal Exam\nThere will be a final exam after the reading week. If you miss any quiz or the midterm, your grade will depend more on the final exam score since there are no make-up exams. You cannot miss the final exam! Please check the important dates on the homepage for the date and time of the final before making plans to return home at the end of the semester. Detailed instructions on the final will be made available later.\n\n\n\nLate Submission Policy\n\nno late submission of homework or lab assignments, however we will drop the lowest score in each.\n\n\n\nCourse Topics\n\nBasics of Bayesian Models\nLoss Functions, Inference and Decision Making\nPredictive Distributions\nPredictive Distributions and Model Checking\nBayesian Hypothesis Testing\nMultiple Testing\nMCMC (Gibbs & Metropolis Hastings Algorithms)\nBayesian Generalized Linear Models\nHiearchical Modeling and Random Effects\nHamiltonian Monte Carlo\nNonParametric Bayes\n\nFor a detailed day-by-day list of topics, please refer to the Course Schedule\n\n\nAcademic integrity\nDuke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, respect, and accountability. Citizens of this community commit to reflect upon and uphold these principles in all academic and nonacademic endeavors, and to protect and promote a culture of integrity.\nRemember the Duke Community Standard that you have agreed to abide by:\n\nTo uphold the Duke Community Standard:\n\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\nCheating or plagiarism on any graded assessments, lying about an illness or absence and other forms of academic dishonesty are a breach of trust with classmates and faculty, violate the Duke Community Standard, and will not be tolerated. Such incidences will result in a 0 grade for all parties involved. Additionally, there may be penalties to your final class grade along with being reported to the Office of Student Conduct. Review the academic dishonesty policies at https://studentaffairs.duke.edu/conduct/z-policies/academic-dishonesty.\n\n\nDiversity & Inclusiveness\nThis course is designed so that students from all backgrounds and perspectives all feel welcome both in and out of class. Please feel free to talk to me (in person or via email) if you do not feel well-served by any aspect of this class, or if some aspect of class is not welcoming or accessible to you. My goal is for you to succeed in this course, therefore, let me know immediately if you feel you are struggling with any part of the course more than you know how to manage. Doing so will not affect your grades, but it will allow me to provide the resources to help you succeed in the course.\n\n\nDisability Statement\nStudents with disabilities who believe that they may need accommodations in the class are encouraged to contact the Student Disabilities Access Office at 919-668-1267 or disabilities@aas.duke.edu as soon as possible to better ensure that such accommodations are implemented in a timely fashion.\n\n\nOther Information\nIt can be a lot more pleasant oftentimes to get one-on-one answers and help. Make use of the teaching team’s office hours, we’re here to help! Do not hesitate to talk to me during office hours or by appointment to discuss a problem set or any aspect of the course. Questions related to course assignments and honesty policy should be directed to me. When the teaching team has announcements for you we will send an email to your Duke email address. Be sure to check your email daily.\nMost of the course components will be held in person, but occasionally may need to be held online using Zoom meetings. If you have any concerns, issues or challenges, let the instructor know as soon as possible. Also, all students are strongly encouraged to rely on the forums in Sakai, for interacting among yourself and asking other students questions. You can also ask the instructor or the TAs questions on there and we will try to respond as soon as possible. If you experience any technical issues with joining or using the forums, let the instructor know.\n\n\nProfessionalism\nTry as much as possible to refrain from texting or using your computer for anything other than coursework during class and labs. Again, the more engaged you are, the quicker you will be able to get through the materials. You are responsible for everything covered in the lecture videos, lecture notes/slides, and in the assigned readings."
   },
   {
     "objectID": "labs/lab-01-r-review.html#rrstudio",
